@@ -103,8 +103,6 @@ const ThemeSwitcher = () => {
           background: var(--bg-secondary);
           border-color: var(--border-subtle);
         }
-
-        }
       `}} />
     </div>
   );
