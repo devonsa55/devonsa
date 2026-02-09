@@ -1,0 +1,124 @@
+.contact {
+    padding: 30vh 0;
+    background: var(--bg-primary);
+    position: relative;
+}
+
+.contact-content-stack {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-header {
+    text-align: left;
+    margin-bottom: vh;
+}
+
+.roundy-style .contact-header {
+    text-align: left;
+    margin-bottom: 0vh;
+}
+
+.contact-header h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    line-height: 1.1;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    max-width: none;
+}
+
+.contact-header em {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+    padding-right: .4ch;
+}
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+.intro-text {
+    font-size: 1.8rem;
+    line-height: 1.35;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-family: var(--font-heading);
+    text-align: left;
+}
+
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.contact-method-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: var(--bg-primary);
+    border: 2px solid var(--text-primary);
+    border-radius: var(--radius-card);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: var(--transition-smooth);
+}
+
+.contact-method-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.method-icon {
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.method-info span {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+    margin-bottom: 0.25rem;
+}
+
+.method-info p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Roundy alignment overrides */
+.roundy-style .contact-header,
+.roundy-style .intro-text {
+    text-align: left;
+}
+
+/* Visual Theme Overrides */
+.contact-visual-root {
+    min-height: 100vh;
+    padding-top: 15vh !important;
+    padding-bottom: var(--visual-page-bottom-offset) !important;
+    background-color: var(--bg-primary);
+}
+
+.contact-visual-root .contact {
+    padding: 0 !important;
+    background: transparent !important;
+}
+
+@media (max-width: 768px) {
+    .contact-methods {
+        grid-template-columns: 1fr;
+    }
+}

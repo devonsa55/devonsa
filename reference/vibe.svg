@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 150" style="background-color:#1a1a1a; font-family: 'Courier New', monospace;">
+
+  <defs>
+    <linearGradient id="vibeSunset" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff00cc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#333399;stop-opacity:1" />
+    </linearGradient>
+
+    <clipPath id="typing-area">
+      <rect id="revealer" x="45" y="50" width="0" height="40"/>
+    </clipPath>
+  </defs>
+
+  <g id="coding-group">
+    <text x="50" y="80" fill="#00ff41" font-size="32" clip-path="url(#typing-area)">run prototype</text>
+
+    <rect id="cursor" x="50" y="55" width="12" height="32" fill="#00ff41"/>
+  </g>
+
+
+  <g id="vibe-emoji" opacity="0" transform="translate(150, 25) scale(0.8)">
+    <circle cx="60" cy="60" r="50" fill="#FFCC4D"/>
+    <path d="M18 48C18 48 25 41 35 41C43 41 52 48 52 48C52 48 52 43 60 43C68 43 68 48 68 48C68 48 77 41 85 41C95 41 102 48 102 48L102 65C102 75 94 82 85 82C78 82 73 78 70 72C67 78 62 82 55 82C46 82 38 75 38 65L18 65L18 48Z" fill="url(#vibeSunset)"/>
+    <path d="M35 88C35 88 45 98 60 98C75 98 85 88 85 88" stroke="#664500" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <style>
+    <![CDATA[
+    /* 1. The Blinking Cursor Animation */
+    #cursor {
+      /* Blinks twice (0-1s), then moves (1s-3s), then hides */
+      animation: 
+        blink 0.5s step-end 4 alternate,
+        cursorMove 2s steps(13, end) 1s forwards;
+    }
+
+    /* 2. The Text Reveal Animation */
+    /* Starts after 1s delay to match cursor */
+    #revealer {
+      animation: typeReveal 2s steps(13, end) 1s forwards;
+    }
+
+    /* 3. The Master Switch Animation */
+    #coding-group {
+       animation: hideCode 0.1s linear 3.5s forwards;
+    }
+    #vibe-emoji {
+       animation: showVibe 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 3.5s forwards;
+    }
+
+    /* --- KEYFRAMES --- */
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    @keyframes typeReveal {
+      to { width: 260px; }
+    }
+
+    @keyframes cursorMove {
+      to { transform: translateX(260px); }
+    }
+
+    @keyframes hideCode {
+      to { opacity: 0; display: none;}
+    }
+
+    @keyframes showVibe {
+      from { opacity: 0; transform: translate(150px, 45px) scale(0.1); }
+      to   { opacity: 1; transform: translate(150px, 25px) scale(0.8); }
+    }
+    ]]>
+  </style>
+</svg>

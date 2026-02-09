@@ -1,0 +1,264 @@
+.about {
+    padding-top: 10rem;
+    background: var(--bg-primary);
+    position: relative;
+    font-family: var(--font-body);
+}
+
+/* --- Layout Grid --- */
+.about-grid-layout {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* --- Header Section --- */
+.about-header-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    /* Important for flex children */
+    text-align: left;
+    /* Default for non-centered children */
+}
+
+/* Override potential conflicting styles from About.css */
+.about-header {
+    margin-bottom: 0 !important;
+}
+
+.about-header-section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    line-height: 1.1;
+    color: var(--text-primary);
+    width: 100%;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.about-header-section .sub-headline {
+    font-size: 1.5rem;
+    line-height: 1.35;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-weight: 500;
+    max-width: none;
+    text-align: left;
+}
+
+/* --- Profile Image --- */
+.about-image-wrapper {
+    width: 100%;
+    margin-bottom: 0px;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image-wrapper img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* --- Profile Image Overrides --- */
+.about-image-container {
+    position: static !important;
+    display: block !important;
+    margin: 0 !important;
+    top: auto !important;
+    padding: 0 !important;
+}
+
+.image-wrapper {
+    margin: 0 !important;
+    max-width: none !important;
+    aspect-ratio: auto !important;
+    display: block !important;
+}
+
+.work-grid-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.work-card {
+    background: var(--bg-secondary);
+    padding: 2.5rem;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+}
+
+.work-card h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.work-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    flex-grow: 1;
+}
+
+.work-stat {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-purple);
+    padding: 0.75rem 1rem;
+    background: var(--hover-bg);
+    border-radius: 8px;
+    display: inline-block;
+    align-self: flex-start;
+}
+
+.work-context {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    opacity: 0.8;
+}
+
+
+
+
+/* --- Offline Section --- */
+.offline-section {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 0;
+    margin-top: 2rem;
+}
+
+.section-title p {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.new-hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.new-hobby-card {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    min-height: 250px;
+    padding: 2.5rem;
+    border-radius: var(--radius-card);
+    justify-content: flex-end;
+}
+
+.hobby-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+    background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Ffilter id='noiseFilter'%3E%3FfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3/filter%3E%3rect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3/svg%3E");
+    opacity: 0.15;
+    z-index: 1;
+}
+
+.hobby-info {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+.new-hobby-card h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.new-hobby-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) {
+    .about-grid-layout {
+        gap: 5rem;
+    }
+
+    .work-grid-section {
+        grid-template-columns: 1fr;
+    }
+
+    .new-hobbies-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-header-section h2 {
+        font-size: 3rem;
+    }
+}
+
+/* --- Roundy Theme Specifics --- */
+.roundy-style .work-card {
+    border-radius: 32px;
+    border: 2px solid var(--text-primary);
+    background: var(--bg-primary);
+    box-shadow: 8px 8px 0px var(--text-primary);
+}
+
+.roundy-style .new-hobby-card {
+    padding: 2rem;
+    border: 2px solid var(--text-primary);
+    border-radius: 24px;
+    background: var(--bg-primary);
+    transition: transform 0.3s ease;
+}
+
+.roundy-style .new-hobby-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 4px 4px 0px var(--text-primary);
+}
+
+/* Timeline Anchor Refinements */
+.timeline-description strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+[data-mode='dark'] .timeline-description strong {
+    color: var(--bg-primary);
+    /* For highlighted background if any, or just white */
+    color: white;
+}
