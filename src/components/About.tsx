@@ -24,7 +24,12 @@ const About = () => {
                                 className="about-header"
                             />
 
-                            <p className="sub-headline">{aboutData.subHeadline}</p>
+                            <p
+                                className="sub-headline"
+                                dangerouslySetInnerHTML={{
+                                    __html: aboutData.subHeadline.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                                }}
+                            />
                         </div>
 
                         <div className="work-experience">

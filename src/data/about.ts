@@ -5,7 +5,7 @@ export const aboutData = {
   fullName: "Devon Anderson",
   profileImage: getAssetPath('/assets/avatar-svg.svg'),
   headline: "Hey, I’m Devon. ",
-  subHeadline: "I bridge the gap between abstract strategy & concrete pixels. Guided by a background in Philosophy & Environmental Science, I design from first principles—stripping away complexity to build systems that scale to millions of users.",
+  subHeadline: "I bridge the gap between abstract strategy & concrete pixels. Guided by a background in **Philosophy & Environmental Science**, I design from **first principles**—stripping away complexity to build **Agentic AI & Communication systems** that scale to millions of users.",
   work: [
     {
       title: "GenAI for Commerce",
@@ -40,25 +40,29 @@ export const aboutData = {
     {
       company: "Google",
       logo: getAssetPath('/assets/google-logo.png'),
-      duration: "7 yrs 6 mos",
+      duration: "2018 — Present",
+      promotionBadge: "Promoted twice: L3 → L5",
       roles: [
         {
-          title: "Senior User Experience Designer",
-          year: "Apr 2022 — Present · 3 yrs 11 mos",
+          title: "Senior Product Designer (Lead)",
+          year: "2023 — Present",
           location: "Honolulu, Hawaii · Remote",
+          summary: "Currently leading 0→1 design strategy for **Merchant Shopping AI**. I specialize in translating complex **LLM (Large Language Model)** capabilities into intuitive user interfaces.",
           description: [
-            "Leading design for **AI for Merchants** (Conversational AI, Video GenAI) + Business Communications.",
-            "Impact: **$5.2M PMax revenue impact** in 2024 through agentic system patterns."
+            "**Incremental Revenue:** Led design for *ShopStream*, an AI-powered video generation tool driving **+$5.2M incremental revenue** and powering >80% of PMax GenAI video revenue.",
+            "**Agentic AI:** Architecting **agentic system patterns** that allow merchants to use natural language to generate business reports and take automated actions.",
+            "**Strategy:** Facilitating cross-PA (Product Area) workshops to align AI design frameworks across Google Ads and Shopping."
           ]
         },
         {
-          title: "User Experience Designer",
-          year: "Sep 2018 — Apr 2022 · 3 yrs 8 mos",
+          title: "Product Designer",
+          year: "2018 — 2023",
           location: "San Francisco Bay Area",
+          summary: "Served as the sole Interaction Designer (IXD) for a 30+ person engineering org, driving the end-to-end UX vision for global messaging.",
           description: [
-            "UX Designer – Business Communications.",
-            "Scaled messaging features to **13M+ users** globally.",
-            "Digital Strategy and User Experience (UX)."
+            "**Scale:** Launched Calls, Messaging, and Photos to **13M+ verified users** across Google Search and Maps.",
+            "**Omnichannel UX:** Designed surface-agnostic messaging systems, scaling merchant chat from a localized pilot to a global platform with an **80% CSAT**.",
+            "**Leadership:** Navigated complex legal, privacy, and x-functional (xFN) requirements for Billion+ user products."
           ]
         }
       ]

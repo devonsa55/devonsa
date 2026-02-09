@@ -6,6 +6,7 @@ interface Role {
     title: string;
     year: string;
     location?: string;
+    summary?: string;
     description: string[];
 }
 
@@ -13,6 +14,7 @@ interface TimelineItem {
     company: string;
     logo?: string;
     duration?: string;
+    promotionBadge?: string;
     roles: Role[];
 }
 
@@ -43,7 +45,10 @@ const Timeline = () => {
                             </div>
                             <div className="company-meta">
                                 <h4 className="company-name">{item.company}</h4>
-                                {item.duration && <span className="company-duration">{item.duration}</span>}
+                                <div className="company-info-row">
+                                    {item.duration && <span className="company-duration">{item.duration}</span>}
+                                    {item.promotionBadge && <span className="promotion-badge">{item.promotionBadge}</span>}
+                                </div>
                             </div>
                         </div>
 
@@ -60,6 +65,11 @@ const Timeline = () => {
                                             <span className="role-year">{role.year}</span>
                                             {role.location && <span className="role-location">{role.location}</span>}
                                         </div>
+                                        {role.summary && (
+                                            <p className="role-summary" dangerouslySetInnerHTML={{
+                                                __html: role.summary.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                                            }} />
+                                        )}
                                         <ul className="role-description">
                                             {role.description.map((desc, dIndex) => (
                                                 <li key={dIndex} dangerouslySetInnerHTML={{
