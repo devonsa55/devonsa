@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useTheme } from '../context/ThemeContext';
 import { fadeInUp } from '../utils/motion';
 import { Github, Linkedin, Twitter } from 'lucide-react';
 
