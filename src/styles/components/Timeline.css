@@ -13,14 +13,16 @@
 .timeline-list {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
+    /* Distinct separation between companies */
 }
 
 /* Company Group */
 .company-group {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
+    /* Strong visual connection between company header and roles */
 }
 
 .company-header {
@@ -143,7 +145,8 @@
 }
 
 .role-content {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+    /* Better breathing room between roles */
     /* Use margin instead of padding so the connector line stops at text end */
     flex: 1;
 }
@@ -152,7 +155,8 @@
     font-size: 1.15rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin: 0 0 0.25rem 0;
+    margin: 0 0 0.2rem 0;
+    /* Tightened gap between title and meta */
 }
 
 .role-year {
@@ -165,9 +169,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-secondary);
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    /* Space before the phase story/summary begins */
+    opacity: 0.8;
 }
 
 .role-meta span:not(:last-child)::after {
@@ -176,10 +182,14 @@
 }
 
 .role-summary {
-    font-size: 1rem;
+    font-size: 1.05rem;
+    /* Slightly larger for narrative feel */
     line-height: 1.6;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
+    color: var(--text-primary);
+    opacity: 0.9;
+    margin-bottom: 1.25rem;
+    /* Larger gap to separate description bullets */
+    max-width: 650px;
 }
 
 .role-summary strong {
@@ -191,12 +201,14 @@
     list-style-type: disc;
     padding-left: 1.5rem;
     color: var(--text-secondary);
-    font-size: 1rem;
+    font-size: 0.95rem;
+    /* Slightly smaller for detail level */
     line-height: 1.6;
 }
 
 .role-description li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
+    /* Tighter vertical rhythm for bullets */
     list-style: disc;
 }
 

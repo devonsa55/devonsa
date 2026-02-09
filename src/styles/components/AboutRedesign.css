@@ -52,6 +52,14 @@
     text-align: left;
 }
 
+.about-header-section .sub-headline strong {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.1em;
+    /* Serif fonts often look smaller than sans-serifs at the same size */
+}
+
 /* --- Profile Image --- */
 .about-image-wrapper {
     width: 100%;
