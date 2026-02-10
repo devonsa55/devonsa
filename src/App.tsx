@@ -46,7 +46,7 @@ const Home = () => {
     >
       <Hero />
       <Work />
-      <div className="container" style={{ paddingBottom: '120px', display: 'flex', justifyContent: 'center' }}>
+      <div className="container" style={{ paddingTop: '100px', paddingBottom: '200px', display: 'flex', justifyContent: 'center' }}>
         <ProfileCard
           image={aboutData.profileImage}
           text="Intrigued?"

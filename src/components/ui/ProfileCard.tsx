@@ -43,7 +43,6 @@ const ProfileCard = ({ image, icon, text, subtext, link, className = '' }: Profi
                 .profile-card {
                     display: inline-block;
                     text-decoration: none;
-                    margin-top: 3rem;
                     position: relative;
                 }
 

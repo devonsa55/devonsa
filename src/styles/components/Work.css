@@ -1,31 +1,9 @@
 .work {
-    padding: 120px 0;
+    padding: 120px 0 0 0;
 }
 
 .section-header {
     margin-bottom: 80px;
-    max-width: 600px;
-}
-
-.section-header h2 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    margin-bottom: 0.75rem;
-    font-weight: 800;
-    font-family: var(--font-heading);
-}
-
-.work-header h2 {
-    font-size: clamp(1.4rem, 3.5vw, 2rem);
-    font-weight: 700;
-    letter-spacing: -0.015em;
-    margin-bottom: 0.4rem;
-    opacity: 0.95;
-}
-
-.section-header p {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
 }
 
 .work-grid {
@@ -34,129 +12,185 @@
     gap: 3rem;
 }
 
-.project-link {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    color: inherit;
-    transition: border 0.3s ease;
-}
-
-.is-under-construction .project-card {
-    border: 2px solid var(--construction-yellow);
-    box-sizing: border-box;
-}
-
-.project-image-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: var(--bg-secondary);
-    border-bottom: none;
-}
-
-.is-under-construction .project-image-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #1a1a1a;
-    z-index: 1;
-}
-
-.project-card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.project-card:hover .project-card-image {
-    transform: scale(1.05);
-}
-
-.is-under-construction .project-card:hover .project-card-image {
-    transform: none;
-}
-
-.project-card-image.is-logo {
-    object-fit: contain;
-    padding: 3.5rem;
-    background: #fff;
-}
-
-.project-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 1.5rem;
+.project-card {
     background: var(--bg-primary);
-    border-top: 2px solid var(--text-primary);
-    color: var(--text-primary);
-    opacity: 0;
-    transform: translateY(100%);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Split-Flap Display Styles */
+.split-flap-wrapper {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin: 2rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    background: #050505;
+    padding: 3rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #1a1a1a;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    /* Prevent overflow on small screens */
+}
+
+.split-flap-board {
+    --flap-width: 42px;
+    --flap-height: calc(var(--flap-width) * 1.45);
+    --flap-font: calc(var(--flap-width) * 0.85);
+
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
-    z-index: 5;
+    gap: 4px;
+    background: #000;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
 }
 
-.project-info h3 {
-    font-size: 1.75rem;
-    font-weight: 800;
-    margin: 0;
-    font-family: var(--font-heading);
-    color: var(--text-primary);
-    margin-bottom: 0.0rem;
-}
-
-.project-info p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin: 0;
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-}
-
-.project-tags {
+.flap-row {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 2px;
+}
+
+.flap-container {
+    width: var(--flap-width);
+    height: var(--flap-height);
+    background: #111;
+    position: relative;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 700;
+    font-size: var(--flap-font);
+    color: #fff;
+    perspective: 400px;
+    user-select: none;
+}
+
+.flap-top-next,
+.flap-bottom-current,
+.flap-leaf-front,
+.flap-leaf-back {
+    color: var(--flap-text-color, #fff) !important;
+}
+
+.is-yellow {
+    --flap-text-color: #f6e05e;
+    /* Vibrant Construction Yellow */
+}
+
+.flap-segment {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    background: radial-gradient(100% 100% at 50% 100%,
+            rgba(255, 255, 255, 0.05),
+            transparent), #1e1e1e;
+    display: flex;
+    justify-content: center;
+}
+
+.flap-top-next {
+    top: 0;
+    align-items: flex-start;
+    border-radius: 4px 4px 0 0;
+}
+
+.flap-bottom-current {
+    top: 50%;
+    align-items: flex-end;
+    border-radius: 0 0 4px 4px;
+    border-top: 1px solid #000;
+}
+
+.flap-leaf {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    transform-style: preserve-3d;
+}
+
+.flap-leaf-front,
+.flap-leaf-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    background: radial-gradient(100% 100% at 50% 100%,
+            rgba(255, 255, 255, 0.05),
+            transparent), #1e1e1e;
+}
+
+.flap-leaf-front {
+    align-items: flex-start;
+    border-radius: 4px 4px 0 0;
+    z-index: 2;
+}
+
+.flap-leaf-back {
+    align-items: flex-end;
+    transform: rotateX(180deg);
+    border-radius: 0 0 4px 4px;
+    border-top: 1px solid #000;
+}
+
+.flap-container span {
+    display: block;
+    height: var(--flap-height);
+    line-height: var(--flap-height);
+}
+
+/* Character positioning adjustments */
+.flap-top-next span,
+.flap-leaf-front span {
     margin-top: 0;
 }
 
-.tag {
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 6px 14px;
-    background: var(--bg-secondary);
-    border-radius: 100px;
-    color: var(--text-secondary);
-    border: 1px solid var(--border-subtle);
-    font-family: var(--font-mono);
-    letter-spacing: 0.02em;
+.flap-bottom-current span,
+.flap-leaf-back span {
+    margin-top: calc(var(--flap-height) / -2);
+}
+
+.flap-divider {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 20;
+}
+
+@media (max-width: 1200px) {
+    .split-flap-board {
+        --flap-width: 36px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .split-flap-board {
+        --flap-width: 32px;
+    }
 }
 
 @media (max-width: 768px) {
-    .work {
-        padding: 80px 0;
+    .split-flap-board {
+        --flap-width: 18px;
+        gap: 3px;
+        padding: 6px;
     }
 
-    .work-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .project-info {
-        padding: 1.5rem;
+    .flap-row {
+        gap: 1px;
     }
 }

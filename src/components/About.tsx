@@ -104,7 +104,7 @@ const About = () => {
                             </div>
                         </div>
 
-                        <div className="about-cta" style={{ display: 'flex', justifyContent: 'center', marginTop: '4rem' }}>
+                        <div className="about-cta" style={{ display: 'flex', justifyContent: 'center', marginTop: '7rem' }}>
                             <ProfileCard
                                 icon={<EnvelopeMatrix />}
                                 text="Ready to start a project?"
