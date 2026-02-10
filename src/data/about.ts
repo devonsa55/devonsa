@@ -23,32 +23,32 @@ export const aboutData = {
     {
       title: "Surfing",
       description: "Catching breaks at home in Honolulu or traveling to Nicaragua.",
-      image: '/images/Carosel_images/IMG_1920.jpg'
+      image: getAssetPath('/images/Carosel_images/IMG_1920.jpg')
     },
     {
       title: "Building",
       description: "Converted my Honda Element into a custom camper—focused on the craft of 'making'.",
-      image: '/images/Carosel_images/IMG_3247.jpg'
+      image: getAssetPath('/images/Carosel_images/IMG_3247.jpg')
     },
     {
       title: "Competition",
       description: "National & World Champion Ultimate Frisbee player with Revolver; emphasizing elite teamwork.",
-      image: '/images/Carosel_images/IMG_7630.jpg'
+      image: getAssetPath('/images/Carosel_images/IMG_7630.jpg')
     },
     {
       title: "Adventure",
       description: "Exploring new places and experiences.",
-      image: '/images/Carosel_images/A9322471-1E24-444C-9209-B0A2FFDBD4DE.jpg'
+      image: getAssetPath('/images/Carosel_images/A9322471-1E24-444C-9209-B0A2FFDBD4DE.jpg')
     },
     {
       title: "Nature",
       description: "Connecting with the outdoors.",
-      image: '/images/Carosel_images/IMG_3205.jpg'
+      image: getAssetPath('/images/Carosel_images/IMG_3205.jpg')
     },
     {
       title: "Lifestyle",
       description: "Living life to the fullest.",
-      image: '/images/Carosel_images/IMG_3997.jpg'
+      image: getAssetPath('/images/Carosel_images/IMG_3997.jpg')
     }
   ],
   timeline: [
