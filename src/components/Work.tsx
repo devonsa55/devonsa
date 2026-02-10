@@ -4,8 +4,14 @@ import { Link } from 'react-router-dom';
 import { projects, ProjectCaseStudy } from '../data/projects';
 import SectionHeader from './ui/SectionHeader';
 
+import ConstructionTape from './ui/ConstructionTape';
+
+// TOGGLE WIP MODE HERE
+const IS_UNDER_CONSTRUCTION = true;
+
 const Work = () => {
   useState<ProjectCaseStudy | null>(null);
+  const isUnderConstruction = IS_UNDER_CONSTRUCTION;
 
   // No-op useEffect to clear ben-specific styles if they were set
   useEffect(() => {
@@ -23,7 +29,8 @@ const Work = () => {
           className="work-header"
         />
 
-        <div className="work-grid">
+        <div className={`work-grid ${isUnderConstruction ? 'is-under-construction' : ''}`} style={{ position: 'relative' }}>
+          {isUnderConstruction && <ConstructionTape />}
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
