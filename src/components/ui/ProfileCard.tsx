@@ -52,7 +52,7 @@ const ProfileCard = ({ image, icon, text, subtext, link, className = '' }: Profi
                     gap: 1.25rem;
                     padding: 0.75rem 1.5rem 0.75rem 0.75rem;
                     background: var(--bg-secondary);
-                    border: 1px solid var(--border-subtle);
+                    border: 2px solid var(--border-subtle);
                     border-radius: 100px;
                     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
                 }

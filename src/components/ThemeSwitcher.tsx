@@ -1,10 +1,9 @@
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 
 const ThemeSwitcher = () => {
   const { mode, setMode } = useTheme();
-  const [isHovered, setIsHovered] = React.useState(false);
+
 
   const toggleMode = () => {
     setMode(mode === 'light' ? 'dark' : 'light');
@@ -63,26 +62,10 @@ const ThemeSwitcher = () => {
 
   return (
     <div className="theme-switcher">
-      <AnimatePresence>
-        {isHovered && (
-          <motion.div
-            initial={{ opacity: 0, y: 10, x: '-50%' }}
-            animate={{ opacity: 1, y: 0, x: '-50%' }}
-            exit={{ opacity: 0, y: 10, x: '-50%' }}
-            className="theme-tooltip"
-          >
-            Switch to {mode === 'light' ? 'dark' : 'light'} mode
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
         onClick={toggleMode}
         className="matrix-toggle"
       >
@@ -99,25 +82,8 @@ const ThemeSwitcher = () => {
         .theme-switcher {
             position: fixed;
             bottom: 2rem;
-            right: 3rem;
+            right: 1rem;
             z-index: 2000;
-        }
-
-        .theme-tooltip {
-            position: absolute;
-            bottom: 110%;
-            left: 50%;
-            white-space: nowrap;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            padding: 8px 14px;
-            border-radius: 10px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border: 1px solid var(--border-subtle);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            pointer-events: none;
-            font-family: var(--font-body);
         }
 
         .matrix-toggle {
@@ -139,9 +105,6 @@ const ThemeSwitcher = () => {
             background: transparent;
         }
 
-        /* Scanline effect */
-        /* Removed scanline effect */
-
         .matrix-dot {
             width: 2px;
             height: 2px;
@@ -152,16 +115,13 @@ const ThemeSwitcher = () => {
 
         .matrix-dot.active {
             background-color: var(--text-primary);
-            /* Removed box-shadow */
             transform: scale(1.1);
         }
 
-        /* Interaction states */
         .matrix-toggle:hover {
-            border-color: var(--text-primary);
-            background: var(--hover-bg);
-            /* Removed transform */
-            /* Removed transition */
+            border-color: var(--border-subtle);
+            background: var(--bg-primary);
+            /* Static look on hover */
         }
         
         /* Mode-specific glows */

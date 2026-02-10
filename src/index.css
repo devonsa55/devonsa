@@ -31,7 +31,7 @@
   /* Theme-aware Properties Defaults */
   --radius-button: 12px;
   --radius-card: 20px;
-  --border-width: 1px;
+  --border-width: 2px;
   --neo-shadow: 4px 4px 0px #e0e0e0;
   --shadow-hover: 6px 6px 0px #e0e0e0;
   --font-mono: 'Google Sans Code', monospace;
@@ -57,6 +57,7 @@
   --text-secondary: #52525b;
   --text-quinary: #94a3b8;
   --accent-purple: #000000;
+  --accent-purple-rgb: 0, 0, 0;
   --accent-purple-light: #f4f4f5;
   --border-subtle: #e0e0e0;
   --dot-color: rgba(0, 0, 0, 0.08);
@@ -67,7 +68,7 @@
 
   --radius-button: 80px;
   --radius-card: 20px;
-  --border-width: 1px;
+  --border-width: 2px;
   --neo-shadow: 4px 4px 0px #e0e0e0;
   --shadow-hover: 6px 6px 0px #e0e0e0;
   --show-dot-grid-home: 1;
@@ -81,16 +82,17 @@
   --bg-primary: #0a0a0b;
   --bg-primary-rgb: 10, 10, 11;
   --bg-secondary: #0a0a0b;
-  --text-primary: #ffffff;
-  --text-secondary: #a1a1aa;
-  --text-quinary: #64748b;
+  --text-primary: #f2f2f2;
+  --text-secondary: #a3a3a3;
+  --text-quinary: #737373;
   --accent-purple: #ffffff;
+  --accent-purple-rgb: 255, 255, 255;
   --accent-purple-light: rgba(255, 255, 255, 0.1);
   --border-subtle: rgba(255, 255, 255, 0.1);
   --dot-color: rgba(255, 255, 255, 0.05);
   --hover-bg: #27272a;
-  --neo-shadow: 0 15px 45px -10px rgba(0, 0, 0, 0.4);
-  --shadow-hover: 0 25px 60px -12px rgba(0, 0, 0, 0.6);
+  --neo-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.1);
+  --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
 
@@ -272,13 +274,13 @@ img {
 
 .btn-primary {
   background: var(--accent-purple);
-  color: #fff;
+  color: var(--bg-primary);
   padding: 0.9rem 1.8rem;
   border-radius: var(--radius-button);
   font-weight: 600;
   font-size: 0.95rem;
-  box-shadow: 0 4px 12px rgba(var(--accent-purple-rgb), 0.3);
-  border: none;
+  box-shadow: 0 8px 24px rgba(var(--accent-purple-rgb), 0.25);
+  border: 2px solid transparent;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -351,7 +353,7 @@ img {
   background: var(--bg-secondary);
   border-radius: 100px;
   color: var(--text-secondary);
-  border: 1px solid var(--text-primary);
+  border: 2px solid var(--text-primary);
 }
 
 

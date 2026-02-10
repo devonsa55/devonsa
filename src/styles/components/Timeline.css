@@ -7,7 +7,30 @@
     --role-content-gap: 1.5rem;
     /* Space between dot/line and text */
 
-    margin-top: 0rem;
+    margin-top: -5.5rem;
+    /* Push deep into the header gap */
+    position: relative;
+    padding-top: 4rem;
+    padding-left: 4rem;
+    /* Intentional indentation for desktop alignment */
+}
+
+.timeline-entry-node {
+    padding-left: var(--timeline-offset);
+    margin-bottom: -20px;
+}
+
+.timeline-entry-node .role-dot-connector {
+    height: 180px;
+    /* Much longer line stretching up */
+}
+
+.timeline-entry-node .role-dot.open {
+    background: var(--bg-primary);
+    border: 2px solid var(--border-subtle);
+    width: 14px;
+    height: 14px;
+    margin-top: -5px;
 }
 
 .timeline-list {
@@ -230,6 +253,7 @@
 @media (max-width: 768px) {
     .timeline-container {
         margin-top: 4rem;
+        padding-left: 0;
     }
 
     .company-logo {

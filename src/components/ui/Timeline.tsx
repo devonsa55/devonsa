@@ -23,6 +23,14 @@ const Timeline = () => {
 
     return (
         <div className="timeline-container">
+            {/* Curiosity/Entry Node: Extends timeline up towards the header */}
+            <div className="timeline-entry-node">
+                <div className="role-dot-connector">
+                    <div className="role-dot open"></div>
+                    <div className="role-line"></div>
+                </div>
+            </div>
+
             <div className="timeline-list">
                 {timelineData.map((item, index) => (
                     <motion.div

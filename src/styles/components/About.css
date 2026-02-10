@@ -164,10 +164,6 @@
   transition: var(--transition-smooth);
 }
 
-.hobby-card:hover {
-  box-shadow: var(--shadow-hover);
-  background: var(--bg-primary);
-}
 
 .hobby-card h4 {
   font-size: 1.5rem;
@@ -224,18 +220,19 @@
 .resume-link {
   padding: 1.2rem 3.5rem;
   background: var(--accent-purple);
-  color: white;
+  color: var(--bg-primary);
   border-radius: 100px;
   font-weight: 600;
   font-size: 1.25rem;
   transition: var(--transition-smooth);
-  box-shadow: 0 10px 20px rgba(129, 139, 228, 0.3);
+  box-shadow: 0 10px 20px rgba(var(--accent-purple-rgb), 0.25);
+  border: 2px solid transparent;
 }
 
 .resume-link:hover {
   transform: scale(1.05) translateY(-2px);
   filter: brightness(1.1);
-  box-shadow: 0 15px 30px rgba(129, 139, 228, 0.4);
+  box-shadow: 0 15px 30px rgba(var(--accent-purple-rgb), 0.35);
 }
 
 
