@@ -23,17 +23,32 @@ export const aboutData = {
     {
       title: "Surfing",
       description: "Catching breaks at home in Honolulu or traveling to Nicaragua.",
-      image: getAssetPath('/assets/hobbies/surfing.jpg')
+      image: '/images/Carosel_images/IMG_1920.jpg'
     },
     {
       title: "Building",
       description: "Converted my Honda Element into a custom camper—focused on the craft of 'making'.",
-      image: getAssetPath('/assets/hobbies/building.jpg')
+      image: '/images/Carosel_images/IMG_3247.jpg'
     },
     {
       title: "Competition",
       description: "National & World Champion Ultimate Frisbee player with Revolver; emphasizing elite teamwork.",
-      image: getAssetPath('/assets/hobbies/competition.jpg')
+      image: '/images/Carosel_images/IMG_7630.jpg'
+    },
+    {
+      title: "Adventure",
+      description: "Exploring new places and experiences.",
+      image: '/images/Carosel_images/A9322471-1E24-444C-9209-B0A2FFDBD4DE.jpg'
+    },
+    {
+      title: "Nature",
+      description: "Connecting with the outdoors.",
+      image: '/images/Carosel_images/IMG_3205.jpg'
+    },
+    {
+      title: "Lifestyle",
+      description: "Living life to the fullest.",
+      image: '/images/Carosel_images/IMG_3997.jpg'
     }
   ],
   timeline: [
@@ -120,7 +135,6 @@ export const aboutData = {
           year: "2007 — 2011",
           description: [
             "Bachelor of Arts, Environmental Studies (Dual Focus), Graduated with **Highest Honors**.",
-            "Applied formal logic and first-principles thinking to digital systems.",
             "Grade: 3.6 Overall - 3.9 within Environmental Studies.",
             "Activities: Ultimate Frisbee (National & World Champion), Outdoors club."
           ]

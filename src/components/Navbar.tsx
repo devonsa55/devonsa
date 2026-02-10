@@ -331,7 +331,7 @@ const Navbar = () => {
           height: 100vh;
           background: var(--bg-primary);
           z-index: 1001;
-          padding: 120px 24px 40px;
+          padding: 180px 24px 40px; /* CONTROL: This pushes the menu links (Home, Work, etc) down */
           overflow-y: auto;
         }
 
@@ -408,11 +408,62 @@ const Navbar = () => {
         }
 
         
+        /* Medium Screens / Tablets */
+        @media (max-width: 1024px) {
+          .signature-logo-header {
+            width: 350px;
+            height: 100px;
+            margin-top: 40px;
+          }
+          .is-scrolled .signature-logo-header {
+            width: 280px;
+            height: 75px;
+            margin-top: 5px;
+          }
+        }
+
+        /* Mobile Screens */
         @media (max-width: 720px) {
           .desktop-only { display: none; }
-          .mobile-toggle { display: block; }
-          .navbar { height: 80px; }
-          .navbar.is-scrolled { height: 72px; }
+          .mobile-toggle { 
+            display: block; 
+            margin-top: 0px; 
+            color: var(--text-primary);
+            padding: 10px;
+            margin-right: -10px;
+          }
+          .navbar { 
+            height: 100px; 
+            padding-top: 2vh; 
+            align-items: center;
+          }
+          .navbar.is-scrolled { 
+            height: 80px; 
+            padding-top: 0;
+            align-items: center;
+          }
+          .signature-logo-header {
+            width: 300px; /* Increased to stay more prominent */
+            height: 100px;
+            margin-top: 15px;
+          }
+          .is-scrolled .signature-logo-header {
+            width: 180px;
+            height: 60px;
+            margin-top: 0;
+          }
+          .is-scrolled .mobile-toggle {
+            margin-top: 0;
+          }
+        }
+
+        /* Tiny Screens (e.g. iPhone SE, Fold closed) */
+        @media (max-width: 375px) {
+          .signature-logo-header {
+            width: 240px; 
+            height: 85px;
+          }
+          .navbar { padding-top: 1vh; }
         }
         `}} />
     </motion.nav>

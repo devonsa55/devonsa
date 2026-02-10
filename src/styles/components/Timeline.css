@@ -93,14 +93,37 @@
 }
 
 .promotion-badge {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--accent-purple);
-    background: var(--accent-purple-light);
-    padding: 2px 8px;
-    border-radius: 4px;
-    letter-spacing: 0.02em;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: linear-gradient(120deg,
+            rgba(255, 179, 186, 0.3),
+            rgba(186, 255, 201, 0.3),
+            rgba(186, 225, 255, 0.3),
+            rgba(227, 201, 255, 0.3));
+    background-size: 400% 400%;
+    animation: rainbow-shift 12s ease infinite;
+    padding: 3px 14px;
+    border-radius: 100px;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+@keyframes rainbow-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Roles Container */

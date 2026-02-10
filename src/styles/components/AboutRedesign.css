@@ -47,17 +47,9 @@
     line-height: 1.35;
     color: var(--text-primary);
     font-family: var(--font-heading);
-    font-weight: 500;
+    font-weight: 400;
     max-width: none;
     text-align: left;
-}
-
-.about-header-section .sub-headline strong {
-    font-family: 'Newsreader', serif;
-    font-style: italic;
-    font-weight: 500;
-    font-size: 1.1em;
-    /* Serif fonts often look smaller than sans-serifs at the same size */
 }
 
 /* --- Profile Image --- */
@@ -151,8 +143,8 @@
 .offline-section {
     display: flex;
     flex-direction: column;
-    padding: 3rem 0;
-    margin-top: 2rem;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
 }
 
 .section-title p {
@@ -164,57 +156,105 @@
     letter-spacing: -0.01em;
 }
 
-.new-hobbies-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
+.offline-description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
 }
 
-.new-hobby-card {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+.offline-description strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.hobby-carousel {
     position: relative;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    min-height: 250px;
-    padding: 2.5rem;
-    border-radius: var(--radius-card);
-    justify-content: flex-end;
+    width: 100%;
+    margin-top: 0;
 }
 
-.hobby-overlay {
+.carousel-track-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    /* Make this the positioning context for arrows */
+}
+
+.hobby-card {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    border: 1px solid var(--text-primary);
+    border-radius: var(--radius-card);
+    background: #e5e7eb;
+    /* Fallback gray background */
+    overflow: hidden;
+}
+
+.hobby-card-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
-    background-image:
-        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%),
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Ffilter id='noiseFilter'%3E%3FfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3/filter%3E%3rect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3/svg%3E");
-    opacity: 0.15;
-    z-index: 1;
+    object-fit: cover;
 }
 
-.hobby-info {
-    position: relative;
-    z-index: 2;
-    color: white;
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bg-primary);
+    border: 1px solid var(--text-primary);
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+    color: var(--text-primary);
 }
 
-.new-hobby-card h4 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 0.5rem;
+.carousel-arrow:hover {
+    transform: translateY(-50%) translate(-2px, 0);
+    box-shadow: 4px 4px 0px #d1d5db;
 }
 
-.new-hobby-card p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.8);
+.carousel-arrow-left {
+    left: -28px;
+}
+
+.carousel-arrow-right {
+    right: -28px;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 0.75rem;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid var(--text-primary);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.indicator.active {
+    background: var(--text-primary);
+    transform: scale(1.2);
 }
 
 
@@ -228,11 +268,6 @@
         grid-template-columns: 1fr;
     }
 
-    .new-hobbies-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
     .about-header-section h2 {
         font-size: 3rem;
     }
@@ -244,19 +279,6 @@
     border: 2px solid var(--text-primary);
     background: var(--bg-primary);
     box-shadow: 8px 8px 0px var(--text-primary);
-}
-
-.roundy-style .new-hobby-card {
-    padding: 2rem;
-    border: 2px solid var(--text-primary);
-    border-radius: 24px;
-    background: var(--bg-primary);
-    transition: transform 0.3s ease;
-}
-
-.roundy-style .new-hobby-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 4px 4px 0px var(--text-primary);
 }
 
 /* Timeline Anchor Refinements */

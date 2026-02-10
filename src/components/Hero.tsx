@@ -35,7 +35,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % words.length);
-    }, 4000); // Reduced to 4 seconds
+    }, 2500); // Reduced to 2.5 seconds
     return () => clearInterval(interval);
   }, [words.length]);
 

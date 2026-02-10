@@ -1,9 +1,32 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { aboutData } from '../data/about';
 import SectionHeader from './ui/SectionHeader';
 import Timeline from './ui/Timeline';
+import ProfileCard from './ui/ProfileCard';
+import EnvelopeMatrix from './ui/EnvelopeMatrix';
 
 const About = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const nextSlide = () => {
+        setCurrentIndex((prev) => (prev + 1) % aboutData.hobbies.length);
+    };
+
+    const prevSlide = () => {
+        setCurrentIndex((prev) => (prev - 1 + aboutData.hobbies.length) % aboutData.hobbies.length);
+    };
+
+    // Auto-play carousel
+    useEffect(() => {
+        const interval = setInterval(() => {
+            nextSlide();
+        }, 5000); // Change slide every 5 seconds
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -42,21 +65,52 @@ const About = () => {
                             <div className="section-title">
                                 <p>Beyond Design</p>
                             </div>
-                            <div className="new-hobbies-grid">
-                                {aboutData.hobbies.map((hobby, index) => (
-                                    <div
-                                        key={index}
-                                        className="new-hobby-card"
-                                        style={{ backgroundImage: `url(${hobby.image})` }}
+
+                            <div className="hobby-carousel">
+                                <button onClick={prevSlide} className="carousel-arrow carousel-arrow-left" aria-label="Previous">
+                                    <ChevronLeft size={32} />
+                                </button>
+
+                                <div className="carousel-track-container">
+                                    <motion.div
+                                        key={currentIndex}
+                                        className="hobby-card"
                                     >
-                                        <div className="hobby-overlay"></div>
-                                        <div className="hobby-info">
-                                            <h4>{hobby.title}</h4>
-                                            <p>{hobby.description}</p>
-                                        </div>
-                                    </div>
-                                ))}
+                                        <img
+                                            src={aboutData.hobbies[currentIndex].image}
+                                            alt={aboutData.hobbies[currentIndex].title}
+                                            className="hobby-card-image"
+                                            onError={() => {
+                                                console.error('Failed to load image:', aboutData.hobbies[currentIndex].image);
+                                            }}
+                                        />
+                                    </motion.div>
+                                </div>
+
+                                <button onClick={nextSlide} className="carousel-arrow carousel-arrow-right" aria-label="Next">
+                                    <ChevronRight size={32} />
+                                </button>
+
+                                <div className="carousel-indicators">
+                                    {aboutData.hobbies.map((_, idx) => (
+                                        <button
+                                            key={idx}
+                                            onClick={() => setCurrentIndex(idx)}
+                                            className={`indicator ${idx === currentIndex ? 'active' : ''}`}
+                                            aria-label={`Go to slide ${idx + 1}`}
+                                        />
+                                    ))}
+                                </div>
                             </div>
+                        </div>
+
+                        <div className="about-cta" style={{ display: 'flex', justifyContent: 'center', marginTop: '4rem' }}>
+                            <ProfileCard
+                                icon={<EnvelopeMatrix />}
+                                text="Ready to start a project?"
+                                subtext="Let's build something meaningful"
+                                link="/contact"
+                            />
                         </div>
                     </div>
                 </div>

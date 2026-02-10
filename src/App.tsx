@@ -9,11 +9,9 @@ import ThemeSwitcher from './components/ThemeSwitcher'
 import ProjectDetail from './components/ProjectDetail'
 import Contact from './components/Contact'
 import { ThemeProvider } from './context/ThemeContext'
-import Button from './components/ui/Button'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
 
 const ScrollToHash = () => {
   const { pathname, hash } = useLocation();
@@ -35,6 +33,7 @@ const ScrollToHash = () => {
   return null;
 };
 
+import ProfileCard from './components/ui/ProfileCard'
 import { aboutData } from './data/about'
 
 const Home = () => {
@@ -43,19 +42,17 @@ const Home = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      className="home-page"
     >
       <Hero />
       <Work />
       <div className="container" style={{ paddingBottom: '120px', display: 'flex', justifyContent: 'center' }}>
-        <Button
-          href={aboutData.resumeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          variant="link"
-          className="resume-link"
-        >
-          View my Resumé <ArrowUpRight size={20} style={{ marginLeft: '8px' }} />
-        </Button>
+        <ProfileCard
+          image={aboutData.profileImage}
+          text="Intrigued?"
+          subtext="Learn more about me"
+          link="/about"
+        />
       </div>
     </motion.div>
   );

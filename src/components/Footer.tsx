@@ -15,7 +15,7 @@ const Footer = () => {
               style={{
                 width: '80px',
                 height: 'auto',
-                borderRadius: '0',
+                borderRadius: '16px',
                 display: 'block'
               }}
             />
@@ -76,7 +76,7 @@ const Footer = () => {
           transform: scale(1.05) rotate(-2deg);
         }
         .footer-avatar {
-          border-radius: 0 !important;
+          border-radius: 16px !important;
           display: block;
         }
         .footer-nav {
