@@ -45,11 +45,7 @@ export const aboutData = {
       description: "Connecting with the outdoors.",
       image: getAssetPath('/images/Carosel_images/IMG_3205.jpg')
     },
-    {
-      title: "Lifestyle",
-      description: "Living life to the fullest.",
-      image: getAssetPath('/images/Carosel_images/IMG_3997.jpg')
-    }
+
   ],
   timeline: [
     {

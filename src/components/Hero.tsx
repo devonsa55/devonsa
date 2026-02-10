@@ -13,10 +13,7 @@ const Hero = () => {
   ];
 
   const [index, setIndex] = useState(0);
-  const [isWordHovered, setIsWordHovered] = useState(false);
-  const HERO_HIGHLIGHT_COLOR = isWordHovered
-    ? highlightColors[index % highlightColors.length]
-    : 'var(--text-primary)';
+  const HERO_HIGHLIGHT_COLOR = highlightColors[index % highlightColors.length];
 
   const [isSurfing, setIsSurfing] = useState(false);
   const [isHonoluluHovered, setIsHonoluluHovered] = useState(false);
@@ -53,10 +50,8 @@ const Hero = () => {
             I'm a product
             <span
               onMouseMove={handleMouseMove}
-              onMouseEnter={() => setIsWordHovered(true)}
               onMouseLeave={() => {
                 setMouseX(0); // Reset offset
-                setIsWordHovered(false);
               }}
               style={{
                 display: 'inline-block',
