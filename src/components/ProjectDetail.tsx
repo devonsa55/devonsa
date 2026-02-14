@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projects } from '../data/projects';
-import { ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Home } from 'lucide-react';
 import Badge from './ui/Badge';
 import Button from './ui/Button';
+import ProfileCard from './ui/ProfileCard';
 import { fadeInUp, fadeIn } from '../utils/motion';
 
 
@@ -204,10 +205,13 @@ const ProjectDetail: React.FC = () => {
           </section>
         )}
 
-        <div className="project-footer">
-          <Button to="/" className="button-primary">
-            Back to Case Studies
-          </Button>
+        <div className="project-footer" style={{ display: 'flex', justifyContent: 'center', paddingBottom: '8rem' }}>
+          <ProfileCard
+            icon={<Home size={20} />}
+            text="Back to Home"
+            subtext="See more of my work"
+            link="/"
+          />
         </div>
       </div>
     </motion.div>

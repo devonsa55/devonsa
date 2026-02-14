@@ -10,6 +10,7 @@ interface ButtonProps {
     variant?: 'primary' | 'secondary' | 'link';
     target?: string;
     rel?: string;
+    style?: React.CSSProperties;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -20,21 +21,22 @@ const Button: React.FC<ButtonProps> = ({
     className = "",
     variant = 'primary',
     target,
-    rel
+    rel,
+    style
 }) => {
     const baseClass = variant === 'primary' ? 'btn-primary' : variant === 'secondary' ? 'btn-secondary' : 'btn-link';
     const combinedClass = `${baseClass} ${className}`;
 
     if (to) {
-        return <Link to={to} className={combinedClass}>{children}</Link>;
+        return <Link to={to} className={combinedClass} style={style}>{children}</Link>;
     }
 
     if (href) {
-        return <a href={href} className={combinedClass} target={target} rel={rel}>{children}</a>;
+        return <a href={href} className={combinedClass} target={target} rel={rel} style={style}>{children}</a>;
     }
 
     return (
-        <button onClick={onClick} className={combinedClass}>
+        <button onClick={onClick} className={combinedClass} style={style}>
             {children}
         </button>
     );

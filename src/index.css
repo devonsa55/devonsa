@@ -72,6 +72,7 @@
   --neo-shadow: 4px 4px 0px #e0e0e0;
   --shadow-hover: 6px 6px 0px #e0e0e0;
   --show-dot-grid-home: 1;
+  --grid-align-offset: center top;
   /* Independent toggle for Home */
   --show-dot-grid-project: 0;
   /* Independent toggle for Projects */
@@ -120,57 +121,18 @@
   padding-top: 0%;
 }
 
-.work-grid {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-}
-
-.project-card {
-  aspect-ratio: 1 / 1;
-  border-radius: var(--radius-card);
-  background: var(--bg-primary);
-  box-shadow: none;
-  position: relative;
-  overflow: hidden;
-  border: 2px solid var(--text-primary);
-  grid-column: span 1;
-}
-
-.project-card:hover {
-  box-shadow: var(--shadow-hover);
-}
-
-.project-card:hover .project-card-image {
-  transform: none !important;
-}
-
 .text-highlight {
   background: none;
   -webkit-text-fill-color: var(--text-primary);
   color: var(--text-primary);
 }
 
+
 .text-center {
   text-align: center;
 }
 
-/* Project info hover animation */
-.project-card:hover .project-info {
-  opacity: 1;
-  transform: translateY(0);
-}
 
-.tag {
-  background: none;
-  color: var(--text-primary);
-  border: 1.5px solid var(--text-primary);
-  padding: 0.4rem 0.85rem;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  border-radius: 80px;
-}
 
 /* Base Resets */
 * {
@@ -223,6 +185,7 @@ body {
 .home-page {
   background-image: radial-gradient(var(--dot-color) var(--dot-size), transparent 0);
   background-size: var(--dot-space) var(--dot-space);
+  background-position: var(--grid-align-offset);
   min-height: 100vh;
 }
 
@@ -267,9 +230,10 @@ img {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1176px;
+  /* (15 dots * 3 columns) + (1 dot * 2 gaps) + (1 dot * 2 margins) * 24px */
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
+  padding: 0 var(--dot-space);
 }
 
 .btn-primary {
@@ -346,15 +310,7 @@ img {
 
 
 
-.tag {
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 4px 12px;
-  background: var(--bg-secondary);
-  border-radius: 100px;
-  color: var(--text-secondary);
-  border: 2px solid var(--text-primary);
-}
+
 
 
 /* Project Detail View */

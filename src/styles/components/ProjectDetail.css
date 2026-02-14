@@ -118,7 +118,7 @@
 }
 
 .project-hero-media:hover .hero-image {
-    transform: scale(1.05);
+    transform: none;
 }
 
 .project-meta-grid {
@@ -203,7 +203,7 @@
 }
 
 .section-media:hover .project-image {
-    transform: scale(1.05);
+    transform: none;
 }
 
 .outcomes-grid {

@@ -13,7 +13,7 @@ const Navbar = () => {
   const location = useLocation();
 
   const isHomePage = location.pathname === '/';
-  const isProjectPage = location.pathname.startsWith('/project/');
+  const isDetailPage = location.pathname.startsWith('/project/') || location.pathname.startsWith('/strategy/');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +37,7 @@ const Navbar = () => {
     }
   }, [isMobileMenuOpen]);
 
-  if (isProjectPage) {
+  if (isDetailPage) {
     return null;
   }
 

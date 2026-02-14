@@ -116,11 +116,11 @@ const SplitFlapBoard: React.FC = () => {
     const [isHovered, setIsHovered] = useState(false);
 
     const displayTitles = useMemo(() => {
-        return projects.slice(0, 4).map(p => p.title.toUpperCase());
+        return projects.map(p => p.title.toUpperCase());
     }, []);
 
     const COLS = 26;
-    const ROWS = 6;
+    const ROWS = Math.max(6, displayTitles.length + 3); // Minimum 6 rows, or enough to fit all projects + spacing
 
     const grid = useMemo(() => {
         const matrix = Array.from({ length: ROWS }, () => Array(COLS).fill(" "));
@@ -131,17 +131,19 @@ const SplitFlapBoard: React.FC = () => {
             matrix[0][i + 1] = cs[i];
         }
 
-        // Rows 2-5: Projects
+        // Rows starting from 2: Projects
         displayTitles.forEach((title, idx) => {
             const rowIdx = idx + 2;
-            const startCol = 1;
-            for (let i = 0; i < title.length && (startCol + i) < COLS; i++) {
-                matrix[rowIdx][startCol + i] = title[i];
+            if (rowIdx < ROWS) {
+                const startCol = 1;
+                for (let i = 0; i < title.length && (startCol + i) < COLS; i++) {
+                    matrix[rowIdx][startCol + i] = title[i];
+                }
             }
         });
 
         return matrix;
-    }, [displayTitles, COLS]);
+    }, [displayTitles, COLS, ROWS]);
 
     return (
         <div

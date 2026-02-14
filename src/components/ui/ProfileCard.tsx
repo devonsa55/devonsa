@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+
 
 interface ProfileCardProps {
     image?: string;
@@ -14,27 +14,25 @@ const ProfileCard = ({ image, icon, text, subtext, link, className = '' }: Profi
     return (
         <Link to={link} className={`profile-card ${className}`}>
             <div className="profile-card-content">
-                <div className="profile-image-wrapper">
-                    {icon ? (
-                        <div className="profile-icon-display">
-                            {icon}
-                        </div>
-                    ) : (
+                {icon && (
+                    <div className="profile-outer-icon" style={{ color: 'var(--text-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        {icon}
+                    </div>
+                )}
+
+                {image && !icon && (
+                    <div className="profile-image-wrapper">
                         <img
                             src={image}
                             alt="Profile"
                             className="profile-image"
                         />
-                    )}
-                </div>
-                <div className="profile-info">
-                    <div className="profile-text-group">
-                        <p className="profile-text">{text}</p>
-                        {subtext && <span className="profile-subtext">{subtext}</span>}
                     </div>
-                    <div className="profile-arrow">
-                        <ArrowRight size={20} />
-                    </div>
+                )}
+
+                <div className="profile-text-group">
+                    <p className="profile-text">{text}</p>
+                    {subtext && <span className="profile-subtext">{subtext}</span>}
                 </div>
             </div>
 
@@ -50,19 +48,30 @@ const ProfileCard = ({ image, icon, text, subtext, link, className = '' }: Profi
                     display: flex;
                     align-items: center;
                     gap: 1.25rem;
-                    padding: 0.75rem 1.5rem 0.75rem 0.75rem;
+                    padding: 0.75rem 2.25rem 0.75rem 1.75rem;
                     background: var(--bg-secondary);
                     border: 2px solid var(--border-subtle);
                     border-radius: 100px;
                     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                    min-height: 64px; /* Consistent height */
                 }
 
-                /* Opaque hover state mimicking Contact cards */
+                /* Contextual padding for icon vs image */
+                .profile-card:has(.profile-outer-icon) .profile-card-content {
+                    padding: 0.75rem 2.25rem 0.75rem 1.5rem;
+                    gap: 1rem;
+                }
+
+                .profile-card:has(.profile-image-wrapper) .profile-card-content {
+                    padding: 0.6rem 2.25rem 0.6rem 0.6rem;
+                    gap: 1.25rem;
+                }
+
                 .profile-card:hover .profile-card-content {
-                    background: var(--bg-primary); /* Solid opaque background */
+                    background: var(--bg-primary);
                     border-color: var(--text-primary);
                     transform: translateY(-2px);
-                    box-shadow: var(--shadow-hover); /* Consistent shadow */
+                    /* Shadow removed as requested */
                 }
 
                 .profile-image-wrapper {
@@ -71,70 +80,40 @@ const ProfileCard = ({ image, icon, text, subtext, link, className = '' }: Profi
                     border-radius: 50%;
                     overflow: hidden;
                     border: 2px solid var(--bg-primary);
-                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
                     flex-shrink: 0;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    background: var(--bg-tertiary); /* Default background */
-                }
-
-                /* Remove background/border for icon display to let dots breathe */
-                .profile-card:has(.profile-icon-display) .profile-image-wrapper {
-                    background: transparent;
-                    border: none;
-                    box-shadow: none;
-                }
-
-                .profile-icon-display {
-                    color: var(--text-primary);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-
-                .profile-image {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-
-                .profile-info {
-                    display: flex;
-                    align-items: center;
-                    gap: 1rem;
+                    background: var(--bg-tertiary);
                 }
 
                 .profile-text-group {
                     display: flex;
                     flex-direction: column;
+                    justify-content: center;
                     align-items: flex-start;
+                    gap: 0px !important; /* Force zero gap */
                 }
 
                 .profile-text {
-                    margin: 0;
+                    margin: 0 !important;
+                    padding: 0 !important;
                     font-family: var(--font-heading);
-                    font-weight: 600;
-                    font-size: 1rem;
+                    font-weight: 800;
+                    font-size: 1.15rem;
                     color: var(--text-primary);
-                    line-height: 1.2;
+                    line-height: 1.1;
                 }
 
                 .profile-subtext {
-                    font-size: 0.8rem;
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    font-size: 0.85rem;
                     color: var(--text-secondary);
-                    margin-top: 2px;
+                    line-height: 1.1;
+                    opacity: 0.8;
                 }
 
-                .profile-arrow {
-                    color: var(--text-secondary);
-                    transition: transform 0.3s ease;
-                }
-
-                .profile-card:hover .profile-arrow {
-                    color: var(--text-primary);
-                    transform: translateX(4px);
-                }
                 `
             }} />
         </Link>

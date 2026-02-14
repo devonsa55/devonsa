@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import Decorations from './components/Decorations'
 import ThemeSwitcher from './components/ThemeSwitcher'
 import ProjectDetail from './components/ProjectDetail'
+import StrategyDetail from './components/StrategyDetail'
 import Contact from './components/Contact'
 import { ThemeProvider } from './context/ThemeContext'
 import { useEffect } from 'react'
@@ -74,6 +75,7 @@ function AppContent() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/project/:projectId" element={<ProjectDetail />} />
+            <Route path="/strategy/:strategyId" element={<StrategyDetail />} />
           </Routes>
         </AnimatePresence>
       </main>
