@@ -290,7 +290,7 @@ const Hero = () => {
         }
 
         .hero-text h1 {
-          font-size: clamp(2.5rem, 6.5vw, 5rem);
+          font-size: clamp(2.5rem, 6.2vw, 4.75rem);
           margin-top: 0 !important;
           margin-bottom: 0 !important;
           color: var(--text-primary);

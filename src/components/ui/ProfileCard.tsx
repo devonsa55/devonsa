@@ -69,7 +69,6 @@ const ProfileCard = ({ image, icon, text, subtext, link, className = '' }: Profi
                 }
 
                 .profile-card:hover .profile-card-content {
-                    background: var(--hover-bg);
                     border-color: var(--text-primary);
                     transform: translateY(-4px);
                     box-shadow: var(--shadow-hover);

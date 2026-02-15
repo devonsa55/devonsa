@@ -168,7 +168,6 @@
 
 .project-card:hover {
     transform: translateY(-4px);
-    background: var(--hover-bg);
     box-shadow: var(--shadow-hover);
     border-color: var(--accent-purple);
 }
@@ -420,7 +419,6 @@
 
 .article-card:hover {
     transform: translateY(-4px);
-    background: var(--hover-bg);
     box-shadow: var(--shadow-hover);
     border-color: var(--accent-purple);
 }
