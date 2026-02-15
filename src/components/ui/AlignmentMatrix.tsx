@@ -41,9 +41,10 @@ const AlignmentMatrix: React.FC = () => {
                 padding: '4rem 2rem',
                 backgroundColor: 'var(--bg-secondary)',
                 borderRadius: '40px',
-                border: '1px solid var(--border-subtle)',
+                border: 'var(--border-width) solid var(--border-subtle)',
                 position: 'relative',
                 overflow: 'hidden',
+                color: 'var(--text-primary)'
             }}
         >
             <div className="matrix-flex" style={{
@@ -118,8 +119,8 @@ const AlignmentMatrix: React.FC = () => {
                     style={{
                         width: '210px',
                         height: '210px',
-                        backgroundColor: '#EDEEF0',
-                        color: 'var(--text-primary)',
+                        backgroundColor: 'var(--text-primary)',
+                        color: 'var(--bg-primary)',
                         padding: '24px',
                         borderRadius: '48px',
                         display: 'flex',
@@ -127,12 +128,13 @@ const AlignmentMatrix: React.FC = () => {
                         justifyContent: 'center',
                         alignItems: 'center',
                         textAlign: 'center',
-                        border: '2px solid var(--border-subtle)',
-                        zIndex: 3
+                        border: '2px solid var(--text-primary)',
+                        zIndex: 3,
+                        boxShadow: '0 20px 40px rgba(0,0,0,0.1)'
                     }}
                 >
                     <h4 style={{ margin: 0, fontSize: '1.25rem', fontWeight: '800', lineHeight: 1.15 }}>Feature Alignment Matrix</h4>
-                    <p style={{ margin: '12px 0 0 0', fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>(Structured Synthesis)</p>
+                    <p style={{ margin: '12px 0 0 0', fontSize: '0.85rem', color: 'inherit', opacity: 0.8, fontWeight: 600 }}>(Structured Synthesis)</p>
                 </motion.div>
 
                 {/* Connection Line 2 */}

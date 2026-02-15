@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { getAssetPath } from '../utils/assets';
 import { aboutData } from '../data/about';
+import { projects } from '../data/projects';
 
 const Footer = () => {
   return (
@@ -30,10 +31,9 @@ const Footer = () => {
           </div>
           <div className="nav-column">
             <h4>Case Studies</h4>
-            <Link to="/project/google">Google</Link>
-            <Link to="/project/verizon-smart-family">Verizon</Link>
-            <Link to="/project/sprint-family-locator">Sprint</Link>
-            <Link to="/project/bivona-lab">Bivona Lab</Link>
+            {projects.map(project => (
+              <Link key={project.id} to={project.link}>{project.title}</Link>
+            ))}
           </div>
           <div className="nav-column">
             <h4>Social</h4>
@@ -53,7 +53,7 @@ const Footer = () => {
       <style dangerouslySetInnerHTML={{
         __html: `
         .footer {
-          padding: 60px 0 30px;
+          padding: 80px 0 40px;
           border-top: 1px solid var(--border-subtle);
           background: var(--bg-primary);
           position: relative;
@@ -65,7 +65,7 @@ const Footer = () => {
           align-items: flex-start;
           margin-bottom: 50px;
           gap: 40px;
-          max-width: 800px; /* Aligned with narrative column */
+          max-width: 800px;
           margin: 0 auto 50px auto;
         }
         .footer-brand .logo {
@@ -83,11 +83,11 @@ const Footer = () => {
           display: flex;
           flex: 1;
           justify-content: flex-end;
-          gap: 2rem;
+          gap: 4rem;
           max-width: 100%;
         }
         .nav-column {
-          min-width: 100px;
+          min-width: 120px;
         }
         .nav-column h4 {
           margin-bottom: 1.5rem;
@@ -95,7 +95,8 @@ const Footer = () => {
           text-transform: uppercase;
           letter-spacing: 0.15em;
           color: var(--text-primary);
-          opacity: 0.4;
+          font-weight: 800;
+          opacity: 0.5;
         }
         .nav-column a {
           display: block;
@@ -104,6 +105,7 @@ const Footer = () => {
           font-size: 1rem;
           transition: var(--transition-smooth);
           white-space: nowrap;
+          font-weight: 500;
         }
         .nav-column a:hover {
           color: var(--text-primary);
@@ -113,12 +115,11 @@ const Footer = () => {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding-top: 20px;
-          max-width: 800px; /* Aligned with narrative column */
+          padding-top: 30px;
+          max-width: 800px;
           margin: 0 auto;
           color: var(--text-secondary);
           font-size: 0.9rem;
-          opacity: 0.8;
           border-top: 1px solid var(--border-subtle);
         }
         .scroll-top {
@@ -126,7 +127,7 @@ const Footer = () => {
           display: flex;
           align-items: center;
           gap: 8px;
-          font-weight: 600;
+          font-weight: 700;
           color: var(--text-primary);
           transition: var(--transition-smooth);
         }

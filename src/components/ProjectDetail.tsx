@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projects } from '../data/projects';
-import { ArrowLeft, CheckCircle2, Home } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Home, Monitor, TrendingUp, Cpu, Wrench, Youtube, MessageSquare, Store, Shield, Video, Zap, Share2, Smartphone, GitMerge, Users, RefreshCcw, CircleAlert, Map, LayoutGrid, Palette, Star } from 'lucide-react';
 import Badge from './ui/Badge';
 import Button from './ui/Button';
 import ProfileCard from './ui/ProfileCard';
@@ -11,9 +11,44 @@ import { fadeInUp, fadeIn } from '../utils/motion';
 
 
 const ProjectDetail: React.FC = () => {
-
   const { projectId } = useParams<{ projectId: string }>();
   const project = projects.find(p => p.id === projectId);
+
+  const iconMap: Record<string, React.ReactNode> = {
+    Monitor: <Monitor size={48} />,
+    TrendingUp: <TrendingUp size={48} />,
+    Cpu: <Cpu size={48} />,
+    Wrench: <Wrench size={48} />,
+    Youtube: <Youtube size={48} />,
+    MessageSquare: <MessageSquare size={48} />,
+    Store: <Store size={48} />,
+    Shield: <Shield size={48} />,
+    Video: <Video size={48} />,
+    Zap: <Zap size={48} />,
+    Share2: <Share2 size={48} />,
+    Smartphone: <Smartphone size={48} />,
+    GitMerge: <GitMerge size={48} />,
+    Users: <Users size={48} />,
+    RefreshCcw: <RefreshCcw size={48} />,
+    CircleAlert: <CircleAlert size={48} />,
+    Map: <Map size={48} />,
+    LayoutGrid: <LayoutGrid size={48} />,
+    Palette: <Palette size={48} />,
+    Star: <Star size={48} />
+  };
+
+  const renderPlaceholder = (iconName?: string, title?: string) => {
+    const IconComponent = iconName ? iconMap[iconName] : null;
+    return (
+      <div className="placeholder-media" data-icon={iconName}>
+        <div className="placeholder-icon">
+          {IconComponent || <Video size={48} />}
+        </div>
+        {title && <span className="placeholder-label">{title}</span>}
+      </div>
+    );
+  };
+
 
   const [isVisible, setIsVisible] = React.useState(true);
   const lastScrollY = React.useRef(0);
@@ -97,7 +132,7 @@ const ProjectDetail: React.FC = () => {
           </motion.p>
         </header>
 
-        {(project.heroVideo || project.heroImage) && (
+        {(project.heroVideo || project.heroImage || project.heroIcon) && (
           <motion.div
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -114,8 +149,10 @@ const ProjectDetail: React.FC = () => {
                   allowFullScreen
                 ></iframe>
               </div>
-            ) : (
+            ) : project.heroImage ? (
               <img src={project.heroImage} alt={project.title} className="hero-image" />
+            ) : (
+              renderPlaceholder(project.heroIcon, 'Project Hero')
             )}
           </motion.div>
         )}
@@ -133,13 +170,25 @@ const ProjectDetail: React.FC = () => {
             <h3>Timeline</h3>
             <p>{project.timeline}</p>
           </div>
+          {project.result && (
+            <div className="meta-item">
+              <h3>{project.resultLabel || 'Result'}</h3>
+              <p>{project.result}</p>
+            </div>
+          )}
         </div>
 
         <section className="project-section intro-section">
           <div className="section-content">
-            <h2 className="section-label">The Problem</h2>
+            <h2 className="section-label">The Challenge</h2>
             <p className="large-text">{project.problem}</p>
           </div>
+          {project.solution && (
+            <div className="section-content solution-content" style={{ marginTop: '4rem' }}>
+              <h2 className="section-label">The Solution</h2>
+              <p className="large-text">{project.solution}</p>
+            </div>
+          )}
         </section>
 
         {project.sections?.map((section, index) => (
@@ -156,7 +205,7 @@ const ProjectDetail: React.FC = () => {
                 )}
               </div>
             </div>
-            {(section.image || section.video) && (
+            {(section.image || section.video || section.icon) && (
               <div className="section-media">
                 {section.video ? (
                   <div className="video-container">
@@ -167,8 +216,10 @@ const ProjectDetail: React.FC = () => {
                       allowFullScreen
                     ></iframe>
                   </div>
-                ) : (
+                ) : section.image ? (
                   <img src={section.image} alt={section.title || 'Project Visual'} className="project-image" />
+                ) : (
+                  renderPlaceholder(section.icon, section.title)
                 )}
               </div>
             )}
@@ -214,7 +265,7 @@ const ProjectDetail: React.FC = () => {
           />
         </div>
       </div>
-    </motion.div>
+    </motion.div >
   );
 };
 

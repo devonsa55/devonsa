@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MessageSquare, Video, Store, Shield, Fingerprint, GitMerge } from 'lucide-react';
+import { ArrowRight, MessageSquare, Video, Store, Shield, Fingerprint, GitMerge, TrendingUp } from 'lucide-react';
 import { projects, ProjectCaseStudy } from '../data/projects';
 import { strategyFrameworks } from '../data/strategy';
 import SectionHeader from './ui/SectionHeader';
@@ -30,6 +30,7 @@ const Work = () => {
       // Strategy Icons
       case 'Fingerprint': return <Fingerprint size={48} />;
       case 'GitMerge': return <GitMerge size={48} />;
+      case 'TrendingUp': return <TrendingUp size={48} />;
       default: return null;
     }
   };
@@ -54,7 +55,7 @@ const Work = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
-              className={`project-card ${project.id === 'conversational-insights' ? 'span-2-col span-2-row' : ''} ${project.id === 'merchant-comms-platform' ? 'span-2-row' : ''}`}
+              className={`project-card ${project.id === 'conversational-insights' ? 'span-2-col span-2-row' : ''} ${project.id === 'merchant-comms' ? 'span-2-row' : ''}`}
             >
               <Link to={project.link} className="project-link">
                 <div className="project-image-container">

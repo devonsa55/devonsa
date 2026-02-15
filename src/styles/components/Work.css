@@ -10,7 +10,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 400px;
-    gap: 1.5rem;
+    gap: var(--grid-gap);
     margin-top: 2rem;
 }
 
@@ -62,7 +62,7 @@
 }
 
 [data-mode='dark'] .project-card {
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--text-primary);
 }
 
 .project-placeholder {
@@ -78,8 +78,7 @@
 }
 
 [data-mode='dark'] .project-placeholder {
-    background: #1F2937;
-    /* Darker gray for dark mode */
+    background: var(--text-secondary);
 }
 
 .placeholder-content {
@@ -91,7 +90,7 @@
 }
 
 .placeholder-icon {
-    color: #9CA3AF;
+    color: var(--bg-primary);
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
 }
 
@@ -101,8 +100,8 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #9CA3AF;
-    opacity: 0.8;
+    color: var(--bg-primary);
+    opacity: 1;
 }
 
 .project-card:hover .placeholder-icon {
@@ -168,8 +167,10 @@
 
 
 .project-card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    background: var(--hover-bg);
     box-shadow: var(--shadow-hover);
+    border-color: var(--accent-purple);
 }
 
 .project-card:hover .project-info {
@@ -418,8 +419,10 @@
 }
 
 .article-card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    background: var(--hover-bg);
     box-shadow: var(--shadow-hover);
+    border-color: var(--accent-purple);
 }
 
 .article-thumbnail {
@@ -428,7 +431,7 @@
     border-radius: 12px;
     overflow: hidden;
     background: var(--bg-secondary);
-    border: 1px solid var(--border-subtle);
+    border: 2px solid var(--text-primary);
 }
 
 .article-thumbnail img {
@@ -589,7 +592,7 @@
     justify-content: center;
     gap: 1rem;
     text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 2px solid var(--text-primary);
 }
 
 [data-mode='dark'] .diagram-placeholder {
@@ -604,8 +607,8 @@
     overflow: hidden;
     background: var(--bg-tertiary);
     aspect-ratio: 16/9;
-    box-shadow: var(--shadow-xl);
-    border: 1px solid var(--border-subtle);
+    border: 2px solid var(--text-primary);
+    box-shadow: none;
     position: relative;
 }
 

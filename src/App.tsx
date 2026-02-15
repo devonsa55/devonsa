@@ -13,6 +13,8 @@ import { ThemeProvider } from './context/ThemeContext'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
+import ProfileCard from './components/ui/ProfileCard'
+import { aboutData } from './data/about'
 
 const ScrollToHash = () => {
   const { pathname, hash } = useLocation();
@@ -34,8 +36,6 @@ const ScrollToHash = () => {
   return null;
 };
 
-import ProfileCard from './components/ui/ProfileCard'
-import { aboutData } from './data/about'
 
 const Home = () => {
   return (

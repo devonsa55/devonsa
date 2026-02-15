@@ -18,10 +18,30 @@
   --spacing-lg: 4rem;
   --spacing-xl: 8rem;
 
+  /* Global Gutter Controls (Safe Area) */
+  --grid-gap: 1rem;
+  --container-padding: 40px;
+
+  /* Project Page Independent Spacing (Editorial Luxe) */
+  --project-padding: 10vw;
+  --project-section-margin: 180px;
+
   --dot-size: 1.5px;
   --dot-space: 24px;
 
   --deco-stroke-width: 4;
+
+  @media (max-width: 1024px) {
+    --project-padding: 6vw;
+    --project-section-margin: 120px;
+  }
+
+  @media (max-width: 768px) {
+    --grid-gap: 1.5rem;
+    --container-padding: 32px;
+    --project-padding: 32px;
+    --project-section-margin: 80px;
+  }
 
   /* Shared Color Tokens */
   --color-success: #10b981;
@@ -34,8 +54,10 @@
   --border-width: 2px;
   --neo-shadow: 4px 4px 0px #e0e0e0;
   --shadow-hover: 6px 6px 0px #e0e0e0;
-  --font-mono: 'Google Sans Code', monospace;
-  --font-grotesk: 'Space Grotesk', sans-serif;
+  --font-mono: 'Google Sans Code',
+  monospace;
+  --font-grotesk: 'Space Grotesk',
+  sans-serif;
 
   /* Hero Highlight Palette (Extracted from reference) */
   --aqua-green: #54CEA1;
@@ -93,7 +115,7 @@
   --dot-color: rgba(255, 255, 255, 0.05);
   --hover-bg: #27272a;
   --neo-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.1);
-  --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 1px rgba(255, 255, 255, 0.2);
+  --shadow-hover: 6px 6px 0px #27272a;
 }
 
 
@@ -231,9 +253,8 @@ img {
 
 .container {
   max-width: 1176px;
-  /* (15 dots * 3 columns) + (1 dot * 2 gaps) + (1 dot * 2 margins) * 24px */
   margin: 0 auto;
-  padding: 0 var(--dot-space);
+  padding: 0 var(--container-padding);
 }
 
 .btn-primary {
@@ -243,7 +264,7 @@ img {
   border-radius: var(--radius-button);
   font-weight: 600;
   font-size: 0.95rem;
-  box-shadow: 0 8px 24px rgba(var(--accent-purple-rgb), 0.25);
+  box-shadow: none;
   border: 2px solid transparent;
   display: inline-flex;
   align-items: center;
@@ -291,6 +312,7 @@ img {
 .btn-primary:hover {
   transform: translateY(-2px);
   filter: brightness(1.1);
+  box-shadow: var(--shadow-hover);
 }
 
 

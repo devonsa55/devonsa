@@ -80,7 +80,7 @@ export const Chillwave = ({ size = 120 }: { size?: number }) => {
       <style dangerouslySetInnerHTML={{
         __html: `
         .chillwave-path, .surfer-emoji {
-          animation: moveTheWave 9600ms linear infinite;
+          animation: moveTheWave 4800ms linear infinite;
         }
         .chillwave-path {
           stroke-width: calc(var(--deco-stroke-width) / 1.5);

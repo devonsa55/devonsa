@@ -54,6 +54,7 @@ const ProfileCard = ({ image, icon, text, subtext, link, className = '' }: Profi
                     border-radius: 100px;
                     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
                     min-height: 64px; /* Consistent height */
+                    box-shadow: none;
                 }
 
                 /* Contextual padding for icon vs image */
@@ -68,10 +69,10 @@ const ProfileCard = ({ image, icon, text, subtext, link, className = '' }: Profi
                 }
 
                 .profile-card:hover .profile-card-content {
-                    background: var(--bg-primary);
+                    background: var(--hover-bg);
                     border-color: var(--text-primary);
-                    transform: translateY(-2px);
-                    /* Shadow removed as requested */
+                    transform: translateY(-4px);
+                    box-shadow: var(--shadow-hover);
                 }
 
                 .profile-image-wrapper {

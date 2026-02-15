@@ -113,6 +113,7 @@ const Navbar = () => {
           height: 100px;
           display: flex;
           align-items: center;
+          justify-content: center;
           background-color: var(--bg-primary);
           z-index: 1000;
           border-bottom: 2px solid transparent;
@@ -121,6 +122,7 @@ const Navbar = () => {
         .navbar.is-home:not(.is-scrolled) {
           background-image: radial-gradient(var(--dot-color) var(--dot-size), transparent 0);
           background-size: var(--dot-space) var(--dot-space);
+          background-position: var(--grid-align-offset);
           background-color: var(--bg-primary); /* Ensure it's opaque so content slides under */
         }
 
@@ -143,6 +145,7 @@ const Navbar = () => {
         .navbar.is-scrolled.is-home {
           background-image: radial-gradient(var(--dot-color) var(--dot-size), transparent 0);
           background-size: var(--dot-space) var(--dot-space);
+          background-position: var(--grid-align-offset);
         }
 
         .navbar.mobile-menu-open {
@@ -169,8 +172,9 @@ const Navbar = () => {
         }
         .signature-logo-header {
           position: relative;
-          width: 500px;
-          height: 150px;
+          width: 440px; 
+          max-width: 100%;
+          height: 120px;
           background-color: var(--text-primary);
           mask-repeat: no-repeat;
           mask-position: left center;
@@ -179,8 +183,9 @@ const Navbar = () => {
           -webkit-mask-position: left center;
           -webkit-mask-size: contain;
           transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          margin-top: 75px; /* Shifted down to clear the top of the screen */
+          margin-top: 50px; 
           transform-origin: left center;
+          margin-left: 20px; /* Nudged right to align the 'base' of the signature with the page gutter */
         }
 
 
@@ -190,12 +195,13 @@ const Navbar = () => {
         }
         .is-scrolled .signature-logo-header {
           height: 80px;
-          width: 300px;
+          width: 260px;
           margin-top: 10px;
+          margin-left: 20px;
         }
         .nav-links {
           display: flex;
-          gap: 2.5rem;
+          gap: var(--container-padding);
           align-items: center;
           list-style: none;
           margin: 0;
@@ -331,7 +337,7 @@ const Navbar = () => {
           height: 100vh;
           background: var(--bg-primary);
           z-index: 1001;
-          padding: 180px 24px 40px; /* CONTROL: This pushes the menu links (Home, Work, etc) down */
+          padding: 180px var(--container-padding) 40px; /* Synchronized with global gutter */
           overflow-y: auto;
         }
 
@@ -443,14 +449,16 @@ const Navbar = () => {
             align-items: center;
           }
           .signature-logo-header {
-            width: 300px; /* Increased to stay more prominent */
+            width: 280px; 
             height: 100px;
             margin-top: 15px;
+            margin-left: 15px;
           }
           .is-scrolled .signature-logo-header {
             width: 180px;
             height: 60px;
             margin-top: 0;
+            margin-left: 15px;
           }
           .is-scrolled .mobile-toggle {
             margin-top: 0;

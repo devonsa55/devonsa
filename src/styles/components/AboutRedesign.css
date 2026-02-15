@@ -89,14 +89,14 @@
 .work-grid-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    gap: var(--grid-gap);
 }
 
 .work-card {
     background: var(--bg-secondary);
     padding: 2.5rem;
     border-radius: var(--radius-card);
-    border: 1px solid var(--border-subtle);
+    border: 2px solid var(--text-primary);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -278,7 +278,7 @@
     border-radius: 32px;
     border: 2px solid var(--text-primary);
     background: var(--bg-primary);
-    box-shadow: 8px 8px 0px var(--text-primary);
+    box-shadow: none;
 }
 
 /* Timeline Anchor Refinements */
