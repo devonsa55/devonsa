@@ -172,9 +172,9 @@ const Navbar = () => {
         }
         .signature-logo-header {
           position: relative;
-          width: 440px; 
+          width: 493px; 
           max-width: 100%;
-          height: 120px;
+          height: 134px;
           background-color: var(--text-primary);
           mask-repeat: no-repeat;
           mask-position: left center;
@@ -183,7 +183,7 @@ const Navbar = () => {
           -webkit-mask-position: left center;
           -webkit-mask-size: contain;
           transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          margin-top: 50px; 
+          margin-top: 66px; 
           transform-origin: left center;
           margin-left: 20px; /* Nudged right to align the 'base' of the signature with the page gutter */
         }
@@ -194,8 +194,8 @@ const Navbar = () => {
            opacity: 0.8;
         }
         .is-scrolled .signature-logo-header {
-          height: 80px;
-          width: 260px;
+          height: 90px;
+          width: 291px;
           margin-top: 10px;
           margin-left: 20px;
         }
@@ -417,13 +417,13 @@ const Navbar = () => {
         /* Medium Screens / Tablets */
         @media (max-width: 1024px) {
           .signature-logo-header {
-            width: 350px;
-            height: 100px;
-            margin-top: 40px;
+            width: 392px;
+            height: 112px;
+            margin-top: 60px;
           }
           .is-scrolled .signature-logo-header {
-            width: 280px;
-            height: 75px;
+            width: 314px;
+            height: 84px;
             margin-top: 5px;
           }
         }
@@ -449,14 +449,14 @@ const Navbar = () => {
             align-items: center;
           }
           .signature-logo-header {
-            width: 280px; 
-            height: 100px;
-            margin-top: 15px;
+            width: 314px; 
+            height: 112px;
+            margin-top: 44px;
             margin-left: 15px;
           }
           .is-scrolled .signature-logo-header {
-            width: 180px;
-            height: 60px;
+            width: 202px;
+            height: 67px;
             margin-top: 0;
             margin-left: 15px;
           }
@@ -468,8 +468,8 @@ const Navbar = () => {
         /* Tiny Screens (e.g. iPhone SE, Fold closed) */
         @media (max-width: 375px) {
           .signature-logo-header {
-            width: 240px; 
-            height: 85px;
+            width: 269px; 
+            height: 95px;
           }
           .navbar { padding-top: 1vh; }
         }
