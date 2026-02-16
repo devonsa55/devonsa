@@ -7,8 +7,8 @@ import { strategyFrameworks } from '../data/strategy';
 import SectionHeader from './ui/SectionHeader';
 import SplitFlapBoard from './ui/SplitFlapBoard';
 
-// TOGGLE WIP MODE HERE
-const IS_UNDER_CONSTRUCTION = false;
+// TOGGLE WIP MODE: Set to true on live site, false locally
+const IS_UNDER_CONSTRUCTION = import.meta.env.MODE === 'production';
 
 const Work = () => {
   useState<ProjectCaseStudy | null>(null);
