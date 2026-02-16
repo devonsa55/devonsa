@@ -8,7 +8,7 @@ import SectionHeader from './ui/SectionHeader';
 import SplitFlapBoard from './ui/SplitFlapBoard';
 
 // TOGGLE WIP MODE HERE
-const IS_UNDER_CONSTRUCTION = true;
+const IS_UNDER_CONSTRUCTION = false;
 
 const Work = () => {
   useState<ProjectCaseStudy | null>(null);
