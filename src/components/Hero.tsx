@@ -265,7 +265,7 @@ const Hero = () => {
       <style dangerouslySetInnerHTML={{
         __html: `
         .hero {
-          padding-top: 10vh;
+          padding-top: 12vh;
           padding-bottom: 0;
           min-height: 85vh; /* Reduced height to allow work to peek */
           overflow: visible;

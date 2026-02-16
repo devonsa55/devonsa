@@ -55,8 +55,8 @@ const Navbar = () => {
             role="img"
             aria-label="Devon Anderson"
             style={{
-              maskImage: `url(${getAssetPath('/assets/Handwriting.svg')})`,
-              WebkitMaskImage: `url(${getAssetPath('/assets/Handwriting.svg')})`
+              maskImage: `url(${getAssetPath('/assets/Handwriting-2.svg')})`,
+              WebkitMaskImage: `url(${getAssetPath('/assets/Handwriting-2.svg')})`
             }}
           />
         </Link>
@@ -174,9 +174,9 @@ const Navbar = () => {
         }
         .signature-logo-header {
           position: relative;
-          width: 510px; 
+          width: 150px; 
           max-width: 100%;
-          height: 139px;
+          height: 161px;
           background-color: var(--text-primary);
           mask-repeat: no-repeat;
           mask-position: left center;
@@ -185,7 +185,7 @@ const Navbar = () => {
           -webkit-mask-position: left center;
           -webkit-mask-size: contain;
           transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          margin-top: 80px; 
+          margin-top: 5.5rem; 
           transform-origin: left center;
           margin-left: 20px; /* Nudged right to align the 'base' of the signature with the page gutter */
         }
@@ -196,9 +196,9 @@ const Navbar = () => {
            opacity: 0.8;
         }
         .is-scrolled .signature-logo-header {
-          height: 90px;
-          width: 291px;
-          margin-top: 10px;
+          height: 107px;
+          width: 100px;
+          margin-top: 5px;
           margin-left: 20px;
         }
         .nav-links {

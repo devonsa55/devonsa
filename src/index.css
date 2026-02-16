@@ -23,7 +23,7 @@
   --container-padding: 40px;
 
   /* Project Page Independent Spacing (Editorial Luxe) */
-  --project-padding: 10vw;
+  --project-padding: var(--container-padding);
   --project-section-margin: 180px;
 
   --dot-size: 1.5px;
@@ -34,14 +34,14 @@
   --deco-stroke-width: 4;
 
   @media (max-width: 1024px) {
-    --project-padding: 6vw;
+    --project-padding: var(--container-padding);
     --project-section-margin: 120px;
   }
 
   @media (max-width: 768px) {
     --grid-gap: 1.5rem;
     --container-padding: 32px;
-    --project-padding: 32px;
+    --project-padding: var(--container-padding);
     --project-section-margin: 80px;
   }
 
