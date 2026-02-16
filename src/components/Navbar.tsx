@@ -11,6 +11,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const location = useLocation();
+  const IS_UNDER_CONSTRUCTION = import.meta.env.MODE === 'production';
 
   const isHomePage = location.pathname === '/';
   const isDetailPage = location.pathname.startsWith('/project/') || location.pathname.startsWith('/strategy/');
@@ -63,7 +64,7 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <div className="nav-links desktop-only">
-          <Link to="/#work" className="nav-link-work">Work</Link>
+          <Link to="/#work" className="nav-link-work">{IS_UNDER_CONSTRUCTION ? '🚧WIP🚧' : 'Work'}</Link>
           <div className="nav-stack">
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
@@ -95,7 +96,7 @@ const Navbar = () => {
                 <span className="mobile-nav-label">Navigation</span>
                 <ul className="mobile-nav-links">
                   <li><Link to="/">Home</Link></li>
-                  <li><Link to="/#work">Work</Link></li>
+                  <li><Link to="/#work">{IS_UNDER_CONSTRUCTION ? '🚧WIP🚧' : 'Work'}</Link></li>
                   <li><Link to="/about">About</Link></li>
                   <li><Link to="/contact">Contact</Link></li>
                 </ul>
