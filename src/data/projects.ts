@@ -31,6 +31,8 @@ export interface ProjectCaseStudy {
   color?: string;
   darkColor?: string;
   iconName?: string;
+  template?: 'slack' | 'default';
+  impact?: string;
 }
 
 
@@ -51,41 +53,37 @@ export const projects: ProjectCaseStudy[] = [
     role: 'Lead Product Designer',
     team: 'Product Managers, LLM Engineers, Data Scientists',
     timeline: '2023 - Present',
-    outcomes: [
-      'Shipped to Global Beta',
-      'High engagement in pilot tests',
-      'Reduced time-to-insight for complex queries',
-      'Established organization-wide strategy for conversational AI patterns.'
-    ],
+    impact: 'Live in Global Beta',
+    template: 'slack',
     sections: [
       {
         title: 'The Problem',
         content: 'Merchants today struggle with overloaded dashboards. They often "don\'t always understand the information" presented in static reports, creating a gap between data availability and business action.',
-        image: 'placeholder-problem.png', // Placeholder for Visual B
-        layout: 'side-by-side'
+        image: 'placeholder-problem.png',
+        layout: 'full-image'
       },
       {
         title: '3 Pillars of Personalized Insights',
         content: 'To solve this, we proposed three distinct levels of AI intervention: Smart Snippets for quick wins, Smart Reports for trend analysis, and a Performance Assistant for deep, open-ended exploration.',
-        image: 'placeholder-strategy.png', // Placeholder for Visual C
-        layout: 'side-by-side'
+        image: 'placeholder-strategy.png',
+        layout: 'full-image'
       },
       {
         title: 'Smart Snippets',
         content: 'AI-generated summaries pushed proactive insights to users who didn\'t know what to ask. This lowered the floor for data literacy by highlighting what matters most in a single sentence.',
-        image: 'placeholder-snippets.png', // Placeholder for Visual D
+        image: 'placeholder-snippets.png',
         layout: 'full-image'
       },
       {
         title: 'The Deep Dive: Performance Assistant',
         content: 'For deeper questions, the conversational interface adapts to the merchant\'s level of data literacy, allowing for a progressive disclosure of complexity as the user drills into specific metrics.',
-        image: 'placeholder-chat.png', // Placeholder for Visual E
-        layout: 'side-by-side'
+        image: 'placeholder-chat.png',
+        layout: 'full-image'
       },
       {
         title: 'Trust & Hallucination Framework',
         content: 'To ensure reliability, we developed a comprehensive evaluation framework that categorized AI outputs by helpfulness vs. hallucination risk, providing a technical baseline for design decisions.',
-        image: 'placeholder-trust.png', // Placeholder for Visual F
+        image: 'placeholder-trust.png',
         layout: 'full-image'
       }
     ],
@@ -108,42 +106,40 @@ export const projects: ProjectCaseStudy[] = [
     role: 'Lead Product Designer & Strategy',
     team: 'AI Research, Ads Engineering, UX',
     timeline: '2024',
-    result: 'Double-digit Ad Revenue Uplift',
-    outcomes: [
-      'Early experiments showed double-digit increases in Click-Through-Conversion (CTC).',
-      'Significant uplifts in Ad Revenue for merchants using ShopStream video assets.',
-      'Powering >80% of PMax GenAI video revenue.'
-    ],
+    result: '80% of PMax Video Rev',
+    resultLabel: 'Revenue',
+    impact: 'Strategic Revenue Driver',
+    template: 'slack',
     sections: [
       {
         title: 'The Market Gap',
         content: 'Video content is the future of commerce, but it\'s prohibitively expensive for most small businesses. We set out to close this "Creative Gap" by automating the production of high-quality video assets.',
-        icon: 'TrendingUp',
-        layout: 'side-by-side'
+        image: 'public/images/projects/shopstream/market_gap.png',
+        layout: 'full-image'
       },
       {
         title: 'The ShopStream Engine',
         content: 'Under the hood, our pipeline handles Signal Collection, Generation, and Serving. We simplified a complex technical workflow into a clean design system that focuses on input-to-output efficiency.',
-        icon: 'Cpu',
-        layout: 'side-by-side'
+        image: 'public/images/projects/shopstream/engine.png',
+        layout: 'full-image'
       },
       {
         title: 'Integrated Creation Workflow',
         content: 'Instead of a standalone tool, we piloted ShopStream as a native experience inside Shopify and Merchant Center, meeting users where they already manage their business.',
-        icon: 'Wrench',
-        layout: 'side-by-side'
+        image: 'public/images/projects/shopstream/integration.png',
+        layout: 'full-image'
       },
       {
         title: 'Multichannel Distribution',
         content: 'The generated assets are designed to live natively on YouTube Shorts, Discover, and Gmail, ensuring brand-aligned quality across all major Google surfaces.',
-        icon: 'Youtube',
-        layout: 'side-by-side'
+        image: 'public/images/projects/shopstream/distribution.png',
+        layout: 'full-image'
       },
       {
         title: 'Business Impact',
         content: 'Early experiments showed double-digit increases in Click-Through-Conversion (CTC) and significant uplifts in Ad Revenue for merchants using ShopStream video assets.',
-        icon: 'Zap',
-        layout: 'text-only'
+        image: 'public/images/projects/shopstream/impact.png',
+        layout: 'full-image'
       }
     ],
     challenge: 'Bridging the Creative Gap: Transforming static catalogs into dynamic video without sacrificing brand quality or merchant control.'
@@ -158,6 +154,7 @@ export const projects: ProjectCaseStudy[] = [
     iconName: 'MessageSquare',
     tags: ['Systems Design', 'Product Strategy', 'Scale'],
     link: '/project/merchant-comms',
+    template: 'slack',
     color: '#eff6ff',
     darkColor: '#1e293b',
     problem: 'Google’s business messaging was fragmented across surfaces. A user on Maps had a different chat experience than a user on Search, and merchants were forced to use Google’s proprietary inbox, ignoring the tools they already used (Zendesk, Shopify).',
@@ -167,6 +164,7 @@ export const projects: ProjectCaseStudy[] = [
     timeline: '2018–2023',
     result: '18M+ Merchants / 9M+ Conversations',
     resultLabel: 'Scale',
+    impact: 'Google-wide Standard',
     outcomes: [
       'Scaled the ecosystem to 18 million active merchants.',
       'Driving 9 million monthly conversations.',
@@ -176,32 +174,26 @@ export const projects: ProjectCaseStudy[] = [
       {
         title: 'The "Spaghetti" Problem',
         content: 'Our client strategy was confusing and fragmented across Android, iOS, and Web. Standardizing this was the first step toward a coherent platform architecture.',
-        icon: 'Share2',
-        layout: 'side-by-side'
+        image: 'placeholder-comms-fragmentation.png',
+        layout: 'full-image'
       },
       {
         title: 'Introducing the "Mole"',
         content: 'A persistent, non-intrusive chat window on Desktop Search that maintained context while users browsed, bridging the gap between discovery and conversation.',
-        icon: 'Monitor',
-        layout: 'side-by-side'
+        image: 'placeholder-comms-mole.png',
+        layout: 'full-image'
       },
       {
         title: 'The Strategic Pivot',
         content: 'Instead of a walled garden, we enabled 3rd-party integrations with tools like Zendesk and Shopify, meeting merchants where they already work.',
-        icon: 'Store',
-        layout: 'side-by-side'
+        image: 'placeholder-comms-integrations.png',
+        layout: 'full-image'
       },
       {
         title: 'Multichannel Adaptation',
         content: 'Ensuring a consistent experience across different entry points—from local inventory on Maps to support queries on Search—at a global scale.',
-        icon: 'Smartphone',
-        layout: 'side-by-side'
-      },
-      {
-        title: 'Systemic Impact',
-        content: 'By unifying the communication stack, we unlocked massive scale, reaching 18M merchants and driving engagement as the platform\'s primary interaction channel.',
-        icon: 'TrendingUp',
-        layout: 'text-only'
+        image: 'placeholder-comms-multichannel.png',
+        layout: 'full-image'
       }
     ],
     challenge: 'Unifying a multi-surface ecosystem into a single, scalable platform that works for both global enterprises and small local businesses.'
@@ -223,50 +215,34 @@ export const projects: ProjectCaseStudy[] = [
     role: 'Lead Product Designer',
     team: 'Verizon & Sprint Cross-functional Teams',
     timeline: '2016–2018',
-    result: '1.7M+ Paying Subscribers / 4.5+ Star Rating',
-    resultLabel: 'Scale',
-    outcomes: [
-      'Successfully launched to 1.7M active users across two major US carriers.',
-      'Achieved a 4.5+ Star Rating (up from 2.5 stars on the legacy app).',
-      'Unified location and parental controls into a single UX framework.',
-      'Secured long-term carrier contracts through a modernized future vision.'
-    ],
+    result: '4.5+ Star Rating',
+    resultLabel: 'Impact',
+    impact: 'Legacy Transformation',
+    template: 'slack',
     sections: [
       {
         title: 'The "Evolution"',
         content: 'From legacy utility to modern subscription service. We transitioned the mental model from "pins on a map" to "family members in context," humanizing the data points through avatars and intuitive status updates.',
-        icon: 'RefreshCcw',
-        layout: 'side-by-side'
-      },
-      {
-        title: 'The "Messy" Reality',
-        content: 'User interviews revealed that parents felt guilty "spying" on their kids. We needed to pivot to "safety and connection," addressing the high cognitive load and dated navigation of the legacy Sprint experience.',
-        icon: 'CircleAlert',
-        layout: 'side-by-side'
-      },
-      {
-        title: 'Humanizing Location Data',
-        content: 'Moving beyond simple coordinates, we focused on "Bubbles" and avatars. This key design decision helped reframe the app as a tool for coordination and peace of mind rather than just surveillance.',
-        icon: 'Map',
-        layout: 'side-by-side'
+        image: 'placeholder-family-evolution.png',
+        layout: 'full-image'
       },
       {
         title: 'The Digital Parenting Suite',
         content: 'It wasn\'t just a map; it was a comprehensive system for managing digital life. We unified content filters, driving scores, and "Pause Internet" features into a single, cohesive subscription experience.',
-        icon: 'LayoutGrid',
-        layout: 'side-by-side'
+        image: 'placeholder-family-suite.png',
+        layout: 'full-image'
       },
       {
         title: 'Systems & Craft',
         content: 'To ensure consistency across the massive family of apps, we built a comprehensive component library and iconography set, proving that premium design can exist within complex carrier frameworks.',
-        icon: 'Palette',
-        layout: 'side-by-side'
+        image: 'placeholder-family-craft.png',
+        layout: 'full-image'
       },
       {
         title: 'High-Scale Impact',
         content: 'The results spoke for themselves: a jump from 2.5 to 4.5 stars and 1.7M+ paying subscribers. "Finally an app that doesn\'t make me feel like a jailer," noted one user review.',
-        icon: 'Star',
-        layout: 'text-only'
+        image: 'placeholder-family-impact.png',
+        layout: 'full-image'
       }
     ],
     challenge: 'Managing massive technical debt and legacy backend systems while delivering a modern, high-confidence user experience that parents trust.'

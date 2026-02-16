@@ -1,7 +1,7 @@
 .project-detail {
     padding: 120px 0;
     background: var(--bg-primary);
-    background-image: radial-gradient(var(--dot-color) calc(var(--dot-size) * var(--show-dot-grid-project)), transparent 0) !important;
+    background-image: radial-gradient(var(--dot-color-project) calc(var(--dot-size) * var(--show-dot-grid-project)), transparent 0) !important;
     background-size: var(--dot-space) var(--dot-space) !important;
 }
 
@@ -25,7 +25,7 @@
     height: 80px;
     display: block;
     background-color: var(--bg-primary);
-    background-image: radial-gradient(var(--dot-color) calc(var(--dot-size) * var(--show-dot-grid-project)), transparent 0);
+    background-image: radial-gradient(var(--dot-color-project) calc(var(--dot-size) * var(--show-dot-grid-project)), transparent 0);
     background-size: var(--dot-space) var(--dot-space);
     border-bottom: 2px solid var(--text-primary);
     pointer-events: none;
@@ -347,4 +347,131 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     opacity: 1;
+}
+
+/* --- Slack Style Template --- */
+.slack-template {
+    background: var(--bg-primary);
+}
+
+.slack-header {
+    padding: 120px 0 60px;
+    max-width: 900px;
+}
+
+.slack-header h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin-bottom: 2rem;
+}
+
+.slack-intro-text {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    max-width: 800px;
+    font-weight: 500;
+}
+
+.slack-metadata-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 2rem 0;
+    margin: 80px 0;
+    gap: 2rem;
+}
+
+.meta-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.meta-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    font-weight: 700;
+}
+
+.meta-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.slack-visual-scroll {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    padding-bottom: 120px;
+}
+
+.slack-section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.slack-visual {
+    width: 100%;
+    background: var(--bg-secondary);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 2px solid var(--text-primary);
+}
+
+.slack-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.slack-annotation {
+    max-width: 600px;
+    padding-left: 20px;
+}
+
+.slack-annotation h3 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.slack-annotation p {
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.slack-footer {
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 80px;
+    margin-top: 80px;
+}
+
+@media (max-width: 768px) {
+    .slack-metadata-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .slack-header h1 {
+        font-size: 3.5rem;
+    }
+
+    .slack-intro-text {
+        font-size: 1.25rem;
+    }
+
+    .slack-visual-scroll {
+        gap: 80px;
+    }
 }

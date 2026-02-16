@@ -1,6 +1,9 @@
 .contact {
     padding: 30vh 0;
     background: var(--bg-primary);
+    background-image: radial-gradient(var(--dot-color-contact) calc(var(--dot-size) * var(--show-dot-grid-contact)), transparent 0);
+    background-size: var(--dot-space) var(--dot-space);
+    background-position: var(--grid-align-offset);
     position: relative;
 }
 

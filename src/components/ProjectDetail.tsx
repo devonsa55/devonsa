@@ -90,6 +90,81 @@ const ProjectDetail: React.FC = () => {
     );
   }
 
+  if (project.template === 'slack') {
+    return (
+      <motion.div {...fadeIn} className="project-detail slack-template">
+        <div className="container">
+          <motion.nav
+            initial={false}
+            animate={{ y: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="sticky-nav-wrapper"
+          >
+            <div className="nav-container">
+              <Link to="/" className="back-link">
+                <ArrowLeft size={18} />
+                <span>Back to Work</span>
+              </Link>
+            </div>
+          </motion.nav>
+
+          <header className="slack-header">
+            <motion.h1 {...fadeInUp}>{project.title}</motion.h1>
+            <motion.p className="slack-intro-text" {...fadeInUp} transition={{ delay: 0.1 }}>
+              {project.problem}
+            </motion.p>
+          </header>
+
+          <div className="slack-metadata-bar">
+            <div className="meta-col">
+              <span className="meta-label">Role</span>
+              <span className="meta-value">{project.role}</span>
+            </div>
+            <div className="meta-col">
+              <span className="meta-label">Team</span>
+              <span className="meta-value">{project.team}</span>
+            </div>
+            <div className="meta-col">
+              <span className="meta-label">Scale</span>
+              <span className="meta-value">{project.result || '18M+ Merchants'}</span>
+            </div>
+            <div className="meta-col">
+              <span className="meta-label">Impact</span>
+              <span className="meta-value">{project.impact || 'Global Scale'}</span>
+            </div>
+          </div>
+
+          <div className="slack-visual-scroll">
+            {project.sections?.map((section, idx) => (
+              <div key={idx} className="slack-section">
+                <div className="slack-visual">
+                  {section.image ? (
+                    <img src={section.image} alt={section.title} />
+                  ) : (
+                    renderPlaceholder(section.icon, section.title)
+                  )}
+                </div>
+                <div className="slack-annotation">
+                  <h3>{section.title}</h3>
+                  <p>{section.content}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="project-footer slack-footer">
+            <ProfileCard
+              icon={<Home size={20} />}
+              text="Back to Home"
+              subtext="See more of my work"
+              link="/"
+            />
+          </div>
+        </div>
+      </motion.div>
+    );
+  }
+
   return (
     <motion.div
       {...fadeIn}

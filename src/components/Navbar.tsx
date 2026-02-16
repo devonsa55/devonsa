@@ -62,11 +62,13 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Links */}
-        <ul className="nav-links desktop-only">
-          <li><Link to="/#work">Work</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-        </ul>
+        <div className="nav-links desktop-only">
+          <Link to="/#work" className="nav-link-work">Work</Link>
+          <div className="nav-stack">
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
+          </div>
+        </div>
 
         {/* Mobile Toggle */}
         <button
@@ -156,7 +158,7 @@ const Navbar = () => {
         .nav-content {
           display: flex;
           justify-content: space-between;
-          align-items: center;
+          align-items: center; /* Generally center, but nav-links will override */
           width: 100%;
           z-index: 1002;
         }
@@ -172,9 +174,9 @@ const Navbar = () => {
         }
         .signature-logo-header {
           position: relative;
-          width: 493px; 
+          width: 510px; 
           max-width: 100%;
-          height: 134px;
+          height: 139px;
           background-color: var(--text-primary);
           mask-repeat: no-repeat;
           mask-position: left center;
@@ -183,7 +185,7 @@ const Navbar = () => {
           -webkit-mask-position: left center;
           -webkit-mask-size: contain;
           transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          margin-top: 66px; 
+          margin-top: 80px; 
           transform-origin: left center;
           margin-left: 20px; /* Nudged right to align the 'base' of the signature with the page gutter */
         }
@@ -201,16 +203,33 @@ const Navbar = () => {
         }
         .nav-links {
           display: flex;
-          gap: var(--container-padding);
-          align-items: center;
-          list-style: none;
+          gap: 2rem;
+          align-items: flex-start; /* Align Work with top of stack */
           margin: 0;
           padding: 0;
         }
+        
+        .nav-stack {
+          display: flex;
+          flex-direction: column;
+          gap: 0; /* Remove gap as rotation handles spacing */
+          position: relative;
+        }
+
+        .nav-stack a:last-child {
+          position: absolute;
+          top: 0;
+          right: -8px;
+          transform-origin: top right;
+          transform: rotate(90deg) translateX(100%);
+          margin-top: 3rem;
+          white-space: nowrap;
+        }
+
         .nav-links a {
           font-family: var(--font-heading);
           font-weight: 800;
-          font-size: 1.5rem;
+          font-size: 1.4rem;
           color: var(--text-primary);
           text-decoration: none;
           transition: all 0.3s ease;
@@ -416,16 +435,6 @@ const Navbar = () => {
         
         /* Medium Screens / Tablets */
         @media (max-width: 1024px) {
-          .signature-logo-header {
-            width: 392px;
-            height: 112px;
-            margin-top: 60px;
-          }
-          .is-scrolled .signature-logo-header {
-            width: 314px;
-            height: 84px;
-            margin-top: 5px;
-          }
         }
 
         /* Mobile Screens */

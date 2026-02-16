@@ -1,6 +1,9 @@
 .about {
     padding-top: 10rem;
     background: var(--bg-primary);
+    background-image: radial-gradient(var(--dot-color-about) calc(var(--dot-size) * var(--show-dot-grid-about)), transparent 0);
+    background-size: var(--dot-space) var(--dot-space);
+    background-position: var(--grid-align-offset);
     position: relative;
     font-family: var(--font-body);
 }
@@ -291,4 +294,66 @@
     color: var(--bg-primary);
     /* For highlighted background if any, or just white */
     color: white;
+}
+
+/* --- Googly Eyes Easter Egg --- */
+.about-image-wrapper {
+    position: relative;
+    user-select: none;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* Container matches the 300px width of the image to keep eyes locked */
+.eye-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.googly-eye {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle at 35% 35%, #ffffff 0%, #f8f8f8 45%, #e0e0e0 85%, #b0b0b0 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.2),
+        inset 0 -3px 8px rgba(0, 0, 0, 0.05),
+        inset 0 2px 4px rgba(255, 255, 255, 1);
+    overflow: visible;
+}
+
+.iris {
+    width: 22px;
+    height: 22px;
+    background: #000;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 0.05s linear;
+}
+
+/* The round "bite" highlight style from the reference */
+.iris::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 15%;
+    width: 9px;
+    height: 9px;
+    background: white;
+    border-radius: 50%;
+}
+
+/* Add a funny hover effect when toggled */
+.about-image-wrapper.is-googly img {
+    filter: saturate(1.2);
 }
