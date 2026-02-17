@@ -141,6 +141,10 @@
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+.project-card.top-align .project-card-image {
+    object-position: top;
+}
+
 .project-card-image.is-logo {
     width: 70%;
     height: 70%;

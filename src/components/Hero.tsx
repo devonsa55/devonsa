@@ -265,9 +265,9 @@ const Hero = () => {
       <style dangerouslySetInnerHTML={{
         __html: `
         .hero {
-          padding-top: 16vh;
+          padding-top: 100px; /* Account for fixed navbar height */
           padding-bottom: 0;
-          min-height: 85vh; /* Reduced height to allow work to peek */
+          min-height: 85vh; /* Allow work to peek */
           overflow: visible;
           position: relative;
           display: flex;

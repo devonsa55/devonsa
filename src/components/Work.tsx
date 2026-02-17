@@ -55,7 +55,7 @@ const Work = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
-              className={`project-card ${project.id === 'conversational-insights' ? 'span-2-col span-2-row' : ''} ${project.id === 'merchant-comms' ? 'span-2-row' : ''}`}
+              className={`project-card ${project.id === 'conversational-insights' ? 'span-2-col span-2-row' : ''} ${project.id === 'merchant-comms' ? 'span-2-row' : ''} ${project.id === 'family-safety-platforms' ? 'top-align' : ''}`}
             >
               <Link to={project.link} className="project-link">
                 <div className="project-image-container">

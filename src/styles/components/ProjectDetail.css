@@ -34,7 +34,7 @@
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 5%;
+    padding: 0 var(--project-padding);
     height: 100%;
     display: flex;
     align-items: center;
@@ -106,8 +106,12 @@
     overflow: hidden;
     background: var(--bg-secondary);
     border: 2px solid var(--text-primary);
-    box-shadow: none !important;
     transition: var(--transition-smooth);
+}
+
+.project-hero-media:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover) !important;
 }
 
 .hero-image {
@@ -191,8 +195,12 @@
     border-radius: var(--radius-card);
     overflow: hidden;
     border: 2px solid var(--text-primary);
-    box-shadow: none !important;
     transition: var(--transition-smooth);
+}
+
+.section-media:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover) !important;
 }
 
 .project-image {
@@ -377,7 +385,7 @@
 
 .slack-metadata-bar {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     border-top: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
     padding: 2rem 0;
@@ -407,30 +415,70 @@
 }
 
 .slack-visual-scroll {
-    display: flex;
-    flex-direction: column;
-    gap: 120px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 240px 60px;
+    /* Grand editorial spacing between sections */
     padding-bottom: 120px;
+}
+
+@media (max-width: 768px) {
+    .slack-visual-scroll {
+        grid-template-columns: 1fr;
+        gap: 160px;
+    }
+
+    .slack-section {
+        grid-column: span 1 !important;
+        gap: 24px;
+    }
+
+    .slack-visual {
+        aspect-ratio: auto;
+        min-height: 200px;
+    }
 }
 
 .slack-section {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 24px;
+    /* Tightened micro-grouping for better Gestalt connection */
 }
 
 .slack-visual {
     width: 100%;
+    /* Container wraps image perfectly */
     background: var(--bg-secondary);
     border-radius: 24px;
     overflow: hidden;
     border: 2px solid var(--text-primary);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.slack-section.span-2 .slack-visual {
+    aspect-ratio: auto;
+}
+
+.slack-visual:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--text-primary);
 }
 
 .slack-visual img {
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slack-visual:hover img {
+    transform: none;
 }
 
 .slack-annotation {

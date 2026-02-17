@@ -5,6 +5,8 @@ export interface ProjectSection {
   video?: string;
   icon?: string;
   layout?: 'text-only' | 'side-by-side' | 'full-image' | 'video';
+  gridSpan?: number;
+  bgColor?: string;
 }
 
 export interface ProjectCaseStudy {
@@ -33,57 +35,49 @@ export interface ProjectCaseStudy {
   iconName?: string;
   template?: 'slack' | 'default';
   impact?: string;
+  complexity?: string;
+  context?: string;
 }
 
 
 export const projects: ProjectCaseStudy[] = [
   {
     id: 'conversational-insights',
-    title: 'Conversational Insights',
+    title: 'Agentic Commerce: Conversational Insights',
     subtitle: 'GenAI & Data Analytics',
     description: 'An Agentic UI embedded in Merchant Center that allows users to query their data using natural language, turning raw analytics into actionable business strategy.',
-    image: '',
-    heroImage: 'placeholder-hero.png', // Placeholder for Visual A
+    image: '/images/projects/conversational-insights/preview.png',
+    heroImage: '/images/projects/conversational-insights/agentic-hero.png',
     iconName: 'MessageSquare',
     tags: ['AI/ML', 'Data Visualization', 'Strategy'],
     link: '/project/conversational-insights',
     color: '#dbeafe',
     darkColor: '#0f172a', /* Deep Slate Blue */
-    problem: 'Small business owners are overwhelmed by data dashboards. They want to know "How am I doing?" and "What should I do next?" but lack the time to analyze complex charts.',
-    role: 'Lead Product Designer',
+    problem: 'UTLT merchants struggle to interpret complex dashboards. I led the design of an LLM-driven assistant that parses raw analytics into natural language, allowing merchants to "query" their business performance directly.',
+    role: 'Design Lead & Strategy (0→1)',
     team: 'Product Managers, LLM Engineers, Data Scientists',
     timeline: '2023 - Present',
-    impact: 'Live in Global Beta',
+    impact: 'Global Merchant Center Ecosystem',
+    result: '80% Merchant Interest',
+    resultLabel: 'Validation',
     template: 'slack',
     sections: [
       {
-        title: 'The Problem',
-        content: 'Merchants today struggle with overloaded dashboards. They often "don\'t always understand the information" presented in static reports, creating a gap between data availability and business action.',
-        image: 'placeholder-problem.png',
+        title: 'From Dashboard Overload to Conversational Clarity',
+        content: 'UTLT merchants struggle to interpret complex dashboards. I led the design of an LLM-driven assistant that parses raw analytics into natural language, allowing merchants to "query" their business performance directly.',
+        image: '/images/projects/conversational-insights/agentic-hero.png',
         layout: 'full-image'
       },
       {
-        title: '3 Pillars of Personalized Insights',
-        content: 'To solve this, we proposed three distinct levels of AI intervention: Smart Snippets for quick wins, Smart Reports for trend analysis, and a Performance Assistant for deep, open-ended exploration.',
-        image: 'placeholder-strategy.png',
+        title: 'Proactive Intelligence',
+        content: 'Moving beyond reactive charts. We designed "Smart Snippets" to push critical insights (e.g., "Traffic is down due to low inventory") to the user before they even ask, establishing trust in the AI model.',
+        image: '/images/projects/conversational-insights/agentic-snippets.png',
         layout: 'full-image'
       },
       {
-        title: 'Smart Snippets',
-        content: 'AI-generated summaries pushed proactive insights to users who didn\'t know what to ask. This lowered the floor for data literacy by highlighting what matters most in a single sentence.',
-        image: 'placeholder-snippets.png',
-        layout: 'full-image'
-      },
-      {
-        title: 'The Deep Dive: Performance Assistant',
-        content: 'For deeper questions, the conversational interface adapts to the merchant\'s level of data literacy, allowing for a progressive disclosure of complexity as the user drills into specific metrics.',
-        image: 'placeholder-chat.png',
-        layout: 'full-image'
-      },
-      {
-        title: 'Trust & Hallucination Framework',
-        content: 'To ensure reliability, we developed a comprehensive evaluation framework that categorized AI outputs by helpfulness vs. hallucination risk, providing a technical baseline for design decisions.',
-        image: 'placeholder-trust.png',
+        title: 'Lowering the Barrier to Data Science',
+        content: 'Enabled merchants to generate complex custom reports using simple natural language prompts, democratizing data access for non-technical business owners.',
+        image: '/images/projects/conversational-insights/agentic-flow.png',
         layout: 'full-image'
       }
     ],
@@ -91,54 +85,43 @@ export const projects: ProjectCaseStudy[] = [
   },
   {
     id: 'shopstream',
-    title: 'ShopStream',
+    title: 'ShopStream: GenAI Video',
     subtitle: 'GenAI Video Pipeline',
     description: 'An AI-powered video generation tool that transforms static merchant catalogs into high-fidelity, brand-aligned video assets automatically.',
-    image: '',
+    image: '/images/projects/shopstream/preview.png',
+    heroImage: '/images/projects/shopstream/shopstream-hero.png',
     heroIcon: 'Monitor',
     iconName: 'Video',
     tags: ['Generative AI', 'Video Design', 'UX Strategy'],
     link: '/project/shopstream',
     color: '#fdf2f8',
     darkColor: '#2d1a1a',
-    problem: 'Video ads convert 60% better than static images, but 69% of small businesses lack the time, budget, or expertise to produce them. They were getting left behind in the shift to video-first platforms like YouTube Shorts and TikTok.',
+    problem: 'Small merchants lack the budget for video production. I led the UX strategy for ShopStream, a GenAI pipeline that transforms standard product photos into high-conversion video assets.',
     solution: 'An end-to-end GenAI pipeline that transforms static product images from a merchant\'s catalog into high-fidelity, brand-aligned video assets automatically.',
-    role: 'Lead Product Designer & Strategy',
+    role: 'Strategic Lead & Principal Designer',
     team: 'AI Research, Ads Engineering, UX',
     timeline: '2024',
-    result: '80% of PMax Video Rev',
-    resultLabel: 'Revenue',
-    impact: 'Strategic Revenue Driver',
+    result: '150k+ Merchants',
+    resultLabel: 'Scale',
+    impact: '+5.4% Revenue Lift & +19% CTR',
     template: 'slack',
     sections: [
       {
-        title: 'The Market Gap',
-        content: 'Video content is the future of commerce, but it\'s prohibitively expensive for most small businesses. We set out to close this "Creative Gap" by automating the production of high-quality video assets.',
-        image: 'public/images/projects/shopstream/market_gap.png',
+        title: 'Turning Static Assets into Revenue Streams',
+        content: 'Small merchants lack the budget for video production. I led the UX strategy for ShopStream, a GenAI pipeline that transforms standard product photos into high-conversion video assets.',
+        image: '/images/projects/shopstream/shopstream-hero.png',
         layout: 'full-image'
       },
       {
-        title: 'The ShopStream Engine',
-        content: 'Under the hood, our pipeline handles Signal Collection, Generation, and Serving. We simplified a complex technical workflow into a clean design system that focuses on input-to-output efficiency.',
-        image: 'public/images/projects/shopstream/engine.png',
+        title: 'Zero-Friction Creation',
+        content: 'Lowering the barrier to entry. Merchants simply select a product, and our model identifies the best assets to animate, removing the need for creative briefs or storyboards.',
+        image: '/images/projects/shopstream/shopstream-input.png',
         layout: 'full-image'
       },
       {
-        title: 'Integrated Creation Workflow',
-        content: 'Instead of a standalone tool, we piloted ShopStream as a native experience inside Shopify and Merchant Center, meeting users where they already manage their business.',
-        image: 'public/images/projects/shopstream/integration.png',
-        layout: 'full-image'
-      },
-      {
-        title: 'Multichannel Distribution',
-        content: 'The generated assets are designed to live natively on YouTube Shorts, Discover, and Gmail, ensuring brand-aligned quality across all major Google surfaces.',
-        image: 'public/images/projects/shopstream/distribution.png',
-        layout: 'full-image'
-      },
-      {
-        title: 'Business Impact',
-        content: 'Early experiments showed double-digit increases in Click-Through-Conversion (CTC) and significant uplifts in Ad Revenue for merchants using ShopStream video assets.',
-        image: 'public/images/projects/shopstream/impact.png',
+        title: 'Create Once, Distribute Everywhere',
+        content: 'Designed a unified ingestion engine where a single generated asset is automatically formatted and distributed across Paid Ads, Organic Search, and Social platforms.',
+        image: '/images/projects/shopstream/shopstream-system.png',
         layout: 'full-image'
       }
     ],
@@ -146,10 +129,11 @@ export const projects: ProjectCaseStudy[] = [
   },
   {
     id: 'merchant-comms',
-    title: 'Merchant Comms Platform',
+    title: 'The Communications Ecosystem',
     subtitle: 'Unified Messaging OS',
     description: 'A unified "Communication as a Service" platform standardizing consumer UX across Search and Maps while opening the ecosystem to 3rd-party integrations.',
-    image: '',
+    image: '/images/projects/merchant-comms/preview.png',
+    heroImage: '/images/projects/merchant-comms/coco-hero.png',
     heroIcon: 'MessageSquare',
     iconName: 'MessageSquare',
     tags: ['Systems Design', 'Product Strategy', 'Scale'],
@@ -159,51 +143,46 @@ export const projects: ProjectCaseStudy[] = [
     darkColor: '#1e293b',
     problem: 'Google’s business messaging was fragmented across surfaces. A user on Maps had a different chat experience than a user on Search, and merchants were forced to use Google’s proprietary inbox, ignoring the tools they already used (Zendesk, Shopify).',
     solution: 'A unified "Communication as a Service" platform. We standardized the consumer UX across surfaces (Search, Maps) and opened the backend to third-party integrations, allowing merchants to answer Google messages from the tools they already use.',
-    role: 'Lead Product Designer',
-    team: 'Maps, Search, Merchant Center',
+    role: 'Lead Interaction Designer (L5)',
     timeline: '2018–2023',
-    result: '18M+ Merchants / 9M+ Conversations',
+    result: '18M Enabled Merchants / 9M Monthly Conversations',
     resultLabel: 'Scale',
-    impact: 'Google-wide Standard',
+    impact: '#1 Driver of Merchant Product Stickiness',
+    complexity: 'Cross-PA (Search, Maps, Ads, Shopping)',
+    sections: [
+      {
+        title: 'Bridging the Gap on Search',
+        content: 'Designed and launched the "Mole"—a persistent, non-intrusive chat layer on Search that drove a significant increase in merchant-consumer engagement by maintaining context during the discovery phase.',
+        image: '/images/projects/merchant-comms/coco-hero.png',
+        layout: 'full-image'
+      },
+      {
+        title: 'Ubiquity without Fragmentation',
+        content: 'Orchestrating a unified messaging layer across different Google surfaces, ensuring that whether a user starts on Maps or Search, the experience remains consistent and high-quality.',
+        image: '/images/projects/merchant-comms/coco-ecosystem.png',
+        layout: 'full-image'
+      },
+      {
+        title: 'Embracing the Open Ecosystem',
+        content: 'Enabling merchants to use their existing tools like Zendesk and Shopify to manage Google conversations, moving away from a walled-garden approach to an open, scalable strategy.',
+        image: '/images/projects/merchant-comms/coco-strategy.png',
+        layout: 'full-image'
+      }
+    ],
     outcomes: [
       'Scaled the ecosystem to 18 million active merchants.',
       'Driving 9 million monthly conversations.',
       'Became the #1 driver of merchant engagement on the platform.'
-    ],
-    sections: [
-      {
-        title: 'The "Spaghetti" Problem',
-        content: 'Our client strategy was confusing and fragmented across Android, iOS, and Web. Standardizing this was the first step toward a coherent platform architecture.',
-        image: 'placeholder-comms-fragmentation.png',
-        layout: 'full-image'
-      },
-      {
-        title: 'Introducing the "Mole"',
-        content: 'A persistent, non-intrusive chat window on Desktop Search that maintained context while users browsed, bridging the gap between discovery and conversation.',
-        image: 'placeholder-comms-mole.png',
-        layout: 'full-image'
-      },
-      {
-        title: 'The Strategic Pivot',
-        content: 'Instead of a walled garden, we enabled 3rd-party integrations with tools like Zendesk and Shopify, meeting merchants where they already work.',
-        image: 'placeholder-comms-integrations.png',
-        layout: 'full-image'
-      },
-      {
-        title: 'Multichannel Adaptation',
-        content: 'Ensuring a consistent experience across different entry points—from local inventory on Maps to support queries on Search—at a global scale.',
-        image: 'placeholder-comms-multichannel.png',
-        layout: 'full-image'
-      }
-    ],
-    challenge: 'Unifying a multi-surface ecosystem into a single, scalable platform that works for both global enterprises and small local businesses.'
+    ]
   },
   {
     id: 'family-safety-platforms',
     title: 'Family Safety Platforms',
     subtitle: 'Unified Carrier Safety Suite',
     description: 'A unified safety ecosystem for 1.7M+ parents across Sprint and Verizon, consolidating location tracking, parental controls, and screen-time management.',
-    image: '',
+    image: '/images/projects/family-safety-platforms/preview.png',
+    heroVideo: 'https://www.youtube.com/embed/1iooNY64eDU',
+    heroImage: '/images/projects/family-safety-platforms/SFL – See Location History.png',
     heroIcon: 'Shield',
     iconName: 'Shield',
     tags: ['Mobile UX', 'Systems Thinking', 'Scale'],
@@ -213,38 +192,61 @@ export const projects: ProjectCaseStudy[] = [
     problem: 'Family safety apps in 2016 were clunky, "spyware-like" utilities. Sprint\'s legacy locator was dated and losing users. Verizon saw an opportunity to build a premium, trust-based safety suite but needed to move beyond simple location tracking into digital parenting (content filters, driving safety).',
     solution: 'A complete reimagining of the family safety stack. We moved from a "tracking" mental model to a "connection" model, launching a modern iOS/Android experience that unified location, content filtering, and driving insights into a single subscription.',
     role: 'Lead Product Designer',
-    team: 'Verizon & Sprint Cross-functional Teams',
+    context: 'Verizon Smart Family & Sprint Safe & Found',
     timeline: '2016–2018',
-    result: '4.5+ Star Rating',
-    resultLabel: 'Impact',
-    impact: 'Legacy Transformation',
+    result: '1.7M+ Paying Subscribers',
+    resultLabel: 'Scale',
+    impact: '4.5 Star App Store Rating (Rebuilt from 2.0)',
     template: 'slack',
     sections: [
       {
-        title: 'The "Evolution"',
-        content: 'From legacy utility to modern subscription service. We transitioned the mental model from "pins on a map" to "family members in context," humanizing the data points through avatars and intuitive status updates.',
-        image: 'placeholder-family-evolution.png',
-        layout: 'full-image'
+        title: 'Humanizing Surveillance',
+        content: 'Location tracking is inherently sensitive. I redesigned the core experience to focus on connection ("Is she safe?") rather than policing ("Where is she?"), resulting in a massive shift in user sentiment and adoption.',
+        image: '/images/projects/family-safety-platforms/SFL – See Location History.png',
+        gridSpan: 1,
+        bgColor: '#f5f5f5'
       },
       {
-        title: 'The Digital Parenting Suite',
-        content: 'It wasn\'t just a map; it was a comprehensive system for managing digital life. We unified content filters, driving scores, and "Pause Internet" features into a single, cohesive subscription experience.',
-        image: 'placeholder-family-suite.png',
-        layout: 'full-image'
+        title: 'Proactive Peace of Mind',
+        content: 'Reducing anxiety through automation. We designed "Safety Checks" to notify parents automatically when kids arrive at key locations (School, Home), reducing the cognitive load of constantly checking the map.',
+        image: '/images/projects/family-safety-platforms/SFL – Safety Checks.webp',
+        gridSpan: 1,
+        bgColor: '#fff7ed'
       },
       {
-        title: 'Systems & Craft',
-        content: 'To ensure consistency across the massive family of apps, we built a comprehensive component library and iconography set, proving that premium design can exist within complex carrier frameworks.',
-        image: 'placeholder-family-craft.png',
-        layout: 'full-image'
+        title: 'Physical & Digital Safety in One Hub',
+        content: 'Unifying a fragmented feature set. I architected a scalable navigation system that allowed parents to manage physical location, screen time limits, and content filters from a single, intuitive dashboard.',
+        image: '/images/projects/family-safety-platforms/VSF – feature summary.jpg',
+        gridSpan: 2
       },
       {
-        title: 'High-Scale Impact',
-        content: 'The results spoke for themselves: a jump from 2.5 to 4.5 stars and 1.7M+ paying subscribers. "Finally an app that doesn\'t make me feel like a jailer," noted one user review.',
-        image: 'placeholder-family-impact.png',
-        layout: 'full-image'
+        title: 'Granular Controls',
+        content: 'Digital boundaries that scale. We designed a modular filtering system that allowed parents to pause the internet or set complex scheduling with just a few taps.',
+        image: '/images/projects/family-safety-platforms/VSF – content filters.jpg',
+        gridSpan: 1,
+        bgColor: '#eff6ff'
+      },
+      {
+        title: 'Precision & Context',
+        content: 'High-accuracy location details with human-centric labeling, ensuring parents know exactly where their family is without needing to interpret raw coordinates.',
+        image: '/images/projects/family-safety-platforms/VSF – location.jpg',
+        gridSpan: 1,
+        bgColor: '#f0fdf4'
+      },
+      {
+        title: 'The Unified Dashboard',
+        content: 'A holistic view of the family\'s safety status, aggregating location history, battery levels, and safety alerts into a single, high-confidence interface.',
+        image: '/images/projects/family-safety-platforms/VSF Entire page.png',
+        gridSpan: 2
+      },
+      {
+        title: 'Real-time Verification',
+        content: 'The core utility: instant location refreshes for immediate peace of mind, optimized for battery efficiency and high-speed retrieval.',
+        image: '/images/projects/family-safety-platforms/SFL – Locate.png',
+        gridSpan: 1,
+        bgColor: '#fff1f2'
       }
     ],
     challenge: 'Managing massive technical debt and legacy backend systems while delivering a modern, high-confidence user experience that parents trust.'
-  }
+  },
 ];

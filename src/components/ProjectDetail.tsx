@@ -120,10 +120,12 @@ const ProjectDetail: React.FC = () => {
               <span className="meta-label">Role</span>
               <span className="meta-value">{project.role}</span>
             </div>
-            <div className="meta-col">
-              <span className="meta-label">Team</span>
-              <span className="meta-value">{project.team}</span>
-            </div>
+            {project.team && (
+              <div className="meta-col">
+                <span className="meta-label">Team</span>
+                <span className="meta-value">{project.team}</span>
+              </div>
+            )}
             <div className="meta-col">
               <span className="meta-label">Scale</span>
               <span className="meta-value">{project.result || '18M+ Merchants'}</span>
@@ -132,14 +134,38 @@ const ProjectDetail: React.FC = () => {
               <span className="meta-label">Impact</span>
               <span className="meta-value">{project.impact || 'Global Scale'}</span>
             </div>
+            {project.complexity && (
+              <div className="meta-col">
+                <span className="meta-label">Complexity</span>
+                <span className="meta-value">{project.complexity}</span>
+              </div>
+            )}
+            {project.context && (
+              <div className="meta-col">
+                <span className="meta-label">Context</span>
+                <span className="meta-value">{project.context}</span>
+              </div>
+            )}
           </div>
 
           <div className="slack-visual-scroll">
             {project.sections?.map((section, idx) => (
-              <div key={idx} className="slack-section">
-                <div className="slack-visual">
+              <div
+                key={idx}
+                className={`slack-section ${section.gridSpan ? `span-${section.gridSpan}` : 'span-2'}`}
+                style={{
+                  gridColumn: section.gridSpan ? `span ${section.gridSpan}` : 'span 2'
+                }}
+              >
+                <div
+                  className="slack-visual"
+                  style={section.bgColor ? { backgroundColor: section.bgColor } : {}}
+                >
                   {section.image ? (
-                    <img src={section.image} alt={section.title} />
+                    <img
+                      src={section.image}
+                      alt={section.title}
+                    />
                   ) : (
                     renderPlaceholder(section.icon, section.title)
                   )}
