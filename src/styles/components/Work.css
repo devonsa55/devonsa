@@ -9,7 +9,8 @@
 .work-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 400px;
+    grid-auto-rows: 600px;
+    /* More vertical space for a relaxed feel */
     gap: var(--grid-gap);
     margin-top: 2rem;
 }
@@ -46,7 +47,7 @@
     }
 
     .project-card {
-        aspect-ratio: 1/1;
+        aspect-ratio: auto;
     }
 }
 
@@ -59,6 +60,8 @@
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     box-shadow: 0 0 0px #e0e0e0;
+    display: flex;
+    flex-direction: column;
 }
 
 [data-mode='dark'] .project-card {
@@ -116,7 +119,8 @@
 
 
 .project-link {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
     text-decoration: none;
@@ -125,7 +129,8 @@
 
 .project-image-container {
     width: 100%;
-    height: 100%;
+    flex: 1;
+    /* Automatically takes up remaining height */
     position: relative;
     background: var(--bg-primary);
     display: flex;
@@ -152,33 +157,33 @@
 }
 
 .project-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    position: relative;
     width: 100%;
+    height: 260px;
+    /* Increased for breathing room */
+    /* Standardize text area height for perfect alignment */
     padding: 2.5rem;
+    /* Restored generous spacing */
     background: var(--bg-primary);
     border-top: 2px solid var(--text-primary);
-    opacity: 0;
-    transform: translateY(100%);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     z-index: 2;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    pointer-events: none;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.project-info .read-more {
+    margin-top: auto;
+    padding-top: 1rem;
 }
 
 
+/* Hover effect only for shadows and slight lift */
 .project-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-hover);
     border-color: var(--accent-purple);
-}
-
-.project-card:hover .project-info {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 
@@ -206,7 +211,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
 }
 
 .project-tags .tag {
@@ -410,13 +415,15 @@
 .article-card {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
     text-decoration: none;
     color: inherit;
-    padding: 2rem;
+    padding: 0;
+    /* Removed padding to allow full-bleed image */
     background: var(--bg-primary);
     border: 2px solid var(--text-primary);
     border-radius: 24px;
+    overflow: hidden;
+    /* Ensures image respects card corner radius */
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 0 0px #e0e0e0;
 }
@@ -430,10 +437,10 @@
 .article-thumbnail {
     width: 100%;
     aspect-ratio: 16/9;
-    border-radius: 12px;
     overflow: hidden;
     background: var(--bg-secondary);
-    border: 2px solid var(--text-primary);
+    border-bottom: 2px solid var(--text-primary);
+    /* Keeps separation from text */
 }
 
 .article-thumbnail img {
@@ -447,7 +454,9 @@
     flex-direction: column;
     gap: 0.75rem;
     flex: 1;
-    /* Take up remaining space */
+    padding: 2rem;
+    padding-top: 2.5rem;
+    /* Increased distance from full-bleed image to header */
 }
 
 .article-content h3 {
@@ -484,7 +493,8 @@
     transition: transform 0.3s ease;
 }
 
-.article-card:hover .read-more span {
+.article-card:hover .read-more span,
+.project-card:hover .read-more span {
     transform: translateX(4px);
 }
 

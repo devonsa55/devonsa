@@ -82,6 +82,9 @@ const Work = () => {
                   <div className="project-tags">
                     {project.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
                   </div>
+                  <div className="read-more">
+                    Read more <span><ArrowRight size={16} /></span>
+                  </div>
                 </div>
               </Link>
             </motion.div>
