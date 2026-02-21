@@ -210,20 +210,6 @@ export const projects: ProjectCaseStudy[] = [
     template: 'slack',
     sections: [
       {
-        title: 'Humanizing Surveillance',
-        content: 'Location tracking is inherently sensitive. I redesigned the core experience to focus on connection ("Is she safe?") rather than policing ("Where is she?"), resulting in a massive shift in user sentiment and adoption.',
-        image: '/images/projects/family-safety-platforms/SFL – See Location History.png',
-        gridSpan: 1,
-        bgColor: '#f5f5f5'
-      },
-      {
-        title: 'Proactive Peace of Mind',
-        content: 'Reducing anxiety through automation. We designed "Safety Checks" to notify parents automatically when kids arrive at key locations (School, Home), reducing the cognitive load of constantly checking the map.',
-        image: '/images/projects/family-safety-platforms/SFL – Safety Checks.webp',
-        gridSpan: 1,
-        bgColor: '#fff7ed'
-      },
-      {
         title: 'Physical & Digital Safety in One Hub',
         content: 'Unifying a fragmented feature set. I architected a scalable navigation system that allowed parents to manage physical location, screen time limits, and content filters from a single, intuitive dashboard.',
         image: '/images/projects/family-safety-platforms/VSF – feature summary.jpg',
@@ -255,6 +241,20 @@ export const projects: ProjectCaseStudy[] = [
         image: '/images/projects/family-safety-platforms/SFL – Locate.png',
         gridSpan: 1,
         bgColor: '#fff1f2'
+      },
+      {
+        title: 'Humanizing Surveillance',
+        content: 'Location tracking is inherently sensitive. I redesigned the core experience to focus on connection ("Is she safe?") rather than policing ("Where is she?"), resulting in a massive shift in user sentiment and adoption.',
+        image: '/images/projects/family-safety-platforms/SFL – See Location History.png',
+        gridSpan: 1,
+        bgColor: '#f5f5f5'
+      },
+      {
+        title: 'Proactive Peace of Mind',
+        content: 'Reducing anxiety through automation. We designed "Safety Checks" to notify parents automatically when kids arrive at key locations (School, Home), reducing the cognitive load of constantly checking the map.',
+        image: '/images/projects/family-safety-platforms/SFL – Safety Checks.webp',
+        gridSpan: 1,
+        bgColor: '#fff7ed'
       }
     ],
     challenge: 'Managing massive technical debt and legacy backend systems while delivering a modern, high-confidence user experience that parents trust.'
