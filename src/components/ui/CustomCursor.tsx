@@ -72,15 +72,15 @@ const CustomCursor = () => {
         <motion.div
             className="custom-cursor"
             initial={{
-                x: mousePosition.x - (isHovering ? 16 : 12),
-                y: mousePosition.y - (isHovering ? 16 : 12),
-                scale: 0,
+                x: mousePosition.x - (isHovering ? 24 : 16),
+                y: mousePosition.y - (isHovering ? 24 : 16),
+                scale: 1.2,
                 opacity: 0
             }}
             animate={{
-                x: mousePosition.x - (isHovering ? 16 : 12),
-                y: mousePosition.y - (isHovering ? 16 : 12),
-                scale: isHovering ? 1.25 : 1,
+                x: mousePosition.x - (isHovering ? 24 : 16),
+                y: mousePosition.y - (isHovering ? 24 : 16),
+                scale: isHovering ? 1.5 : 1,
                 opacity: isVisible ? 1 : 0
             }}
             transition={{
@@ -93,8 +93,8 @@ const CustomCursor = () => {
                 position: 'fixed',
                 top: 0,
                 left: 0,
-                width: isHovering ? '32px' : '24px',
-                height: isHovering ? '32px' : '24px',
+                width: isHovering ? '48px' : '32px',
+                height: isHovering ? '48px' : '32px',
                 backgroundColor: '#FFF',
                 borderRadius: '50%',
                 pointerEvents: 'none',
