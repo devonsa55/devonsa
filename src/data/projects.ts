@@ -43,7 +43,7 @@ export interface ProjectCaseStudy {
 export const projects: ProjectCaseStudy[] = [
   {
     id: 'conversational-insights',
-    title: 'Agentic Commerce: Conversational Insights',
+    title: 'Agentic Conversational Insights',
     subtitle: 'GenAI & Data Analytics',
     description: 'An Agentic UI embedded in Merchant Center that allows users to query their data using natural language, turning raw analytics into actionable business strategy.',
     image: '/images/projects/conversational-insights/preview.png',
@@ -85,7 +85,7 @@ export const projects: ProjectCaseStudy[] = [
   },
   {
     id: 'shopstream',
-    title: 'ShopStream: GenAI Video',
+    title: 'GenAI Video for Merchants',
     subtitle: 'GenAI Video Pipeline',
     description: 'An AI-powered video generation tool that transforms static merchant catalogs into high-fidelity, brand-aligned video assets automatically.',
     image: '/images/projects/shopstream/preview.png',
