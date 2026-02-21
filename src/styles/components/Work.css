@@ -55,7 +55,7 @@
     border-radius: 8px;
     overflow: hidden;
     border: 2px solid var(--text-primary);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -130,7 +130,7 @@
     width: 100%;
     aspect-ratio: 16/10;
     position: relative;
-    background: #F8F8F9 !important;
+    background: #FFFFFF !important;
     padding: 40px;
     display: flex;
     align-items: center;
@@ -185,7 +185,9 @@
 
 /* Hover effect */
 .project-card:hover {
-    box-shadow: none;
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--text-primary);
 }
 
 
@@ -436,7 +438,7 @@
     border: 2px solid var(--text-primary);
     border-radius: 8px;
     overflow: hidden;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: none;
 }
 
@@ -446,14 +448,16 @@
 }
 
 .article-card:hover {
-    box-shadow: none;
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--text-primary);
 }
 
 .article-thumbnail {
     width: 100%;
     aspect-ratio: 16/9;
     overflow: hidden;
-    background: #F8F8F9 !important;
+    background: #FFFFFF !important;
     padding: 40px;
     border-bottom: 2px solid var(--text-primary);
 }
