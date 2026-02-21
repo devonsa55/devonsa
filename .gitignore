@@ -43,3 +43,6 @@ lerna-debug.log*
 
 # Vite
 .vite
+
+# Local run directory
+run_dir/
