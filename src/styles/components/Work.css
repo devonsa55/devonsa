@@ -54,16 +54,16 @@
     background: var(--bg-primary);
     border-radius: 24px;
     overflow: hidden;
-    border: 2px solid var(--text-primary);
+    border: none;
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 0 0px var(--shadow-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
 
 [data-mode='dark'] .project-card {
-    border-color: var(--text-primary);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .project-placeholder {
@@ -127,8 +127,7 @@
 
 .project-image-container {
     width: 100%;
-    flex: 1;
-    /* Automatically takes up remaining height */
+    aspect-ratio: 16/10;
     position: relative;
     background: var(--bg-primary);
     display: flex;
@@ -161,7 +160,7 @@
     padding: 2.25rem;
     /* Adjusted for even vertical breathing room */
     background: var(--bg-primary);
-    border-top: 2px solid var(--text-primary);
+    border-top: none;
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -171,16 +170,14 @@
 }
 
 .project-info .read-more {
-    margin-top: 0.5rem;
-    /* Grouped with tags */
+    margin-top: auto;
     padding-top: 0.5rem;
 }
 
 
-/* Hover effect only for shadows and slight lift */
+/* Hover effect */
 .project-card:hover {
-    /* Lift handled by Framer Motion in Work.tsx to avoid conflict with entrance animation */
-    box-shadow: var(--shadow-hover);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -407,7 +404,7 @@
 
 /* Strategy & Frameworks Section */
 .strategy-section {
-    margin: 120px 0;
+    margin: 160px 0;
 }
 
 .strategy-grid {
@@ -429,17 +426,20 @@
     padding: 0;
     /* Removed padding to allow full-bleed image */
     background: var(--bg-primary);
-    border: 2px solid var(--text-primary);
+    border: none;
     border-radius: 24px;
     overflow: hidden;
     /* Ensures image respects card corner radius */
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 0 0px var(--shadow-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+[data-mode='dark'] .article-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .article-card:hover {
-    /* Lift handled by Framer Motion in Work.tsx to match project cards */
-    box-shadow: var(--shadow-hover);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 .article-thumbnail {
@@ -447,8 +447,7 @@
     aspect-ratio: 16/9;
     overflow: hidden;
     background: var(--bg-secondary);
-    border-bottom: 2px solid var(--text-primary);
-    /* Keeps separation from text */
+    border-bottom: none;
 }
 
 .article-thumbnail img {
@@ -488,15 +487,15 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-weight: 700;
     font-family: var(--font-mono);
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 0.625rem;
+    /* 10px */
+    letter-spacing: 0.1em;
+    font-weight: 700;
     color: var(--text-primary);
     margin-top: auto;
-    /* Push to the bottom */
     padding-top: 1.5rem;
-    /* Extra breathing room from the description */
 }
 
 .read-more span {
@@ -525,7 +524,7 @@
     font-family: var(--font-heading);
     font-size: 2rem;
     font-weight: 800;
-    color: var(--text-primary);
+    color: var(--aqua-green);
     line-height: 1.2;
     letter-spacing: -0.01em;
 }

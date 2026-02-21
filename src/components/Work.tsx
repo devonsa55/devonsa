@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MessageSquare, Video, Store, Shield, Fingerprint, GitMerge, TrendingUp } from 'lucide-react';
+import { MessageSquare, Video, Store, Shield, Fingerprint, GitMerge, TrendingUp } from 'lucide-react';
 import { projects, ProjectCaseStudy } from '../data/projects';
 import { strategyFrameworks } from '../data/strategy';
 import SectionHeader from './ui/SectionHeader';
@@ -100,11 +100,8 @@ const Work = () => {
                 <div className="project-info">
                   <h3>{project.title}</h3>
                   <p>{project.description || project.subtitle}</p>
-                  <div className="project-tags">
-                    {project.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
-                  </div>
                   <div className="read-more">
-                    Read more <span><ArrowRight size={16} /></span>
+                    Read more <span>→</span>
                   </div>
                 </div>
               </Link>
@@ -159,7 +156,7 @@ const Work = () => {
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
                 <div className="read-more">
-                  Read more <span><ArrowRight size={16} /></span>
+                  Read more <span>→</span>
                 </div>
               </div>
             </Link>

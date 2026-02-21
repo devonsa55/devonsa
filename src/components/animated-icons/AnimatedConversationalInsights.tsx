@@ -48,14 +48,6 @@ const AnimatedConversationalInsights = ({ className = '' }: { className?: string
             <motion.path custom={3} variants={popIn} d="M170 360V234C170 227.635 172.529 221.53 177.029 217.029C181.53 212.529 187.635 210 194 210C200.365 210 206.47 212.529 210.971 217.029C215.471 221.53 218 227.635 218 234V360H170Z" fill="#E8E8ED" stroke="#111111" strokeWidth="4" strokeLinejoin="round" />
             <motion.path custom={4} variants={popIn} d="M240 360V144C240 137.635 242.529 131.53 247.029 127.029C251.53 122.529 257.635 120 264 120C270.365 120 276.47 122.529 280.971 127.029C285.471 131.53 288 137.635 288 144V360H240Z" fill="#E8E8ED" stroke="#111111" strokeWidth="4" strokeLinejoin="round" />
 
-            {/* Dots on bars */}
-            <motion.g initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.6, duration: 0.4 }} viewport={{ once: true }}>
-                <path d="M54 246C57.3137 246 60 243.314 60 240C60 236.686 57.3137 234 54 234C50.6863 234 48 236.686 48 240C48 243.314 50.6863 246 54 246Z" fill="#F5F5F7" stroke="#111111" strokeWidth="4" />
-                <path d="M124 186C127.314 186 130 183.314 130 180C130 176.686 127.314 174 124 174C120.686 174 118 176.686 118 180C118 183.314 120.686 186 124 186Z" fill="#F5F5F7" stroke="#111111" strokeWidth="4" />
-                <path d="M194 216C197.314 216 200 213.314 200 210C200 206.686 197.314 204 194 204C190.686 204 188 206.686 188 210C188 213.314 190.686 216 194 216Z" fill="#F5F5F7" stroke="#111111" strokeWidth="4" />
-                <path d="M264 126C267.314 126 270 123.314 270 120C270 116.686 267.314 114 264 114C260.686 114 258 116.686 258 120C258 123.314 260.686 126 264 126Z" fill="#F5F5F7" stroke="#111111" strokeWidth="4" />
-            </motion.g>
-
             {/* Trend Line */}
             <motion.path
                 d="M10 280L54 240L124 180L194 210L264 120L310 100"
@@ -68,6 +60,14 @@ const AnimatedConversationalInsights = ({ className = '' }: { className?: string
                 transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
                 viewport={{ once: true }}
             />
+
+            {/* Dots on bars - Moved to front */}
+            <motion.g initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.6, duration: 0.4 }} viewport={{ once: true }}>
+                <path d="M54 246C57.3137 246 60 243.314 60 240C60 236.686 57.3137 234 54 234C50.6863 234 48 236.686 48 240C48 243.314 50.6863 246 54 246Z" fill="#FFFFFF" stroke="#111111" strokeWidth="4" />
+                <path d="M124 186C127.314 186 130 183.314 130 180C130 176.686 127.314 174 124 174C120.686 174 118 176.686 118 180C118 183.314 120.686 186 124 186Z" fill="#FFFFFF" stroke="#111111" strokeWidth="4" />
+                <path d="M194 216C197.314 216 200 213.314 200 210C200 206.686 197.314 204 194 204C190.686 204 188 206.686 188 210C188 213.314 190.686 216 194 216Z" fill="#FFFFFF" stroke="#111111" strokeWidth="4" />
+                <path d="M264 126C267.314 126 270 123.314 270 120C270 116.686 267.314 114 264 114C260.686 114 258 116.686 258 120C258 123.314 260.686 126 264 126Z" fill="#FFFFFF" stroke="#111111" strokeWidth="4" />
+            </motion.g>
 
             {/* Chat Bubble & Sparkle - Pop out at end */}
             <motion.g
