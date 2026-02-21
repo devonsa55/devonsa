@@ -214,6 +214,40 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   transition: background-color 0.5s ease, color 0.5s ease;
+  cursor: none;
+  /* Hide default cursor */
+}
+
+/* Ensure interactive elements also hide cursor */
+a,
+button,
+[role="button"],
+.hover-trigger {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: scale 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 1024px) {
+  .custom-cursor {
+    display: none;
+  }
+
+  body,
+  a,
+  button {
+    cursor: auto !important;
+  }
 }
 
 .home-page {

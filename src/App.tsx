@@ -14,6 +14,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import ProfileCard from './components/ui/ProfileCard'
+import CustomCursor from './components/ui/CustomCursor'
 import { aboutData } from './data/about'
 
 const ScrollToHash = () => {
@@ -64,6 +65,7 @@ function AppContent() {
 
   return (
     <div className="app">
+      <CustomCursor />
       <ThemeSwitcher />
       <Decorations />
       <Navbar />
