@@ -7,6 +7,12 @@ import { strategyFrameworks } from '../data/strategy';
 import SectionHeader from './ui/SectionHeader';
 import SplitFlapBoard from './ui/SplitFlapBoard';
 
+// Import Animated Components
+import AnimatedConversationalInsights from './animated-icons/AnimatedConversationalInsights';
+import AnimatedShopStream from './animated-icons/AnimatedShopStream';
+import AnimatedMerchantComms from './animated-icons/AnimatedMerchantComms';
+import AnimatedFamilySafety from './animated-icons/AnimatedFamilySafety';
+
 // TOGGLE WIP MODE: Set to true on live site, false locally
 const IS_UNDER_CONSTRUCTION = import.meta.env.MODE === 'production';
 
@@ -63,14 +69,24 @@ const Work = () => {
               className={`project-card ${project.id === 'conversational-insights' ? 'span-2-col span-2-row' : ''} ${project.id === 'merchant-comms' ? 'span-2-row' : ''} ${project.id === 'family-safety-platforms' ? 'top-align' : ''}`}
             >
               <Link to={project.link} className="project-link">
-                <div className="project-image-container">
-                  {project.image ? (
+                <div
+                  className="project-image-container"
+                  style={{ backgroundColor: project.cardImageBg || 'transparent' }}
+                >
+                  {project.animatedIcon === 'conversational-insights' && <AnimatedConversationalInsights className="project-card-image is-logo" />}
+                  {project.animatedIcon === 'shopstream' && <AnimatedShopStream className="project-card-image is-logo" />}
+                  {project.animatedIcon === 'merchant-comms' && <AnimatedMerchantComms className="project-card-image is-logo" />}
+                  {project.animatedIcon === 'family-safety' && <AnimatedFamilySafety className="project-card-image is-logo" />}
+
+                  {!project.animatedIcon && project.image && (
                     <img
                       src={project.image}
                       alt={project.title}
                       className={`project-card-image ${project.image.endsWith('.svg') ? 'is-logo' : ''}`}
                     />
-                  ) : (
+                  )}
+
+                  {!project.animatedIcon && !project.image && (
                     <div className="project-placeholder">
                       <div className="placeholder-content">
                         <div className="placeholder-icon">
@@ -122,7 +138,10 @@ const Work = () => {
             className="article-card-wrapper"
           >
             <Link to={item.link} className="article-card">
-              <div className="article-thumbnail">
+              <div
+                className="article-thumbnail"
+                style={{ backgroundColor: item.cardImageBg || 'var(--bg-secondary)' }}
+              >
                 {item.image ? (
                   <img src={item.image} alt={item.title} />
                 ) : (

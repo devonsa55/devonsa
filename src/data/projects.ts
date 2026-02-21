@@ -37,6 +37,8 @@ export interface ProjectCaseStudy {
   impact?: string;
   complexity?: string;
   context?: string;
+  cardImageBg?: string;
+  animatedIcon?: string;
 }
 
 
@@ -46,13 +48,15 @@ export const projects: ProjectCaseStudy[] = [
     title: 'Agentic Conversational Insights',
     subtitle: 'GenAI & Data Analytics',
     description: 'An Agentic UI embedded in Merchant Center that allows users to query their data using natural language, turning raw analytics into actionable business strategy.',
-    image: '/images/projects/conversational-insights/preview.png',
+    image: '/images/projects/ci-thumb.svg',
     heroImage: '/images/projects/conversational-insights/agentic-hero.png',
     iconName: 'MessageSquare',
     tags: ['AI/ML', 'Data Visualization', 'Strategy'],
     link: '/project/conversational-insights',
     color: '#dbeafe',
     darkColor: '#0f172a', /* Deep Slate Blue */
+    cardImageBg: '#f9fafb',
+    animatedIcon: 'conversational-insights',
     problem: 'UTLT merchants struggle to interpret complex dashboards. I led the design of an LLM-driven assistant that parses raw analytics into natural language, allowing merchants to "query" their business performance directly.',
     role: 'Design Lead & Strategy (0→1)',
     team: 'Product Managers, LLM Engineers, Data Scientists',
@@ -88,7 +92,7 @@ export const projects: ProjectCaseStudy[] = [
     title: 'GenAI Video for Merchants',
     subtitle: 'GenAI Video Pipeline',
     description: 'An AI-powered video generation tool that transforms static merchant catalogs into high-fidelity, brand-aligned video assets automatically.',
-    image: '/images/projects/shopstream/preview.png',
+    image: '/images/projects/shopstream-thumb.svg',
     heroImage: '/images/projects/shopstream/shopstream-hero.png',
     heroIcon: 'Monitor',
     iconName: 'Video',
@@ -96,6 +100,8 @@ export const projects: ProjectCaseStudy[] = [
     link: '/project/shopstream',
     color: '#fdf2f8',
     darkColor: '#2d1a1a',
+    cardImageBg: '#111827',
+    animatedIcon: 'shopstream',
     problem: 'Small merchants lack the budget for video production. I led the UX strategy for ShopStream, a GenAI pipeline that transforms standard product photos into high-conversion video assets.',
     solution: 'An end-to-end GenAI pipeline that transforms static product images from a merchant\'s catalog into high-fidelity, brand-aligned video assets automatically.',
     role: 'Strategic Lead & Principal Designer',
@@ -132,7 +138,7 @@ export const projects: ProjectCaseStudy[] = [
     title: 'The Communications Ecosystem',
     subtitle: 'Unified Messaging OS',
     description: 'A unified "Communication as a Service" platform standardizing consumer UX across Search and Maps while opening the ecosystem to 3rd-party integrations.',
-    image: '/images/projects/merchant-comms/preview.png',
+    image: '/images/projects/bm-thumb.svg',
     heroImage: '/images/projects/merchant-comms/coco-hero.png',
     heroIcon: 'MessageSquare',
     iconName: 'MessageSquare',
@@ -141,6 +147,8 @@ export const projects: ProjectCaseStudy[] = [
     template: 'slack',
     color: '#eff6ff',
     darkColor: '#1e293b',
+    cardImageBg: '#ffffff',
+    animatedIcon: 'merchant-comms',
     problem: 'Google’s business messaging was fragmented across surfaces. A user on Maps had a different chat experience than a user on Search, and merchants were forced to use Google’s proprietary inbox, ignoring the tools they already used (Zendesk, Shopify).',
     solution: 'A unified "Communication as a Service" platform. We standardized the consumer UX across surfaces (Search, Maps) and opened the backend to third-party integrations, allowing merchants to answer Google messages from the tools they already use.',
     role: 'Lead Interaction Designer (L5)',
@@ -180,7 +188,7 @@ export const projects: ProjectCaseStudy[] = [
     title: 'Family Safety Platforms',
     subtitle: 'Unified Carrier Safety Suite',
     description: 'A unified safety ecosystem for 1.7M+ parents across Sprint and Verizon, consolidating location tracking, parental controls, and screen-time management.',
-    image: '/images/projects/family-safety-platforms/preview.png',
+    image: '/images/projects/family-safety-thumb.svg',
     heroVideo: 'https://www.youtube.com/embed/1iooNY64eDU',
     heroImage: '/images/projects/family-safety-platforms/SFL – See Location History.png',
     heroIcon: 'Shield',
@@ -189,6 +197,8 @@ export const projects: ProjectCaseStudy[] = [
     link: '/project/family-safety-platforms',
     color: '#fee2e2',
     darkColor: '#450a0a',
+    cardImageBg: '#f3f4f6',
+    animatedIcon: 'family-safety',
     problem: 'Family safety apps in 2016 were clunky, "spyware-like" utilities. Sprint\'s legacy locator was dated and losing users. Verizon saw an opportunity to build a premium, trust-based safety suite but needed to move beyond simple location tracking into digital parenting (content filters, driving safety).',
     solution: 'A complete reimagining of the family safety stack. We moved from a "tracking" mental model to a "connection" model, launching a modern iOS/Android experience that unified location, content filtering, and driving insights into a single subscription.',
     role: 'Lead Product Designer',
