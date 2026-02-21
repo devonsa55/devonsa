@@ -58,12 +58,27 @@ const AnimatedMerchantComms = ({ className = '' }: { className?: string }) => {
 
             {/* Central Hub */}
             <motion.g custom={5} variants={popIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                <path d="M200 243C223.748 243 243 223.748 243 200C243 176.252 223.748 157 200 157C176.252 157 157 176.252 157 200C157 223.748 176.252 243 200 243Z" fill="#F5F5F7" stroke="#111111" strokeWidth="4" />
-                <path d="M220 196H180V220H220V196Z" fill="#4886ED" stroke="#111111" strokeWidth="4" strokeLinejoin="round" />
-                <path d="M194 218V206H206V218" fill="white" />
-                <path d="M194 218V206H206V218" stroke="#111111" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M174 196L182 178H218L226 196H174Z" fill="#4886ED" stroke="#111111" strokeWidth="4" strokeLinejoin="round" />
-                <path d="M200 178V196" stroke="#111111" strokeWidth="4" strokeLinecap="round" />
+                <path d="M200 280C244.183 280 280 244.183 280 200C280 155.817 244.183 120 200 120C155.817 120 120 155.817 120 200C120 244.183 155.817 280 200 280Z" fill="#F5F5F7" stroke="#111111" strokeWidth="4" />
+
+                {/* Shop Icon */}
+                <path d="M183 162H173V186H183V162Z" fill="#F2B53A" stroke="#111111" strokeWidth="4" strokeLinejoin="round" />
+                <path d="M166 237L167 177L200 163L233 177L234 237H166Z" fill="#4886ED" stroke="#111111" strokeWidth="4" strokeLinejoin="round" />
+                <path d="M154 198L166.778 177H233.222L246 198H154Z" fill="#239C5F" stroke="#111111" strokeWidth="4" strokeLinejoin="round" />
+                <path d="M189.167 177L185 198M210.833 177L215 198" stroke="#111111" strokeWidth="4" strokeLinecap="round" />
+
+                {/* Google "G" logo */}
+                <motion.path
+                    variants={drawDash}
+                    d="M206.75 211.216C205.358 209.55 203.457 208.452 201.377 208.112C199.298 207.772 197.171 208.212 195.367 209.356C193.563 210.499 192.195 212.274 191.502 214.371C190.809 216.468 190.834 218.756 191.573 220.836C192.312 222.916 193.718 224.656 195.547 225.755C197.375 226.855 199.511 227.243 201.583 226.852C203.654 226.461 205.531 225.317 206.886 223.617C208.241 221.918 208.989 219.771 209 217.55L199.55 217.55"
+                    stroke="#FFFFFF"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    whileInView={{ pathLength: 1, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.8 }}
+                    viewport={{ once: true }}
+                />
             </motion.g>
 
             {/* External Chat Bubbles - Delayed pop */}
@@ -78,28 +93,6 @@ const AnimatedMerchantComms = ({ className = '' }: { className?: string }) => {
                 <path d="M68 314H92M68 326H84" stroke="#111111" strokeWidth="4" strokeLinecap="round" />
             </motion.g>
 
-            {/* Floating inner elements - Delayed pop */}
-            <motion.g custom={8} variants={popIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                <path d="M200 280C244.183 280 280 244.183 280 200C280 155.817 244.183 120 200 120C155.817 120 120 155.817 120 200C120 244.183 155.817 280 200 280Z" fill="#F5F5F7" stroke="#111111" strokeWidth="4" />
-                <path d="M183 162H173V186H183V162Z" fill="#F2B53A" stroke="#111111" strokeWidth="4" strokeLinejoin="round" />
-                <path d="M166 237L167 177L200 163L233 177L234 237H166Z" fill="#4886ED" stroke="#111111" strokeWidth="4" strokeLinejoin="round" />
-                <path d="M154 198L166.778 177H233.222L246 198H154Z" fill="#239C5F" stroke="#111111" strokeWidth="4" strokeLinejoin="round" />
-                <path d="M189.167 177L185 198M210.833 177L215 198" stroke="#111111" strokeWidth="4" strokeLinecap="round" />
-            </motion.g>
-
-            {/* Dashed curve */}
-            <motion.path
-                variants={drawDash}
-                d="M206.75 211.216C205.358 209.55 203.457 208.452 201.377 208.112C199.298 207.772 197.171 208.212 195.367 209.356C193.563 210.499 192.195 212.274 191.502 214.371C190.809 216.468 190.834 218.756 191.573 220.836C192.312 222.916 193.718 224.656 195.547 225.755C197.375 226.855 199.511 227.243 201.583 226.852C203.654 226.461 205.531 225.317 206.886 223.617C208.241 221.918 208.989 219.771 209 217.55L199.55 217.55"
-                stroke="#F5F5F7"
-                strokeWidth="4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                initial={{ pathLength: 0, opacity: 0 }}
-                whileInView={{ pathLength: 1, opacity: 1 }}
-                transition={{ duration: 1, delay: 1.5 }}
-                viewport={{ once: true }}
-            />
         </motion.svg>
     );
 };
