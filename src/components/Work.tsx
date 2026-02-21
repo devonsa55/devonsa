@@ -53,8 +53,13 @@ const Work = () => {
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -4 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                y: { type: "spring", stiffness: 300, damping: 20 }
+              }}
               className={`project-card ${project.id === 'conversational-insights' ? 'span-2-col span-2-row' : ''} ${project.id === 'merchant-comms' ? 'span-2-row' : ''} ${project.id === 'family-safety-platforms' ? 'top-align' : ''}`}
             >
               <Link to={project.link} className="project-link">
@@ -102,30 +107,44 @@ const Work = () => {
       />
 
       <div className="strategy-grid">
-        {strategyFrameworks.map((item) => (
-          <Link key={item.id} to={item.link} className="article-card">
-            <div className="article-thumbnail">
-              {item.image ? (
-                <img src={item.image} alt={item.title} />
-              ) : (
-                <div className="project-placeholder">
-                  <div className="placeholder-content">
-                    <div className="placeholder-icon">
-                      {getIcon(item.iconName)}
+        {strategyFrameworks.map((item, index) => (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -4 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.6,
+              delay: index * 0.1,
+              y: { type: "spring", stiffness: 300, damping: 20 }
+            }}
+            className="article-card-wrapper"
+          >
+            <Link to={item.link} className="article-card">
+              <div className="article-thumbnail">
+                {item.image ? (
+                  <img src={item.image} alt={item.title} />
+                ) : (
+                  <div className="project-placeholder">
+                    <div className="placeholder-content">
+                      <div className="placeholder-icon">
+                        {getIcon(item.iconName)}
+                      </div>
+                      <span className="placeholder-label">{item.title}</span>
                     </div>
-                    <span className="placeholder-label">{item.title}</span>
                   </div>
-                </div>
-              )}
-            </div>
-            <div className="article-content">
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-              <div className="read-more">
-                Read more <span><ArrowRight size={16} /></span>
+                )}
               </div>
-            </div>
-          </Link>
+              <div className="article-content">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <div className="read-more">
+                  Read more <span><ArrowRight size={16} /></span>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
         ))}
       </div>
     </div>

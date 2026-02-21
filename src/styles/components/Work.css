@@ -20,13 +20,11 @@
     min-height: auto;
 }
 
-/* Bento Box Spanning Utilities */
-.span-2-col {
-    grid-column: span 2;
-}
-
+/* Unified grid no longer uses bento spans */
+.span-2-col,
 .span-2-row {
-    grid-row: span 2;
+    grid-column: span 1;
+    grid-row: span 1;
 }
 
 
@@ -43,7 +41,7 @@
 @media (max-width: 768px) {
     .work-grid {
         grid-template-columns: 1fr;
-        grid-auto-rows: auto;
+        gap: 24px;
     }
 
     .project-card {
@@ -59,13 +57,13 @@
     border: 2px solid var(--text-primary);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
-    box-shadow: 0 0 0px #e0e0e0;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 0 0px var(--shadow-color);
 }
 
 [data-mode='dark'] .project-card {
-    border: 2px solid var(--text-primary);
+    border-color: var(--text-primary);
 }
 
 .project-placeholder {
@@ -160,30 +158,29 @@
     position: relative;
     width: 100%;
     height: 260px;
-    /* Increased for breathing room */
-    /* Standardize text area height for perfect alignment */
-    padding: 2.5rem;
-    /* Restored generous spacing */
+    padding: 2.25rem;
+    /* Adjusted for even vertical breathing room */
     background: var(--bg-primary);
     border-top: 2px solid var(--text-primary);
     z-index: 2;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
+    /* Increased for better visual rhythm */
     flex-shrink: 0;
 }
 
 .project-info .read-more {
-    margin-top: auto;
-    padding-top: 1rem;
+    margin-top: 0.5rem;
+    /* Grouped with tags */
+    padding-top: 0.5rem;
 }
 
 
 /* Hover effect only for shadows and slight lift */
 .project-card:hover {
-    transform: translateY(-4px);
+    /* Lift handled by Framer Motion in Work.tsx to avoid conflict with entrance animation */
     box-shadow: var(--shadow-hover);
-    border-color: var(--accent-purple);
 }
 
 
@@ -211,19 +208,26 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-top: 0.5rem;
+    margin-top: auto;
+    /* Push tags and read-more to the bottom */
 }
 
 .project-tags .tag {
     font-size: 0.65rem;
-    font-weight: 700;
-    padding: 0.35rem 0.75rem;
-    border: 1.5px solid var(--text-primary);
-    border-radius: 80px;
+    font-weight: 600;
+    padding: 0.4rem 0.75rem;
+    border: none;
+    /* Removed outline */
+    border-radius: 6px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    background: transparent;
-    color: var(--text-primary);
+    background: rgba(0, 0, 0, 0.06);
+    /* Faint gray background */
+    color: var(--text-secondary);
+}
+
+[data-mode='dark'] .project-tags .tag {
+    background: rgba(255, 255, 255, 0.06);
 }
 
 
@@ -425,13 +429,12 @@
     overflow: hidden;
     /* Ensures image respects card corner radius */
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 0 0px #e0e0e0;
+    box-shadow: 0 0 0px var(--shadow-color);
 }
 
 .article-card:hover {
-    transform: translateY(-4px);
+    /* Lift handled by Framer Motion in Work.tsx to match project cards */
     box-shadow: var(--shadow-hover);
-    border-color: var(--accent-purple);
 }
 
 .article-thumbnail {
