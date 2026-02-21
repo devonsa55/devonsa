@@ -71,6 +71,12 @@ const CustomCursor = () => {
     return (
         <motion.div
             className="custom-cursor"
+            initial={{
+                x: mousePosition.x - (isHovering ? 24 : 12),
+                y: mousePosition.y - (isHovering ? 24 : 12),
+                scale: 0,
+                opacity: 0
+            }}
             animate={{
                 x: mousePosition.x - (isHovering ? 24 : 12),
                 y: mousePosition.y - (isHovering ? 24 : 12),
