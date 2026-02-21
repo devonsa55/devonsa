@@ -59,8 +59,7 @@ const Hero = () => {
                 marginLeft: '0.25em',
                 marginRight: '0.1em',
                 position: 'relative',
-                verticalAlign: 'baseline',
-                cursor: 'default'
+                verticalAlign: 'baseline'
               }}
             >
               <AnimatePresence mode="wait">
@@ -112,7 +111,6 @@ const Hero = () => {
               }}
               style={{
                 position: 'relative',
-                cursor: 'help',
                 marginRight: '0.1em'
               }}
             >
@@ -151,8 +149,7 @@ const Hero = () => {
                 setMouseX(0);
               }}
               style={{
-                position: 'relative',
-                cursor: 'help'
+                position: 'relative'
               }}
             >
               audio enthusiast
@@ -211,7 +208,6 @@ const Hero = () => {
               }}
               style={{
                 position: 'relative',
-                cursor: 'help',
                 marginLeft: '0.1em'
               }}
             >
