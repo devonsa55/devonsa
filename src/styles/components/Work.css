@@ -160,7 +160,7 @@
 .project-info {
     position: relative;
     width: 100%;
-    padding: 20px;
+    padding: 32px;
     background: #FFFFFF;
     border-top: 2px solid var(--text-primary);
     z-index: 2;
@@ -474,7 +474,7 @@
     flex-direction: column;
     gap: 0.75rem;
     flex: 1;
-    padding: 20px;
+    padding: 32px;
     background: #FFFFFF;
 }
 
