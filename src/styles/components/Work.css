@@ -175,7 +175,7 @@
 }
 
 .project-info .read-more {
-    margin-top: auto;
+    margin-top: 1.5rem;
     align-self: flex-start;
 }
 
@@ -510,7 +510,7 @@
     letter-spacing: 0.15em;
     font-weight: 700;
     color: var(--text-primary);
-    margin-top: auto;
+    margin-top: 1.5rem;
     align-self: flex-start;
 }
 
