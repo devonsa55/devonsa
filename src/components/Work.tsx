@@ -45,8 +45,8 @@ const Work = () => {
   const renderProjects = () => (
     <>
       <SectionHeader
-        title="Selected Work"
-        subtitle="A collection of products I've helped build over the years."
+        title="Core Initiatives"
+        subtitle="Leading 0→1 product strategy and defining design systems at Google scale."
         className="work-header"
       />
 
