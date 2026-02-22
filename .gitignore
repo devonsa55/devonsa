@@ -46,3 +46,4 @@ lerna-debug.log*
 
 # Local run directory
 run_dir/
+\n.npm-cache-fresh/
