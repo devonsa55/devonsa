@@ -261,9 +261,9 @@ const Hero = () => {
       <style dangerouslySetInnerHTML={{
         __html: `
         .hero {
-          padding-top: 100px; /* Account for fixed navbar height */
+          padding-top: 160px; /* Increased to account for the hanging 'Anderson' signature and optically center */
           padding-bottom: 0;
-          min-height: 85vh; /* Allow work to peek */
+          min-height: 85vh; /* Air between header and work */
           overflow: visible;
           position: relative;
           display: flex;
