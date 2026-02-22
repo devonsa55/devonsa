@@ -38,16 +38,14 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', 'roundy');
-  }, []);
+  const themeValue = React.useMemo(() => ({ mode, setMode }), [mode]);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-mode', mode);
   }, [mode]);
 
   return (
-    <ThemeContext.Provider value={{ mode, setMode }}>
+    <ThemeContext.Provider value={themeValue}>
       {children}
     </ThemeContext.Provider>
   );

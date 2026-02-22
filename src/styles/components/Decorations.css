@@ -1,0 +1,382 @@
+/* Chillwave Animation -------------------------------------------- */
+.chillwave-path,
+.surfer-emoji {
+    animation: moveTheWave 4800ms linear infinite;
+}
+
+.chillwave-path {
+    stroke-width: calc(var(--deco-stroke-width) / 1.5);
+}
+
+.surfer-emoji {
+    display: block;
+    transform-origin: center;
+}
+
+@keyframes moveTheWave {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-110px, 0, 0);
+    }
+}
+
+/* Generic Shape Float Animation ---------------------------------- */
+.shape-path {
+    stroke-width: calc(var(--deco-stroke-width) * 2);
+    /* Adjusted for 380px viewBox rendered at 240px */
+    animation: float 12s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+/* Vibe Typwriter Animation --------------------------------------- */
+@keyframes vibeClip1 {
+    0% {
+        width: 0;
+    }
+
+    20% {
+        width: 325px;
+    }
+
+    35% {
+        width: 325px;
+    }
+
+    45% {
+        width: 0;
+    }
+
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes vibeClip2 {
+    0% {
+        width: 0;
+    }
+
+    46% {
+        width: 0;
+    }
+
+    50% {
+        width: 0;
+    }
+
+    75% {
+        width: 425px;
+    }
+
+    90% {
+        width: 425px;
+    }
+
+    100% {
+        width: 425px;
+    }
+}
+
+@keyframes vibeCursor {
+
+    /* Typing phase 1: 0-20% (13 characters) */
+    0% {
+        transform: translateX(0);
+    }
+
+    1.54% {
+        transform: translateX(24px);
+    }
+
+    /* char 1 */
+    3.08% {
+        transform: translateX(48px);
+    }
+
+    /* char 2 */
+    4.62% {
+        transform: translateX(72px);
+    }
+
+    /* char 3 */
+    6.15% {
+        transform: translateX(96px);
+    }
+
+    /* char 4 */
+    7.69% {
+        transform: translateX(120px);
+    }
+
+    /* char 5 */
+    9.23% {
+        transform: translateX(144px);
+    }
+
+    /* char 6 */
+    10.77% {
+        transform: translateX(168px);
+    }
+
+    /* char 7 */
+    12.31% {
+        transform: translateX(192px);
+    }
+
+    /* char 8 */
+    13.85% {
+        transform: translateX(216px);
+    }
+
+    /* char 9 */
+    15.38% {
+        transform: translateX(240px);
+    }
+
+    /* char 10 */
+    16.92% {
+        transform: translateX(264px);
+    }
+
+    /* char 11 */
+    18.46% {
+        transform: translateX(288px);
+    }
+
+    /* char 12 */
+    20% {
+        transform: translateX(312px);
+    }
+
+    /* char 13 - complete */
+
+    /* Pause */
+    35% {
+        transform: translateX(312px);
+    }
+
+    /* Delete phase: 35-45% (13 characters backward) */
+    35.77% {
+        transform: translateX(288px);
+    }
+
+    /* delete 1 */
+    36.54% {
+        transform: translateX(264px);
+    }
+
+    /* delete 2 */
+    37.31% {
+        transform: translateX(240px);
+    }
+
+    /* delete 3 */
+    38.08% {
+        transform: translateX(216px);
+    }
+
+    /* delete 4 */
+    38.85% {
+        transform: translateX(192px);
+    }
+
+    /* delete 5 */
+    39.62% {
+        transform: translateX(168px);
+    }
+
+    /* delete 6 */
+    40.38% {
+        transform: translateX(144px);
+    }
+
+    /* delete 7 */
+    41.15% {
+        transform: translateX(120px);
+    }
+
+    /* delete 8 */
+    41.92% {
+        transform: translateX(96px);
+    }
+
+    /* delete 9 */
+    42.69% {
+        transform: translateX(72px);
+    }
+
+    /* delete 10 */
+    43.46% {
+        transform: translateX(48px);
+    }
+
+    /* delete 11 */
+    44.23% {
+        transform: translateX(24px);
+    }
+
+    /* delete 12 */
+    45% {
+        transform: translateX(0);
+    }
+
+    /* delete 13 - complete */
+
+    /* Reset pause */
+    50% {
+        transform: translateX(0);
+    }
+
+    /* Typing phase 2: 50-75% (17 characters) */
+    51.47% {
+        transform: translateX(24px);
+    }
+
+    /* char 1 */
+    52.94% {
+        transform: translateX(48px);
+    }
+
+    /* char 2 */
+    54.41% {
+        transform: translateX(72px);
+    }
+
+    /* char 3 */
+    55.88% {
+        transform: translateX(96px);
+    }
+
+    /* char 4 */
+    57.35% {
+        transform: translateX(120px);
+    }
+
+    /* char 5 */
+    58.82% {
+        transform: translateX(144px);
+    }
+
+    /* char 6 */
+    60.29% {
+        transform: translateX(168px);
+    }
+
+    /* char 7 */
+    61.76% {
+        transform: translateX(192px);
+    }
+
+    /* char 8 */
+    63.24% {
+        transform: translateX(216px);
+    }
+
+    /* char 9 */
+    64.71% {
+        transform: translateX(240px);
+    }
+
+    /* char 10 */
+    66.18% {
+        transform: translateX(264px);
+    }
+
+    /* char 11 */
+    67.65% {
+        transform: translateX(288px);
+    }
+
+    /* char 12 */
+    69.12% {
+        transform: translateX(312px);
+    }
+
+    /* char 13 */
+    70.59% {
+        transform: translateX(336px);
+    }
+
+    /* char 14 */
+    72.06% {
+        transform: translateX(360px);
+    }
+
+    /* char 15 */
+    73.53% {
+        transform: translateX(384px);
+    }
+
+    /* char 16 */
+    75% {
+        transform: translateX(408px);
+    }
+
+    /* char 17 - complete */
+
+    /* Hold at end */
+    90% {
+        transform: translateX(408px);
+    }
+
+    100% {
+        transform: translateX(408px);
+    }
+}
+
+@keyframes vibeBlink {
+
+    0%,
+    45%,
+    50%,
+    95% {
+        opacity: 1;
+    }
+
+    47.5%,
+    97.5% {
+        opacity: 0;
+    }
+}
+
+.vibe-clip-rect-1 {
+    animation: vibeClip1 7.5s steps(13, end) infinite;
+}
+
+.vibe-clip-rect-2 {
+    animation: vibeClip2 7.5s steps(17, end) infinite;
+}
+
+.vibe-cursor {
+    animation: vibeCursor 7.5s linear infinite, vibeBlink 1.2s linear infinite;
+}
+
+.vibe-text-2 {
+    opacity: 0;
+    animation: vibeText2Opacity 7.5s linear infinite;
+}
+
+@keyframes vibeText2Opacity {
+
+    0%,
+    45% {
+        opacity: 0;
+    }
+
+    46%,
+    100% {
+        opacity: 1;
+    }
+}
