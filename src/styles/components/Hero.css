@@ -11,6 +11,13 @@
     z-index: 10;
 }
 
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 100px;
+        min-height: 70vh;
+    }
+}
+
 .hero-container {
     display: flex;
     flex-direction: column;
@@ -23,6 +30,13 @@
     justify-content: center;
     padding-bottom: 0;
     /* Centered perfectly on Y-axis */
+}
+
+@media (max-width: 768px) {
+    .hero-container {
+        align-items: center;
+        text-align: center;
+    }
 }
 
 .hero-text h1 {
@@ -42,6 +56,27 @@
     position: relative;
     text-decoration: none;
     z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .hover-trigger {
+        display: inline;
+    }
+}
+
+.google-tag {
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .google-tag {
+        position: relative !important;
+        left: 0 !important;
+        top: -0.1em !important;
+        display: inline-block !important;
+        margin-left: 0.5rem !important;
+        vertical-align: middle !important;
+    }
 }
 
 .hover-trigger::after {
