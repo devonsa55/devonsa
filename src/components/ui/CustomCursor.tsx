@@ -105,9 +105,9 @@ const CustomCursor = () => {
             }}
             transition={{
                 type: "spring",
-                stiffness: 800,
-                damping: 50,
-                mass: 0.5
+                stiffness: 1000,
+                damping: 60,
+                mass: 0.2
             }}
             style={{
                 position: 'fixed',
