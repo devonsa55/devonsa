@@ -11,7 +11,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const location = useLocation();
-  const IS_UNDER_CONSTRUCTION = import.meta.env.MODE === 'production';
+  const IS_UNDER_CONSTRUCTION = false;
 
   const isHomePage = location.pathname === '/';
   const isDetailPage = location.pathname.startsWith('/project/') || location.pathname.startsWith('/strategy/');
