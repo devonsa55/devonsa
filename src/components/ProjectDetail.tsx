@@ -128,11 +128,15 @@ const ProjectDetail: React.FC = () => {
             )}
             <div className="meta-col">
               <span className="meta-label">Scale</span>
-              <span className="meta-value">{project.result || '18M+ Merchants'}</span>
+              <span className={`meta-value ${project.id === 'shopstream' ? 'blur-heavy' : ''}`}>
+                {project.result || '18M+ Merchants'}
+              </span>
             </div>
             <div className="meta-col">
               <span className="meta-label">Impact</span>
-              <span className="meta-value">{project.impact || 'Global Scale'}</span>
+              <span className={`meta-value ${project.id === 'shopstream' ? 'blur-heavy' : ''}`}>
+                {project.impact || 'Global Scale'}
+              </span>
             </div>
             {project.complexity && (
               <div className="meta-col">

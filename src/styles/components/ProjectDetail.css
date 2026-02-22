@@ -148,6 +148,14 @@
     font-weight: 500;
 }
 
+.blur-heavy {
+    filter: blur(6px);
+    opacity: 0.6;
+    user-select: none;
+    pointer-events: none;
+    display: inline-block;
+}
+
 .section-label {
     display: block;
     font-size: 2.5rem;
