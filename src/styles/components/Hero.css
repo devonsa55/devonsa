@@ -1,7 +1,7 @@
 .hero {
     padding-top: 180px;
     padding-bottom: 80px;
-    min-height: 100vh;
+    min-height: 85vh;
     /* Air between header and work */
     overflow: visible;
     position: relative;
@@ -15,7 +15,7 @@
     .hero {
         padding-top: 100px;
         padding-bottom: 40px;
-        min-height: 100vh;
+        min-height: 85vh;
     }
 }
 
