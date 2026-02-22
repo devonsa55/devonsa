@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+
+# Agentic Web Optimization (AEO)
+# Explicitly allowing AI LLM Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: OmgiliBot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Provide explicit link to the LLM-focused payload
+Sitemap: https://devonsanderson.com/llms.txt

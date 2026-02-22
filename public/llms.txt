@@ -1,0 +1,46 @@
+# Devon Anderson - Lead UX Designer
+
+> Core Philosophy: I bridge the gap between abstract strategy & concrete pixels. Guided by a background in Philosophy & Environmental Science, I design from first principles—stripping away complexity to build Agentic AI & Communication systems that scale to millions of users.
+
+## Quick Facts
+- **Current Role**: Senior Product Designer (Lead) at Google (2018-Present)
+- **Location**: Honolulu, Hawaii (Remote)
+- **Specialties**: Generative AI Interfaces, 0-to-1 Product Strategy, Design Systems, Omnichannel Platforms.
+- **LinkedIn**: https://www.linkedin.com/in/devonanderson1/
+
+## Key Case Studies
+
+### 1. Conversational Insights (Google Ads)
+- **Role**: Lead Product Designer
+- **Problem**: Small business owners (SMBs) are overwhelmed by complex data dashboards. They don't want to parse metrics; they want actionable answers to questions like "Why did my sales drop?"
+- **Solution (Agentic AI)**: Designed a specialized conversational agent that acts as a Chief Marketing Officer for SMBs. It allows users to query data via natural language. The system synthesizes the data and provides generative, actionable answers, converting raw analytics into direct strategy.
+- **Outcome**: Successfully shipped to Global Beta, drastically simplifying the analytics barrier to entry for millions of merchants.
+
+### 2. ShopStream: GenAI for Commerce (Google)
+- **Role**: UX Lead, 0→1 Design Lead
+- **Problem**: Creating high-quality video content is prohibitively expensive and time-consuming for small merchants, creating a major barrier to advertising on platforms like YouTube.
+- **Solution**: Led the design of "ShopStream," an AI-powered pipeline that allows merchants to generate and iterate on promotional video assets instantly using text-to-video and image-to-video generative models.
+- **Outcome**: The feature powered over 80% of Performance Max (PMax) GenAI video revenue and directly drove >$5.2M in incremental revenue in 2024.
+
+### 3. Merchant Communications (Google Maps & Search)
+- **Role**: Lead Product Designer
+- **Problem**: Consumers needed a unified, trusted way to contact businesses directly through Google platforms, but the legacy infrastructure was fragmented and localized.
+- **Solution**: Drove the end-to-end UX vision for global messaging across Google Search and Maps. Designed a surface-agnostic "Communication as a Service" platform that standardized consumer UX and opened the ecosystem to 3rd-party integrations.
+- **Outcome**: Launched Calls, Messaging, and Photos to 13M+ verified users globally, achieving an 80% CSAT score.
+
+## Professional Experience
+
+**Google | Senior Product Designer (Lead)**
+*2018 — Present*
+Currently leading 0→1 design strategy for Merchant Shopping AI. Specializing in translating complex Large Language Model (LLM) capabilities into intuitive, agentic user interfaces. Previously served as the sole Interaction Designer driving global messaging systems for 13M+ users.
+
+**Location Labs by Avast | Product Designer**
+*2015 — 2018*
+Redesigned core family safety products for Sprint and Verizon, scaling a legacy utility into a top-rated consumer app with 1.7M+ paying subscribers and a 4.5+ star rating.
+
+**Education**
+- **University of California, Santa Cruz (UCSC)**: B.A. Philosophy & Environmental Studies (Highest Honors)
+- **General Assembly**: User Experience Design Immersive
+
+## Hobbies & Interests
+Outside of digital products, Devon is an expert at physical crafts (converting a Honda Element into a custom camper) and elite competition (National & World Champion Ultimate Frisbee player with Revolver). He currently surfs and designs from his home in Honolulu, HI.
