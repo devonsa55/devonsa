@@ -87,7 +87,7 @@ const Hero = () => {
                   position: 'absolute',
                   left: '100%',
                   top: '.5em',
-                  marginLeft: '1rem',
+                  marginLeft: '2.5rem',
                   fontFamily: 'var(--font-mono)',
                   fontSize: '.4em',
                   color: 'var(--text-quinary)',
