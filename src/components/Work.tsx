@@ -13,8 +13,8 @@ import AnimatedShopStream from './animated-icons/AnimatedShopStream';
 import AnimatedMerchantComms from './animated-icons/AnimatedMerchantComms';
 import AnimatedFamilySafety from './animated-icons/AnimatedFamilySafety';
 
-// TOGGLE WIP MODE: Set to true on live site, false locally
-const IS_UNDER_CONSTRUCTION = import.meta.env.MODE === 'production';
+// TOGGLE WIP MODE: Set to false to show work
+const IS_UNDER_CONSTRUCTION = false;
 
 const Work = () => {
   useState<ProjectCaseStudy | null>(null);
