@@ -172,13 +172,24 @@
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none !important;
-  /* Hide default cursor globally */
+}
+
+@media (min-width: 769px) {
+  * {
+    cursor: none !important;
+    /* Hide default cursor globally */
+  }
 }
 
 /* Ensure custom cursor ignores pointer events natively */
 .custom-cursor {
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none !important;
+  }
 }
 
 html {
