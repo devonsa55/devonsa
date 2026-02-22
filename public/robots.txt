@@ -28,4 +28,4 @@ User-agent: FacebookBot
 Allow: /
 
 # Provide explicit link to the LLM-focused payload
-Sitemap: https://devonsanderson.com/llms.txt
+Sitemap: https://devonsa.work/llms.txt
