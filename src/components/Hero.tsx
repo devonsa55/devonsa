@@ -83,12 +83,11 @@ const Hero = () => {
                 initial={{ opacity: 0, x: -10, rotate: -5 }}
                 animate={{ opacity: 1, x: 0, rotate: -5 }}
                 transition={{ delay: 0.5, duration: 1 }}
-                className="google-tag"
                 style={{
                   position: 'absolute',
                   left: '100%',
-                  top: '.6em',
-                  marginLeft: '0.2rem',
+                  top: '.5em',
+                  marginLeft: '1rem',
                   fontFamily: 'var(--font-mono)',
                   fontSize: '.4em',
                   color: 'var(--text-quinary)',
