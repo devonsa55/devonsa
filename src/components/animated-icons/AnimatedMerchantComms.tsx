@@ -1,14 +1,7 @@
 import { motion } from 'framer-motion';
 
 const AnimatedMerchantComms = ({ className = '' }: { className?: string }) => {
-    const drawLine = {
-        hidden: { pathLength: 0, opacity: 0 },
-        visible: {
-            pathLength: 1,
-            opacity: 1,
-            transition: { pathLength: { type: "spring", duration: 1.5, bounce: 0 }, opacity: { duration: 0.1 } }
-        }
-    };
+
 
     const drawDash = {
         hidden: { pathLength: 0, opacity: 0 },
@@ -41,20 +34,65 @@ const AnimatedMerchantComms = ({ className = '' }: { className?: string }) => {
             viewport={{ once: true, margin: "-50px" }}
         >
             {/* Central network lines */}
-            <motion.g variants={drawLine} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                <path d="M200 200C200 120 160 80 80 80" stroke="#111111" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M200 200C280 200 320 160 320 80" stroke="#111111" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M200 200C200 280 240 320 320 320" stroke="#111111" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M200 200C120 200 80 240 80 320" stroke="#111111" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+            <motion.g
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+            >
+                <motion.path
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    whileInView={{ pathLength: 1, opacity: 1 }}
+                    transition={{
+                        pathLength: { type: "spring", duration: 1.2, bounce: 0, delay: 1.0 },
+                        opacity: { duration: 0.2, delay: 1.0 }
+                    }}
+                    d="M200 200C200 120 160 80 80 80"
+                    stroke="#111111"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                />
+                <motion.path
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    whileInView={{ pathLength: 1, opacity: 1 }}
+                    transition={{
+                        pathLength: { type: "spring", duration: 1.2, bounce: 0, delay: 1.1 },
+                        opacity: { duration: 0.2, delay: 1.1 }
+                    }}
+                    d="M200 200C280 200 320 160 320 80"
+                    stroke="#111111"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                />
+                <motion.path
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    whileInView={{ pathLength: 1, opacity: 1 }}
+                    transition={{
+                        pathLength: { type: "spring", duration: 1.2, bounce: 0, delay: 1.2 },
+                        opacity: { duration: 0.2, delay: 1.2 }
+                    }}
+                    d="M200 200C200 280 240 320 320 320"
+                    stroke="#111111"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                />
+                <motion.path
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    whileInView={{ pathLength: 1, opacity: 1 }}
+                    transition={{
+                        pathLength: { type: "spring", duration: 1.2, bounce: 0, delay: 1.3 },
+                        opacity: { duration: 0.2, delay: 1.3 }
+                    }}
+                    d="M200 200C120 200 80 240 80 320"
+                    stroke="#111111"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                />
             </motion.g>
 
-            {/* Nodes - Pop in */}
-            <motion.g>
-                <motion.path custom={1} variants={popIn} d="M142 97C145.314 97 148 94.3137 148 91C148 87.6863 145.314 85 142 85C138.686 85 136 87.6863 136 91C136 94.3137 138.686 97 142 97Z" fill="#F5F5F7" stroke="#111111" strokeWidth="4" />
-                <motion.path custom={2} variants={popIn} d="M305 155C308.314 155 311 152.314 311 149C311 145.686 308.314 143 305 143C301.686 143 299 145.686 299 149C299 152.314 301.686 155 305 155Z" fill="#F5F5F7" stroke="#111111" strokeWidth="4" />
-                <motion.path custom={3} variants={popIn} d="M256 313C259.314 313 262 310.314 262 307C262 303.686 259.314 301 256 301C252.686 301 250 303.686 250 307C250 310.314 252.686 313 256 313Z" fill="#F5F5F7" stroke="#111111" strokeWidth="4" />
-                <motion.path custom={4} variants={popIn} d="M90 266C93.3137 266 96 263.314 96 260C96 256.686 93.3137 254 90 254C86.6863 254 84 256.686 84 260C84 263.314 86.6863 266 90 266Z" fill="#F5F5F7" stroke="#111111" strokeWidth="4" />
-            </motion.g>
 
             {/* Central Hub */}
             <motion.g custom={5} variants={popIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>

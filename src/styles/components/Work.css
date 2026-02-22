@@ -129,7 +129,7 @@
     aspect-ratio: 16/10;
     position: relative;
     background: #FFFFFF !important;
-    padding: 40px;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -152,8 +152,8 @@
 }
 
 .project-card-image.is-logo {
-    width: 65%;
-    height: 65%;
+    width: 110%;
+    height: 110%;
     object-fit: contain;
 }
 

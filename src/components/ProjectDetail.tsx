@@ -10,44 +10,44 @@ import { fadeInUp, fadeIn } from '../utils/motion';
 
 
 
+const iconMap: Record<string, React.ReactNode> = {
+  Monitor: <Monitor size={48} />,
+  TrendingUp: <TrendingUp size={48} />,
+  Cpu: <Cpu size={48} />,
+  Wrench: <Wrench size={48} />,
+  Youtube: <Youtube size={48} />,
+  MessageSquare: <MessageSquare size={48} />,
+  Store: <Store size={48} />,
+  Shield: <Shield size={48} />,
+  Video: <Video size={48} />,
+  Zap: <Zap size={48} />,
+  Share2: <Share2 size={48} />,
+  Smartphone: <Smartphone size={48} />,
+  GitMerge: <GitMerge size={48} />,
+  Users: <Users size={48} />,
+  RefreshCcw: <RefreshCcw size={48} />,
+  CircleAlert: <CircleAlert size={48} />,
+  Map: <Map size={48} />,
+  LayoutGrid: <LayoutGrid size={48} />,
+  Palette: <Palette size={48} />,
+  Star: <Star size={48} />
+};
+
+const renderPlaceholder = (iconName?: string, title?: string) => {
+  const IconComponent = iconName ? iconMap[iconName] : null;
+  return (
+    <div className="placeholder-media" data-icon={iconName}>
+      <div className="placeholder-icon">
+        {IconComponent || <Video size={48} />}
+      </div>
+      {title && <span className="placeholder-label">{title}</span>}
+    </div>
+  );
+};
+
 const ProjectDetail: React.FC = () => {
   const { projectId } = useParams<{ projectId: string }>();
   const project = projects.find(p => p.id === projectId);
-
-  const iconMap: Record<string, React.ReactNode> = {
-    Monitor: <Monitor size={48} />,
-    TrendingUp: <TrendingUp size={48} />,
-    Cpu: <Cpu size={48} />,
-    Wrench: <Wrench size={48} />,
-    Youtube: <Youtube size={48} />,
-    MessageSquare: <MessageSquare size={48} />,
-    Store: <Store size={48} />,
-    Shield: <Shield size={48} />,
-    Video: <Video size={48} />,
-    Zap: <Zap size={48} />,
-    Share2: <Share2 size={48} />,
-    Smartphone: <Smartphone size={48} />,
-    GitMerge: <GitMerge size={48} />,
-    Users: <Users size={48} />,
-    RefreshCcw: <RefreshCcw size={48} />,
-    CircleAlert: <CircleAlert size={48} />,
-    Map: <Map size={48} />,
-    LayoutGrid: <LayoutGrid size={48} />,
-    Palette: <Palette size={48} />,
-    Star: <Star size={48} />
-  };
-
-  const renderPlaceholder = (iconName?: string, title?: string) => {
-    const IconComponent = iconName ? iconMap[iconName] : null;
-    return (
-      <div className="placeholder-media" data-icon={iconName}>
-        <div className="placeholder-icon">
-          {IconComponent || <Video size={48} />}
-        </div>
-        {title && <span className="placeholder-label">{title}</span>}
-      </div>
-    );
-  };
 
 
   const [isVisible, setIsVisible] = React.useState(true);

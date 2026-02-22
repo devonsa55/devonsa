@@ -2,16 +2,16 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Chillwave } from './Decorations';
 
-const Hero = () => {
-  const words = ["designer", "thinker", "strategist", "prototyper", "storyteller", "builder", "leader"];
-  const highlightColors = [
-    'var(--cyan-blue)',
-    'var(--aqua-green)',
-    'var(--tangerine)',
-    'var(--amethyst)',
-    'var(--light-red)'
-  ];
+const words = ["designer", "thinker", "strategist", "prototyper", "storyteller", "builder", "leader"];
+const highlightColors = [
+  'var(--cyan-blue)',
+  'var(--aqua-green)',
+  'var(--tangerine)',
+  'var(--amethyst)',
+  'var(--light-red)'
+];
 
+const Hero = () => {
   const [index, setIndex] = useState(0);
   const HERO_HIGHLIGHT_COLOR = highlightColors[index % highlightColors.length];
 
@@ -34,7 +34,7 @@ const Hero = () => {
       setIndex((prev) => (prev + 1) % words.length);
     }, 2500); // Reduced to 2.5 seconds
     return () => clearInterval(interval);
-  }, [words.length]);
+  }, []);
 
   return (
     <section className="hero">
@@ -257,101 +257,7 @@ const Hero = () => {
           </motion.div>
         </motion.div>
       </div>
-
-      <style dangerouslySetInnerHTML={{
-        __html: `
-        .hero {
-          padding-top: 160px; /* Increased to account for the hanging 'Anderson' signature and optically center */
-          padding-bottom: 0;
-          min-height: 85vh; /* Air between header and work */
-          overflow: visible;
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 10;
-        }
-
-        .hero-container {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          text-align: left;
-          position: relative;
-          z-index: 2;
-          width: 100%;
-          height: 100%;
-          justify-content: center;
-          padding-bottom: 0; /* Centered perfectly on Y-axis */
-        }
-
-        .hero-text h1 {
-          font-size: clamp(2.5rem, 6.2vw, 4.75rem);
-          margin-top: 0 !important;
-          margin-bottom: 0 !important;
-          color: var(--text-primary);
-          line-height: 1.15;
-          max-width: 100vw;
-          font-weight: 800;
-          letter-spacing: -0.03em;
-        }
-
-        .hover-trigger {
-          display: inline-block;
-          color: var(--text-primary);
-          position: relative;
-          text-decoration: none;
-          z-index: 1;
-        }
-
-        .hover-trigger::after {
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 1.5px;
-          bottom: 6px;
-          left: 0;
-          background-color: #000;
-          transform: scaleX(0);
-          transform-origin: left;
-          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          z-index: -1;
-        }
-
-        .hover-trigger:hover::after {
-          transform: scaleX(1);
-          transform-origin: left;
-        }
-
-        .hover-decoration {
-          filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
-        }
-
-        .scroll-nudge {
-          position: absolute;
-          bottom: 1.5rem;
-          left: 50%;
-          transform: translateX(-50%);
-          font-size: 2rem;
-          color: var(--text-secondary);
-          opacity: 0.7;
-          pointer-events: none;
-        }
-
-        .text-highlight {
-          background: var(--gradient-primary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-
-
-        @media (max-width: 820px) {
-          .hero-text h1 {
-            /* Now handled by linear clamp above */
-          }
-        }
-      `}} />
-    </section >
+    </section>
   );
 };
 

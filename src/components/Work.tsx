@@ -16,6 +16,21 @@ import AnimatedFamilySafety from './animated-icons/AnimatedFamilySafety';
 // TOGGLE WIP MODE: Set to false to show work
 const IS_UNDER_CONSTRUCTION = false;
 
+const getIcon = (iconName?: string) => {
+  switch (iconName) {
+    // Work Icons
+    case 'MessageSquare': return <MessageSquare size={120} />;
+    case 'Video': return <Video size={120} />;
+    case 'Store': return <Store size={120} />;
+    case 'Shield': return <Shield size={120} />;
+    // Strategy Icons
+    case 'Fingerprint': return <Fingerprint size={120} />;
+    case 'GitMerge': return <GitMerge size={120} />;
+    case 'TrendingUp': return <TrendingUp size={120} />;
+    default: return null;
+  }
+};
+
 const Work = () => {
   useState<ProjectCaseStudy | null>(null);
   const isUnderConstruction = IS_UNDER_CONSTRUCTION;
@@ -25,21 +40,6 @@ const Work = () => {
       document.documentElement.style.removeProperty('--ben-hover-color');
     };
   }, []);
-
-  const getIcon = (iconName?: string) => {
-    switch (iconName) {
-      // Work Icons
-      case 'MessageSquare': return <MessageSquare size={48} />;
-      case 'Video': return <Video size={48} />;
-      case 'Store': return <Store size={48} />;
-      case 'Shield': return <Shield size={48} />;
-      // Strategy Icons
-      case 'Fingerprint': return <Fingerprint size={48} />;
-      case 'GitMerge': return <GitMerge size={48} />;
-      case 'TrendingUp': return <TrendingUp size={48} />;
-      default: return null;
-    }
-  };
 
 
   const renderProjects = () => (

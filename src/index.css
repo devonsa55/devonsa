@@ -6,6 +6,8 @@
 @import './styles/components/ProjectDetail.css';
 @import './styles/components/Contact.css';
 @import './styles/components/AboutRedesign.css';
+@import './styles/components/Navbar.css';
+@import './styles/components/Hero.css';
 
 /* Global Variables & Shared Tokens */
 :root {
