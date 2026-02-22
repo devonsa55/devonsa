@@ -48,23 +48,23 @@ const ProfileCard = ({ image, icon, text, subtext, link, className = '' }: Profi
                     display: flex;
                     align-items: center;
                     gap: 1.25rem;
-                    padding: 0.75rem 2.25rem 0.75rem 1.75rem;
+                    padding: 0.6rem 2.25rem 0.6rem 1.75rem;
                     background: var(--bg-secondary);
                     border: 2px solid var(--border-subtle);
                     border-radius: 100px;
                     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-                    min-height: 64px; /* Consistent height */
+                    min-height: 54px; /* Matched to standard button height */
                     box-shadow: none;
                 }
 
                 /* Contextual padding for icon vs image */
                 .profile-card:has(.profile-outer-icon) .profile-card-content {
-                    padding: 0.75rem 2.25rem 0.75rem 1.5rem;
+                    padding: 0.5rem 2.25rem 0.5rem 1.25rem;
                     gap: 1rem;
                 }
 
                 .profile-card:has(.profile-image-wrapper) .profile-card-content {
-                    padding: 0.6rem 2.25rem 0.6rem 0.6rem;
+                    padding: 0.45rem 2.25rem 0.45rem 0.45rem;
                     gap: 1.25rem;
                 }
 
@@ -75,8 +75,8 @@ const ProfileCard = ({ image, icon, text, subtext, link, className = '' }: Profi
                 }
 
                 .profile-image-wrapper {
-                    width: 48px;
-                    height: 48px;
+                    width: 40px;
+                    height: 40px;
                     border-radius: 50%;
                     overflow: hidden;
                     border: 2px solid var(--bg-primary);
