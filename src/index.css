@@ -174,22 +174,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (min-width: 769px) {
+/* Hide default cursor globally ONLY on devices with a mouse */
+@media (hover: hover) and (pointer: fine) {
   * {
     cursor: none !important;
-    /* Hide default cursor globally */
   }
 }
 
 /* Ensure custom cursor ignores pointer events natively */
 .custom-cursor {
   pointer-events: none;
-}
-
-@media (max-width: 768px) {
-  .custom-cursor {
-    display: none !important;
-  }
 }
 
 html {

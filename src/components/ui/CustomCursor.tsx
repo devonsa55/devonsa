@@ -6,8 +6,19 @@ const CustomCursor = () => {
     const [isHovering, setIsHovering] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const [isIdle, setIsIdle] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.matchMedia('(max-width: 500px)').matches || ('ontouchstart' in window && navigator.maxTouchPoints > 0));
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    useEffect(() => {
+        if (isMobile) return;
         let idleTimer: ReturnType<typeof setTimeout>;
 
         const resetIdleTimer = () => {
@@ -84,9 +95,9 @@ const CustomCursor = () => {
                 el.removeEventListener('mouseleave', handleLinkLeave);
             });
         };
-    }, [isVisible]);
+    }, [isVisible, isMobile]);
 
-    if (!isVisible) return null;
+    if (isMobile || !isVisible) return null;
 
     return (
         <motion.div
