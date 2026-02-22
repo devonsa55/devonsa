@@ -1,6 +1,5 @@
 .hero {
-    padding-top: 160px;
-    /* Increased to account for the hanging 'Anderson' signature and optically center */
+    padding-top: 200px;
     padding-bottom: 0;
     min-height: 85vh;
     /* Air between header and work */

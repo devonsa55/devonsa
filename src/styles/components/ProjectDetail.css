@@ -127,12 +127,12 @@
 
 .project-meta-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px;
-    padding: 60px 0;
-    border-top: 2px solid var(--text-primary);
-    border-bottom: 2px solid var(--text-primary);
-    margin-bottom: 80px;
+    padding: 80px 0;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    margin: 60px 0 100px;
 }
 
 .meta-item h3 {
@@ -385,12 +385,12 @@
 
 .slack-metadata-bar {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     border-top: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
-    padding: 2rem 0;
-    margin: 80px 0;
-    gap: 2rem;
+    padding: 80px 0;
+    margin: 60px 0 100px;
+    gap: 48px;
 }
 
 .meta-col {
@@ -409,9 +409,10 @@
 }
 
 .meta-value {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.15rem;
+    font-weight: 700;
     color: var(--text-primary);
+    line-height: 1.2;
 }
 
 .slack-visual-scroll {

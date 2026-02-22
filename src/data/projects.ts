@@ -62,8 +62,8 @@ export const projects: ProjectCaseStudy[] = [
     team: 'Product Managers, LLM Engineers, Data Scientists',
     timeline: '2023 - Present',
     impact: 'Global Merchant Center Ecosystem',
-    result: '80% Merchant Interest',
-    resultLabel: 'Validation',
+    result: '80% CSAT on millions of reviews',
+    resultLabel: 'Satisfaction',
     template: 'slack',
     sections: [
       {
