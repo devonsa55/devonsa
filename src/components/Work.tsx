@@ -57,10 +57,8 @@ const Work = () => {
           projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 1, y: 0 }}
               whileHover={{ y: -4 }}
-              viewport={{ once: true }}
               transition={{
                 duration: 0.6,
                 delay: index * 0.1,
