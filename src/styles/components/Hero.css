@@ -1,4 +1,6 @@
 .hero {
+    padding-top: 220px;
+    padding-bottom: 80px;
     min-height: 85vh;
     /* Air between header and work */
     overflow: visible;
@@ -7,14 +9,13 @@
     align-items: center;
     justify-content: center;
     z-index: 10;
-    padding: 0;
-    /* Remove padding to allow mathematical centering */
 }
 
 @media (max-width: 768px) {
     .hero {
+        padding-top: 20vh;
+        padding-bottom: 40px;
         min-height: 85vh;
-        padding: 0;
     }
 }
 
