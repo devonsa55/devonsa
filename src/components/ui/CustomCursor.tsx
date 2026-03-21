@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const CustomCursor = () => {
@@ -7,6 +7,10 @@ const CustomCursor = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [isIdle, setIsIdle] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const [isShaking, setIsShaking] = useState(false);
+
+    const lastMousePos = useRef({ x: 0, y: 0, time: 0 });
+    const shakeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     useEffect(() => {
         const checkMobile = () => {
@@ -30,6 +34,25 @@ const CustomCursor = () => {
         };
 
         const updateMousePosition = (e: MouseEvent) => {
+            const now = Date.now();
+            const pt = lastMousePos.current;
+            const dt = now - pt.time;
+
+            // Calculate cursor velocity to detect "shake to find"
+            if (dt > 0) {
+                const dx = e.clientX - pt.x;
+                const dy = e.clientY - pt.y;
+                const velocity = Math.sqrt(dx * dx + dy * dy) / dt;
+
+                // If velocity is very high (vigorous shaking), hide custom cursor
+                if (velocity > 8) {
+                    setIsShaking(true);
+                    if (shakeTimer.current) clearTimeout(shakeTimer.current);
+                    shakeTimer.current = setTimeout(() => setIsShaking(false), 300);
+                }
+            }
+
+            lastMousePos.current = { x: e.clientX, y: e.clientY, time: now };
             setMousePosition({ x: e.clientX, y: e.clientY });
             if (!isVisible) setIsVisible(true);
             resetIdleTimer();
@@ -106,13 +129,19 @@ const CustomCursor = () => {
                 x: mousePosition.x - 16,
                 y: mousePosition.y - 16,
                 scale: 1.2,
-                opacity: 0
+                opacity: 0,
+                width: 32,
+                height: 32,
+                backgroundColor: '#FFF'
             }}
             animate={{
                 x: mousePosition.x - (isHovering || isIdle ? 24 : 16),
                 y: mousePosition.y - (isHovering || isIdle ? 24 : 16),
                 scale: isHovering || isIdle ? 1.5 : 1,
-                opacity: isVisible ? 1 : 0,
+                opacity: isVisible && !isShaking ? 1 : 0,
+                width: isHovering || isIdle ? 48 : 32,
+                height: isHovering || isIdle ? 48 : 32,
+                backgroundColor: isIdle ? 'rgba(255, 255, 255, 0)' : '#FFF'
             }}
             transition={{
                 type: "spring",
@@ -124,9 +153,6 @@ const CustomCursor = () => {
                 position: 'fixed',
                 top: 0,
                 left: 0,
-                width: isHovering || isIdle ? '48px' : '32px',
-                height: isHovering || isIdle ? '48px' : '32px',
-                backgroundColor: isIdle ? 'transparent' : '#FFF',
                 borderRadius: '50%',
                 pointerEvents: 'none',
                 zIndex: 9999,
@@ -137,6 +163,8 @@ const CustomCursor = () => {
                 flexDirection: 'column',
                 border: 'none',
                 boxShadow: 'none',
+                willChange: 'transform, width, height, mix-blend-mode',
+                WebkitTransform: 'translateZ(0)',
             }}
         >
             <AnimatePresence>

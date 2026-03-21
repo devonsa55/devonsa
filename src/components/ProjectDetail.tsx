@@ -3,8 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projects } from '../data/projects';
 import { ArrowLeft, CheckCircle2, Home, Monitor, TrendingUp, Cpu, Wrench, Youtube, MessageSquare, Store, Shield, Video, Zap, Share2, Smartphone, GitMerge, Users, RefreshCcw, CircleAlert, Map, LayoutGrid, Palette, Star } from 'lucide-react';
-import Badge from './ui/Badge';
-import Button from './ui/Button';
+import { Badge } from './ui/badge';
+import { Button } from './ui/button';
 import ProfileCard from './ui/ProfileCard';
 import { fadeInUp, fadeIn } from '../utils/motion';
 
@@ -85,7 +85,7 @@ const ProjectDetail: React.FC = () => {
     return (
       <div className="section container">
         <h1>Project not found</h1>
-        <Button to="/">Back to Home</Button>
+        <Button asChild><Link to="/">Back to Home</Link></Button>
       </div>
     );
   }
@@ -218,18 +218,19 @@ const ProjectDetail: React.FC = () => {
           </div>
         </motion.nav>
 
-        <header className="project-header">
-          <Badge className="project-badge">
+        <header className="block mt-[5vh]">
+          <Badge variant="secondary" className="mb-4 bg-muted">
             {project.tags[0]} Case Study
           </Badge>
           <motion.h1
+            className="font-heading text-[clamp(2rem,8vw,6rem)] leading-[0.95] mb-5 break-words"
             {...fadeInUp}
             transition={{ delay: 0.1 }}
           >
             {project.title}
           </motion.h1>
           <motion.p
-            className="subtitle"
+            className="text-[clamp(1.25rem,3vw,2rem)] text-[var(--text-secondary)] max-w-[900px] leading-snug"
             {...fadeInUp}
             transition={{ delay: 0.2 }}
           >

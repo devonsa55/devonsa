@@ -3,8 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { strategyFrameworks } from '../data/strategy';
 import { ArrowLeft, CheckCircle2, Home, ExternalLink } from 'lucide-react';
-import Badge from './ui/Badge';
-import Button from './ui/Button';
+import { Badge } from './ui/badge';
+import { Button } from './ui/button';
 import ProfileCard from './ui/ProfileCard';
 import { fadeInUp, fadeIn } from '../utils/motion';
 import CoordinationGraph from './ui/CoordinationGraph';
@@ -42,7 +42,7 @@ const StrategyDetail: React.FC = () => {
         return (
             <div className="section container" style={{ paddingTop: '120px' }}>
                 <h1>Strategy not found</h1>
-                <Button to="/">Back to Home</Button>
+                <Button asChild><Link to="/">Back to Home</Link></Button>
             </div>
         );
     }
@@ -81,7 +81,7 @@ const StrategyDetail: React.FC = () => {
                 <div className="container" style={{ paddingTop: '80px' }}>
                     <article className="strategy-paper">
                         <header className="paper-header" style={{ marginBottom: '2.5rem', textAlign: 'center' }}>
-                            <Badge className="project-badge">White Paper / Framework</Badge>
+                            <Badge variant="secondary" className="mb-4 bg-muted">White Paper / Framework</Badge>
                             <motion.h1 {...fadeInUp} transition={{ delay: 0.1 }}>
                                 {strategy.subtitle || strategy.title}
                             </motion.h1>
@@ -147,13 +147,15 @@ const StrategyDetail: React.FC = () => {
                         {strategy.processLink && (
                             <div className="paper-section" style={{ textAlign: 'center', marginBottom: '4rem' }}>
                                 <Button
-                                    to={strategy.processLink.url}
+                                    asChild
                                     variant="secondary"
                                     className="process-button"
                                     style={{ padding: '0.8rem 2rem', borderRadius: '100px' }}
                                 >
-                                    <ExternalLink size={18} style={{ marginRight: '0.75rem' }} />
-                                    {strategy.processLink.label}
+                                    <Link to={strategy.processLink.url}>
+                                        <ExternalLink size={18} style={{ marginRight: '0.75rem' }} />
+                                        {strategy.processLink.label}
+                                    </Link>
                                 </Button>
                             </div>
                         )}
@@ -236,7 +238,7 @@ const StrategyDetail: React.FC = () => {
                 {renderStickyNav()}
 
                 <header className="project-header">
-                    <Badge className="project-badge">
+                    <Badge variant="secondary" className="mb-4 bg-muted">
                         Strategy & Framework
                     </Badge>
                     <motion.h1
