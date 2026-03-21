@@ -58,11 +58,9 @@ const Work = () => {
             <motion.div
               key={project.id}
               initial={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -4 }}
               transition={{
                 duration: 0.6,
-                delay: index * 0.1,
-                y: { type: "spring", stiffness: 300, damping: 20 }
+                delay: index * 0.1
               }}
               className={`project-card ${project.id === 'conversational-insights' ? 'span-2-col span-2-row' : ''} ${project.id === 'merchant-comms' ? 'span-2-row' : ''} ${project.id === 'family-safety-platforms' ? 'top-align' : ''}`}
             >
@@ -123,12 +121,10 @@ const Work = () => {
             key={item.id}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ y: -4 }}
             viewport={{ once: true }}
             transition={{
               duration: 0.6,
-              delay: index * 0.1,
-              y: { type: "spring", stiffness: 300, damping: 20 }
+              delay: index * 0.1
             }}
             className="article-card-wrapper"
           >
