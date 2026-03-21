@@ -5,6 +5,7 @@ import { projects } from '../data/projects';
 import { ArrowLeft, CheckCircle2, Home, Monitor, TrendingUp, Cpu, Wrench, Youtube, MessageSquare, Store, Shield, Video, Zap, Share2, Smartphone, GitMerge, Users, RefreshCcw, CircleAlert, Map, LayoutGrid, Palette, Star } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
+import { Card } from './ui/card';
 import ProfileCard from './ui/ProfileCard';
 import { fadeInUp, fadeIn } from '../utils/motion';
 
@@ -115,7 +116,7 @@ const ProjectDetail: React.FC = () => {
             </motion.p>
           </header>
 
-          <div className="slack-metadata-bar">
+          <div className="grid grid-cols-2 md:grid-cols-4 border-y border-border-subtle py-20 my-[60px] md:my-[100px] gap-8 md:gap-12">
             <div className="meta-col">
               <span className="meta-label">Role</span>
               <span className="meta-value">{project.role}</span>
@@ -152,7 +153,7 @@ const ProjectDetail: React.FC = () => {
             )}
           </div>
 
-          <div className="slack-visual-scroll">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-[160px] md:gap-y-[240px] gap-x-[60px] pb-[120px]">
             {project.sections?.map((section, idx) => (
               <div
                 key={idx}
@@ -263,7 +264,7 @@ const ProjectDetail: React.FC = () => {
           </motion.div>
         )}
 
-        <div className="project-meta-grid">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-10 py-20 border-y border-border-subtle my-[60px] lg:mb-[100px]">
           <div className="meta-item">
             <h3>Role</h3>
             <p>{project.role}</p>
@@ -298,7 +299,7 @@ const ProjectDetail: React.FC = () => {
         </section>
 
         {project.sections?.map((section, index) => (
-          <section key={index} className={`project-section ${section.layout || 'side-by-side'}`}>
+          <section key={index} className="grid grid-cols-1 lg:grid-cols-2 gap-[3rem] lg:gap-[80px] items-center my-[100px]">
             <div className="section-text">
               {section.title && <h2>{section.title}</h2>}
               <div className="section-content">
@@ -335,15 +336,13 @@ const ProjectDetail: React.FC = () => {
         {project.outcomes && (
           <section className="project-section outcomes">
             <h2 className="section-label">Results & Outcomes</h2>
-            <div className="outcomes-grid">
+            <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-8">
               {project.outcomes.map((outcome, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ y: -5 }}
-                  className="outcome-card"
-                >
-                  <CheckCircle2 size={24} className="check-icon" />
-                  <p>{outcome}</p>
+                <motion.div key={index} whileHover={{ y: -5 }}>
+                  <Card className="p-10 bg-bg-secondary border-2 border-text-primary rounded-[var(--radius-card)] flex flex-col gap-6 shadow-none h-full">
+                    <CheckCircle2 size={24} className="check-icon text-text-primary" />
+                    <p className="m-0 text-[1.1rem] leading-[1.6]">{outcome}</p>
+                  </Card>
                 </motion.div>
               ))}
             </div>
@@ -352,7 +351,7 @@ const ProjectDetail: React.FC = () => {
 
         {project.challenge && (
           <section className="project-section challenge">
-            <div className="challenge-card-premium">
+            <div className="p-[40px] lg:p-[80px] bg-text-primary text-bg-primary rounded-[48px] relative overflow-hidden">
               <div className="challenge-content">
                 <span className="challenge-label">The Toughest Challenge</span>
                 <h2>Turning complexity into simplicity</h2>

@@ -50,7 +50,7 @@ const Work = () => {
         className="work-header"
       />
 
-      <div className={`work-grid ${isUnderConstruction ? 'is-under-construction' : ''}`}>
+      <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 auto-rows-auto gap-6 md:gap-8 mt-8 ${isUnderConstruction ? 'min-h-auto' : ''}`}>
         {isUnderConstruction ? (
           <SplitFlapBoard />
         ) : (
@@ -115,7 +115,7 @@ const Work = () => {
         subtitle="Methodologies I use to solve complex problems and build consensus."
       />
 
-      <div className="strategy-grid">
+      <div className="grid grid-cols-1 min-[820px]:grid-cols-2 gap-6 mt-0">
         {strategyFrameworks.map((item, index) => (
           <motion.div
             key={item.id}

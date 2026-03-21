@@ -37,16 +37,16 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="hero">
-      <div className="container hero-container">
+    <section className="pt-[20vh] md:pt-[220px] pb-[40px] md:pb-[80px] min-h-[85vh] overflow-visible relative flex items-center justify-center z-10">
+      <div className="container flex flex-col items-start text-left relative z-[2] w-full h-full justify-center pb-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="hero-text"
+          className="w-full"
         >
 
-          <h1 style={{ position: 'relative' }}>
+          <h1 className="!m-0 text-[clamp(2.5rem,6.2vw,4.75rem)] text-text-primary leading-[1.15] max-w-[100vw] font-extrabold tracking-[-0.03em] relative">
             I'm a product
             <span
               onMouseMove={handleMouseMove}
@@ -102,16 +102,12 @@ const Hero = () => {
             </span>,
             <br />
             <span
-              className="hover-trigger"
+              className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10 mr-[0.1em]"
               onMouseEnter={() => setIsSurfing(true)}
               onMouseMove={handleMouseMove}
               onMouseLeave={() => {
                 setIsSurfing(false);
                 setMouseX(0);
-              }}
-              style={{
-                position: 'relative',
-                marginRight: '0.1em'
               }}
             >
               surfer,
@@ -126,7 +122,7 @@ const Hero = () => {
                       y: '-50%'
                     }}
                     exit={{ opacity: 0, scale: 0.5, x: '-120%', y: '-50%' }}
-                    className="hover-decoration"
+                    className="drop-shadow-[0_10px_20px_rgba(0,0,0,0.1)]"
                     style={{
                       position: 'absolute',
                       top: '50%',
@@ -141,15 +137,12 @@ const Hero = () => {
               </AnimatePresence>
             </span>{' '}
             & <span
-              className="hover-trigger"
+              className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10"
               onMouseEnter={() => setIsAudioHovered(true)}
               onMouseMove={handleMouseMove}
               onMouseLeave={() => {
                 setIsAudioHovered(false);
                 setMouseX(0);
-              }}
-              style={{
-                position: 'relative'
               }}
             >
               audio enthusiast
@@ -199,16 +192,12 @@ const Hero = () => {
               </AnimatePresence>
             </span><br />
             currently living in <span
-              className="hover-trigger"
+              className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10 ml-[0.1em]"
               onMouseEnter={() => setIsHonoluluHovered(true)}
               onMouseMove={handleMouseMove}
               onMouseLeave={() => {
                 setIsHonoluluHovered(false);
                 setMouseX(0);
-              }}
-              style={{
-                position: 'relative',
-                marginLeft: '0.1em'
               }}
             >
               Honolulu, HI.
@@ -243,19 +232,6 @@ const Hero = () => {
           </h1>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="scroll-nudge"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            ↓
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );

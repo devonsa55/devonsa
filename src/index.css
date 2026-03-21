@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Public+Sans:wght@300;400;500;600;700&family=Young+Serif&family=Newsreader:ital,wght@0,200..800;1,200..800&family=Google+Sans+Code:wght@400;500;700&display=swap');
 
 /* Component Styles */
-@import './styles/components/About.css';
 @import './styles/components/Work.css';
 @import './styles/components/ProjectDetail.css';
-@import './styles/components/Contact.css';
+
 @import './styles/components/AboutRedesign.css';
 @import './styles/components/Navbar.css';
-@import './styles/components/Hero.css';
+
 @import './styles/components/Decorations.css';
 
 @tailwind base;

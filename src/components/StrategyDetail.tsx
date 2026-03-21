@@ -5,6 +5,7 @@ import { strategyFrameworks } from '../data/strategy';
 import { ArrowLeft, CheckCircle2, Home, ExternalLink } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
+import { Card } from './ui/card';
 import ProfileCard from './ui/ProfileCard';
 import { fadeInUp, fadeIn } from '../utils/motion';
 import CoordinationGraph from './ui/CoordinationGraph';
@@ -278,7 +279,7 @@ const StrategyDetail: React.FC = () => {
                     </motion.div>
                 )}
 
-                <div className="project-meta-grid">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-10 py-20 border-y border-border-subtle my-[60px] lg:mb-[100px]">
                     <div className="meta-item">
                         <h3>Focus</h3>
                         <p>{strategy.role}</p>
@@ -301,7 +302,7 @@ const StrategyDetail: React.FC = () => {
                 </section>
 
                 {strategy.sections?.map((section, index) => (
-                    <section key={index} className={`project-section ${section.layout || 'side-by-side'}`}>
+                    <section key={index} className="grid grid-cols-1 lg:grid-cols-2 gap-[3rem] lg:gap-[80px] items-center my-[100px]">
                         <div className="section-text">
                             {section.title && <h2>{section.title}</h2>}
                             <div className="section-content">
@@ -336,15 +337,13 @@ const StrategyDetail: React.FC = () => {
                 {strategy.outcomes && (
                     <section className="project-section outcomes">
                         <h2 className="section-label">Strategic Impact</h2>
-                        <div className="outcomes-grid">
+                        <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-8">
                             {strategy.outcomes.map((outcome, index) => (
-                                <motion.div
-                                    key={index}
-                                    whileHover={{ y: -5 }}
-                                    className="outcome-card"
-                                >
-                                    <CheckCircle2 size={24} className="check-icon" />
-                                    <p>{outcome}</p>
+                                <motion.div key={index} whileHover={{ y: -5 }}>
+                                  <Card className="p-10 bg-bg-secondary border-2 border-text-primary rounded-[var(--radius-card)] flex flex-col gap-6 shadow-none h-full">
+                                      <CheckCircle2 size={24} className="check-icon text-text-primary" />
+                                      <p className="m-0 text-[1.1rem] leading-[1.6]">{outcome}</p>
+                                  </Card>
                                 </motion.div>
                             ))}
                         </div>
@@ -353,7 +352,7 @@ const StrategyDetail: React.FC = () => {
 
                 {strategy.challenge && (
                     <section className="project-section challenge">
-                        <div className="challenge-card-premium">
+                        <div className="p-[40px] lg:p-[80px] bg-text-primary text-bg-primary rounded-[48px] relative overflow-hidden">
                             <div className="challenge-content">
                                 <span className="challenge-label">The Strategy Challenge</span>
                                 <h2>Navigating Ambiguity</h2>
