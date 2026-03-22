@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { MessageSquare, Video, Store, Shield, Fingerprint, GitMerge, TrendingUp } from 'lucide-react';
+import { MessageSquare, Video, Store, Shield, Fingerprint, GitMerge, TrendingUp, Zap, Palette } from 'lucide-react';
 import { projects, ProjectCaseStudy } from '../data/projects';
 import { strategyFrameworks } from '../data/strategy';
+import { aiProjects } from '../data/ai-projects';
 import SectionHeader from './ui/SectionHeader';
 import SplitFlapBoard from './ui/SplitFlapBoard';
 
@@ -27,6 +28,9 @@ const getIcon = (iconName?: string) => {
     case 'Fingerprint': return <Fingerprint size={120} />;
     case 'GitMerge': return <GitMerge size={120} />;
     case 'TrendingUp': return <TrendingUp size={120} />;
+    // AI Project Icons
+    case 'Zap': return <Zap size={120} />;
+    case 'Palette': return <Palette size={120} />;
     default: return null;
   }
 };
@@ -160,11 +164,52 @@ const Work = () => {
     </div>
   );
 
+  const renderAIProjects = () => (
+    <div className="strategy-section ai-projects-workflow">
+      <SectionHeader
+        title="AI Projects & Workflows"
+        subtitle="Custom tools, prompts, and frameworks designed to standardize workflows and increase productivity natively."
+      />
+
+      <div className="grid grid-cols-1 gap-6 mt-0">
+        {aiProjects.filter((item) => item.id !== 'portfolio-design-system').map((item, index) => (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            className="article-card-wrapper"
+          >
+            <Link to={`/ai-project/${item.id}`} className="article-card horizontal-card">
+              <div
+                className="article-thumbnail flex items-center justify-center"
+                style={{ backgroundColor: item.cardImageBg || 'var(--bg-secondary)' }}
+              >
+                <span className="font-mono text-[4.5rem] font-bold text-text-secondary opacity-40 select-none tracking-tight">
+                  .md
+                </span>
+              </div>
+              <div className="article-content">
+                <h3>{item.title}</h3>
+                <p>{item.subtitle}</p>
+                <div className="read-more">
+                  View workflow <span>→</span>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
     <section id="work" className="work">
       <div className="container">
         {renderProjects()}
         {renderStrategy()}
+        {renderAIProjects()}
       </div>
     </section>
   );

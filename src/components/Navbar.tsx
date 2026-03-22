@@ -15,7 +15,9 @@ const Navbar = () => {
   const IS_UNDER_CONSTRUCTION = false;
 
   const isHomePage = location.pathname === '/';
-  const isDetailPage = location.pathname.startsWith('/project/') || location.pathname.startsWith('/strategy/');
+  const isDetailPage = location.pathname.startsWith('/project/') || 
+                       location.pathname.startsWith('/strategy/') ||
+                       location.pathname.startsWith('/ai-project/');
 
   useEffect(() => {
     const handleScroll = () => {
