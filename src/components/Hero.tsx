@@ -48,7 +48,6 @@ const Hero = () => {
 
           <h1 
             className="!m-0 text-[clamp(2.5rem,6.2vw,4.75rem)] text-text-primary leading-[1.15] max-w-[100vw] font-extrabold tracking-[-0.03em] relative"
-            style={{ WebkitTextStroke: '0.5px var(--text-primary)' }}
           >
             I'm a product
             <span
@@ -76,8 +75,7 @@ const Hero = () => {
                     display: 'inline-block',
                     fontStyle: 'italic',
                     whiteSpace: 'nowrap',
-                    lineHeight: 1.15,
-                    WebkitTextStroke: '0.5px currentColor'
+                    lineHeight: 1.15
                   }}
                 >
                   {words[index]}
@@ -98,8 +96,7 @@ const Hero = () => {
                   whiteSpace: 'nowrap',
                   display: 'inline-block',
                   fontWeight: 700,
-                  letterSpacing: '0.02em',
-                  WebkitTextStroke: '0px'
+                  letterSpacing: '0.02em'
                 }}
               >
                 @ Google

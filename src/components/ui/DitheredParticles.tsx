@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-export type IconShape = 'chat-chart' | 'location-pin' | 'brackets' | 'video-layers' | 'video-camera' | 'nodes-hub' | 'grid-layout';
+export type IconShape = 'chat-chart' | 'location-pin' | 'brackets' | 'video-layers' | 'video-camera' | 'nodes-hub' | 'grid-layout' | 'hourglass';
 export type IdleShape = 'sphere' | 'torus' | 'triangle' | 'cylinder' | 'cube' | 'wave' | 'floating-nodes' | 'grid-vibration';
 export type ParticleShape = 'square' | 'circle' | 'rounded';
 
@@ -89,11 +89,11 @@ function generateTargetCoordinates(
     ctx.fill();
   }
   else if (shape === 'brackets') {
-    ctx.font = 'bold 200px monospace';
+    ctx.font = 'bold 140px monospace';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText('{ }', centerX, centerY);
-    ctx.fillRect(centerX - 15, centerY + 20, 30, 8);
+    ctx.fillRect(centerX - 10, centerY + 12, 20, 5);
   }
   else if (shape === 'video-camera') {
     ctx.fillRect(centerX - 80, centerY - 45, 90, 90);
@@ -138,15 +138,32 @@ function generateTargetCoordinates(
     ctx.stroke();
     ctx.fill();
   }
-  else if (shape === 'grid-layout') {
-    const bSize = 160;
-    const startX = centerX - bSize/2;
-    const startY = centerY - bSize/2;
-    ctx.fillRect(startX, startY, bSize, 30);
-    ctx.fillRect(startX, startY + 40, 40, bSize - 40);
-    ctx.fillRect(startX + 50, startY + 40, bSize - 50, 70);
-    ctx.fillRect(startX + 50, startY + 120, 50, bSize - 120);
-    ctx.fillRect(startX + 110, startY + 120, bSize - 110, bSize - 120);
+  else if (shape === 'hourglass') {
+    const size = 120;
+    const top = centerY - size/2;
+    const bottom = centerY + size/2;
+    
+    ctx.beginPath();
+    ctx.moveTo(centerX - size/2.5, top);
+    ctx.lineTo(centerX + size/2.5, top);
+    ctx.moveTo(centerX - size/2.5, bottom);
+    ctx.lineTo(centerX + size/2.5, bottom);
+    ctx.lineWidth = 15;
+    ctx.stroke();
+    
+    ctx.beginPath();
+    ctx.moveTo(centerX - size/2.5, top + 5);
+    ctx.lineTo(centerX + size/2.5, top + 5);
+    ctx.lineTo(centerX, centerY);
+    ctx.closePath();
+    ctx.fill();
+    
+    ctx.beginPath();
+    ctx.moveTo(centerX - size/2.5, bottom - 5);
+    ctx.lineTo(centerX + size/2.5, bottom - 5);
+    ctx.lineTo(centerX, centerY);
+    ctx.closePath();
+    ctx.fill();
   }
 
   const imageData = ctx.getImageData(0, 0, width, height).data;
@@ -272,7 +289,7 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
         return `rgb(${r}, ${g}, ${b})`;
       };
 
-      const currentBg = interpolate('#ffffff', bgColor, weight);
+      const currentBg = '#ffffff';
       const currentColor = interpolate('#000000', color, weight);
 
       ctx.fillStyle = currentBg;

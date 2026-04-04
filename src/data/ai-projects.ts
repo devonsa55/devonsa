@@ -17,7 +17,7 @@ export interface AIProjectCaseStudy {
   }[];
   ditherConfig?: {
     idleShape: 'sphere' | 'torus' | 'triangle' | 'cylinder' | 'cube' | 'wave' | 'floating-nodes' | 'grid-vibration';
-    iconShape: 'chat-chart' | 'location-pin' | 'brackets' | 'video-layers' | 'video-camera' | 'nodes-hub' | 'grid-layout';
+    iconShape: 'chat-chart' | 'location-pin' | 'brackets' | 'video-layers' | 'video-camera' | 'nodes-hub' | 'grid-layout' | 'hourglass';
     particleCount?: number;
     hoverColor?: string;
   };
@@ -62,7 +62,7 @@ export const aiProjects: AIProjectCaseStudy[] = [
     cardImageBg: "#F3F4F6",
     ditherConfig: {
       idleShape: 'triangle',
-      iconShape: 'brackets',
+      iconShape: 'hourglass',
       particleCount: 2800,
       hoverColor: '#10b981'
     },

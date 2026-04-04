@@ -41,7 +41,7 @@ export interface ProjectCaseStudy {
   animatedIcon?: string;
   ditherConfig?: {
     idleShape: 'sphere' | 'torus' | 'triangle' | 'cylinder' | 'cube' | 'wave' | 'floating-nodes' | 'grid-vibration';
-    iconShape: 'chat-chart' | 'location-pin' | 'brackets' | 'video-layers' | 'video-camera' | 'nodes-hub' | 'grid-layout';
+    iconShape: 'chat-chart' | 'location-pin' | 'brackets' | 'video-layers' | 'video-camera' | 'nodes-hub' | 'grid-layout' | 'hourglass';
     particleCount?: number;
     hoverColor?: string;
   };
