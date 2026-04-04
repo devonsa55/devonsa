@@ -14,9 +14,9 @@ export default {
         "bg-tertiary": "var(--bg-tertiary)",
       },
       fontFamily: {
-        body: ["Inter", "sans-serif"],
-        heading: ["Outfit", "sans-serif"],
-        mono: ["Roboto Mono", "monospace"],
+        body: ["var(--font-body)", "sans-serif"],
+        heading: ["var(--font-heading)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
       },
       borderColor: {
         DEFAULT: "var(--color-text)",
