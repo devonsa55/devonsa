@@ -1,490 +1,495 @@
 .project-detail {
-    padding: 120px 0;
-    background: var(--bg-primary);
-    background-image: radial-gradient(var(--dot-color-project) calc(var(--dot-size) * var(--show-dot-grid-project)), transparent 0) !important;
-    background-size: var(--dot-space) var(--dot-space) !important;
+  padding: 120px 0;
+  background: var(--bg-primary);
+  background-image: radial-gradient(
+    var(--dot-color-project) calc(var(--dot-size) * var(--show-dot-grid-project)),
+    transparent 0
+  ) !important;
+  background-size: var(--dot-space) var(--dot-space) !important;
 }
 
 .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: var(--text-secondary);
-    font-weight: 500;
-    font-size: 0.95rem;
-    margin-bottom: 60px;
-    transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 60px;
+  transition: var(--transition-smooth);
 }
 
 .sticky-nav-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    height: 80px;
-    display: block;
-    background-color: var(--bg-primary);
-    background-image: radial-gradient(var(--dot-color-project) calc(var(--dot-size) * var(--show-dot-grid-project)), transparent 0);
-    background-size: var(--dot-space) var(--dot-space);
-    border-bottom: 2px solid var(--text-primary);
-    pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 80px;
+  display: block;
+  background-color: var(--bg-primary);
+  background-image: radial-gradient(
+    var(--dot-color-project) calc(var(--dot-size) * var(--show-dot-grid-project)),
+    transparent 0
+  );
+  background-size: var(--dot-space) var(--dot-space);
+  border-bottom: 2px solid var(--text-primary);
+  pointer-events: none;
 }
 
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--project-padding);
-    height: 100%;
-    display: flex;
-    align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--project-padding);
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .sticky-nav-wrapper .back-link {
-    margin-bottom: 0 !important;
-    /* Reset margin within fixed bar */
-    pointer-events: auto;
+  margin-bottom: 0 !important;
+  /* Reset margin within fixed bar */
+  pointer-events: auto;
 }
 
 /* Consolidating fixed nav styles */
 .back-link:hover {
-    color: var(--text-primary);
-    transform: translateX(-5px);
+  color: var(--text-primary);
+  transform: translateX(-5px);
 }
 
 /* .project-header styles moved to Tailwind inside ProjectDetail.tsx */
 
 .project-hero-media {
-    margin: 80px 0;
-    border-radius: var(--radius-card);
-    overflow: hidden;
-    background: var(--bg-secondary);
-    border: 2px solid var(--text-primary);
-    transition: var(--transition-smooth);
+  margin: 80px 0;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--bg-secondary);
+  border: 2px solid var(--text-primary);
+  transition: var(--transition-smooth);
 }
 
 .project-hero-media:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover) !important;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover) !important;
 }
 
 .hero-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .project-hero-media:hover .hero-image {
-    transform: none;
+  transform: none;
 }
 
 .project-meta-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    padding: 80px 0;
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
-    margin: 60px 0 100px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  padding: 80px 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  margin: 60px 0 100px;
 }
 
 .meta-item h3 {
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
 }
 
 .meta-item p {
-    font-size: 1.15rem;
-    font-weight: 500;
+  font-size: 1.15rem;
+  font-weight: 500;
 }
 
 .blur-heavy {
-    filter: blur(6px);
-    opacity: 0.6;
-    user-select: none;
-    pointer-events: none;
-    display: inline-block;
+  filter: blur(6px);
+  opacity: 0.6;
+  user-select: none;
+  pointer-events: none;
+  display: inline-block;
 }
 
 .section-label {
-    display: block;
-    font-size: 2.5rem;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-    font-family: var(--font-heading);
+  display: block;
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
 }
 
 .large-text {
-    font-size: 1.5rem;
-    line-height: 1.6;
-    color: var(--text-primary);
-    max-width: 900px;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  max-width: 900px;
 }
 
 .project-section {
-    margin: var(--project-section-margin) 0;
+  margin: var(--project-section-margin) 0;
 }
 
 .project-section.side-by-side {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
 }
 
 .project-section.full-image .section-media {
-    width: 100%;
-    margin-top: 3rem;
+  width: 100%;
+  margin-top: 3rem;
 }
 
 .project-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .project-section p {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
 }
 
 .section-media {
-    border-radius: var(--radius-card);
-    overflow: hidden;
-    border: 2px solid var(--text-primary);
-    transition: var(--transition-smooth);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: 2px solid var(--text-primary);
+  transition: var(--transition-smooth);
 }
 
 .section-media:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover) !important;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover) !important;
 }
 
 .project-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .section-media:hover .project-image {
-    transform: none;
+  transform: none;
 }
 
 .outcomes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
 }
 
 .outcome-card {
-    padding: 2.5rem;
-    background: var(--bg-secondary);
-    border: 2px solid var(--text-primary);
-    border-radius: var(--radius-card);
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    box-shadow: none;
+  padding: 2.5rem;
+  background: var(--bg-secondary);
+  border: 2px solid var(--text-primary);
+  border-radius: var(--radius-card);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: none;
 }
 
 .check-icon {
-    color: var(--accent-purple);
+  color: var(--accent-purple);
 }
 
 .outcome-card p {
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: var(--text-primary) !important;
-    margin: 0 !important;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-primary) !important;
+  margin: 0 !important;
 }
 
 .challenge-card-premium {
-    padding: 80px;
-    background: var(--text-primary);
-    color: var(--bg-primary);
-    border-radius: 48px;
-    position: relative;
-    overflow: hidden;
+  padding: 80px;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-radius: 48px;
+  position: relative;
+  overflow: hidden;
 }
 
 .challenge-label {
-    color: var(--accent-purple);
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    font-size: 0.8rem;
-    margin-bottom: 1.5rem;
-    display: block;
-    font-family: var(--font-mono);
+  color: var(--accent-purple);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  font-family: var(--font-mono);
 }
 
 .challenge-card-premium h2 {
-    font-family: var(--font-heading);
-    color: var(--bg-primary);
-    font-size: 3rem;
-    margin-bottom: 2rem;
+  font-family: var(--font-heading);
+  color: var(--bg-primary);
+  font-size: 3rem;
+  margin-bottom: 2rem;
 }
 
 .challenge-card-premium p {
-    color: var(--bg-primary);
-    opacity: 0.8;
-    font-size: 1.25rem;
-    max-width: 700px;
+  color: var(--bg-primary);
+  opacity: 0.8;
+  font-size: 1.25rem;
+  max-width: 700px;
 }
 
 .button-primary {
-    display: inline-block;
-    padding: 1.2rem 3rem;
-    background: var(--accent-purple);
-    color: white;
-    border-radius: 100px;
-    font-weight: 600;
-    transition: var(--transition-smooth);
+  display: inline-block;
+  padding: 1.2rem 3rem;
+  background: var(--accent-purple);
+  color: white;
+  border-radius: 100px;
+  font-weight: 600;
+  transition: var(--transition-smooth);
 }
 
 .button-primary:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
 }
 
-
 @media (max-width: 992px) {
-    .project-meta-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+  .project-meta-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 
-    .project-section.side-by-side {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
+  .project-section.side-by-side {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
 
-    .challenge-card-premium {
-        padding: 40px;
-    }
+  .challenge-card-premium {
+    padding: 40px;
+  }
 }
 
 /* Placeholder Media Styles */
 .placeholder-media {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #f4f4f5;
-    /* Light gray for Light Mode */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    color: #a1a1aa;
-    /* Muted icon color */
-    padding: 2rem;
-    text-align: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #f4f4f5;
+  /* Light gray for Light Mode */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  color: #a1a1aa;
+  /* Muted icon color */
+  padding: 2rem;
+  text-align: center;
 }
 
 [data-mode='dark'] .placeholder-media {
-    background: var(--text-secondary);
-    color: var(--bg-primary);
+  background: var(--text-secondary);
+  color: var(--bg-primary);
 }
 
 .placeholder-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.03);
-    border-radius: 50%;
-    transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 50%;
+  transition: var(--transition-smooth);
 }
 
 [data-mode='dark'] .placeholder-icon {
-    background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .placeholder-media:hover .placeholder-icon {
-    transform: scale(1.1);
-    color: var(--accent-purple);
+  transform: scale(1.1);
+  color: var(--accent-purple);
 }
 
 .placeholder-label {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    opacity: 1;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 1;
 }
 
 /* --- Slack Style Template --- */
 .slack-template {
-    background: var(--bg-primary);
+  background: var(--bg-primary);
 }
 
 .slack-header {
-    padding: 120px 0 60px;
-    max-width: 1100px;
+  padding: 120px 0 60px;
+  max-width: 1100px;
 }
 
 .slack-header h1 {
-    font-size: clamp(2rem, 8vw, 6rem);
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    line-height: 0.95;
-    margin-bottom: 2rem;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+  font-size: clamp(2rem, 8vw, 6rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  margin-bottom: 2rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .slack-intro-text {
-    font-size: 1.5rem;
-    line-height: 1.6;
-    color: var(--text-primary);
-    max-width: 1000px;
-    font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  max-width: 1000px;
+  font-weight: 500;
 }
 
 .slack-metadata-bar {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 80px 0;
-    margin: 60px 0 100px;
-    gap: 48px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 80px 0;
+  margin: 60px 0 100px;
+  gap: 48px;
 }
 
 .meta-col {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .meta-label {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-secondary);
-    font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  font-weight: 700;
 }
 
 .meta-value {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    line-height: 1.2;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
 }
 
 .slack-visual-scroll {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 240px 60px;
-    /* Grand editorial spacing between sections */
-    padding-bottom: 120px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 240px 60px;
+  /* Grand editorial spacing between sections */
+  padding-bottom: 120px;
 }
 
 @media (max-width: 768px) {
-    .slack-visual-scroll {
-        grid-template-columns: 1fr;
-        gap: 160px;
-    }
+  .slack-visual-scroll {
+    grid-template-columns: 1fr;
+    gap: 160px;
+  }
 
-    .slack-section {
-        grid-column: span 1 !important;
-        gap: 24px;
-    }
+  .slack-section {
+    grid-column: span 1 !important;
+    gap: 24px;
+  }
 
-    .slack-visual {
-        aspect-ratio: auto;
-        min-height: 200px;
-    }
+  .slack-visual {
+    aspect-ratio: auto;
+    min-height: 200px;
+  }
 }
 
 .slack-section {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    /* Tightened micro-grouping for better Gestalt connection */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  /* Tightened micro-grouping for better Gestalt connection */
 }
 
 .slack-visual {
-    width: 100%;
-    /* Container wraps image perfectly */
-    background: var(--bg-secondary);
-    border-radius: 24px;
-    overflow: hidden;
-    border: 2px solid var(--text-primary);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
+  width: 100%;
+  /* Container wraps image perfectly */
+  background: var(--bg-secondary);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 2px solid var(--text-primary);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .slack-section.span-2 .slack-visual {
-    aspect-ratio: auto;
+  aspect-ratio: auto;
 }
 
 .slack-visual:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--text-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--text-primary);
 }
 
 .slack-visual img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .slack-visual:hover img {
-    transform: none;
+  transform: none;
 }
 
 .slack-annotation {
-    max-width: 800px;
-    padding-left: 20px;
+  max-width: 800px;
+  padding-left: 20px;
 }
 
 .slack-annotation h3 {
-    font-size: 1.75rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
 }
 
 .slack-annotation p {
-    font-size: 1.15rem;
-    line-height: 1.5;
-    color: var(--text-secondary);
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
 }
 
 .slack-footer {
-    border-top: 1px solid var(--border-subtle);
-    padding-top: 80px;
-    margin-top: 80px;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 80px;
+  margin-top: 80px;
 }
 
 @media (max-width: 768px) {
-    .slack-metadata-bar {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    }
+  .slack-metadata-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
 
-    .slack-header h1 {
-        font-size: clamp(2.5rem, 10vw, 3.5rem);
-    }
+  .slack-header h1 {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+  }
 
-    .slack-intro-text {
-        font-size: 1.25rem;
-    }
+  .slack-intro-text {
+    font-size: 1.25rem;
+  }
 
-    .slack-visual-scroll {
-        gap: 80px;
-    }
+  .slack-visual-scroll {
+    gap: 80px;
+  }
 }
