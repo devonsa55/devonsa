@@ -39,6 +39,12 @@ export interface ProjectCaseStudy {
   context?: string;
   cardImageBg?: string;
   animatedIcon?: string;
+  ditherConfig?: {
+    idleShape: 'sphere' | 'torus' | 'triangle' | 'cylinder' | 'cube' | 'wave' | 'floating-nodes' | 'grid-vibration';
+    iconShape: 'chat-chart' | 'location-pin' | 'brackets' | 'video-layers' | 'video-camera' | 'nodes-hub' | 'grid-layout';
+    particleCount?: number;
+    hoverColor?: string;
+  };
 }
 
 
@@ -57,6 +63,12 @@ export const projects: ProjectCaseStudy[] = [
     darkColor: '#0f172a', /* Deep Slate Blue */
     cardImageBg: '#F3F4F6',
     animatedIcon: 'conversational-insights',
+    ditherConfig: {
+      idleShape: 'sphere',
+      iconShape: 'chat-chart',
+      particleCount: 2800,
+      hoverColor: '#4f46e5'
+    },
     problem: 'UTLT merchants struggle to interpret complex dashboards. I led the design of an LLM-driven assistant that parses raw analytics into natural language, allowing merchants to "query" their business performance directly.',
     role: 'Design Lead & Strategy (0→1)',
     team: 'Product Managers, LLM Engineers, Data Scientists',
@@ -102,6 +114,12 @@ export const projects: ProjectCaseStudy[] = [
     darkColor: '#2d1a1a',
     cardImageBg: '#F3F4F6',
     animatedIcon: 'shopstream',
+    ditherConfig: {
+      idleShape: 'wave',
+      iconShape: 'video-camera',
+      particleCount: 2800,
+      hoverColor: '#f43f5e'
+    },
     problem: 'Small merchants lack the budget for video production. I led the UX strategy for ShopStream, a GenAI pipeline that transforms standard product photos into high-conversion video assets.',
     solution: 'An end-to-end GenAI pipeline that transforms static product images from a merchant\'s catalog into high-fidelity, brand-aligned video assets automatically.',
     role: 'Strategic Lead & Principal Designer',
@@ -149,6 +167,12 @@ export const projects: ProjectCaseStudy[] = [
     darkColor: '#1e293b',
     cardImageBg: '#F3F4F6',
     animatedIcon: 'merchant-comms',
+    ditherConfig: {
+      idleShape: 'floating-nodes',
+      iconShape: 'nodes-hub',
+      particleCount: 2800,
+      hoverColor: '#0ea5e9'
+    },
     problem: 'Google’s business messaging was fragmented across surfaces. A user on Maps had a different chat experience than a user on Search, and merchants were forced to use Google’s proprietary inbox, ignoring the tools they already used (Zendesk, Shopify).',
     solution: 'A unified "Communication as a Service" platform. We standardized the consumer UX across surfaces (Search, Maps) and opened the backend to third-party integrations, allowing merchants to answer Google messages from the tools they already use.',
     role: 'Lead Interaction Designer (L5)',
@@ -199,6 +223,12 @@ export const projects: ProjectCaseStudy[] = [
     darkColor: '#450a0a',
     cardImageBg: '#F3F4F6',
     animatedIcon: 'family-safety',
+    ditherConfig: {
+      idleShape: 'torus',
+      iconShape: 'location-pin',
+      particleCount: 2800,
+      hoverColor: '#ef4444'
+    },
     problem: 'Family safety apps in 2016 were clunky, "spyware-like" utilities. Sprint\'s legacy locator was dated and losing users. Verizon saw an opportunity to build a premium, trust-based safety suite but needed to move beyond simple location tracking into digital parenting (content filters, driving safety).',
     solution: 'A complete reimagining of the family safety stack. We moved from a "tracking" mental model to a "connection" model, launching a modern iOS/Android experience that unified location, content filtering, and driving insights into a single subscription.',
     role: 'Lead Product Designer',

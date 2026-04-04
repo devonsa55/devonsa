@@ -80,6 +80,8 @@ function AppContent() {
             <Route path="/project/:projectId" element={<ProjectDetail />} />
             <Route path="/strategy/:strategyId" element={<StrategyDetail />} />
             <Route path="/ai-project/:projectId" element={<AIProjectDetail />} />
+            {/* Catch-all route to catch bad URLs */}
+            <Route path="*" element={<div style={{padding: 100, color: 'red', fontSize: '2rem'}}>404 - Route not found! If you see this, your URL is incorrect.</div>} />
           </Routes>
         </AnimatePresence>
       </main>

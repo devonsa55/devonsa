@@ -15,6 +15,12 @@ export interface AIProjectCaseStudy {
     language: string;
     content: string;
   }[];
+  ditherConfig?: {
+    idleShape: 'sphere' | 'torus' | 'triangle' | 'cylinder' | 'cube' | 'wave' | 'floating-nodes' | 'grid-vibration';
+    iconShape: 'chat-chart' | 'location-pin' | 'brackets' | 'video-layers' | 'video-camera' | 'nodes-hub' | 'grid-layout';
+    particleCount?: number;
+    hoverColor?: string;
+  };
 }
 
 export const aiProjects: AIProjectCaseStudy[] = [
@@ -29,6 +35,12 @@ export const aiProjects: AIProjectCaseStudy[] = [
     solution: "A foundational DESIGN.md file that defines the styling, custom grid breakpoints, typography tokens, and specific Shadcn fallback patterns for this exact application.",
     heroIcon: "LayoutGrid",
     cardImageBg: "var(--bg-secondary)",
+    ditherConfig: {
+      idleShape: 'grid-vibration',
+      iconShape: 'grid-layout',
+      particleCount: 2800,
+      hoverColor: '#a855f7'
+    },
     instructions: [
       {
         filename: "DESIGN.md",
@@ -47,7 +59,13 @@ export const aiProjects: AIProjectCaseStudy[] = [
     problem: "Manually programming interval timers for complex workouts (like Tabata, HIIT, or unilateral circuits) is tedious and time-consuming, especially when adjusting for varying gym or home equipment availability.",
     solution: "A rigid rule set for a Gemini Gem that transforms natural language workout requests into a structured, crash-proof JSON object perfectly formatted for direct import into the Seconds Interval Timer.",
     heroIcon: "Smartphone",
-    cardImageBg: "#2d3748",
+    cardImageBg: "#F3F4F6",
+    ditherConfig: {
+      idleShape: 'triangle',
+      iconShape: 'brackets',
+      particleCount: 2800,
+      hoverColor: '#10b981'
+    },
     instructions: [
       {
         filename: "gemini-workout-gem.md",

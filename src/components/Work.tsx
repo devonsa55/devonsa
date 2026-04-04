@@ -7,12 +7,7 @@ import { strategyFrameworks } from '../data/strategy';
 import { aiProjects } from '../data/ai-projects';
 import SectionHeader from './ui/SectionHeader';
 import SplitFlapBoard from './ui/SplitFlapBoard';
-
-// Import Animated Components
-import AnimatedConversationalInsights from './animated-icons/AnimatedConversationalInsights';
-import AnimatedShopStream from './animated-icons/AnimatedShopStream';
-import AnimatedMerchantComms from './animated-icons/AnimatedMerchantComms';
-import AnimatedFamilySafety from './animated-icons/AnimatedFamilySafety';
+import { DitheredParticles } from './ui/DitheredParticles';
 
 // TOGGLE WIP MODE: Set to false to show work
 const IS_UNDER_CONSTRUCTION = false;
@@ -70,23 +65,31 @@ const Work = () => {
             >
               <Link to={project.link} className="project-link">
                 <div
-                  className="project-image-container"
+                  className={`project-image-container ${project.ditherConfig ? 'full-bleed' : ''}`}
                   style={{ backgroundColor: project.cardImageBg || 'transparent' }}
                 >
-                  {project.animatedIcon === 'conversational-insights' && <AnimatedConversationalInsights className="project-card-image is-logo" />}
-                  {project.animatedIcon === 'shopstream' && <AnimatedShopStream className="project-card-image is-logo" />}
-                  {project.animatedIcon === 'merchant-comms' && <AnimatedMerchantComms className="project-card-image is-logo" />}
-                  {project.animatedIcon === 'family-safety' && <AnimatedFamilySafety className="project-card-image is-logo" />}
-
-                  {!project.animatedIcon && project.image && (
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className={`project-card-image ${project.image.endsWith('.svg') ? 'is-logo' : ''}`}
+                  {project.ditherConfig ? (
+                    <DitheredParticles 
+                      {...project.ditherConfig}
+                      color={project.ditherConfig.hoverColor || project.darkColor || '#000000'}
+                      bgColor={project.cardImageBg || '#F3F4F6'}
+                      fullBleed={true}
+                      particleShape="circle"
+                      pixelSize={3}
                     />
+                  ) : (
+                    <>
+                      {project.image && (
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className={`project-card-image ${project.image.endsWith('.svg') ? 'is-logo' : ''}`}
+                        />
+                      )}
+                    </>
                   )}
 
-                  {!project.animatedIcon && !project.image && (
+                  {!project.ditherConfig && !project.image && (
                     <div className="project-placeholder">
                       <div className="placeholder-content">
                         <div className="placeholder-icon">
@@ -167,7 +170,7 @@ const Work = () => {
   const renderAIProjects = () => (
     <div className="strategy-section ai-projects-workflow">
       <SectionHeader
-        title="AI Projects & Workflows"
+        title="AI Workflows"
         subtitle="Custom tools, prompts, and frameworks designed to standardize workflows and increase productivity natively."
       />
 
@@ -183,12 +186,23 @@ const Work = () => {
           >
             <Link to={`/ai-project/${item.id}`} className="article-card horizontal-card">
               <div
-                className="article-thumbnail flex items-center justify-center"
+                className={`article-thumbnail flex items-center justify-center relative overflow-hidden ${item.ditherConfig ? 'full-bleed' : ''}`}
                 style={{ backgroundColor: item.cardImageBg || 'var(--bg-secondary)' }}
               >
-                <span className="font-mono text-[4.5rem] font-bold text-text-secondary opacity-40 select-none tracking-tight">
-                  .md
-                </span>
+                {item.ditherConfig ? (
+                  <DitheredParticles 
+                    {...item.ditherConfig}
+                    color={item.ditherConfig.hoverColor || '#4f46e5'} 
+                    bgColor={item.cardImageBg || '#F3F4F6'}
+                    fullBleed={true}
+                    particleShape="circle"
+                    pixelSize={3}
+                  />
+                ) : (
+                  <span className="font-mono text-[4.5rem] font-bold text-text-secondary opacity-40 select-none tracking-tight">
+                    .md
+                  </span>
+                )}
               </div>
               <div className="article-content">
                 <h3>{item.title}</h3>
@@ -208,8 +222,8 @@ const Work = () => {
     <section id="work" className="work">
       <div className="container">
         {renderProjects()}
-        {renderStrategy()}
         {renderAIProjects()}
+        {renderStrategy()}
       </div>
     </section>
   );

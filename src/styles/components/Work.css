@@ -92,6 +92,10 @@
     overflow: hidden;
 }
 
+.project-image-container.full-bleed {
+    padding: 0;
+}
+
 [data-mode='dark'] .project-image-container {
     background: #111112 !important;
 }
