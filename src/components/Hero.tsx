@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Chillwave } from './Decorations';
 import TypewriterEffect from './ui/TypewriterEffect';
 
-const words = ["designer", "thinker", "strategist", "prototyper", "storyteller", "builder", "leader"];
+const words = ["designer", "builder", "thinker", "strategist", "leader"];
 const highlightColors = [
   'var(--cyan-blue)',
   'var(--aqua-green)',
@@ -37,7 +37,7 @@ const Hero = () => {
           className="w-full"
         >
 
-          <h1 
+          <h1
             className="!m-0 text-[clamp(2.5rem,6.2vw,4.75rem)] text-text-primary leading-[1.15] max-w-[100vw] font-extrabold tracking-[-0.03em] relative"
           >
             I'm a product
@@ -55,12 +55,12 @@ const Hero = () => {
                 verticalAlign: 'baseline'
               }}
             >
-              <TypewriterEffect 
-                words={words} 
-                colors={highlightColors} 
-                typingSpeed={80} 
-                deletingSpeed={40} 
-                pauseDuration={2000} 
+              <TypewriterEffect
+                words={words}
+                colors={highlightColors}
+                typingSpeed={80}
+                deletingSpeed={40}
+                pauseDuration={2000}
               />
               <motion.span
                 initial={{ opacity: 0, x: -10, rotate: -5 }}
