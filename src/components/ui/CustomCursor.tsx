@@ -4,10 +4,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 const CustomCursor = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [isHovering, setIsHovering] = useState(false);
+    const [isActive, setIsActive] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const [isIdle, setIsIdle] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [isShaking, setIsShaking] = useState(false);
+
+    // Size constants for easy control
+    const SIZE_RESTING = 20;
+    const SIZE_HOVER = 32;
+    const SIZE_ACTIVE = 16;
+    const SIZE_IDLE = 60;
 
     const lastMousePos = useRef({ x: 0, y: 0, time: 0 });
     const shakeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -64,10 +71,15 @@ const CustomCursor = () => {
             resetIdleTimer();
         };
 
+        const handleMouseDown = () => setIsActive(true);
+        const handleMouseUp = () => setIsActive(false);
+
         const handleLinkHover = () => setIsHovering(true);
         const handleLinkLeave = () => setIsHovering(false);
 
         window.addEventListener('mousemove', updateMousePosition);
+        window.addEventListener('mousedown', handleMouseDown);
+        window.addEventListener('mouseup', handleMouseUp);
         window.addEventListener('mousedown', resetIdleTimer);
         window.addEventListener('keydown', resetIdleTimer);
         document.addEventListener('mouseleave', handleMouseLeave);
@@ -103,6 +115,8 @@ const CustomCursor = () => {
 
         return () => {
             window.removeEventListener('mousemove', updateMousePosition);
+            window.removeEventListener('mousedown', handleMouseDown);
+            window.removeEventListener('mouseup', handleMouseUp);
             window.removeEventListener('mousedown', resetIdleTimer);
             window.removeEventListener('keydown', resetIdleTimer);
             document.removeEventListener('mouseleave', handleMouseLeave);
@@ -122,25 +136,29 @@ const CustomCursor = () => {
 
     if (isMobile || !isVisible) return null;
 
+    // Determine current size and offset
+    const currentSize = isIdle ? SIZE_IDLE : (isActive ? SIZE_ACTIVE : (isHovering ? SIZE_HOVER : SIZE_RESTING));
+    const offset = currentSize / 2;
+
     return (
         <motion.div
             className="custom-cursor"
             initial={{
-                x: mousePosition.x - 16,
-                y: mousePosition.y - 16,
-                scale: 1.2,
+                x: mousePosition.x - offset,
+                y: mousePosition.y - offset,
+                scale: 1,
                 opacity: 0,
-                width: 32,
-                height: 32,
+                width: currentSize,
+                height: currentSize,
                 backgroundColor: '#FFF'
             }}
             animate={{
-                x: mousePosition.x - (isHovering || isIdle ? 24 : 16),
-                y: mousePosition.y - (isHovering || isIdle ? 24 : 16),
-                scale: isHovering || isIdle ? 1.5 : 1,
+                x: mousePosition.x - offset,
+                y: mousePosition.y - offset,
+                scale: 1,
                 opacity: isVisible && !isShaking ? 1 : 0,
-                width: isHovering || isIdle ? 48 : 32,
-                height: isHovering || isIdle ? 48 : 32,
+                width: currentSize,
+                height: currentSize,
                 backgroundColor: isIdle ? 'rgba(255, 255, 255, 0)' : '#FFF'
             }}
             transition={{
@@ -174,8 +192,8 @@ const CustomCursor = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.25 }}
                         style={{
-                            width: '150%',
-                            height: '150%',
+                            width: '180%',
+                            height: '180%',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center'

@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Chillwave } from './Decorations';
+import TypewriterEffect from './ui/TypewriterEffect';
 
 const words = ["designer", "thinker", "strategist", "prototyper", "storyteller", "builder", "leader"];
 const highlightColors = [
@@ -12,9 +13,6 @@ const highlightColors = [
 ];
 
 const Hero = () => {
-  const [index, setIndex] = useState(0);
-  const HERO_HIGHLIGHT_COLOR = highlightColors[index % highlightColors.length];
-
   const [isSurfing, setIsSurfing] = useState(false);
   const [isHonoluluHovered, setIsHonoluluHovered] = useState(false);
   const [isAudioHovered, setIsAudioHovered] = useState(false);
@@ -28,13 +26,6 @@ const Hero = () => {
     // Apply a maximum shift of 15px
     setMouseX(offset * 15);
   };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % words.length);
-    }, 2500); // Reduced to 2.5 seconds
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section className="pt-[20vh] md:pt-[220px] pb-[40px] md:pb-[80px] min-h-[85vh] overflow-visible relative flex items-center justify-center z-10">
@@ -64,23 +55,13 @@ const Hero = () => {
                 verticalAlign: 'baseline'
               }}
             >
-              <AnimatePresence mode="wait">
-                <motion.em
-                  key={words[index]}
-                  initial={{ opacity: 0, y: 10, color: HERO_HIGHLIGHT_COLOR }}
-                  animate={{ opacity: 1, y: 0, color: HERO_HIGHLIGHT_COLOR }}
-                  exit={{ opacity: 0, y: -10, color: HERO_HIGHLIGHT_COLOR }}
-                  transition={{ duration: 0.4 }}
-                  style={{
-                    display: 'inline-block',
-                    fontStyle: 'italic',
-                    whiteSpace: 'nowrap',
-                    lineHeight: 1.15
-                  }}
-                >
-                  {words[index]}
-                </motion.em>
-              </AnimatePresence>
+              <TypewriterEffect 
+                words={words} 
+                colors={highlightColors} 
+                typingSpeed={80} 
+                deletingSpeed={40} 
+                pauseDuration={2000} 
+              />
               <motion.span
                 initial={{ opacity: 0, x: -10, rotate: -5 }}
                 animate={{ opacity: 1, x: 0, rotate: -5 }}
