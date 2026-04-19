@@ -4,8 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import { getAssetPath } from '../utils/assets';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-
-
+import { AnimatedUnderline } from './ui/AnimatedUnderline';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -66,11 +65,29 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex gap-8 items-start m-0 p-0">
-          <Link to="/#work" className="group font-heading font-bold text-[1.4rem] text-text-primary no-underline relative tracking-[0.02em] z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[2px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-300 after:-z-10">{IS_UNDER_CONSTRUCTION ? '🚧WIP🚧' : 'Work'}</Link>
+        <div className="hidden md:flex gap-10 items-start m-0 p-0">
+          <Link to="/#work" className="font-heading font-bold text-[1.4rem] text-text-primary no-underline relative tracking-[0.02em]">
+            <AnimatedUnderline strokeWidth={8} color="#0e84f1">
+              {IS_UNDER_CONSTRUCTION ? '🚧WIP🚧' : 'Work'}
+            </AnimatedUnderline>
+          </Link>
           <div className="flex flex-col relative gap-0">
-            <Link to="/about" className="group font-heading font-bold text-[1.4rem] text-text-primary no-underline relative tracking-[0.02em] z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[2px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-300 after:-z-10">About</Link>
-            <Link to="/contact" className="group font-heading font-bold text-[1.4rem] text-text-primary no-underline absolute top-full right-0 tracking-[0.02em] z-[1] after:absolute after:w-[1.5px] after:h-full after:left-[-4px] after:top-0 after:bg-text-primary after:scale-y-0 after:origin-top hover:after:scale-y-100 after:transition-transform after:duration-300 after:-z-10 [writing-mode:vertical-rl] mt-4 mr-[2px]">Contact</Link>
+            <Link to="/about" className="font-heading font-bold text-[1.4rem] text-text-primary no-underline relative tracking-[0.02em]">
+              <AnimatedUnderline strokeWidth={8} color="#9461fb">
+                About
+              </AnimatedUnderline>
+            </Link>
+            <Link 
+              to="/contact" 
+              className="group absolute z-[1] mt-4 mr-[2px] right-0"
+              style={{ top: '100%', transform: 'rotate(90deg) translateX(100%)', transformOrigin: 'top right' }}
+            >
+              <div className="font-heading font-bold text-[1.4rem] text-text-primary no-underline tracking-[0.02em] whitespace-nowrap">
+                <AnimatedUnderline strokeWidth={8} color="#ff69b4">
+                  Contact
+                </AnimatedUnderline>
+              </div>
+            </Link>
           </div>
         </div>
 
@@ -97,10 +114,26 @@ const Navbar = () => {
             <div className="flex flex-col gap-4">
               <span className="text-xs uppercase tracking-widest text-text-secondary font-bold font-mono">Navigation</span>
               <ul className="flex flex-col gap-6 list-none p-0 m-0">
-                <li><Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline transition-all duration-300 inline-block tracking-[-0.03em] hover:text-text-secondary hover:translate-x-3">Home</Link></li>
-                <li><Link to="/#work" onClick={() => setIsMobileMenuOpen(false)} className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline transition-all duration-300 inline-block tracking-[-0.03em] hover:text-text-secondary hover:translate-x-3">{IS_UNDER_CONSTRUCTION ? '🚧WIP🚧' : 'Work'}</Link></li>
-                <li><Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline transition-all duration-300 inline-block tracking-[-0.03em] hover:text-text-secondary hover:translate-x-3">About</Link></li>
-                <li><Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline transition-all duration-300 inline-block tracking-[-0.03em] hover:text-text-secondary hover:translate-x-3">Contact</Link></li>
+                <li>
+                  <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]">
+                    <AnimatedUnderline strokeWidth={12} color="#54cea1">Home</AnimatedUnderline>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/#work" onClick={() => setIsMobileMenuOpen(false)} className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]">
+                    <AnimatedUnderline strokeWidth={12} color="#0e84f1">{IS_UNDER_CONSTRUCTION ? '🚧WIP🚧' : 'Work'}</AnimatedUnderline>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]">
+                    <AnimatedUnderline strokeWidth={12} color="#9461fb">About</AnimatedUnderline>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]">
+                    <AnimatedUnderline strokeWidth={12} color="#ff69b4">Contact</AnimatedUnderline>
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

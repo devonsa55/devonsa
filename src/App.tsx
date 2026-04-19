@@ -9,7 +9,6 @@ import ThemeSwitcher from './components/ThemeSwitcher'
 import ProjectDetail from './components/ProjectDetail'
 import StrategyDetail from './components/StrategyDetail'
 import AIProjectDetail from './components/AIProjectDetail'
-import DeclarativeUIPlayground from './components/DeclarativeUIPlayground'
 import Contact from './components/Contact'
 import { ThemeProvider } from './context/ThemeContext'
 import { useEffect } from 'react'
@@ -81,7 +80,6 @@ function AppContent() {
             <Route path="/project/:projectId" element={<ProjectDetail />} />
             <Route path="/strategy/:strategyId" element={<StrategyDetail />} />
             <Route path="/ai-project/:projectId" element={<AIProjectDetail />} />
-            <Route path="/ai-project/declarative-ui-playground" element={<DeclarativeUIPlayground />} />
             {/* Catch-all route to catch bad URLs */}
             <Route path="*" element={<div style={{padding: 100, color: 'red', fontSize: '2rem'}}>404 - Route not found! If you see this, your URL is incorrect.</div>} />
           </Routes>
