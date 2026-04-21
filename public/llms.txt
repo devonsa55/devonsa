@@ -3,7 +3,7 @@
 > Core Philosophy: I bridge the gap between abstract strategy & concrete pixels. Guided by a background in Philosophy & Environmental Science, I design from first principles—stripping away complexity to build Agentic AI & Communication systems that scale to millions of users.
 
 ## Quick Facts
-- **Current Role**: Senior Product Designer (Lead) at Google (2018-Present)
+- **Current Role**: Lead UX Designer at Google (2018-Present)
 - **Location**: Honolulu, Hawaii (Remote)
 - **Specialties**: Generative AI Interfaces, 0-to-1 Product Strategy, Design Systems, Omnichannel Platforms.
 - **LinkedIn**: https://www.linkedin.com/in/devonanderson1/
@@ -30,9 +30,9 @@
 
 ## Professional Experience
 
-**Google | Senior Product Designer (Lead)**
+**Google | Lead UX Designer**
 *2018 — Present*
-Currently leading 0→1 design strategy for Merchant Shopping AI. Specializing in translating complex Large Language Model (LLM) capabilities into intuitive, agentic user interfaces. Previously served as the sole Interaction Designer driving global messaging systems for 13M+ users.
+Currently leading 0→1 design strategy for Generative AI initiatives, focusing on AI agent workflows and predictive, adaptive user interfaces. Architected structured instruction sets (skill.md) and state machines to define agentic behavior. Previously orchestrated the Communication as a Service (CaaS) strategy, standardizing omnichannel messaging workflows for 13M+ users across Google Search, Maps, and Ads.
 
 **Location Labs by Avast | Product Designer**
 *2015 — 2018*

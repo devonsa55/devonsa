@@ -45,7 +45,7 @@ const Work = () => {
     <>
       <SectionHeader
         title="Core Initiatives"
-        subtitle="Leading 0→1 product strategy and defining design systems at Google scale."
+        subtitle="Spearheading AI agent workflows and translating complex LLM capabilities into intuitive product features."
         className="work-header"
       />
 

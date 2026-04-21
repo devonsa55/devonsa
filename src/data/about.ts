@@ -55,25 +55,28 @@ export const aboutData = {
       promotionBadge: "Promoted twice: L3 → L5",
       roles: [
         {
-          title: "Senior Product Designer (Lead)",
-          year: "2023 — Present",
+          title: "Lead UX Designer",
+          year: "Apr 2022 — Present",
           location: "Honolulu, Hawaii · Remote",
-          summary: "Currently leading 0→1 design strategy for **Merchant Shopping AI**. I specialize in translating complex **LLM (Large Language Model)** capabilities into intuitive user interfaces.",
+          summary: "Currently leading 0→1 design strategy for **Generative AI initiatives**, specializing in AI agent workflows and predictive, adaptive user interfaces.",
           description: [
-            "**Incremental Revenue:** Led design for *ShopStream*, an AI-powered video generation tool driving **+$5.2M incremental revenue** and powering >80% of PMax GenAI video revenue.",
-            "**Agentic AI:** Architecting **agentic system patterns** that allow merchants to use natural language to generate business reports and take automated actions.",
-            "**Strategy:** Facilitating cross-PA (Product Area) workshops to align AI design frameworks across Google Ads and Shopping."
+            "**Generative AI:** Spearheading design for GenAI initiatives, focusing on AI agent workflows and predictive, adaptive user interfaces.",
+            "**LLM Evaluation:** Developed and implemented evaluation systems for LLM agents, achieving a performance lift from **50% to 90%+** in factuality and helpfulness.",
+            "**Workflow Automation:** Independently built and deployed multiple high-impact workflow automations, streamlining the development lifecycle for 0-1 agentic products.",
+            "**Agentic Architecture:** Architected structured instruction sets (**skill.md**) and state machines to define agentic behavior and response quality.",
+            "**Collaborative Research:** Collaborating with ML Research and Engineering to translate LLM capabilities into intuitive, scalable product features."
           ]
         },
         {
-          title: "Product Designer",
-          year: "2018 — 2023",
+          title: "User Experience Designer",
+          year: "Sep 2018 — Apr 2022",
           location: "San Francisco Bay Area",
-          summary: "Served as the sole Interaction Designer (IXD) for a 30+ person engineering org, driving the end-to-end UX vision for global messaging.",
+          summary: "Orchestrated the Communication as a Service (CaaS) strategy, standardizing omnichannel messaging workflows across Google Search, Maps, and Ads.",
           description: [
-            "**Scale:** Launched Calls, Messaging, and Photos to **13M+ verified users** across Google Search and Maps.",
-            "**Omnichannel UX:** Designed surface-agnostic messaging systems, scaling merchant chat from a localized pilot to a global platform with an **80% CSAT**.",
-            "**Leadership:** Navigated complex legal, privacy, and x-functional (xFN) requirements for Billion+ user products."
+            "**CaaS Strategy:** Standardized omnichannel messaging workflows across Google Search, Maps, and Ads through a unified Communication as a Service strategy.",
+            "**Platform Extensibility:** Designed a scalable framework for third-party extensibility, allowing global businesses to integrate custom communication tools into the Google ecosystem.",
+            "**Merchant Platforms:** Led the 0-1 design of merchant-facing communication platforms to balance platform standardization with high-intent user interaction.",
+            "**Architectural Scalability:** Focused on the architectural scalability of B2B communication tools, ensuring consistency across diverse web and mobile entry points."
           ]
         }
       ]
