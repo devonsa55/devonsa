@@ -61,9 +61,9 @@ const Work = () => {
                 duration: 0.6,
                 delay: index * 0.1
               }}
-              className={`project-card ${project.id === 'conversational-insights' ? 'span-2-col span-2-row' : ''} ${project.id === 'merchant-comms' ? 'span-2-row' : ''} ${project.id === 'family-safety-platforms' ? 'top-align' : ''}`}
+              className={`project-card-wrapper h-full ${project.id === 'conversational-insights' ? 'span-2-col span-2-row' : ''} ${project.id === 'merchant-comms' ? 'span-2-row' : ''}`}
             >
-              <Link to={project.link} className="project-link">
+              <Link to={project.link} className={`project-card project-link h-full ${project.id === 'family-safety-platforms' ? 'top-align' : ''}`}>
                 <div
                   className={`project-image-container ${project.ditherConfig ? 'full-bleed' : ''}`}
                   style={{ backgroundColor: project.cardImageBg || 'transparent' }}
