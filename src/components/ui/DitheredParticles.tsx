@@ -207,9 +207,15 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const isHoveredRef = useRef(false);
+  const isMobileInViewRef = useRef(false);
+  const supportsHoverRef = useRef(true);
   const colorWeightRef = useRef(0);
   const isVisibleRef = useRef(true);
   const [isHoveredLocal, setIsHoveredLocal] = useState(false);
+
+  useEffect(() => {
+    supportsHoverRef.current = window.matchMedia('(hover: hover)').matches;
+  }, []);
 
   useEffect(() => {
     isHoveredRef.current = isHoveredLocal;
@@ -220,8 +226,12 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisibleRef.current = entry.isIntersecting;
+        // On mobile/touch devices, we trigger the "active" state when in view
+        if (!supportsHoverRef.current) {
+          isMobileInViewRef.current = entry.isIntersecting;
+        }
       },
-      { threshold: 0.1 }
+      { threshold: 0.2 }
     );
     observer.observe(containerRef.current);
     return () => observer.disconnect();
@@ -272,7 +282,7 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
         return;
       }
 
-      const targetWeight = isHoveredRef.current ? 1 : 0;
+      const targetWeight = (supportsHoverRef.current ? isHoveredRef.current : isMobileInViewRef.current) ? 1 : 0;
       colorWeightRef.current += (targetWeight - colorWeightRef.current) * 0.1;
       const weight = colorWeightRef.current;
 
@@ -402,13 +412,17 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
 
   const baseStyles = fullBleed 
     ? "w-full h-full overflow-hidden" 
-    : "w-full h-full min-h-[400px] overflow-hidden rounded-[40px] border-[3px] border-[var(--text-primary)] cursor-pointer transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl";
+    : "w-full h-full min-h-[400px] overflow-hidden rounded-[40px] border-[3px] border-[var(--text-primary)] cursor-pointer transition-transform duration-300 md:hover:scale-[1.02] md:hover:shadow-2xl";
 
   return (
     <div 
       ref={containerRef} 
-      onMouseEnter={() => setIsHoveredLocal(true)} 
-      onMouseLeave={() => setIsHoveredLocal(false)}
+      onMouseEnter={() => {
+        if (supportsHoverRef.current) setIsHoveredLocal(true);
+      }} 
+      onMouseLeave={() => {
+        if (supportsHoverRef.current) setIsHoveredLocal(false);
+      }}
       className={`relative ${baseStyles} ${className}`} 
       style={{ backgroundColor: bgColor }}
     >

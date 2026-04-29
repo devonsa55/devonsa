@@ -62,14 +62,16 @@
   opacity: 1;
 }
 
-.project-card:hover .placeholder-icon {
-  transform: scale(1.1);
-  color: var(--text-primary);
-}
+@media (hover: hover) {
+  .project-card:hover .placeholder-icon {
+    transform: scale(1.1);
+    color: var(--text-primary);
+  }
 
-.project-card:hover .placeholder-label {
-  color: var(--text-primary);
-  opacity: 1;
+  .project-card:hover .placeholder-label {
+    color: var(--text-primary);
+    opacity: 1;
+  }
 }
 
 .project-link {
@@ -139,14 +141,16 @@
 }
 
 /* Hover effect */
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--text-primary);
-}
+@media (hover: hover) {
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--text-primary);
+  }
 
-.project-card:hover .project-card-image {
-  transform: none;
+  .project-card:hover .project-card-image {
+    transform: none;
+  }
 }
 
 .project-info h3 {
@@ -394,10 +398,12 @@
   box-shadow: none;
 }
 
-.article-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--text-primary);
+@media (hover: hover) {
+  .article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--text-primary);
+  }
 }
 
 .article-thumbnail {
@@ -469,9 +475,11 @@
   transition: transform 0.3s ease;
 }
 
-.article-card:hover .read-more span,
-.project-card:hover .read-more span {
-  transform: translateX(4px);
+@media (hover: hover) {
+  .article-card:hover .read-more span,
+  .project-card:hover .read-more span {
+    transform: translateX(4px);
+  }
 }
 
 /* Media queries applied directly via Tailwind inline utilities */

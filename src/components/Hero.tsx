@@ -40,19 +40,15 @@ const Hero = () => {
           <h1
             className="!m-0 text-[clamp(2.5rem,6.2vw,4.75rem)] text-text-primary leading-[1.15] max-w-[100vw] font-extrabold tracking-[-0.03em] relative"
           >
-            I'm a product
+            I'm a product <br className="md:hidden" />
             <span
               onMouseMove={handleMouseMove}
               onMouseLeave={() => {
                 setMouseX(0); // Reset offset
               }}
+              className="inline-block relative align-baseline ml-0 md:ml-[0.25em] mr-[0.1em]"
               style={{
-                display: 'inline-block',
                 width: 'auto',
-                marginLeft: '0.25em',
-                marginRight: '0.1em',
-                position: 'relative',
-                verticalAlign: 'baseline'
               }}
             >
               <TypewriterEffect
@@ -66,18 +62,10 @@ const Hero = () => {
                 initial={{ opacity: 0, x: -10, rotate: -5 }}
                 animate={{ opacity: 1, x: 0, rotate: -5 }}
                 transition={{ delay: 0.5, duration: 1 }}
+                className="absolute left-full top-[0.5em] ml-4 md:ml-10 font-mono font-bold whitespace-nowrap inline-block tracking-normal"
                 style={{
-                  position: 'absolute',
-                  left: '100%',
-                  top: '.5em',
-                  marginLeft: '2.5rem',
-                  fontFamily: 'var(--font-mono)',
                   fontSize: '.4em',
                   color: 'var(--text-quinary)',
-                  whiteSpace: 'nowrap',
-                  display: 'inline-block',
-                  fontWeight: 700,
-                  letterSpacing: '0.02em'
                 }}
               >
                 @ Google
