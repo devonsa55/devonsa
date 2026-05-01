@@ -79,7 +79,7 @@ const Navbar = () => {
             </Link>
             <Link 
               to="/contact" 
-              className="group absolute z-[1] mt-4 mr-[2px] right-0"
+              className="group absolute z-[1] mt-4 right-[-12px]"
               style={{ top: '100%', transform: 'rotate(90deg) translateX(100%)', transformOrigin: 'top right' }}
             >
               <div className="font-heading font-bold text-[1.4rem] text-text-primary no-underline tracking-[0.02em] whitespace-nowrap">

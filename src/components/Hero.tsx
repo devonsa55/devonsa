@@ -46,7 +46,7 @@ const Hero = () => {
               onMouseLeave={() => {
                 setMouseX(0); // Reset offset
               }}
-              className="inline-block relative align-baseline ml-0 sm:ml-[0.10em] mr-[0.1em]"
+              className="inline-block relative align-baseline ml-0 sm:ml-[0.20em] mr-[0.1em]"
               style={{
                 width: 'auto',
               }}

@@ -83,7 +83,7 @@ const ThemeSwitcher = () => {
             position: fixed;
             bottom: 2rem;
             right: 1rem;
-            z-index: 2000;
+            z-index: 40;
         }
 
         .matrix-toggle {

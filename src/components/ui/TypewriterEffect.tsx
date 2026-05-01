@@ -22,6 +22,7 @@ export default function TypewriterEffect({
   className = "",
   style = {},
 }: TypewriterEffectProps) {
+  const [isHovered, setIsHovered] = useState(false);
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
@@ -29,8 +30,11 @@ export default function TypewriterEffect({
 
   const timeoutRef = useRef<number | null>(null);
   const currentWord = words.length > 0 ? words[wordIndex % words.length] : "";
-  const currentColor = colors.length > 0 ? colors[wordIndex % colors.length] : "inherit";
-  const nextColor = colors.length > 0 ? colors[(wordIndex + 1) % colors.length] : "inherit";
+  
+  // Only use colors if hovered
+  const isColored = colors.length > 0 && isHovered;
+  const currentColor = isColored ? colors[wordIndex % colors.length] : "inherit";
+  const nextColor = isColored ? colors[(wordIndex + 1) % colors.length] : "inherit";
   const displayColor = (isDeleting && charIndex === 0) ? nextColor : currentColor;
 
   useEffect(() => {
@@ -74,9 +78,20 @@ export default function TypewriterEffect({
   }, [wordIndex, isDeleting]);
 
   return (
-    <span 
-      className={`inline-flex items-center ${className}`} 
-      style={{ ...style, color: displayColor, fontStyle: 'italic', transition: 'color 0.3s ease' }}
+    <span
+      className={`inline-flex items-center cursor-default ${className}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{
+        ...style,
+        color: displayColor,
+        fontFamily: 'var(--font-newsreader)',
+        fontSize: '1.05em',
+        fontWeight: 600,
+        lineHeight: 1,
+        fontStyle: 'italic',
+        transition: 'color 0.3s ease'
+      }}
     >
       <span>{displayedText || '\u200B'}</span>
       <motion.span
@@ -86,9 +101,9 @@ export default function TypewriterEffect({
           display: "inline-block",
           width: "0.08em",
           height: "1em",
-          backgroundColor: colors.length > 0 ? displayColor : cursorColor,
+          backgroundColor: isColored ? displayColor : cursorColor,
           marginLeft: "0.25em",
-          verticalAlign: "text-bottom",
+          transform: "translateY(-0.05em)",
           borderRadius: "2px"
         }}
       />
