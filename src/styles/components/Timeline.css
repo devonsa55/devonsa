@@ -15,6 +15,18 @@
     /* Intentional indentation for desktop alignment */
 }
 
+@media (max-width: 1024px) {
+    .timeline-container {
+        --timeline-offset: 80px;
+        margin-top: -3rem;
+        padding-left: 2rem;
+    }
+    
+    .timeline-entry-node .role-dot-connector {
+        height: 120px;
+    }
+}
+
 .timeline-entry-node {
     padding-left: var(--timeline-offset);
     margin-bottom: -20px;
@@ -26,10 +38,10 @@
 }
 
 .timeline-entry-node .role-dot.open {
-    background: var(--bg-primary);
-    border: 2px solid var(--border-subtle);
-    width: 14px;
-    height: 14px;
+    background: var(--border-subtle);
+    border: none;
+    width: 12px;
+    height: 12px;
     margin-top: -5px;
 }
 
@@ -252,8 +264,18 @@
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .timeline-container {
-        margin-top: 4rem;
+        --timeline-offset: 80px;
+        margin-top: -2rem;
+        padding-top: 2rem;
         padding-left: 0;
+    }
+
+    .timeline-entry-node {
+        padding-left: var(--timeline-offset);
+    }
+
+    .timeline-entry-node .role-dot-connector {
+        height: 100px;
     }
 
     .company-logo {
@@ -262,7 +284,7 @@
     }
 
     .roles-container {
-        padding-left: 24px;
+        padding-left: var(--timeline-offset);
     }
 
     .role-content {

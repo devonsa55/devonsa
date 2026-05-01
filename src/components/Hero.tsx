@@ -40,13 +40,13 @@ const Hero = () => {
           <h1
             className="!m-0 text-[clamp(2.5rem,6.2vw,4.75rem)] text-text-primary leading-[1.15] max-w-[100vw] font-extrabold tracking-[-0.03em] relative"
           >
-            I'm a product <br className="md:hidden" />
+            I'm a product <br className="sm:hidden" />
             <span
               onMouseMove={handleMouseMove}
               onMouseLeave={() => {
                 setMouseX(0); // Reset offset
               }}
-              className="inline-block relative align-baseline ml-0 md:ml-[0.10em] mr-[0.1em]"
+              className="inline-block relative align-baseline ml-0 sm:ml-[0.10em] mr-[0.1em]"
               style={{
                 width: 'auto',
               }}
@@ -62,7 +62,7 @@ const Hero = () => {
                 initial={{ opacity: 0, x: -10, rotate: -5 }}
                 animate={{ opacity: 1, x: 0, rotate: -5 }}
                 transition={{ delay: 0.5, duration: 1 }}
-                className="absolute left-full top-[0.5em] ml-4 md:ml-10 font-mono font-bold whitespace-nowrap inline-block tracking-normal"
+                className="absolute left-full top-[0.5em] ml-4 sm:ml-10 font-mono font-bold whitespace-nowrap inline-block tracking-normal"
                 style={{
                   fontSize: '.4em',
                   color: 'var(--text-quinary)',

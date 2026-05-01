@@ -53,7 +53,7 @@ export const aiProjects: AIProjectCaseStudy[] = [
     id: "seconds-timer-architect",
     title: "Seconds Timer Architect",
     subtitle: "A Gemini Gem that generates clipboard-ready workout JSON files for the Seconds Interval Timer app based on localized equipment constraints.",
-    tags: ["Fitness", "Automation", "Gemini"],
+    tags: [],
     role: "System Prompt",
     timeline: "Living Document",
     problem: "Manually programming interval timers for complex workouts (like Tabata, HIIT, or unilateral circuits) is tedious and time-consuming, especially when adjusting for varying gym or home equipment availability.",

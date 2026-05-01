@@ -100,10 +100,10 @@ const About = () => {
                     <div className="max-w-[800px] mx-auto flex flex-col gap-12 lg:gap-[5rem]">
                         <div className="flex flex-col gap-6 items-center text-left">
                             <div
-                                className={`w-full text-center flex justify-center relative max-w-[300px] mx-auto select-none cursor-pointer ${isGoogly ? 'is-googly' : ''}`}
+                                className={`w-[clamp(136px,42.5vw,255px)] text-center flex justify-center relative mx-auto select-none cursor-pointer ${isGoogly ? 'is-googly' : ''}`}
                                 onClick={toggleGoogly}
                             >
-                                <img src={aboutData.profileImage} alt={aboutData.fullName} className="w-full max-w-[300px] h-auto block mx-auto" />
+                                <img src={aboutData.profileImage} alt={aboutData.fullName} className="w-full h-auto block mx-auto" />
                                 <AnimatePresence>
                                     {isGoogly && (
                                         <motion.div
@@ -121,7 +121,7 @@ const About = () => {
                             <SectionHeader
                                 title="Hey, I'm Devon."
                                 centered
-                                className="mb-10 w-full text-center [&_h2]:text-[clamp(2.5rem,8vw,4.5rem)] [&_h2]:leading-[1.1] [&_h2]:font-heading [&_h2]:font-extrabold [&_h2]:tracking-[-0.02em] [&_h2]:mb-2 [&_h2]:w-full"
+                                className="mb-10 w-full text-center [&_h2]:text-[clamp(2.125rem,6.8vw,3.825rem)] [&_h2]:leading-[1.1] [&_h2]:font-heading [&_h2]:font-extrabold [&_h2]:tracking-[-0.02em] [&_h2]:mb-2 [&_h2]:w-full"
                             />
 
                             <p
@@ -139,19 +139,19 @@ const About = () => {
 
 
                         <div className="flex flex-col py-2 mt-2">
-                            <div className="mb-[60px]">
+                            <div className="mb-6">
                                 <p className="font-heading text-[2rem] font-extrabold text-text-primary leading-[1.2] tracking-[-0.01em]">Beyond Design</p>
                             </div>
 
                             <div className="relative w-full mt-0">
-                                <button onClick={prevSlide} className="absolute left-[-28px] top-1/2 -translate-y-1/2 bg-bg-primary border-2 border-text-primary rounded-full w-[56px] h-[56px] flex items-center justify-center cursor-pointer z-10 transition-all duration-200 text-text-primary hover:-translate-y-1/2 hover:-translate-x-[2px] hover:shadow-[4px_4px_0_#d1d5db]" aria-label="Previous">
+                                <button onClick={prevSlide} className="carousel-arrow carousel-arrow-left absolute left-[-28px] top-1/2 -translate-y-1/2 bg-bg-primary !border-2 !border-black rounded-full w-[56px] h-[56px] flex items-center justify-center cursor-pointer z-10 transition-all duration-200 text-text-primary hover:-translate-y-1/2 hover:-translate-x-[2px] hover:shadow-[4px_4px_0_#d1d5db]" aria-label="Previous">
                                     <ChevronLeft size={32} />
                                 </button>
 
                                 <div className="w-full overflow-hidden relative">
                                     <motion.div
                                         key={currentIndex}
-                                        className="relative w-full min-h-[500px] border-2 border-text-primary rounded-[32px] bg-[#e5e7eb] overflow-hidden"
+                                        className="hobby-card relative w-full min-h-[500px] !border-2 !border-black rounded-[32px] bg-[#e5e7eb] overflow-hidden"
                                     >
                                         <img
                                             src={aboutData.hobbies[currentIndex].image}
@@ -164,7 +164,7 @@ const About = () => {
                                     </motion.div>
                                 </div>
 
-                                <button onClick={nextSlide} className="absolute right-[-28px] top-1/2 -translate-y-1/2 bg-bg-primary border-2 border-text-primary rounded-full w-[56px] h-[56px] flex items-center justify-center cursor-pointer z-10 transition-all duration-200 text-text-primary hover:-translate-y-1/2 hover:translate-x-[2px] hover:shadow-[4px_4px_0_#d1d5db]" aria-label="Next">
+                                <button onClick={nextSlide} className="carousel-arrow carousel-arrow-right absolute right-[-28px] top-1/2 -translate-y-1/2 bg-bg-primary !border-2 !border-black rounded-full w-[56px] h-[56px] flex items-center justify-center cursor-pointer z-10 transition-all duration-200 text-text-primary hover:-translate-y-1/2 hover:translate-x-[2px] hover:shadow-[4px_4px_0_#d1d5db]" aria-label="Next">
                                     <ChevronRight size={32} />
                                 </button>
 
