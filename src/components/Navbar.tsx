@@ -65,7 +65,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex gap-10 items-start m-0 p-0">
+        <div className="hidden md:flex gap-8 items-start m-0 p-0">
           <Link to="/#work" className="font-heading font-bold text-[1.4rem] text-text-primary no-underline relative tracking-[0.02em]">
             <AnimatedUnderline strokeWidth={8} color="#0e84f1">
               {IS_UNDER_CONSTRUCTION ? '🚧WIP🚧' : 'Work'}
@@ -79,7 +79,7 @@ const Navbar = () => {
             </Link>
             <Link 
               to="/contact" 
-              className="group absolute z-[1] mt-4 right-[-12px]"
+              className="group absolute z-[1] mt-2 right-[-12px]"
               style={{ top: '100%', transform: 'rotate(90deg) translateX(100%)', transformOrigin: 'top right' }}
             >
               <div className="font-heading font-bold text-[1.4rem] text-text-primary no-underline tracking-[0.02em] whitespace-nowrap">
