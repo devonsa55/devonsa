@@ -38,10 +38,10 @@
 }
 
 .timeline-entry-node .role-dot.open {
-    background: var(--border-subtle);
-    border: none;
-    width: 12px;
-    height: 12px;
+    background: var(--bg-primary);
+    border: 2px solid var(--border-subtle);
+    width: 14px;
+    height: 14px;
     margin-top: -5px;
 }
 
