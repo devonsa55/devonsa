@@ -18,6 +18,19 @@ const Navbar = () => {
                        location.pathname.startsWith('/strategy/') ||
                        location.pathname.startsWith('/ai-project/');
 
+  const handleScrollToWork = (e: React.MouseEvent) => {
+    if (isHomePage) {
+      e.preventDefault();
+      const workSection = document.getElementById('work');
+      if (workSection) {
+        workSection.scrollIntoView({ behavior: 'smooth' });
+        // Update URL hash without reload
+        window.history.pushState(null, '', '/#work');
+      }
+    }
+    if (isMobileMenuOpen) setIsMobileMenuOpen(false);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -66,7 +79,11 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <div className="hidden md:flex gap-8 items-start m-0 p-0">
-          <Link to="/#work" className="font-heading font-bold text-[1.4rem] text-text-primary no-underline relative tracking-[0.02em]">
+          <Link 
+            to="/#work" 
+            onClick={handleScrollToWork}
+            className="font-heading font-bold text-[1.4rem] text-text-primary no-underline relative tracking-[0.02em]"
+          >
             <AnimatedUnderline strokeWidth={8} color="#0e84f1">
               {IS_UNDER_CONSTRUCTION ? '🚧WIP🚧' : 'Work'}
             </AnimatedUnderline>
@@ -120,7 +137,11 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/#work" onClick={() => setIsMobileMenuOpen(false)} className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]">
+                  <Link 
+                    to="/#work" 
+                    onClick={handleScrollToWork} 
+                    className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]"
+                  >
                     <AnimatedUnderline strokeWidth={12} color="#0e84f1">{IS_UNDER_CONSTRUCTION ? '🚧WIP🚧' : 'Work'}</AnimatedUnderline>
                   </Link>
                 </li>
