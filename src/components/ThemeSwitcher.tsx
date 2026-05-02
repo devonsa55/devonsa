@@ -127,12 +127,11 @@ const ThemeSwitcher = () => {
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            padding: 4px;
             background: var(--bg-primary);
             border: 2px solid var(--border-subtle);
             border-radius: 100px;
-            gap: 0;
             overflow: hidden;
+            box-sizing: border-box;
             transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
                         border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
                         box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
@@ -141,8 +140,8 @@ const ThemeSwitcher = () => {
         }
 
         .theme-switcher.aligned .matrix-toggle {
-            min-height: 54px;
-            padding: 0.25rem 0.5rem 0.25rem 1.5rem;
+            height: 54px;
+            padding: 0 1rem 0 1.5rem;
             border-radius: 100px;
             gap: 1.25rem;
             background: var(--bg-secondary);
