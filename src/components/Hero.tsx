@@ -16,6 +16,7 @@ const highlightColors = [
 
 const Hero = () => {
   const [isSurfing, setIsSurfing] = useState(false);
+
   const [isHonoluluHovered, setIsHonoluluHovered] = useState(false);
   const [isAudioHovered, setIsAudioHovered] = useState(false);
   const [mouseX, setMouseX] = useState(0);
@@ -101,7 +102,7 @@ const Hero = () => {
                       top: '50%',
                       left: '0',
                       pointerEvents: 'none',
-                      zIndex: 100 // High z-index for hover
+                      zIndex: 100
                     }}
                   >
                     <Chillwave size={160} />
@@ -208,9 +209,9 @@ const Hero = () => {
 
       <div className="container absolute bottom-8 left-1/2 -translate-x-1/2 w-full z-[20] flex justify-start pointer-events-none">
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 1 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="pointer-events-auto"
         >
           <ProfileCard

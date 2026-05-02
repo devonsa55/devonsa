@@ -89,11 +89,11 @@ const ThemeSwitcher = () => {
   return (
     <div className={`theme-switcher ${isAligned ? 'aligned' : ''}`}>
       <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        whileHover={{ y: -4 }}
-        whileTap={{ scale: 0.95 }}
-        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        whileHover={{ y: -4, transition: { type: 'spring', stiffness: 400, damping: 17 } }}
+        whileTap={{ scale: 0.95, transition: { type: 'spring', stiffness: 400, damping: 17 } }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         onClick={toggleMode}
         className="matrix-toggle"
       >

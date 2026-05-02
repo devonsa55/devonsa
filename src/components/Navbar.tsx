@@ -59,8 +59,9 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       onAnimationComplete={() => setIsLoaded(true)}
       className={`navbar ${scrolled ? 'is-scrolled' : ''} ${isMobileMenuOpen ? 'mobile-menu-open' : ''} ${isHomePage ? 'is-home' : ''} ${!isLoaded ? 'is-loading' : ''}`}
     >
