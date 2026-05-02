@@ -9,6 +9,8 @@ import SectionHeader from './ui/SectionHeader';
 import SplitFlapBoard from './ui/SplitFlapBoard';
 import { DitheredParticles } from './ui/DitheredParticles';
 
+import { useTheme } from '../context/ThemeContext';
+
 // TOGGLE WIP MODE: Set to false to show work
 const IS_UNDER_CONSTRUCTION = false;
 
@@ -31,6 +33,7 @@ const getIcon = (iconName?: string) => {
 };
 
 const Work = () => {
+  const { mode } = useTheme();
   useState<ProjectCaseStudy | null>(null);
   const isUnderConstruction = IS_UNDER_CONSTRUCTION;
 
@@ -53,70 +56,74 @@ const Work = () => {
         {isUnderConstruction ? (
           <SplitFlapBoard />
         ) : (
-          projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.1
-              }}
-              className={`project-card-wrapper h-full ${project.id === 'conversational-insights' ? 'span-2-col span-2-row' : ''} ${project.id === 'merchant-comms' ? 'span-2-row' : ''}`}
-            >
-              <Link to={project.link} className={`project-card project-link h-full ${project.id === 'family-safety-platforms' ? 'top-align' : ''}`}>
-                <div
-                  className={`project-image-container ${project.ditherConfig ? 'full-bleed' : ''}`}
-                  style={{ backgroundColor: project.cardImageBg || 'transparent' }}
-                >
-                  {project.ditherConfig ? (
-                    <DitheredParticles 
-                      {...project.ditherConfig}
-                      color={project.ditherConfig.hoverColor || project.darkColor || '#000000'}
-                      bgColor={project.cardImageBg || '#F3F4F6'}
-                      fullBleed={true}
-                      particleShape="circle"
-                      pixelSize={3}
-                    />
-                  ) : (
-                    <>
-                      {project.image && (
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className={`project-card-image ${project.image.endsWith('.svg') ? 'is-logo' : ''}`}
-                        />
-                      )}
-                    </>
-                  )}
+          projects.map((project, index) => {
+            const effectiveBg = mode === 'dark' ? '#111112' : '#ffffff';
+            
+            return (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.1
+                }}
+                className={`project-card-wrapper h-full ${project.id === 'conversational-insights' ? 'span-2-col span-2-row' : ''} ${project.id === 'merchant-comms' ? 'span-2-row' : ''}`}
+              >
+                <Link to={project.link} className={`project-card project-link h-full ${project.id === 'family-safety-platforms' ? 'top-align' : ''}`}>
+                  <div
+                    className={`project-image-container ${project.ditherConfig ? 'full-bleed' : ''}`}
+                    style={{ backgroundColor: effectiveBg }}
+                  >
+                    {project.ditherConfig ? (
+                      <DitheredParticles
+                        {...project.ditherConfig}
+                        color={project.ditherConfig.hoverColor || '#4f46e5'}
+                        bgColor={effectiveBg}
+                        fullBleed={true}
+                        particleShape="circle"
+                        pixelSize={3}
+                      />
+                    ) : (
+                      <>
+                        {project.image && (
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className={`project-card-image ${project.image.endsWith('.svg') ? 'is-logo' : ''}`}
+                          />
+                        )}
+                      </>
+                    )}
 
-                  {!project.ditherConfig && !project.image && (
-                    <div className="project-placeholder">
-                      <div className="placeholder-content">
-                        <div className="placeholder-icon">
-                          {getIcon(project.iconName)}
+                    {!project.ditherConfig && !project.image && (
+                      <div className="project-placeholder">
+                        <div className="placeholder-content">
+                          <div className="placeholder-icon">
+                            {getIcon(project.iconName)}
+                          </div>
+                          <span className="placeholder-label">{project.title}</span>
                         </div>
-                        <span className="placeholder-label">{project.title}</span>
                       </div>
-                    </div>
-                  )}
-                </div>
-                <div className="project-info">
-                  <h3>{project.title}</h3>
-                  <p>{project.description || project.subtitle}</p>
-                  <div className="read-more">
-                    Read more <span>→</span>
+                    )}
                   </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))
+                  <div className="project-info">
+                    <h3>{project.title}</h3>
+                    <p>{project.description || project.subtitle}</p>
+                    <div className="read-more">
+                      Read more <span>→</span>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            );
+          })
         )}
       </div>
     </>
   );
 
   const renderStrategy = () => (
-    <div className="strategy-section">
+    <div id="strategy" className="strategy-section">
       <SectionHeader
         title="Strategy & Frameworks"
         subtitle="Methodologies I use to solve complex problems and build consensus."
@@ -170,57 +177,61 @@ const Work = () => {
   const renderAIProjects = () => (
     <div className="strategy-section ai-projects-workflow">
       <SectionHeader
-        title="AI Workflows"
-        subtitle="Custom tools, prompts, and frameworks designed to standardize workflows and increase productivity natively."
+        title="Systems & Meta-Design"
+        subtitle="Agent-readable documentation, custom tools, and frameworks designed to scale workflows and increase systemic productivity."
       />
 
       <div className="grid grid-cols-1 gap-6 mt-0">
-        {aiProjects.filter((item) => item.id !== 'portfolio-design-system').map((item, index) => (
-          <motion.div
-            key={item.id}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="article-card-wrapper"
-          >
-            <Link to={`/ai-project/${item.id}`} className="article-card horizontal-card">
-              <div
-                className={`article-thumbnail flex items-center justify-center relative overflow-hidden ${item.ditherConfig ? 'full-bleed' : ''}`}
-                style={{ backgroundColor: item.cardImageBg || 'var(--bg-secondary)' }}
-              >
-                {item.ditherConfig ? (
-                  <DitheredParticles 
-                    {...item.ditherConfig}
-                    color={item.ditherConfig.hoverColor || '#4f46e5'} 
-                    bgColor={item.cardImageBg || '#F3F4F6'}
-                    fullBleed={true}
-                    particleShape="circle"
-                    pixelSize={3}
-                  />
-                ) : (
-                  <span className="font-mono text-[4.5rem] font-bold text-text-secondary opacity-40 select-none tracking-tight">
-                    .md
-                  </span>
-                )}
-              </div>
-              <div className="article-content">
-                <h3>{item.title}</h3>
-                <p>{item.subtitle}</p>
-                <div className="read-more">
-                  View workflow <span>→</span>
+        {aiProjects.filter((item) => item.id !== 'portfolio-design-system').map((item, index) => {
+          const effectiveBg = mode === 'dark' ? '#111112' : '#ffffff';
+            
+          return (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="article-card-wrapper"
+            >
+              <Link to={`/ai-project/${item.id}`} className="article-card horizontal-card">
+                <div
+                  className={`article-thumbnail flex items-center justify-center relative overflow-hidden ${item.ditherConfig ? 'full-bleed' : ''}`}
+                  style={{ backgroundColor: effectiveBg }}
+                >
+                  {item.ditherConfig ? (
+                    <DitheredParticles
+                      {...item.ditherConfig}
+                      color={item.ditherConfig.hoverColor || '#4f46e5'}
+                      bgColor={effectiveBg}
+                      fullBleed={true}
+                      particleShape="circle"
+                      pixelSize={3}
+                    />
+                  ) : (
+                    <span className="font-mono text-[4.5rem] font-bold text-text-secondary opacity-40 select-none tracking-tight">
+                      .md
+                    </span>
+                  )}
                 </div>
-              </div>
-            </Link>
-          </motion.div>
-        ))}
+                <div className="article-content">
+                  <h3>{item.title}</h3>
+                  <p>{item.subtitle}</p>
+                  <div className="read-more">
+                    View workflow <span>→</span>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   );
 
   return (
-    <section id="work" className="work">
-      <div className="container">
+    <section className="work pt-[35vh] md:pt-[30vh]">
+      <div id="work" className="container scroll-mt-8">
         {renderProjects()}
         {renderAIProjects()}
         {renderStrategy()}

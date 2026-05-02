@@ -299,8 +299,9 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
         return `rgb(${r}, ${g}, ${b})`;
       };
 
-      const currentBg = '#ffffff';
-      const currentColor = interpolate('#000000', color, weight);
+      const currentBg = bgColor;
+      const idleColor = bgColor === '#ffffff' || bgColor === '#F3F4F6' ? '#000000' : '#ffffff';
+      const currentColor = interpolate(idleColor, color, weight);
 
       ctx.fillStyle = currentBg;
       ctx.fillRect(0, 0, w, h);

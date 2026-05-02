@@ -69,7 +69,7 @@ export const projects: ProjectCaseStudy[] = [
       particleCount: 2800,
       hoverColor: '#4f46e5'
     },
-    problem: 'UTLT merchants struggle to interpret complex dashboards. I led the design of an LLM-driven assistant that parses raw analytics into natural language, allowing merchants to "query" their business performance directly.',
+    problem: 'Enterprise merchants struggle to interpret complex dashboards. I led the design of an LLM-driven assistant that parses raw analytics into natural language, allowing merchants to "query" their business performance directly.',
     role: 'Design Lead & Strategy (0→1)',
     team: 'Product Managers, LLM Engineers, Data Scientists',
     timeline: '2023 - Present',
@@ -80,7 +80,7 @@ export const projects: ProjectCaseStudy[] = [
     sections: [
       {
         title: 'From Dashboard Overload to Conversational Clarity',
-        content: 'UTLT merchants struggle to interpret complex dashboards. I led the design of an LLM-driven assistant that parses raw analytics into natural language, allowing merchants to "query" their business performance directly.',
+        content: 'Enterprise merchants struggle to interpret complex dashboards. I led the design of an LLM-driven assistant that parses raw analytics into natural language, allowing merchants to "query" their business performance directly.',
         image: '/images/projects/conversational-insights/agentic-hero.png',
         layout: 'full-image'
       },

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Chillwave } from './Decorations';
 import TypewriterEffect from './ui/TypewriterEffect';
+import { ArrowDown } from 'lucide-react';
+import ProfileCard from './ui/ProfileCard';
 
 const words = ["designer", "builder", "thinker", "strategist", "leader"];
 const highlightColors = [
@@ -28,7 +30,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="pt-[20vh] md:pt-[220px] pb-[40px] md:pb-[80px] min-h-[85vh] overflow-visible relative flex items-center justify-center z-10">
+    <section className="min-h-[100vh] overflow-visible relative flex items-center justify-center z-10">
       <div className="container flex flex-col items-start text-left relative z-[2] w-full h-full justify-center pb-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -202,7 +204,27 @@ const Hero = () => {
             </span>
           </h1>
         </motion.div>
+      </div>
 
+      <div className="container absolute bottom-8 left-1/2 -translate-x-1/2 w-full z-[20] flex justify-start pointer-events-none">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8, duration: 1 }}
+          className="pointer-events-auto"
+        >
+          <ProfileCard
+            variant="primary"
+            link="/#work"
+            text="See my work"
+            icon={<ArrowDown size={22} strokeWidth={2.5} />}
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('work')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              window.history.pushState(null, '', '/#work');
+            }}
+          />
+        </motion.div>
       </div>
     </section>
   );

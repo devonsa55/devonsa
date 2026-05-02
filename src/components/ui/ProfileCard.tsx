@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
+const MotionLink = motion(Link);
 
 interface ProfileCardProps {
     image?: string;
@@ -8,14 +10,28 @@ interface ProfileCardProps {
     subtext?: string;
     link: string;
     className?: string;
+    variant?: 'default' | 'primary';
+    onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
-const ProfileCard = ({ image, icon, text, subtext, link, className = '' }: ProfileCardProps) => {
+const ProfileCard = ({ image, icon, text, subtext, link, className = '', variant = 'default', onClick }: ProfileCardProps) => {
     return (
-        <Link to={link} className={`profile-card ${className}`}>
+        <MotionLink 
+            to={link} 
+            className={`profile-card ${className} variant-${variant}`} 
+            onClick={onClick}
+            whileHover={{ y: -4 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+        >
             <div className="profile-card-content">
+                <div className="profile-text-group">
+                    <p className="profile-text">{text}</p>
+                    {subtext && <span className="profile-subtext">{subtext}</span>}
+                </div>
+
                 {icon && (
-                    <div className="profile-outer-icon" style={{ color: 'var(--text-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div className="profile-outer-icon" style={{ color: 'var(--text-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)' }}>
                         {icon}
                     </div>
                 )}
@@ -29,11 +45,6 @@ const ProfileCard = ({ image, icon, text, subtext, link, className = '' }: Profi
                         />
                     </div>
                 )}
-
-                <div className="profile-text-group">
-                    <p className="profile-text">{text}</p>
-                    {subtext && <span className="profile-subtext">{subtext}</span>}
-                </div>
             </div>
 
             <style dangerouslySetInnerHTML={{
@@ -42,35 +53,58 @@ const ProfileCard = ({ image, icon, text, subtext, link, className = '' }: Profi
                     display: inline-block;
                     text-decoration: none;
                     position: relative;
+                    background: var(--bg-secondary);
+                    border: 2px solid var(--border-subtle);
+                    border-radius: 100px;
+                    transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                                border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
                 }
 
                 .profile-card-content {
                     display: flex;
                     align-items: center;
-                    gap: 1.25rem;
-                    padding: 0.6rem 2.25rem 0.6rem 1.75rem;
-                    background: var(--bg-secondary);
-                    border: 2px solid var(--border-subtle);
-                    border-radius: 100px;
-                    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
                     min-height: 54px; /* Matched to standard button height */
-                    box-shadow: none;
                 }
 
                 /* Contextual padding for icon vs image */
                 .profile-card:has(.profile-outer-icon) .profile-card-content {
-                    padding: 0.5rem 2.25rem 0.5rem 1.25rem;
+                    padding: 0.5rem 1rem 0.5rem 1.5rem;
                     gap: 1rem;
                 }
 
                 .profile-card:has(.profile-image-wrapper) .profile-card-content {
-                    padding: 0.45rem 2.25rem 0.45rem 0.45rem;
+                    padding: 0.45rem 0.45rem 0.45rem 1.5rem;
                     gap: 1.25rem;
                 }
 
-                .profile-card:hover .profile-card-content {
+                .profile-card:hover {
                     border-color: var(--text-primary);
-                    transform: translateY(-4px);
+                    box-shadow: var(--shadow-hover);
+                }
+
+                /* Primary Variant (High Contrast) */
+                .profile-card.variant-primary {
+                    background: var(--text-primary);
+                    border-color: var(--text-primary);
+                }
+
+                .profile-card.variant-primary .profile-text {
+                    color: var(--bg-primary);
+                }
+
+                .profile-card.variant-primary .profile-subtext {
+                    color: var(--bg-primary);
+                    opacity: 0.7;
+                }
+
+                .profile-card.variant-primary .profile-outer-icon {
+                    color: var(--bg-primary) !important;
+                }
+
+                .profile-card.variant-primary:hover {
+                    background: var(--text-primary);
+                    border-color: var(--text-primary);
                     box-shadow: var(--shadow-hover);
                 }
 
@@ -116,7 +150,7 @@ const ProfileCard = ({ image, icon, text, subtext, link, className = '' }: Profi
 
                 `
             }} />
-        </Link>
+        </MotionLink>
     );
 };
 

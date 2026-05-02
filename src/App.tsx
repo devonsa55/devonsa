@@ -9,6 +9,7 @@ import ThemeSwitcher from './components/ThemeSwitcher'
 import ProjectDetail from './components/ProjectDetail'
 import StrategyDetail from './components/StrategyDetail'
 import AIProjectDetail from './components/AIProjectDetail'
+import NotFound from './components/NotFound'
 import Contact from './components/Contact'
 import { ThemeProvider } from './context/ThemeContext'
 import { useEffect } from 'react'
@@ -81,7 +82,7 @@ function AppContent() {
             <Route path="/strategy/:strategyId" element={<StrategyDetail />} />
             <Route path="/ai-project/:projectId" element={<AIProjectDetail />} />
             {/* Catch-all route to catch bad URLs */}
-            <Route path="*" element={<div style={{padding: 100, color: 'red', fontSize: '2rem'}}>404 - Route not found! If you see this, your URL is incorrect.</div>} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>
       </main>

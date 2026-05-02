@@ -1,9 +1,27 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 
 const ThemeSwitcher = () => {
   const { mode, setMode } = useTheme();
+  const [isTop, setIsTop] = useState(true);
+  const location = useLocation();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsTop(window.scrollY < 50);
+    };
+    
+    // Initial check
+    handleScroll();
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const isHome = location.pathname === '/';
+  const isAligned = isHome && isTop;
 
   const toggleMode = () => {
     setMode(mode === 'light' ? 'dark' : 'light');
@@ -34,25 +52,33 @@ const ThemeSwitcher = () => {
     "000111000"
   ];
 
-  const GRID_W = 11;
-  const GRID_H = 11;
+  const GRID_SIZE = 13;
   const currentBitmap = mode === 'light' ? moonBitmap : sunBitmap;
 
   const renderDots = () => {
     const dots = [];
-    const startX = Math.floor((GRID_W - 9) / 2);
-    const startY = Math.floor((GRID_H - 9) / 2);
+    const center = (GRID_SIZE - 1) / 2;
+    const radius = GRID_SIZE / 2;
+    const iconOffset = Math.floor((GRID_SIZE - 9) / 2);
 
-    for (let r = 0; r < GRID_H; r++) {
-      for (let c = 0; c < GRID_W; c++) {
+    for (let r = 0; r < GRID_SIZE; r++) {
+      for (let c = 0; c < GRID_SIZE; c++) {
+        const dist = Math.sqrt(Math.pow(r - center, 2) + Math.pow(c - center, 2));
+        const isWithinCircle = dist <= radius;
+        
         let isActive = false;
-        if (r >= startY && r < startY + 9 && c >= startX && c < startX + 9) {
-          isActive = currentBitmap[r - startY][c - startX] === '1';
+        if (isWithinCircle && r >= iconOffset && r < iconOffset + 9 && c >= iconOffset && c < iconOffset + 9) {
+          isActive = currentBitmap[r - iconOffset][c - iconOffset] === '1';
         }
+        
         dots.push(
           <div
             key={`${r}-${c}`}
             className={`matrix-dot ${isActive ? 'active' : ''}`}
+            style={{ 
+              opacity: isWithinCircle ? 1 : 0,
+              visibility: isWithinCircle ? 'visible' : 'hidden'
+            }}
           />
         );
       }
@@ -61,17 +87,22 @@ const ThemeSwitcher = () => {
   };
 
   return (
-    <div className="theme-switcher">
+    <div className={`theme-switcher ${isAligned ? 'aligned' : ''}`}>
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        whileHover={{ y: -4 }}
         whileTap={{ scale: 0.95 }}
+        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
         onClick={toggleMode}
         className="matrix-toggle"
       >
+        <span className="matrix-text">
+          {mode === 'light' ? 'Go Dark' : 'Go Light'}
+        </span>
         <div className="matrix-screen" style={{
-          gridTemplateColumns: `repeat(${GRID_W}, 1fr)`,
-          gridTemplateRows: `repeat(${GRID_H}, 1fr)`
+          gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)`,
+          gridTemplateRows: `repeat(${GRID_SIZE}, 1fr)`
         }}>
           {renderDots()}
         </div>
@@ -84,6 +115,11 @@ const ThemeSwitcher = () => {
             bottom: 2rem;
             right: 1rem;
             z-index: 40;
+            transition: right 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .theme-switcher.aligned {
+            right: max(var(--container-padding, 40px), calc(50vw - 588px + var(--container-padding, 40px)));
         }
 
         .matrix-toggle {
@@ -91,11 +127,42 @@ const ThemeSwitcher = () => {
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            padding: 5px;
+            padding: 4px;
             background: var(--bg-primary);
-            border: 1px solid var(--border-subtle);
-            border-radius: 8px;
-            transition: var(--transition-smooth);
+            border: 2px solid var(--border-subtle);
+            border-radius: 100px;
+            gap: 0;
+            overflow: hidden;
+            transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                        border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                        box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                        padding 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                        gap 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .theme-switcher.aligned .matrix-toggle {
+            min-height: 54px;
+            padding: 0.25rem 0.5rem 0.25rem 1.5rem;
+            border-radius: 100px;
+            gap: 1.25rem;
+            background: var(--bg-secondary);
+        }
+
+        .matrix-text {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            white-space: nowrap;
+            max-width: 0;
+            opacity: 0;
+            line-height: 1.1;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .theme-switcher.aligned .matrix-text {
+            max-width: 250px;
+            opacity: 1;
         }
 
         .matrix-screen {
@@ -119,9 +186,8 @@ const ThemeSwitcher = () => {
         }
 
         .matrix-toggle:hover {
-            border-color: var(--border-subtle);
-            background: var(--bg-primary);
-            /* Static look on hover */
+            border-color: var(--text-primary);
+            box-shadow: var(--shadow-hover);
         }
         
         /* Mode-specific glows */

@@ -23,7 +23,7 @@ const Navbar = () => {
       e.preventDefault();
       const workSection = document.getElementById('work');
       if (workSection) {
-        workSection.scrollIntoView({ behavior: 'smooth' });
+        workSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         // Update URL hash without reload
         window.history.pushState(null, '', '/#work');
       }
@@ -139,7 +139,13 @@ const Navbar = () => {
                 <li>
                   <Link 
                     to="/#work" 
-                    onClick={handleScrollToWork} 
+                    onClick={(e) => {
+                      if (location.pathname === '/') {
+                        e.preventDefault();
+                        document.getElementById('work')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                      setIsMobileMenuOpen(false);
+                    }}
                     className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]"
                   >
                     <AnimatedUnderline strokeWidth={12} color="#0e84f1">{IS_UNDER_CONSTRUCTION ? '🚧WIP🚧' : 'Work'}</AnimatedUnderline>
