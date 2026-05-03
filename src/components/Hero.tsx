@@ -1,34 +1,35 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Chillwave } from './Decorations';
-import TypewriterEffect from './ui/TypewriterEffect';
-import { ArrowDown } from 'lucide-react';
-import ProfileCard from './ui/ProfileCard';
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Chillwave } from './Decorations'
+import TypewriterEffect from './ui/TypewriterEffect'
+import { ArrowDown } from 'lucide-react'
+import ProfileCard from './ui/ProfileCard'
 
-const words = ["designer", "builder", "thinker", "strategist", "leader"];
+const words = ['designer', 'builder', 'thinker', 'strategist', 'leader']
 const highlightColors = [
   'var(--cyan-blue)',
   'var(--aqua-green)',
   'var(--tangerine)',
   'var(--amethyst)',
-  'var(--light-red)'
-];
+  'var(--light-red)',
+]
 
 const Hero = () => {
-  const [isSurfing, setIsSurfing] = useState(false);
+  const [isSurfing, setIsSurfing] = useState(false)
 
-  const [isHonoluluHovered, setIsHonoluluHovered] = useState(false);
-  const [isAudioHovered, setIsAudioHovered] = useState(false);
-  const [mouseX, setMouseX] = useState(0);
+  const [isHonoluluHovered, setIsHonoluluHovered] = useState(false)
+  const [isSFHovered, setIsSFHovered] = useState(false)
+  const [isAudioHovered, setIsAudioHovered] = useState(false)
+  const [mouseX, setMouseX] = useState(0)
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left; // x position within the element
-    const centerX = rect.width / 2;
-    const offset = (x - centerX) / centerX; // normalized -1 to 1
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = e.clientX - rect.left // x position within the element
+    const centerX = rect.width / 2
+    const offset = (x - centerX) / centerX // normalized -1 to 1
     // Apply a maximum shift of 15px
-    setMouseX(offset * 15);
-  };
+    setMouseX(offset * 15)
+  }
 
   return (
     <section className="min-h-[100vh] overflow-visible relative flex items-center justify-center z-10">
@@ -39,17 +40,14 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="w-full"
         >
-
-          <h1
-            className="!m-0 text-[clamp(2.5rem,6.2vw,4.75rem)] text-text-primary leading-[1.15] max-w-[100vw] font-extrabold tracking-[-0.03em] relative"
-          >
-            I'm a product <br className="sm:hidden" />
+          <h1 className="!m-0 text-[clamp(2.5rem,6.2vw,4.75rem)] text-text-primary leading-[1.22] max-w-[100vw] font-extrabold tracking-[-0.03em] relative pt-[0.1em]">
+            I&apos;m a product <br className="sm:hidden" />
             <span
               onMouseMove={handleMouseMove}
               onMouseLeave={() => {
-                setMouseX(0); // Reset offset
+                setMouseX(0) // Reset offset
               }}
-              className="inline-block relative align-baseline ml-0 sm:ml-[0.20em] mr-[0.1em]"
+              className="inline relative align-baseline ml-0 sm:ml-[0.20em] mr-[0.1em]"
               style={{
                 width: 'auto',
               }}
@@ -73,15 +71,16 @@ const Hero = () => {
               >
                 @ Google
               </motion.span>
-            </span>,
+            </span>
+            ,
             <br />
             <span
               className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10 mr-[0.1em]"
               onMouseEnter={() => setIsSurfing(true)}
               onMouseMove={handleMouseMove}
               onMouseLeave={() => {
-                setIsSurfing(false);
-                setMouseX(0);
+                setIsSurfing(false)
+                setMouseX(0)
               }}
             >
               surfer,
@@ -93,7 +92,7 @@ const Hero = () => {
                       opacity: 1,
                       scale: 1,
                       x: `calc(-110% + ${mouseX}px)`,
-                      y: '-50%'
+                      y: '-50%',
                     }}
                     exit={{ opacity: 0, scale: 0.5, x: '-120%', y: '-50%' }}
                     className="drop-shadow-[0_10px_20px_rgba(0,0,0,0.1)]"
@@ -102,7 +101,7 @@ const Hero = () => {
                       top: '50%',
                       left: '0',
                       pointerEvents: 'none',
-                      zIndex: 100
+                      zIndex: 100,
                     }}
                   >
                     <Chillwave size={160} />
@@ -110,13 +109,14 @@ const Hero = () => {
                 )}
               </AnimatePresence>
             </span>{' '}
-            & <span
+            &{' '}
+            <span
               className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10"
               onMouseEnter={() => setIsAudioHovered(true)}
               onMouseMove={handleMouseMove}
               onMouseLeave={() => {
-                setIsAudioHovered(false);
-                setMouseX(0);
+                setIsAudioHovered(false)
+                setMouseX(0)
               }}
             >
               audio enthusiast
@@ -129,7 +129,7 @@ const Hero = () => {
                       scale: 1,
                       x: 15 + mouseX,
                       y: '-50%',
-                      rotate: 10
+                      rotate: 10,
                     }}
                     exit={{ opacity: 0, scale: 0.5, x: 20, y: '-50%', rotate: -15 }}
                     style={{
@@ -142,7 +142,7 @@ const Hero = () => {
                       whiteSpace: 'nowrap',
                       display: 'flex',
                       gap: '4px',
-                      color: 'var(--text-primary)'
+                      color: 'var(--text-primary)',
                     }}
                   >
                     {['♪', '♪', '♪'].map((note, i) => (
@@ -155,7 +155,7 @@ const Hero = () => {
                           duration: 1.2,
                           repeat: Infinity,
                           delay: i * 0.2,
-                          ease: "easeInOut"
+                          ease: 'easeInOut',
                         }}
                       >
                         {note}
@@ -164,17 +164,19 @@ const Hero = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </span><br />
-            currently living in <span
+            </span>
+            <br />
+            based in{' '}
+            <span
               className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10 ml-[0.1em]"
               onMouseEnter={() => setIsHonoluluHovered(true)}
               onMouseMove={handleMouseMove}
               onMouseLeave={() => {
-                setIsHonoluluHovered(false);
-                setMouseX(0);
+                setIsHonoluluHovered(false)
+                setMouseX(0)
               }}
             >
-              Honolulu, HI.
+              HNL
               <AnimatePresence>
                 {isHonoluluHovered && (
                   <motion.div
@@ -183,7 +185,7 @@ const Hero = () => {
                       opacity: 1,
                       scale: 1,
                       x: mouseX,
-                      y: 20
+                      y: 20,
                     }}
                     exit={{ opacity: 0, scale: 0.5, x: mouseX, y: 10 }}
                     style={{
@@ -195,10 +197,49 @@ const Hero = () => {
                       fontSize: '3rem',
                       pointerEvents: 'none',
                       zIndex: 100,
-                      whiteSpace: 'nowrap'
+                      whiteSpace: 'nowrap',
                     }}
                   >
                     🌴🏖️🥥
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </span>{' '}
+            →{' '}
+            <span
+              className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10"
+              onMouseEnter={() => setIsSFHovered(true)}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={() => {
+                setIsSFHovered(false)
+                setMouseX(0)
+              }}
+            >
+              SF in 2026.
+              <AnimatePresence>
+                {isSFHovered && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.5, x: mouseX, y: 10 }}
+                    animate={{
+                      opacity: 1,
+                      scale: 1,
+                      x: mouseX,
+                      y: 20,
+                    }}
+                    exit={{ opacity: 0, scale: 0.5, x: mouseX, y: 10 }}
+                    style={{
+                      position: 'absolute',
+                      top: '100%',
+                      left: '0',
+                      width: '100%',
+                      textAlign: 'center',
+                      fontSize: '3rem',
+                      pointerEvents: 'none',
+                      zIndex: 100,
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    ✈️🏠
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -220,15 +261,17 @@ const Hero = () => {
             text="See my work"
             icon={<ArrowDown size={22} strokeWidth={2.5} />}
             onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('work')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              window.history.pushState(null, '', '/#work');
+              e.preventDefault()
+              document
+                .getElementById('work')
+                ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              window.history.pushState(null, '', '/#work')
             }}
           />
         </motion.div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
