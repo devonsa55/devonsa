@@ -20,6 +20,7 @@ const Hero = () => {
 
   const [isHonoluluHovered, setIsHonoluluHovered] = useState(false)
   const [isSFHovered, setIsSFHovered] = useState(false)
+  const [isArrowHovered, setIsArrowHovered] = useState(false)
   const [isAudioHovered, setIsAudioHovered] = useState(false)
   const [mouseX, setMouseX] = useState(0)
 
@@ -206,7 +207,16 @@ const Hero = () => {
                 )}
               </AnimatePresence>
             </span>{' '}
-            <HandDrawnArrow strokeWidth={12} />{' '}
+            <span
+              onMouseEnter={() => setIsArrowHovered(true)}
+              onMouseLeave={() => setIsArrowHovered(false)}
+              className="inline-block"
+            >
+              <HandDrawnArrow
+                strokeWidth={12}
+                isHovered={isHonoluluHovered || isSFHovered || isArrowHovered}
+              />
+            </span>{' '}
             <span
               className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10"
               onMouseEnter={() => setIsSFHovered(true)}
