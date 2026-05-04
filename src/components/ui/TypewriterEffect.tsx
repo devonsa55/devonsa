@@ -112,7 +112,7 @@ export default function TypewriterEffect({
           height: '1em',
           backgroundColor: isColored ? displayColor : cursorColor,
           marginLeft: '0.25em',
-          transform: 'translateY(-0.05em)',
+          transform: 'translateY(0.05em)',
           borderRadius: '2px',
         }}
       />
