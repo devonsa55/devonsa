@@ -48,7 +48,7 @@ const Hero = () => {
               onMouseLeave={() => {
                 setMouseX(0) // Reset offset
               }}
-              className="group inline relative align-baseline ml-0 sm:ml-[0.20em] mr-[0.1em] before:absolute before:w-full before:h-[1px] before:bottom-[6px] before:left-0 before:bg-text-primary/10 before:z-[-1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10"
+              className="inline relative align-baseline ml-0 sm:ml-[0.20em] mr-[0.1em]"
               style={{
                 width: 'auto',
               }}
@@ -76,7 +76,7 @@ const Hero = () => {
             ,
             <br />
             <span
-              className="group inline-block text-text-primary relative no-underline z-[1] before:absolute before:w-full before:h-[1px] before:bottom-[6px] before:left-0 before:bg-text-primary/10 before:z-[-1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10 mr-[0.1em]"
+              className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10 mr-[0.1em]"
               onMouseEnter={() => setIsSurfing(true)}
               onMouseMove={handleMouseMove}
               onMouseLeave={() => {
@@ -112,7 +112,7 @@ const Hero = () => {
             </span>{' '}
             &{' '}
             <span
-              className="group inline-block text-text-primary relative no-underline z-[1] before:absolute before:w-full before:h-[1px] before:bottom-[6px] before:left-0 before:bg-text-primary/10 before:z-[-1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10"
+              className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10"
               onMouseEnter={() => setIsAudioHovered(true)}
               onMouseMove={handleMouseMove}
               onMouseLeave={() => {
@@ -169,7 +169,7 @@ const Hero = () => {
             <br />
             based in{' '}
             <span
-              className="group inline-block text-text-primary relative no-underline z-[1] before:absolute before:w-full before:h-[1px] before:bottom-[6px] before:left-0 before:bg-text-primary/10 before:z-[-1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10 ml-[0.1em]"
+              className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10 ml-[0.1em]"
               onMouseEnter={() => setIsHonoluluHovered(true)}
               onMouseMove={handleMouseMove}
               onMouseLeave={() => {
@@ -205,10 +205,10 @@ const Hero = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </span>{' '}
-            <HandDrawnArrow strokeWidth={12} />{' '}
+            </span>
+            <HandDrawnArrow strokeWidth={12} />
             <span
-              className="group inline-block text-text-primary relative no-underline z-[1] before:absolute before:w-full before:h-[1px] before:bottom-[6px] before:left-0 before:bg-text-primary/10 before:z-[-1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10"
+              className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10"
               onMouseEnter={() => setIsSFHovered(true)}
               onMouseMove={handleMouseMove}
               onMouseLeave={() => {
