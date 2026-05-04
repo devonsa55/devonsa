@@ -1,15 +1,15 @@
 const HandDrawnArrow = ({ className = '' }: { className?: string }) => {
   return (
     <svg
-      width="250"
-      height="140"
-      viewBox="0 0 250 140"
+      width="237"
+      height="106"
+      viewBox="0 0 237 106"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`inline-block align-baseline h-[0.8em] w-auto mx-[0.2em] relative top-[-0.05em] ${className}`}
+      className={`inline-block align-baseline h-[0.7em] w-auto mx-[0.2em] relative top-[-0.02em] ${className}`}
     >
       <path
-        d="M12.0847 92.3224C62.1014 105.451 161.739 115.264 172.636 51.3395C180.076 7.69512 127.247 7.45893 120.969 55.5221C114.691 103.585 189.113 141.194 238.045 59.7759M238.045 59.7759L218.847 61.7058M238.045 59.7759L239.956 85.2599"
+        d="M6.99659 70.8319C50.2561 95.8302 124.915 82.3674 144.053 48.1745C163.192 13.9815 121.999 -4.39624 104.915 40.658C87.8304 85.7122 130.35 90.6719 218.119 66.4182M218.119 66.4182L203.68 54.4172M218.119 66.4182L202.449 86.0201"
         stroke="currentColor"
         strokeWidth="8"
         strokeLinecap="round"
