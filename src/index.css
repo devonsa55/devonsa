@@ -25,13 +25,13 @@
   --spacing-md: 2rem;
   --spacing-lg: 4rem;
   --spacing-xl: 8rem;
-  --hero-font-size-max: 4.75rem;
+  --hero-font-size-max: 4.5rem;
   --logo-scale: 1.1;
 
   /* Global Gutter Controls (Safe Area) */
   --grid-gap: 1rem;
   --container-padding: 40px;
-  --container-max-width: 1176px;
+  --container-max-width: 1240px;
 
   /* Project Page Independent Spacing (Editorial Luxe) */
   --project-padding: var(--container-padding);

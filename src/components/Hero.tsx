@@ -41,7 +41,7 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="w-full"
         >
-          <h1 className="!m-0 text-[clamp(2.5rem,6.2vw,var(--hero-font-size-max))] text-text-primary leading-[1.22] max-w-[100vw] font-extrabold tracking-[-0.03em] relative pt-[0.1em]">
+          <h1 className="!m-0 text-[clamp(2.5rem,5.8vw,var(--hero-font-size-max))] text-text-primary leading-[1.22] max-w-[100vw] font-extrabold tracking-[-0.03em] relative pt-[0.1em]">
             I&apos;m a product <br className="sm:hidden" />
             <span
               onMouseMove={handleMouseMove}
