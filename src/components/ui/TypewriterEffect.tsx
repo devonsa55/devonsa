@@ -23,16 +23,41 @@ export default function TypewriterEffect({
   style = {},
 }: TypewriterEffectProps) {
   const [isHovered, setIsHovered] = useState(false)
+  const [isIdle, setIsIdle] = useState(false)
   const [displayedText, setDisplayedText] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
   const [wordIndex, setWordIndex] = useState(0)
   const [charIndex, setCharIndex] = useState(0)
 
+  useEffect(() => {
+    let timeoutId: number
+    const resetIdle = () => {
+      setIsIdle(false)
+      window.clearTimeout(timeoutId)
+      timeoutId = window.setTimeout(() => setIsIdle(true), 2000)
+    }
+
+    window.addEventListener('mousemove', resetIdle)
+    window.addEventListener('mousedown', resetIdle)
+    window.addEventListener('touchstart', resetIdle)
+    window.addEventListener('keydown', resetIdle)
+
+    timeoutId = window.setTimeout(() => setIsIdle(true), 2000)
+
+    return () => {
+      window.removeEventListener('mousemove', resetIdle)
+      window.removeEventListener('mousedown', resetIdle)
+      window.removeEventListener('touchstart', resetIdle)
+      window.removeEventListener('keydown', resetIdle)
+      window.clearTimeout(timeoutId)
+    }
+  }, [])
+
   const timeoutRef = useRef<number | null>(null)
   const currentWord = words.length > 0 ? words[wordIndex % words.length] : ''
 
-  // Only use colors if hovered
-  const isColored = colors.length > 0 && isHovered
+  // Only use colors if hovered or idle
+  const isColored = colors.length > 0 && (isHovered || isIdle)
   const currentColor = isColored ? colors[wordIndex % colors.length] : 'inherit'
   const nextColor = isColored ? colors[(wordIndex + 1) % colors.length] : 'inherit'
   const displayColor = isDeleting && charIndex === 0 ? nextColor : currentColor

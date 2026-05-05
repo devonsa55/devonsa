@@ -41,7 +41,7 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="w-full"
         >
-          <h1 className="!m-0 text-[clamp(2.5rem,6.2vw,4.75rem)] text-text-primary leading-[1.22] max-w-[100vw] font-extrabold tracking-[-0.03em] relative pt-[0.1em]">
+          <h1 className="!m-0 text-[clamp(2.5rem,6.2vw,var(--hero-font-size-max))] text-text-primary leading-[1.22] max-w-[100vw] font-extrabold tracking-[-0.03em] relative pt-[0.1em]">
             I&apos;m a product <br className="sm:hidden" />
             <span
               onMouseMove={handleMouseMove}
@@ -249,7 +249,7 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <div className="container absolute bottom-8 left-1/2 -translate-x-1/2 w-full z-[20] flex justify-start pointer-events-none">
+      <div className="container absolute bottom-[4vh] lg:bottom-[5vh] left-1/2 -translate-x-1/2 w-full z-[20] flex justify-start pointer-events-none">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

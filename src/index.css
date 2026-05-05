@@ -10,9 +10,9 @@
 @import './styles/components/Decorations.css';
 
 @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 /* Global Variables & Shared Tokens */
 :root {
@@ -25,10 +25,13 @@
   --spacing-md: 2rem;
   --spacing-lg: 4rem;
   --spacing-xl: 8rem;
+  --hero-font-size-max: 4.75rem;
+  --logo-scale: 1.1;
 
   /* Global Gutter Controls (Safe Area) */
   --grid-gap: 1rem;
   --container-padding: 40px;
+  --container-max-width: 1176px;
 
   /* Project Page Independent Spacing (Editorial Luxe) */
   --project-padding: var(--container-padding);
@@ -44,6 +47,12 @@
   @media (max-width: 1024px) {
     --project-padding: var(--container-padding);
     --project-section-margin: 120px;
+  }
+
+  @media (min-width: 2000px) {
+    --container-padding: 80px;
+    --container-max-width: 1400px;
+    --hero-font-size-max: 5.5rem;
   }
 
   @media (max-width: 768px) {
@@ -280,7 +289,7 @@ img {
 }
 
 .container {
-  max-width: 1176px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 0 var(--container-padding);
 }
@@ -327,10 +336,7 @@ img {
 }
 
 .navbar .container {
-  padding-left: var(--visual-grid-x1) !important;
-  /* Unified alignment */
-  max-width: 1200px;
-  margin: 0 auto;
+  /* Inherit standard container behavior */
 }
 
 [data-theme='midnight'] .navbar {
