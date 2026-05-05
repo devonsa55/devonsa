@@ -34,7 +34,7 @@ export default function TypewriterEffect({
     const resetIdle = () => {
       setIsIdle(false)
       window.clearTimeout(timeoutId)
-      timeoutId = window.setTimeout(() => setIsIdle(true), 2000)
+      timeoutId = window.setTimeout(() => setIsIdle(true), 3000)
     }
 
     window.addEventListener('mousemove', resetIdle)
@@ -42,7 +42,7 @@ export default function TypewriterEffect({
     window.addEventListener('touchstart', resetIdle)
     window.addEventListener('keydown', resetIdle)
 
-    timeoutId = window.setTimeout(() => setIsIdle(true), 2000)
+    timeoutId = window.setTimeout(() => setIsIdle(true), 3000)
 
     return () => {
       window.removeEventListener('mousemove', resetIdle)
