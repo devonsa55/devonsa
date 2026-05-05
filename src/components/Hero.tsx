@@ -167,7 +167,7 @@ const Hero = () => {
               </AnimatePresence>
             </span>
             <br />
-            based in{' '}
+            now in{' '}
             <span
               className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10 ml-[0.1em]"
               onMouseEnter={() => setIsHonoluluHovered(true)}
