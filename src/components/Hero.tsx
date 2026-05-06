@@ -167,83 +167,85 @@ const Hero = () => {
               </AnimatePresence>
             </span>
             <br />
-            currently in{' '}
-            <span
-              className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10 ml-[0.1em]"
-              onMouseEnter={() => setIsHonoluluHovered(true)}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={() => {
-                setIsHonoluluHovered(false)
-                setMouseX(0)
-              }}
-            >
-              HNL
-              <AnimatePresence>
-                {isHonoluluHovered && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.5, x: mouseX, y: 10 }}
-                    animate={{
-                      opacity: 1,
-                      scale: 1,
-                      x: mouseX,
-                      y: 20,
-                    }}
-                    exit={{ opacity: 0, scale: 0.5, x: mouseX, y: 10 }}
-                    style={{
-                      position: 'absolute',
-                      top: '100%',
-                      left: '0',
-                      width: '100%',
-                      textAlign: 'center',
-                      fontSize: '3rem',
-                      pointerEvents: 'none',
-                      zIndex: 100,
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    🌴🏖️🥥
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </span>
-            <HandDrawnArrow strokeWidth={12} />
-            <span
-              className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10"
-              onMouseEnter={() => setIsSFHovered(true)}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={() => {
-                setIsSFHovered(false)
-                setMouseX(0)
-              }}
-            >
-              SF in 2026.
-              <AnimatePresence>
-                {isSFHovered && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.5, x: mouseX, y: 10 }}
-                    animate={{
-                      opacity: 1,
-                      scale: 1,
-                      x: mouseX,
-                      y: 20,
-                    }}
-                    exit={{ opacity: 0, scale: 0.5, x: mouseX, y: 10 }}
-                    style={{
-                      position: 'absolute',
-                      top: '100%',
-                      left: '0',
-                      width: '100%',
-                      textAlign: 'center',
-                      fontSize: '3rem',
-                      pointerEvents: 'none',
-                      zIndex: 100,
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    ✈️🏠
-                  </motion.div>
-                )}
-              </AnimatePresence>
+            <span className="whitespace-nowrap tracking-[-0.04em]">
+              currently in{' '}
+              <span
+                className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10 ml-[0.1em]"
+                onMouseEnter={() => setIsHonoluluHovered(true)}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={() => {
+                  setIsHonoluluHovered(false)
+                  setMouseX(0)
+                }}
+              >
+                HNL
+                <AnimatePresence>
+                  {isHonoluluHovered && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.5, x: mouseX, y: 10 }}
+                      animate={{
+                        opacity: 1,
+                        scale: 1,
+                        x: mouseX,
+                        y: 20,
+                      }}
+                      exit={{ opacity: 0, scale: 0.5, x: mouseX, y: 10 }}
+                      style={{
+                        position: 'absolute',
+                        top: '100%',
+                        left: '0',
+                        width: '100%',
+                        textAlign: 'center',
+                        fontSize: '3rem',
+                        pointerEvents: 'none',
+                        zIndex: 100,
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      🌴🏖️🥥
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </span>
+              <HandDrawnArrow strokeWidth={12} className="!h-[0.45em] ml-[0.1em] mr-[0.05em]" />
+              <span
+                className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10"
+                onMouseEnter={() => setIsSFHovered(true)}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={() => {
+                  setIsSFHovered(false)
+                  setMouseX(0)
+                }}
+              >
+                SF in 2026.
+                <AnimatePresence>
+                  {isSFHovered && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.5, x: mouseX, y: 10 }}
+                      animate={{
+                        opacity: 1,
+                        scale: 1,
+                        x: mouseX,
+                        y: 20,
+                      }}
+                      exit={{ opacity: 0, scale: 0.5, x: mouseX, y: 10 }}
+                      style={{
+                        position: 'absolute',
+                        top: '100%',
+                        left: '0',
+                        width: '100%',
+                        textAlign: 'center',
+                        fontSize: '3rem',
+                        pointerEvents: 'none',
+                        zIndex: 100,
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      ✈️🏠
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </span>
             </span>
           </h1>
         </motion.div>
