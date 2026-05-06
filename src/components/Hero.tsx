@@ -6,7 +6,7 @@ import { ArrowDown } from 'lucide-react'
 import ProfileCard from './ui/ProfileCard'
 import HandDrawnArrow from './ui/HandDrawnArrow'
 
-const words = ['designer', 'builder', 'thinker', 'strategist', 'leader']
+const words = ['designer', 'builder', 'strategist', 'leader']
 const highlightColors = [
   'var(--cyan-blue)',
   'var(--aqua-green)',
