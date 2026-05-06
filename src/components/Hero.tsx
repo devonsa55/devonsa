@@ -217,7 +217,7 @@ const Hero = () => {
                   setMouseX(0)
                 }}
               >
-                SF in &apos;26.
+                SF in 2026.
                 <AnimatePresence>
                   {isSFHovered && (
                     <motion.div
