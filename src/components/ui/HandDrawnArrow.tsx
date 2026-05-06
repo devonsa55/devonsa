@@ -19,6 +19,8 @@ const HandDrawnArrow = ({
         stroke="currentColor"
         strokeWidth={strokeWidth}
         strokeLinecap="round"
+        pathLength="1"
+        className="hand-drawn-path"
       />
     </svg>
   )

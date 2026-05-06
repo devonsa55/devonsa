@@ -1,54 +1,69 @@
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
-const MotionLink = motion(Link);
+const MotionLink = motion(Link)
 
 interface ProfileCardProps {
-    image?: string;
-    icon?: React.ReactNode;
-    text: string;
-    subtext?: string;
-    link: string;
-    className?: string;
-    variant?: 'default' | 'primary';
-    onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+  image?: string
+  icon?: React.ReactNode
+  text: string
+  subtext?: string
+  link: string
+  className?: string
+  variant?: 'default' | 'primary'
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void
 }
 
-const ProfileCard = ({ image, icon, text, subtext, link, className = '', variant = 'default', onClick }: ProfileCardProps) => {
-    return (
-        <MotionLink 
-            to={link} 
-            className={`profile-card ${className} variant-${variant}`} 
-            onClick={onClick}
-            whileHover={{ y: -4 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-        >
-            <div className="profile-card-content">
-                <div className="profile-text-group">
-                    <p className="profile-text">{text}</p>
-                    {subtext && <span className="profile-subtext">{subtext}</span>}
-                </div>
+const ProfileCard = ({
+  image,
+  icon,
+  text,
+  subtext,
+  link,
+  className = '',
+  variant = 'default',
+  onClick,
+}: ProfileCardProps) => {
+  return (
+    <MotionLink
+      to={link}
+      className={`profile-card ${className} variant-${variant}`}
+      onClick={onClick}
+      whileHover={{ y: -4 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+    >
+      <div className="profile-card-content">
+        <div className="profile-text-group">
+          <p className="profile-text">{text}</p>
+          {subtext && <span className="profile-subtext">{subtext}</span>}
+        </div>
 
-                {icon && (
-                    <div className="profile-outer-icon" style={{ color: 'var(--text-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)' }}>
-                        {icon}
-                    </div>
-                )}
+        {icon && (
+          <div
+            className="profile-outer-icon"
+            style={{
+              color: 'var(--text-primary)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+          >
+            {icon}
+          </div>
+        )}
 
-                {image && !icon && (
-                    <div className="profile-image-wrapper">
-                        <img
-                            src={image}
-                            alt="Profile"
-                            className="profile-image"
-                        />
-                    </div>
-                )}
-            </div>
+        {image && !icon && (
+          <div className="profile-image-wrapper">
+            <img src={image} alt="Profile" className="profile-image" />
+          </div>
+        )}
+      </div>
 
-            <style dangerouslySetInnerHTML={{
-                __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
                 .profile-card {
                     display: inline-block;
                     text-decoration: none;
@@ -150,10 +165,22 @@ const ProfileCard = ({ image, icon, text, subtext, link, className = '', variant
                     opacity: 0.8;
                 }
 
-                `
-            }} />
-        </MotionLink>
-    );
-};
+                /* Arrow Drawing Animation */
+                .animated-arrow .hand-drawn-path {
+                    stroke-dasharray: 1;
+                    stroke-dashoffset: 1;
+                    transition: stroke-dashoffset 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+                }
+                
+                .profile-card:hover .animated-arrow .hand-drawn-path {
+                    stroke-dashoffset: 0;
+                }
 
-export default ProfileCard;
+                `,
+        }}
+      />
+    </MotionLink>
+  )
+}
+
+export default ProfileCard
