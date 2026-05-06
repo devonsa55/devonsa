@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { fadeInUp } from '../utils/motion'
-import { Github, Linkedin, Twitter, FileText } from 'lucide-react'
+import { Github, Linkedin, FileText } from 'lucide-react'
 
 const Contact = () => {
   return (
@@ -70,25 +70,6 @@ const Contact = () => {
                     </span>
                     <p className="text-[1.2rem] font-semibold m-0 tracking-tight">
                       Connect with me
-                    </p>
-                  </div>
-                </a>
-
-                <a
-                  href="https://twitter.com/devonsanderson"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-6 p-8 bg-bg-primary border-2 border-text-primary rounded-[var(--radius-card)] no-underline text-text-primary transition-all duration-300 hover:shadow-hover hover:-translate-y-[2px]"
-                >
-                  <div className="text-text-primary flex items-center justify-center">
-                    <Twitter size={28} />
-                  </div>
-                  <div className="method-info">
-                    <span className="block text-xs uppercase tracking-[0.1em] opacity-50 mb-1">
-                      Twitter / X
-                    </span>
-                    <p className="text-[1.2rem] font-semibold m-0 tracking-tight">
-                      Follow the journey
                     </p>
                   </div>
                 </a>
