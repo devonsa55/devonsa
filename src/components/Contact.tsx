@@ -40,7 +40,7 @@ const Contact = () => {
                   href="https://github.com/devonsa"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-6 p-8 bg-bg-primary border-2 border-text-primary rounded-[var(--radius-card)] no-underline text-text-primary transition-all duration-300 hover:shadow-hover hover:-translate-y-[2px]"
+                  className="flex items-center gap-6 p-8 bg-bg-primary border-2 border-text-primary rounded-[var(--radius-card)] no-underline text-text-primary transition-all duration-[150ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:-translate-y-[4px]"
                 >
                   <div className="text-text-primary flex items-center justify-center">
                     <Github size={28} />
@@ -59,7 +59,7 @@ const Contact = () => {
                   href="https://linkedin.com/in/devonsa"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-6 p-8 bg-bg-primary border-2 border-text-primary rounded-[var(--radius-card)] no-underline text-text-primary transition-all duration-300 hover:shadow-hover hover:-translate-y-[2px]"
+                  className="flex items-center gap-6 p-8 bg-bg-primary border-2 border-text-primary rounded-[var(--radius-card)] no-underline text-text-primary transition-all duration-[150ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:-translate-y-[4px]"
                 >
                   <div className="text-text-primary flex items-center justify-center">
                     <Linkedin size={28} />
@@ -78,7 +78,7 @@ const Contact = () => {
                   href="https://drive.google.com/file/d/1Td5fXLBwwJEeTVkJ8iY9geW2hXndbEu7/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-6 p-8 bg-bg-primary border-2 border-text-primary rounded-[var(--radius-card)] no-underline text-text-primary transition-all duration-300 hover:shadow-hover hover:-translate-y-[2px]"
+                  className="flex items-center gap-6 p-8 bg-bg-primary border-2 border-text-primary rounded-[var(--radius-card)] no-underline text-text-primary transition-all duration-[150ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:-translate-y-[4px]"
                 >
                   <div className="text-text-primary flex items-center justify-center">
                     <FileText size={28} />
