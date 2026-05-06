@@ -216,10 +216,11 @@ const About = () => {
               }}
             >
               <ProfileCard
-                icon={<HandDrawnArrow strokeWidth={12} className="animated-arrow" />}
+                icon={<HandDrawnArrow strokeWidth={14} className="animated-arrow !h-[1.2em]" />}
                 text="Ready to start a project?"
                 subtext="Let's build something meaningful"
                 link="/contact"
+                size="large"
               />
             </div>
           </div>

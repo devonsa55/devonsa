@@ -19,6 +19,13 @@ const HandDrawnArrow = ({
         stroke="currentColor"
         strokeWidth={strokeWidth}
         strokeLinecap="round"
+        className="hand-drawn-base-path"
+      />
+      <path
+        d="M8.32264 43.8319C51.5821 68.8302 130.951 58.1649 144.379 34.1745C157.807 10.184 118.448 -8.17056 105.241 26.658C84.1942 82.1613 131.676 63.6719 219.445 39.4182M219.445 39.4182L205.006 27.4172M219.445 39.4182L203.775 59.0201"
+        stroke="currentColor"
+        strokeWidth={strokeWidth}
+        strokeLinecap="round"
         pathLength="1"
         className="hand-drawn-path"
       />

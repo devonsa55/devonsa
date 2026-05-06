@@ -20,25 +20,24 @@ import CustomCursor from './components/ui/CustomCursor'
 import { aboutData } from './data/about'
 
 const ScrollToHash = () => {
-  const { pathname, hash } = useLocation();
+  const { pathname, hash } = useLocation()
 
   useEffect(() => {
     if (hash) {
-      const id = hash.replace('#', '');
+      const id = hash.replace('#', '')
       setTimeout(() => {
-        const element = document.getElementById(id);
+        const element = document.getElementById(id)
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: 'smooth' })
         }
-      }, 100);
+      }, 100)
     } else {
-      window.scrollTo(0, 0);
+      window.scrollTo(0, 0)
     }
-  }, [pathname, hash]);
+  }, [pathname, hash])
 
-  return null;
-};
-
+  return null
+}
 
 const Home = () => {
   return (
@@ -50,20 +49,29 @@ const Home = () => {
     >
       <Hero />
       <Work />
-      <div className="container" style={{ paddingTop: '100px', paddingBottom: '200px', display: 'flex', justifyContent: 'center' }}>
+      <div
+        className="container"
+        style={{
+          paddingTop: '100px',
+          paddingBottom: '200px',
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
         <ProfileCard
           image={aboutData.profileImage}
           text="Intrigued?"
           subtext="Learn more about me"
           link="/about"
+          size="large"
         />
       </div>
     </motion.div>
-  );
+  )
 }
 
 function AppContent() {
-  const location = useLocation();
+  const location = useLocation()
 
   return (
     <div className="app">
@@ -88,7 +96,7 @@ function AppContent() {
       </main>
       <Footer />
     </div>
-  );
+  )
 }
 
 function App() {

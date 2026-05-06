@@ -11,6 +11,7 @@ interface ProfileCardProps {
   link: string
   className?: string
   variant?: 'default' | 'primary'
+  size?: 'default' | 'large'
   onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void
 }
 
@@ -22,12 +23,13 @@ const ProfileCard = ({
   link,
   className = '',
   variant = 'default',
+  size = 'default',
   onClick,
 }: ProfileCardProps) => {
   return (
     <MotionLink
       to={link}
-      className={`profile-card ${className} variant-${variant}`}
+      className={`profile-card ${className} variant-${variant} size-${size}`}
       onClick={onClick}
       whileHover={{ y: -4 }}
       whileTap={{ scale: 0.95 }}
@@ -166,6 +168,10 @@ const ProfileCard = ({
                 }
 
                 /* Arrow Drawing Animation */
+                .animated-arrow .hand-drawn-base-path {
+                    color: var(--border-subtle);
+                }
+                
                 .animated-arrow .hand-drawn-path {
                     stroke-dasharray: 1;
                     stroke-dashoffset: 1;
@@ -174,6 +180,34 @@ const ProfileCard = ({
                 
                 .profile-card:hover .animated-arrow .hand-drawn-path {
                     stroke-dashoffset: 0;
+                }
+
+                /* Size Variants */
+                .profile-card.size-large {
+                    height: 60px;
+                }
+                
+                .profile-card.size-large .profile-text {
+                    font-size: 1.25rem;
+                }
+                
+                .profile-card.size-large .profile-subtext {
+                    font-size: 0.9rem;
+                }
+                
+                .profile-card.size-large .profile-image-wrapper {
+                    width: 44px;
+                    height: 44px;
+                }
+                
+                .profile-card.size-large:has(.profile-outer-icon) .profile-card-content {
+                    padding: 0 1.25rem 0 1.75rem;
+                    gap: 1.5rem;
+                }
+                
+                .profile-card.size-large:has(.profile-image-wrapper) .profile-card-content {
+                    padding: 0 0.5rem 0 1.75rem;
+                    gap: 1.5rem;
                 }
 
                 `,
