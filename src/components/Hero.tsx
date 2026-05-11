@@ -65,11 +65,11 @@ const Hero = () => {
                 initial={{ opacity: 0, x: -10, rotate: -5 }}
                 animate={{ opacity: 1, x: 0, rotate: -5 }}
                 transition={{ delay: 0.5, duration: 1 }}
-                className="relative ml-2 sm:ml-4 font-mono font-bold whitespace-nowrap inline-block tracking-normal"
+                className="relative ml-1 sm:ml-2 font-mono font-bold whitespace-nowrap inline-block tracking-normal"
                 style={{
                   fontSize: '.4em',
                   color: 'var(--text-quinary)',
-                  transform: 'translateY(-0.45em)',
+                  top: '-1.2em',
                 }}
               >
                 @ Google
