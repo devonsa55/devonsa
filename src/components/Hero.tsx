@@ -48,7 +48,7 @@ const Hero = () => {
               onMouseLeave={() => {
                 setMouseX(0) // Reset offset
               }}
-              className="inline relative align-baseline ml-0 sm:ml-[0.20em] mr-[0.1em]"
+              className="inline-flex items-baseline relative ml-0 sm:ml-[0.20em] mr-[0.1em]"
               style={{
                 width: 'auto',
               }}
@@ -64,10 +64,11 @@ const Hero = () => {
                 initial={{ opacity: 0, x: -10, rotate: -5 }}
                 animate={{ opacity: 1, x: 0, rotate: -5 }}
                 transition={{ delay: 0.5, duration: 1 }}
-                className="absolute left-full top-[0.5em] ml-4 sm:ml-10 font-mono font-bold whitespace-nowrap inline-block tracking-normal"
+                className="relative ml-4 sm:ml-10 font-mono font-bold whitespace-nowrap inline-block tracking-normal"
                 style={{
                   fontSize: '.4em',
                   color: 'var(--text-quinary)',
+                  transform: 'translateY(-0.1em)',
                 }}
               >
                 @ Google
