@@ -33,7 +33,7 @@ const Hero = () => {
   }
 
   return (
-    <section className="min-h-[100vh] overflow-visible relative flex items-center justify-center z-10">
+    <section className="min-h-[100svh] overflow-visible relative flex items-center justify-center z-10">
       <div className="container flex flex-col items-start text-left relative z-[2] w-full h-full justify-center pb-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -251,7 +251,7 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <div className="container absolute bottom-[4vh] lg:bottom-[5vh] left-1/2 -translate-x-1/2 w-full z-[20] flex justify-start pointer-events-none">
+      <div className="container absolute bottom-[4svh] lg:bottom-[5vh] left-1/2 -translate-x-1/2 w-full z-[20] flex justify-start pointer-events-none">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

@@ -153,10 +153,6 @@
   display: none;
 }
 
-.work {
-  padding-top: 0%;
-}
-
 .text-highlight {
   background: none;
   -webkit-text-fill-color: var(--text-primary);

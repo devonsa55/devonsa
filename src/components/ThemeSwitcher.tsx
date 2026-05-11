@@ -120,7 +120,7 @@ const ThemeSwitcher = () => {
           __html: `
         .theme-switcher {
             position: fixed;
-            bottom: 4vh;
+            bottom: 4svh;
             right: 1rem;
             z-index: 40;
             transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1), bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
