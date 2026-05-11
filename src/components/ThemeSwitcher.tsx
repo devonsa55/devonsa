@@ -151,14 +151,21 @@ const ThemeSwitcher = () => {
                         box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                         padding 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                         gap 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 0.3rem;
         }
 
         .theme-switcher.aligned .matrix-toggle {
             height: 54px;
-            padding: 0 1rem 0 1.5rem;
+            padding: 0 0.8rem;
             border-radius: 100px;
-            gap: 1.25rem;
             background: var(--bg-secondary);
+        }
+
+        @media (min-width: 768px) {
+            .theme-switcher.aligned .matrix-toggle {
+                padding: 0 1rem 0 1.5rem;
+                gap: 1.25rem;
+            }
         }
 
         .matrix-text {
@@ -173,9 +180,11 @@ const ThemeSwitcher = () => {
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .theme-switcher.aligned .matrix-text {
-            max-width: 250px;
-            opacity: 1;
+        @media (min-width: 768px) {
+            .theme-switcher.aligned .matrix-text {
+                max-width: 250px;
+                opacity: 1;
+            }
         }
 
         .matrix-screen {
