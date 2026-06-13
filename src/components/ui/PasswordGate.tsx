@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Lock, Unlock, Loader2, CircleAlert, Eye, EyeOff } from 'lucide-react'
 import { decryptUrl } from '../../utils/crypto'
 
-const SALT = 'adbcc196b6655b36e9fc6a80c6096e1d'
-const IV = '113db53886856a293a406ac9'
+const SALT = '6b951e0eebdf8ca4985db032cef2a632'
+const IV = '19e8d960a836c265948883b0'
 const CIPHERTEXT =
-  'b6374fdb2e44cf7972f4a58653be2fa5a97f2143dfb80e1560bcabbb005a8db422acdbe0f2ebd2eee125216cb24b008fc12325f6d03aa8dcd65016a6e3ca9f8c9929ad056ed25dcce8ab49c9cd4268e8b37e177d526bf8440e7fd5128ef329b4f207630718a8383a9e3112761b53e072c290b8ff94df1ca809167e81c9da0355ca67dd4a9b6892023d2e45176cceb511dcc275bef9d4dd6503444552531af826c5fe6874840931afbeb38046fbf18b588da94f649e675ae69b1c'
-const AUTH_TAG = '7e11ce34482c2c44689886edb19dd986'
+  '7825ee804734d757403b8e30e511e75554e9cec7d5875d180fe01860af9e0248a65aa90cd465000328612e8ef64734a415c81d44c40c4e058557ab2f5e17384b23e650106371b8e987af7701f426f704c301c58d08fa7eec69fc0dbe070938968a8e537b1e641638f4cf026f74866a4180d109e1f4f946c7f66dae94f749fcbe9186bfd04d9c2af99bf07af2470a84e195da8ef9598de4bcf37ee37c6c689c693952578cc0be7c8119161c2aac4431e1430908a2bd2ff7cec838'
+const AUTH_TAG = '7ba19e898f82959ad122855d58054aed'
 
 interface PasswordGateProps {
   onUnlock?: (url: string) => void
