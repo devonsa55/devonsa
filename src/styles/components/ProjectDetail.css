@@ -493,3 +493,84 @@
     gap: 80px;
   }
 }
+
+/* Custom Password Gate & Mode Toggler Styles */
+.mode-toggle-container {
+  display: inline-flex;
+  background: var(--hover-bg);
+  border: 1px solid var(--border-subtle);
+  padding: 4px;
+  border-radius: 99px;
+  margin-top: 4.5rem;
+  transition: var(--transition-smooth);
+}
+
+[data-mode='dark'] .mode-toggle-container {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.mode-toggle-btn {
+  padding: 10px 24px;
+  border-radius: 99px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mode-toggle-btn:hover {
+  color: var(--text-primary);
+}
+
+.mode-toggle-btn.active {
+  color: var(--bg-primary);
+}
+
+.toggle-active-bg {
+  background: var(--text-primary);
+}
+
+.slack-metadata-fullwidth {
+  width: 100%;
+  border-top: 2px solid var(--text-primary);
+  border-bottom: 2px solid var(--text-primary);
+  margin: 60px 0 100px;
+}
+
+.password-gate-container {
+  margin: 40px auto 80px;
+}
+
+.lock-card {
+  position: relative;
+  background: var(--bg-secondary);
+  border: 2px solid var(--text-primary);
+  border-radius: 32px;
+  box-shadow: var(--neo-shadow);
+  transition: var(--transition-smooth);
+}
+
+.lock-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.lock-icon-wrapper {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}

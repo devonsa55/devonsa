@@ -1,15 +1,39 @@
-import React, { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { projects } from '../data/projects';
-import { ArrowLeft, CheckCircle2, Home, Monitor, TrendingUp, Cpu, Wrench, Youtube, MessageSquare, Store, Shield, Video, Zap, Share2, Smartphone, GitMerge, Users, RefreshCcw, CircleAlert, Map, LayoutGrid, Palette, Star } from 'lucide-react';
-import { Badge } from './ui/badge';
-import { Button } from './ui/button';
-import { Card } from './ui/card';
-import ProfileCard from './ui/ProfileCard';
-import { fadeInUp, fadeIn } from '../utils/motion';
-
-
+import React, { useEffect, useState } from 'react'
+import { useParams, Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { projects } from '../data/projects'
+import {
+  ArrowLeft,
+  CheckCircle2,
+  Home,
+  Monitor,
+  TrendingUp,
+  Cpu,
+  Wrench,
+  Youtube,
+  MessageSquare,
+  Store,
+  Shield,
+  Video,
+  Zap,
+  Share2,
+  Smartphone,
+  GitMerge,
+  Users,
+  RefreshCcw,
+  CircleAlert,
+  Map,
+  LayoutGrid,
+  Palette,
+  Star,
+  Lock,
+} from 'lucide-react'
+import { Badge } from './ui/badge'
+import { Button } from './ui/button'
+import { Card } from './ui/card'
+import ProfileCard from './ui/ProfileCard'
+import { fadeInUp, fadeIn } from '../utils/motion'
+import { PasswordGate } from './ui/PasswordGate'
 
 const iconMap: Record<string, React.ReactNode> = {
   Monitor: <Monitor size={48} />,
@@ -31,64 +55,64 @@ const iconMap: Record<string, React.ReactNode> = {
   Map: <Map size={48} />,
   LayoutGrid: <LayoutGrid size={48} />,
   Palette: <Palette size={48} />,
-  Star: <Star size={48} />
-};
+  Star: <Star size={48} />,
+}
 
 const renderPlaceholder = (iconName?: string, title?: string) => {
-  const IconComponent = iconName ? iconMap[iconName] : null;
+  const IconComponent = iconName ? iconMap[iconName] : null
   return (
     <div className="placeholder-media" data-icon={iconName}>
-      <div className="placeholder-icon">
-        {IconComponent || <Video size={48} />}
-      </div>
+      <div className="placeholder-icon">{IconComponent || <Video size={48} />}</div>
       {title && <span className="placeholder-label">{title}</span>}
     </div>
-  );
-};
+  )
+}
 
 const ProjectDetail: React.FC = () => {
-  const { projectId } = useParams<{ projectId: string }>();
-  const project = projects.find(p => p.id === projectId);
+  const { projectId } = useParams<{ projectId: string }>()
+  const project = projects.find((p) => p.id === projectId)
 
-
-  const [isVisible, setIsVisible] = React.useState(true);
-  const lastScrollY = React.useRef(0);
+  const [viewMode, setViewMode] = useState<'summary' | 'deck'>('summary')
+  const [isVisible, setIsVisible] = React.useState(true)
+  const lastScrollY = React.useRef(0)
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    window.scrollTo(0, 0)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+      const currentScrollY = window.scrollY
 
       // Always show at the very top
       if (currentScrollY < 50) {
-        setIsVisible(true);
+        setIsVisible(true)
       }
       // Scrolling down - hide
       else if (currentScrollY > lastScrollY.current + 5) {
-        setIsVisible(false);
+        setIsVisible(false)
       }
       // Scrolling up - show
       else if (currentScrollY < lastScrollY.current - 5) {
-        setIsVisible(true);
+        setIsVisible(true)
       }
 
-      lastScrollY.current = currentScrollY;
-    };
+      lastScrollY.current = currentScrollY
+    }
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   if (!project) {
     return (
       <div className="section container">
         <h1>Project not found</h1>
-        <Button asChild><Link to="/">Back to Home</Link></Button>
+        <Button asChild>
+          <Link to="/">Back to Home</Link>
+        </Button>
       </div>
-    );
+    )
   }
 
   if (project.template === 'slack') {
@@ -114,74 +138,128 @@ const ProjectDetail: React.FC = () => {
             <motion.p className="slack-intro-text" {...fadeInUp} transition={{ delay: 0.1 }}>
               {project.problem}
             </motion.p>
-          </header>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 border-y border-border-subtle py-20 my-[60px] md:my-[100px] gap-8 md:gap-12">
-            <div className="meta-col">
-              <span className="meta-label">Role</span>
-              <span className="meta-value">{project.role}</span>
-            </div>
-            {project.team && (
-              <div className="meta-col">
-                <span className="meta-label">Team</span>
-                <span className="meta-value">{project.team}</span>
-              </div>
-            )}
-            <div className="meta-col">
-              <span className="meta-label">Scale</span>
-              <span className={`meta-value ${project.id === 'shopstream' ? 'blur-heavy' : ''}`}>
-                {project.result || '18M+ Merchants'}
-              </span>
-            </div>
-            <div className="meta-col">
-              <span className="meta-label">Impact</span>
-              <span className={`meta-value ${project.id === 'shopstream' ? 'blur-heavy' : ''}`}>
-                {project.impact || 'Global Scale'}
-              </span>
-            </div>
-            {project.complexity && (
-              <div className="meta-col">
-                <span className="meta-label">Complexity</span>
-                <span className="meta-value">{project.complexity}</span>
-              </div>
-            )}
-            {project.context && (
-              <div className="meta-col">
-                <span className="meta-label">Context</span>
-                <span className="meta-value">{project.context}</span>
-              </div>
-            )}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-[160px] md:gap-y-[240px] gap-x-[60px] pb-[120px]">
-            {project.sections?.map((section, idx) => (
-              <div
-                key={idx}
-                className={`slack-section ${section.gridSpan ? `span-${section.gridSpan}` : 'span-2'}`}
-                style={{
-                  gridColumn: section.gridSpan ? `span ${section.gridSpan}` : 'span 2'
-                }}
+            {project.id === 'conversational-insights' && (
+              <motion.div
+                className="mode-toggle-container"
+                {...fadeInUp}
+                transition={{ delay: 0.15 }}
               >
-                <div
-                  className="slack-visual"
-                  style={section.bgColor ? { backgroundColor: section.bgColor } : {}}
+                <button
+                  onClick={() => setViewMode('summary')}
+                  className={`mode-toggle-btn relative ${viewMode === 'summary' ? 'active' : ''}`}
                 >
-                  {section.image ? (
-                    <img
-                      src={section.image}
-                      alt={section.title}
+                  {viewMode === 'summary' && (
+                    <motion.div
+                      layoutId="active-pill"
+                      className="absolute inset-0 toggle-active-bg rounded-full"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      style={{ zIndex: 1 }}
                     />
-                  ) : (
-                    renderPlaceholder(section.icon, section.title)
                   )}
+                  <span className="relative z-10">Read Summary</span>
+                </button>
+                <button
+                  onClick={() => setViewMode('deck')}
+                  className={`mode-toggle-btn relative flex items-center gap-2 ${viewMode === 'deck' ? 'active' : ''}`}
+                >
+                  {viewMode === 'deck' && (
+                    <motion.div
+                      layoutId="active-pill"
+                      className="absolute inset-0 toggle-active-bg rounded-full"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      style={{ zIndex: 1 }}
+                    />
+                  )}
+                  <span className="relative z-10 flex items-center gap-2">
+                    View Full Case Study
+                    <Lock
+                      size={14}
+                      className="transition-opacity"
+                      style={{ opacity: viewMode === 'deck' ? 0.9 : 0.6 }}
+                    />
+                  </span>
+                </button>
+              </motion.div>
+            )}
+          </header>
+        </div>
+
+        {!(project.id === 'conversational-insights' && viewMode === 'deck') && (
+          <div className="slack-metadata-fullwidth">
+            <div className="container">
+              <div className="grid grid-cols-2 md:grid-cols-4 py-20 gap-8 md:gap-12">
+                <div className="meta-col">
+                  <span className="meta-label">Role</span>
+                  <span className="meta-value">{project.role}</span>
                 </div>
-                <div className="slack-annotation">
-                  <h3>{section.title}</h3>
-                  <p>{section.content}</p>
+                {project.team && (
+                  <div className="meta-col">
+                    <span className="meta-label">Team</span>
+                    <span className="meta-value">{project.team}</span>
+                  </div>
+                )}
+                <div className="meta-col">
+                  <span className="meta-label">Scale</span>
+                  <span className={`meta-value ${project.id === 'shopstream' ? 'blur-heavy' : ''}`}>
+                    {project.result || '18M+ Merchants'}
+                  </span>
                 </div>
+                <div className="meta-col">
+                  <span className="meta-label">Impact</span>
+                  <span className={`meta-value ${project.id === 'shopstream' ? 'blur-heavy' : ''}`}>
+                    {project.impact || 'Global Scale'}
+                  </span>
+                </div>
+                {project.complexity && (
+                  <div className="meta-col">
+                    <span className="meta-label">Complexity</span>
+                    <span className="meta-value">{project.complexity}</span>
+                  </div>
+                )}
+                {project.context && (
+                  <div className="meta-col">
+                    <span className="meta-label">Context</span>
+                    <span className="meta-value">{project.context}</span>
+                  </div>
+                )}
               </div>
-            ))}
+            </div>
           </div>
+        )}
+
+        <div className="container">
+          {project.id === 'conversational-insights' && viewMode === 'deck' ? (
+            <div className="py-6 pb-[120px]">
+              <PasswordGate />
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-[160px] md:gap-y-[240px] gap-x-[60px] pb-[120px]">
+              {project.sections?.map((section, idx) => (
+                <div
+                  key={idx}
+                  className={`slack-section ${section.gridSpan ? `span-${section.gridSpan}` : 'span-2'}`}
+                  style={{
+                    gridColumn: section.gridSpan ? `span ${section.gridSpan}` : 'span 2',
+                  }}
+                >
+                  <div
+                    className="slack-visual"
+                    style={section.bgColor ? { backgroundColor: section.bgColor } : {}}
+                  >
+                    {section.image ? (
+                      <img src={section.image} alt={section.title} />
+                    ) : (
+                      renderPlaceholder(section.icon, section.title)
+                    )}
+                  </div>
+                  <div className="slack-annotation">
+                    <h3>{section.title}</h3>
+                    <p>{section.content}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
 
           <div className="project-footer slack-footer">
             <ProfileCard
@@ -193,20 +271,17 @@ const ProjectDetail: React.FC = () => {
           </div>
         </div>
       </motion.div>
-    );
+    )
   }
 
   return (
-    <motion.div
-      {...fadeIn}
-      className="project-detail project-visual-root"
-    >
+    <motion.div {...fadeIn} className="project-detail project-visual-root">
       <div className="container">
         <motion.nav
           initial={false}
           animate={{
             y: isVisible ? 0 : -100,
-            opacity: isVisible ? 1 : 0
+            opacity: isVisible ? 1 : 0,
           }}
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="sticky-nav-wrapper"
@@ -299,13 +374,18 @@ const ProjectDetail: React.FC = () => {
         </section>
 
         {project.sections?.map((section, index) => (
-          <section key={index} className="grid grid-cols-1 lg:grid-cols-2 gap-[3rem] lg:gap-[80px] items-center my-[100px]">
+          <section
+            key={index}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-[3rem] lg:gap-[80px] items-center my-[100px]"
+          >
             <div className="section-text">
               {section.title && <h2>{section.title}</h2>}
               <div className="section-content">
                 {Array.isArray(section.content) ? (
                   <ul className="content-list">
-                    {section.content.map((p, i) => <li key={i}>{p}</li>)}
+                    {section.content.map((p, i) => (
+                      <li key={i}>{p}</li>
+                    ))}
                   </ul>
                 ) : (
                   <p>{section.content}</p>
@@ -324,7 +404,11 @@ const ProjectDetail: React.FC = () => {
                     ></iframe>
                   </div>
                 ) : section.image ? (
-                  <img src={section.image} alt={section.title || 'Project Visual'} className="project-image" />
+                  <img
+                    src={section.image}
+                    alt={section.title || 'Project Visual'}
+                    className="project-image"
+                  />
                 ) : (
                   renderPlaceholder(section.icon, section.title)
                 )}
@@ -361,7 +445,10 @@ const ProjectDetail: React.FC = () => {
           </section>
         )}
 
-        <div className="project-footer" style={{ display: 'flex', justifyContent: 'center', paddingBottom: '8rem' }}>
+        <div
+          className="project-footer"
+          style={{ display: 'flex', justifyContent: 'center', paddingBottom: '8rem' }}
+        >
           <ProfileCard
             icon={<Home size={20} />}
             text="Back to Home"
@@ -370,8 +457,8 @@ const ProjectDetail: React.FC = () => {
           />
         </div>
       </div>
-    </motion.div >
-  );
-};
+    </motion.div>
+  )
+}
 
-export default ProjectDetail;
+export default ProjectDetail
