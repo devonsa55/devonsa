@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { fadeInUp } from '../utils/motion'
 import { Github, Linkedin, FileText } from 'lucide-react'
+import { aboutData } from '../data/about'
 
 const Contact = () => {
   return (
@@ -75,7 +76,7 @@ const Contact = () => {
                 </a>
 
                 <a
-                  href="https://drive.google.com/file/d/1Td5fXLBwwJEeTVkJ8iY9geW2hXndbEu7/view?usp=sharing"
+                  href={aboutData.resumeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-6 p-8 bg-bg-primary border-2 border-text-primary rounded-[var(--radius-card)] no-underline text-text-primary transition-all duration-[150ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:-translate-y-[4px]"
