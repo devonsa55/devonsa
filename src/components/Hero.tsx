@@ -4,7 +4,6 @@ import { Chillwave } from './Decorations'
 import TypewriterEffect from './ui/TypewriterEffect'
 import { ArrowDown } from 'lucide-react'
 import ProfileCard from './ui/ProfileCard'
-import HandDrawnArrow from './ui/HandDrawnArrow'
 
 const words = ['designer', 'builder', 'strategist', 'leader']
 const highlightColors = [
