@@ -70,7 +70,7 @@ const Hero = () => {
                   top: '-1.2em',
                 }}
               >
-                @ Lime
+                @ Lime (ex-Google)
               </motion.span>
             </span>
             <br />
