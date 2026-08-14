@@ -25,13 +25,13 @@
   --spacing-md: 2rem;
   --spacing-lg: 4rem;
   --spacing-xl: 8rem;
-  --hero-font-size-max: 4.5rem;
+  --hero-font-size-max: 4.15rem;
   --logo-scale: 1.1;
 
   /* Global Gutter Controls (Safe Area) */
   --grid-gap: 1rem;
   --container-padding: 40px;
-  --container-max-width: 1240px;
+  --container-max-width: 1260px;
 
   /* Project Page Independent Spacing (Editorial Luxe) */
   --project-padding: var(--container-padding);
@@ -50,9 +50,9 @@
   }
 
   @media (min-width: 2000px) {
-    --container-padding: 80px;
-    --container-max-width: 1400px;
-    --hero-font-size-max: 5.5rem;
+    --container-padding: 60px;
+    --container-max-width: 1460px;
+    --hero-font-size-max: 4.85rem;
   }
 
   @media (max-width: 768px) {
