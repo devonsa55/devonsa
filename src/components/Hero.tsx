@@ -63,14 +63,24 @@ const Hero = () => {
                 initial={{ opacity: 0, x: -10, rotate: -5 }}
                 animate={{ opacity: 1, x: 0, rotate: -5 }}
                 transition={{ delay: 0.5, duration: 1 }}
-                className="relative ml-1 sm:ml-2 font-mono font-bold whitespace-nowrap inline-block tracking-normal"
+                className="relative ml-1 sm:ml-2 font-mono font-bold whitespace-nowrap inline-flex flex-col items-start tracking-normal leading-[1.1]"
                 style={{
                   fontSize: '.4em',
                   color: 'var(--text-quinary)',
                   top: '-1.2em',
                 }}
               >
-                @ Lime (ex-Google)
+                <span>@ Lime</span>
+                <span
+                  style={{
+                    fontSize: '0.55em',
+                    opacity: 0.8,
+                    letterSpacing: '0.02em',
+                    marginTop: '0.1em',
+                  }}
+                >
+                  (ex-Google)
+                </span>
               </motion.span>
             </span>
             <br />
