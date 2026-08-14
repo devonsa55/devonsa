@@ -25,7 +25,7 @@
   --spacing-md: 2rem;
   --spacing-lg: 4rem;
   --spacing-xl: 8rem;
-  --hero-font-size-max: 4.15rem;
+  --hero-font-size-max: 4.45rem;
   --logo-scale: 1.1;
 
   /* Global Gutter Controls (Safe Area) */
@@ -52,7 +52,7 @@
   @media (min-width: 2000px) {
     --container-padding: 60px;
     --container-max-width: 1460px;
-    --hero-font-size-max: 4.85rem;
+    --hero-font-size-max: 5.25rem;
   }
 
   @media (max-width: 768px) {
