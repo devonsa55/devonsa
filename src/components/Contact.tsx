@@ -12,7 +12,7 @@ const Contact = () => {
         className="pt-[14vh] pb-[20vh] bg-bg-primary relative bg-[radial-gradient(var(--dot-color-contact)_calc(var(--dot-size)*var(--show-dot-grid-contact)),transparent_0)] bg-[length:var(--dot-space)_var(--dot-space)] bg-[position:var(--grid-align-offset)]"
       >
         <div className="container">
-          <div className="max-w-[800px] mx-auto flex flex-col gap-10">
+          <div className="max-w-[800px] mx-auto flex flex-col">
             <div className="text-left mb-0">
               <motion.h1
                 {...fadeInUp}
@@ -27,7 +27,11 @@ const Contact = () => {
               </motion.h1>
             </div>
 
-            <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="flex flex-col gap-8">
+            <motion.div
+              {...fadeInUp}
+              transition={{ delay: 0.2 }}
+              className="flex flex-col gap-10 mt-8"
+            >
               <p className="text-[1.8rem] leading-[1.35] text-text-primary font-medium font-heading text-left">
                 Whether you have a specific project in mind or just want to chat about design,
                 tools, or AI—I&apos;d love to hear from you.
@@ -91,12 +95,16 @@ const Contact = () => {
               </div>
             </motion.div>
 
-            <motion.div {...fadeInUp} transition={{ delay: 0.3 }} className="flex flex-col gap-6">
-              <div className="flex flex-col gap-2">
+            <motion.div
+              {...fadeInUp}
+              transition={{ delay: 0.3 }}
+              className="flex flex-col gap-7 mt-24"
+            >
+              <div className="flex flex-col gap-3">
                 <h2 className="text-[1.6rem] leading-[1.2] text-text-primary font-heading font-bold">
                   Feedback is a gift.
                 </h2>
-                <p className="text-[1.05rem] leading-[1.5] text-[var(--text-secondary)] max-w-[560px]">
+                <p className="text-[1.05rem] leading-[1.5] text-[var(--text-secondary)]">
                   If you have thoughts on how I could improve this portfolio—or just want to leave
                   something kind—I&apos;d genuinely love to hear it.
                 </p>
