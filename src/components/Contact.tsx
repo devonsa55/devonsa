@@ -2,13 +2,14 @@ import { motion } from 'framer-motion'
 import { fadeInUp } from '../utils/motion'
 import { Github, Linkedin, FileText } from 'lucide-react'
 import { aboutData } from '../data/about'
+import FeedbackWidget from './FeedbackWidget'
 
 const Contact = () => {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <section
         id="contact"
-        className="py-[30vh] bg-bg-primary relative bg-[radial-gradient(var(--dot-color-contact)_calc(var(--dot-size)*var(--show-dot-grid-contact)),transparent_0)] bg-[length:var(--dot-space)_var(--dot-space)] bg-[position:var(--grid-align-offset)]"
+        className="pt-[14vh] pb-[20vh] bg-bg-primary relative bg-[radial-gradient(var(--dot-color-contact)_calc(var(--dot-size)*var(--show-dot-grid-contact)),transparent_0)] bg-[length:var(--dot-space)_var(--dot-space)] bg-[position:var(--grid-align-offset)]"
       >
         <div className="container">
           <div className="max-w-[800px] mx-auto flex flex-col gap-8">
@@ -94,6 +95,20 @@ const Contact = () => {
                   </div>
                 </a>
               </div>
+            </motion.div>
+
+            <motion.div {...fadeInUp} transition={{ delay: 0.3 }} className="flex flex-col gap-6">
+              <div className="flex flex-col gap-2">
+                <h2 className="text-[1.6rem] leading-[1.2] text-text-primary font-heading font-bold">
+                  Feedback is a gift.
+                </h2>
+                <p className="text-[1.05rem] leading-[1.5] text-[var(--text-secondary)] max-w-[560px]">
+                  If you have thoughts on how I could improve this portfolio—or just want to leave
+                  something kind—I&apos;d genuinely love to hear it.
+                </p>
+              </div>
+
+              <FeedbackWidget />
             </motion.div>
           </div>
         </div>

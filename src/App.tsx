@@ -6,7 +6,6 @@ import About from './components/About'
 import Footer from './components/Footer'
 import Decorations from './components/Decorations'
 import ThemeSwitcher from './components/ThemeSwitcher'
-import FeedbackWidget from './components/FeedbackWidget'
 import ProjectDetail from './components/ProjectDetail'
 import StrategyDetail from './components/StrategyDetail'
 import AIProjectDetail from './components/AIProjectDetail'
@@ -78,7 +77,6 @@ function AppContent() {
     <div className="app">
       <CustomCursor />
       <ThemeSwitcher />
-      <FeedbackWidget />
       <Decorations />
       <Navbar />
       <ScrollToHash />
