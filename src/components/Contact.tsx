@@ -12,7 +12,7 @@ const Contact = () => {
         className="pt-[14vh] pb-[20vh] bg-bg-primary relative bg-[radial-gradient(var(--dot-color-contact)_calc(var(--dot-size)*var(--show-dot-grid-contact)),transparent_0)] bg-[length:var(--dot-space)_var(--dot-space)] bg-[position:var(--grid-align-offset)]"
       >
         <div className="container">
-          <div className="max-w-[800px] mx-auto flex flex-col gap-8">
+          <div className="max-w-[800px] mx-auto flex flex-col gap-10">
             <div className="text-left mb-0">
               <motion.h1
                 {...fadeInUp}
@@ -27,31 +27,27 @@ const Contact = () => {
               </motion.h1>
             </div>
 
-            <motion.div
-              {...fadeInUp}
-              transition={{ delay: 0.2 }}
-              className="flex flex-col gap-[6rem]"
-            >
+            <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="flex flex-col gap-8">
               <p className="text-[1.8rem] leading-[1.35] text-text-primary font-medium font-heading text-left">
                 Whether you have a specific project in mind or just want to chat about design,
                 tools, or AI—I&apos;d love to hear from you.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
                 <a
                   href="https://github.com/devonsa"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-6 p-8 bg-bg-primary border-2 border-text-primary rounded-[var(--radius-card)] no-underline text-text-primary transition-all duration-[150ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:-translate-y-[4px]"
+                  className="flex items-center gap-4 px-5 py-4 bg-bg-primary border-2 border-text-primary rounded-[var(--radius-card)] no-underline text-text-primary transition-all duration-[150ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:-translate-y-[4px]"
                 >
-                  <div className="text-text-primary flex items-center justify-center">
-                    <Github size={28} />
+                  <div className="text-text-primary flex items-center justify-center shrink-0">
+                    <Github size={22} />
                   </div>
                   <div className="method-info">
-                    <span className="block text-xs uppercase tracking-[0.1em] opacity-50 mb-1">
+                    <span className="block text-[0.7rem] uppercase tracking-[0.1em] opacity-50 mb-0.5">
                       GitHub
                     </span>
-                    <p className="text-[1.2rem] font-semibold m-0 tracking-tight">
+                    <p className="text-[1rem] font-semibold m-0 tracking-tight">
                       Check out my code
                     </p>
                   </div>
@@ -61,18 +57,16 @@ const Contact = () => {
                   href="https://linkedin.com/in/devonsa"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-6 p-8 bg-bg-primary border-2 border-text-primary rounded-[var(--radius-card)] no-underline text-text-primary transition-all duration-[150ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:-translate-y-[4px]"
+                  className="flex items-center gap-4 px-5 py-4 bg-bg-primary border-2 border-text-primary rounded-[var(--radius-card)] no-underline text-text-primary transition-all duration-[150ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:-translate-y-[4px]"
                 >
-                  <div className="text-text-primary flex items-center justify-center">
-                    <Linkedin size={28} />
+                  <div className="text-text-primary flex items-center justify-center shrink-0">
+                    <Linkedin size={22} />
                   </div>
                   <div className="method-info">
-                    <span className="block text-xs uppercase tracking-[0.1em] opacity-50 mb-1">
+                    <span className="block text-[0.7rem] uppercase tracking-[0.1em] opacity-50 mb-0.5">
                       LinkedIn
                     </span>
-                    <p className="text-[1.2rem] font-semibold m-0 tracking-tight">
-                      Connect with me
-                    </p>
+                    <p className="text-[1rem] font-semibold m-0 tracking-tight">Connect with me</p>
                   </div>
                 </a>
 
@@ -80,16 +74,16 @@ const Contact = () => {
                   href={aboutData.resumeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-6 p-8 bg-bg-primary border-2 border-text-primary rounded-[var(--radius-card)] no-underline text-text-primary transition-all duration-[150ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:-translate-y-[4px]"
+                  className="flex items-center gap-4 px-5 py-4 bg-bg-primary border-2 border-text-primary rounded-[var(--radius-card)] no-underline text-text-primary transition-all duration-[150ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:-translate-y-[4px]"
                 >
-                  <div className="text-text-primary flex items-center justify-center">
-                    <FileText size={28} />
+                  <div className="text-text-primary flex items-center justify-center shrink-0">
+                    <FileText size={22} />
                   </div>
                   <div className="method-info">
-                    <span className="block text-xs uppercase tracking-[0.1em] opacity-50 mb-1">
+                    <span className="block text-[0.7rem] uppercase tracking-[0.1em] opacity-50 mb-0.5">
                       Resume / CV
                     </span>
-                    <p className="text-[1.2rem] font-semibold m-0 tracking-tight">
+                    <p className="text-[1rem] font-semibold m-0 tracking-tight">
                       View my experience
                     </p>
                   </div>
