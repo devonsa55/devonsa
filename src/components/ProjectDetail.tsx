@@ -118,21 +118,21 @@ const ProjectDetail: React.FC = () => {
   if (project.template === 'slack') {
     return (
       <motion.div {...fadeIn} className="project-detail slack-template">
-        <div className="container">
-          <motion.nav
-            initial={false}
-            animate={{ y: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="sticky-nav-wrapper"
-          >
-            <div className="nav-container">
-              <Link to="/" className="back-link">
-                <ArrowLeft size={18} />
-                <span>Back to Work</span>
-              </Link>
-            </div>
-          </motion.nav>
+        <motion.nav
+          initial={false}
+          animate={{ y: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
+          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="sticky-nav-wrapper"
+        >
+          <div className="nav-container">
+            <Link to="/" className="back-link">
+              <ArrowLeft size={18} />
+              <span>Back to Work</span>
+            </Link>
+          </div>
+        </motion.nav>
 
+        <div className="container">
           <header className="slack-header">
             <motion.h1 {...fadeInUp}>{project.title}</motion.h1>
             <motion.p className="slack-intro-text" {...fadeInUp} transition={{ delay: 0.1 }}>
@@ -276,24 +276,24 @@ const ProjectDetail: React.FC = () => {
 
   return (
     <motion.div {...fadeIn} className="project-detail project-visual-root">
-      <div className="container">
-        <motion.nav
-          initial={false}
-          animate={{
-            y: isVisible ? 0 : -100,
-            opacity: isVisible ? 1 : 0,
-          }}
-          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="sticky-nav-wrapper"
-        >
-          <div className="nav-container">
-            <Link to="/" className="back-link">
-              <ArrowLeft size={18} />
-              <span>Back to Work</span>
-            </Link>
-          </div>
-        </motion.nav>
+      <motion.nav
+        initial={false}
+        animate={{
+          y: isVisible ? 0 : -100,
+          opacity: isVisible ? 1 : 0,
+        }}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        className="sticky-nav-wrapper"
+      >
+        <div className="nav-container">
+          <Link to="/" className="back-link">
+            <ArrowLeft size={18} />
+            <span>Back to Work</span>
+          </Link>
+        </div>
+      </motion.nav>
 
+      <div className="container">
         <header className="block mt-[5vh]">
           <Badge variant="secondary" className="mb-4 bg-muted">
             {project.tags[0]} Case Study

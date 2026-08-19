@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 const NotFound = () => {
   return (
@@ -17,17 +17,17 @@ const NotFound = () => {
           Page not found
         </h2>
         <p className="text-text-secondary mb-12 text-lg font-body">
-          The page you're looking for doesn't exist or has been moved.
+          The page you&apos;re looking for doesn&apos;t exist or has been moved.
         </p>
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           className="inline-flex items-center justify-center px-8 py-4 bg-text-primary text-bg-primary rounded-full font-bold transition-transform hover:scale-105 active:scale-95 font-mono uppercase tracking-widest text-sm"
         >
           Return Home
         </Link>
       </motion.div>
     </section>
-  );
-};
+  )
+}
 
-export default NotFound;
+export default NotFound

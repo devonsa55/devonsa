@@ -93,6 +93,12 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  -webkit-mask-image: -webkit-radial-gradient(white 99%, black 100%);
+  mask-image: -webkit-radial-gradient(white 99%, black 100%);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .project-image-container.full-bleed {
@@ -129,6 +135,8 @@
   flex-direction: column;
   gap: 1.25rem;
   flex: 1;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 [data-mode='dark'] .project-info {
@@ -413,6 +421,12 @@
   background: #ffffff !important;
   padding: 0;
   border-bottom: 2px solid var(--text-primary);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  -webkit-mask-image: -webkit-radial-gradient(white 99%, black 100%);
+  mask-image: -webkit-radial-gradient(white 99%, black 100%);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 [data-mode='dark'] .article-thumbnail {
@@ -432,6 +446,8 @@
   flex: 1;
   padding: 40px;
   background: #ffffff;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 [data-mode='dark'] .article-content {
@@ -497,12 +513,20 @@
   aspect-ratio: auto;
   border-bottom: none;
   border-right: 2px solid var(--text-primary);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .horizontal-card .article-content {
   flex: 1;
   padding: 32px 40px;
   justify-content: center;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .horizontal-card .article-content h3 {
@@ -519,9 +543,17 @@
     aspect-ratio: 16/9;
     border-right: none;
     border-bottom: 2px solid var(--text-primary);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
   .horizontal-card .article-content {
     padding: 32px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
   }
 }
 

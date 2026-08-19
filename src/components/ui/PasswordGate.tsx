@@ -35,7 +35,7 @@ export const PasswordGate: React.FC<PasswordGateProps> = ({ onUnlock }) => {
       setDecryptedUrl(url)
       setIsUnlocked(true)
       if (onUnlock) onUnlock(url)
-    } catch (err) {
+    } catch {
       setError('Incorrect password. Please try again.')
       setShouldShake(true)
       setTimeout(() => setShouldShake(false), 500)

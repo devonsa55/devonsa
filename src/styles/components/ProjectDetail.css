@@ -38,9 +38,9 @@
 }
 
 .nav-container {
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 var(--project-padding);
+  padding: 0 var(--container-padding);
   height: 100%;
   display: flex;
   align-items: center;

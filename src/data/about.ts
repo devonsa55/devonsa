@@ -3,7 +3,7 @@ import { getAssetPath } from '../utils/assets'
 export const aboutData = {
   name: 'Devon',
   fullName: 'Devon Anderson',
-  profileImage: getAssetPath('/assets/avatar-svg.svg'),
+  profileImage: getAssetPath('/assets/avatar-white.png'),
   headline: 'Hey, I’m Devon. ',
   subHeadline:
     'I bridge the gap between abstract strategy & concrete pixels. Guided by a background in **Philosophy & Environmental Science**, I design from **first principles**—stripping away complexity to build **Agentic AI & Communication systems** that scale to millions of users.',

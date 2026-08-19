@@ -1,76 +1,82 @@
-import React, { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { aiProjects } from '../data/ai-projects';
-import { ArrowLeft, Home } from 'lucide-react';
-import { Badge } from './ui/badge';
-import ProfileCard from './ui/ProfileCard';
-import MDViewer from './ui/MDViewer';
+import React, { useEffect } from 'react'
+import { useParams, Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { aiProjects } from '../data/ai-projects'
+import { ArrowLeft, Home } from 'lucide-react'
+import { Badge } from './ui/badge'
+import ProfileCard from './ui/ProfileCard'
+import MDViewer from './ui/MDViewer'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
-};
+  transition: { duration: 0.5 },
+}
 
 const fadeIn = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
-  transition: { duration: 0.5 }
-};
+  transition: { duration: 0.5 },
+}
 
 const AIProjectDetail: React.FC = () => {
-  const { projectId } = useParams<{ projectId: string }>();
-  const project = aiProjects.find(p => p.id === projectId);
+  const { projectId } = useParams<{ projectId: string }>()
+  const project = aiProjects.find((p) => p.id === projectId)
 
-  const [isVisible, setIsVisible] = React.useState(true);
-  const lastScrollY = React.useRef(0);
+  const [isVisible, setIsVisible] = React.useState(true)
+  const lastScrollY = React.useRef(0)
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    window.scrollTo(0, 0)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY < 50) setIsVisible(true);
-      else if (currentScrollY > lastScrollY.current + 5) setIsVisible(false);
-      else if (currentScrollY < lastScrollY.current - 5) setIsVisible(true);
-      lastScrollY.current = currentScrollY;
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+      const currentScrollY = window.scrollY
+      if (currentScrollY < 50) setIsVisible(true)
+      else if (currentScrollY > lastScrollY.current + 5) setIsVisible(false)
+      else if (currentScrollY < lastScrollY.current - 5) setIsVisible(true)
+      lastScrollY.current = currentScrollY
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   if (!project) {
     return (
       <div className="section container mt-32 text-center">
         <h1>AI Project not found</h1>
-        <Link to="/" className="text-blue-500 hover:underline mt-4 inline-block">Back to Home</Link>
+        <Link to="/" className="text-blue-500 hover:underline mt-4 inline-block">
+          Back to Home
+        </Link>
       </div>
-    );
+    )
   }
 
   return (
     <motion.div {...fadeIn} className="project-detail project-visual-root">
-      <div className="container pb-32">
-        <motion.nav
-          initial={false}
-          animate={{ y: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
-          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="sticky-nav-wrapper z-50 bg-background/80 backdrop-blur-md"
-        >
-          <div className="nav-container py-4">
-            <Link to="/" className="back-link flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-              <ArrowLeft size={18} />
-              <span>Back to Work</span>
-            </Link>
-          </div>
-        </motion.nav>
+      <motion.nav
+        initial={false}
+        animate={{ y: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        className="sticky-nav-wrapper"
+      >
+        <div className="nav-container">
+          <Link to="/" className="back-link">
+            <ArrowLeft size={18} />
+            <span>Back to Work</span>
+          </Link>
+        </div>
+      </motion.nav>
 
+      <div className="container pb-32">
         <header className="block mt-[10vh] mb-12">
-          {project.tags.map(tag => (
-            <Badge key={tag} variant="secondary" className="mb-4 mr-2 bg-muted text-muted-foreground">
+          {project.tags.map((tag) => (
+            <Badge
+              key={tag}
+              variant="secondary"
+              className="mb-4 mr-2 bg-muted text-muted-foreground"
+            >
               {tag}
             </Badge>
           ))}
@@ -92,11 +98,15 @@ const AIProjectDetail: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12 border-y border-border-subtle my-[60px]">
           <div className="meta-item">
-            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">Role</h3>
+            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+              Role
+            </h3>
             <p className="font-medium">{project.role}</p>
           </div>
           <div className="meta-item">
-            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">Timeline</h3>
+            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+              Timeline
+            </h3>
             <p className="font-medium">{project.timeline}</p>
           </div>
         </div>
@@ -123,7 +133,10 @@ const AIProjectDetail: React.FC = () => {
           </div>
         </section>
 
-        <div className="project-footer mt-[120px] mb-8" style={{ display: 'flex', justifyContent: 'center' }}>
+        <div
+          className="project-footer mt-[120px] mb-8"
+          style={{ display: 'flex', justifyContent: 'center' }}
+        >
           <ProfileCard
             icon={<Home size={20} />}
             text="Back to Home"
@@ -133,7 +146,7 @@ const AIProjectDetail: React.FC = () => {
         </div>
       </div>
     </motion.div>
-  );
-};
+  )
+}
 
-export default AIProjectDetail;
+export default AIProjectDetail

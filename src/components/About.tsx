@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { aboutData } from '../data/about'
+import { getAssetPath } from '../utils/assets'
 import SectionHeader from './ui/SectionHeader'
 import Timeline from './ui/Timeline'
 import ProfileCard from './ui/ProfileCard'
@@ -58,6 +59,7 @@ const About = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isGoogly, setIsGoogly] = useState(false)
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+  const [profileImgSrc, setProfileImgSrc] = useState(aboutData.profileImage)
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -104,9 +106,16 @@ const About = () => {
                 onClick={toggleGoogly}
               >
                 <img
-                  src={aboutData.profileImage}
+                  src={profileImgSrc}
                   alt={aboutData.fullName}
                   className="w-full h-auto block mx-auto"
+                  onError={() => {
+                    if (profileImgSrc.includes('avatar-white.png')) {
+                      setProfileImgSrc(getAssetPath('/assets/avatar-svg.svg'))
+                    } else {
+                      setProfileImgSrc(getAssetPath('/assets/avatar-white.png'))
+                    }
+                  }}
                 />
                 <AnimatePresence>
                   {isGoogly && (

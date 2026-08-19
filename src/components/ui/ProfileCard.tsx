@@ -75,7 +75,8 @@ const ProfileCard = ({
                     border-radius: 100px;
                     height: 54px;
                     box-sizing: border-box;
-                    transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                    overflow: hidden;
+                    transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                                 border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
                                 box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
                 }

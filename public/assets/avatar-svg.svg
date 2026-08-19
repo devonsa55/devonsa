@@ -10,7 +10,7 @@
 </g>
 <defs>
 <pattern id="pattern0_999_2928" patternContentUnits="objectBoundingBox" width="1" height="1">
-<use xlink:href="#image0_999_2928" transform="matrix(0.000406757 0 0 0.000271003 -0.000310945 0)"/>
+<use href="#image0_999_2928" xlink:href="#image0_999_2928" transform="matrix(0.000406757 0 0 0.000271003 -0.000310945 0)"/>
 </pattern>
 <clipPath id="clip0_999_2928">
 <rect width="1800" height="1800" rx="900" fill="white"/>
