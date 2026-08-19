@@ -1,10 +1,13 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { fadeInUp } from '../utils/motion'
-import { Github, Linkedin, FileText } from 'lucide-react'
+import { Github, Linkedin, FileText, MessageSquareHeart, ChevronDown } from 'lucide-react'
 import { aboutData } from '../data/about'
 import FeedbackWidget from './FeedbackWidget'
 
 const Contact = () => {
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
+
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <section
@@ -98,19 +101,50 @@ const Contact = () => {
             <motion.div
               {...fadeInUp}
               transition={{ delay: 0.3 }}
-              className="flex flex-col gap-7 mt-24"
+              className={`mt-24 overflow-hidden rounded-[var(--radius-card)] !border-solid !border-2 !border-text-primary bg-bg-primary transition-all duration-[150ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                isFeedbackOpen ? '' : 'hover:-translate-y-[4px] hover:shadow-hover'
+              }`}
             >
-              <div className="flex flex-col gap-3">
-                <h2 className="text-[1.6rem] leading-[1.2] text-text-primary font-heading font-bold">
-                  Feedback is a gift.
-                </h2>
-                <p className="text-[1.05rem] leading-[1.5] text-[var(--text-secondary)]">
-                  If you have thoughts on how I could improve this portfolio—or just want to leave
-                  something kind—I&apos;d genuinely love to hear it.
-                </p>
-              </div>
+              <button
+                type="button"
+                onClick={() => setIsFeedbackOpen((open) => !open)}
+                aria-expanded={isFeedbackOpen}
+                className="flex w-full items-center gap-4 px-5 py-4 text-left outline-none"
+              >
+                <div className="flex shrink-0 items-center justify-center text-text-primary">
+                  <MessageSquareHeart size={22} />
+                </div>
+                <div className="method-info flex-1">
+                  <p className="m-0 text-[1rem] font-semibold tracking-tight">Feedback is a gift</p>
+                  <span className="mt-0.5 block text-[0.85rem] text-[var(--text-secondary)]">
+                    If you have thoughts on how I could improve this portfolio—or just want to leave
+                    something kind—I&apos;d genuinely love to hear it.
+                  </span>
+                </div>
+                <ChevronDown
+                  size={20}
+                  className={`shrink-0 text-text-primary transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                    isFeedbackOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
 
-              <FeedbackWidget />
+              <AnimatePresence initial={false}>
+                {isFeedbackOpen && (
+                  <motion.div
+                    key="feedback-panel"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <div className="!border-solid !border-t-2 !border-text-primary px-5 pb-5 pt-5">
+                      <FeedbackWidget />
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           </div>
         </div>

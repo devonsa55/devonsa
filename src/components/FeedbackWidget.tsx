@@ -45,7 +45,7 @@ const FeedbackWidget = () => {
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="rounded-[var(--radius-card)] border-2 border-text-primary bg-bg-primary p-8">
+      <div>
         <AnimatePresence mode="wait">
           {sent ? (
             <motion.div
@@ -141,10 +141,6 @@ const FeedbackWidget = () => {
           )}
         </AnimatePresence>
       </div>
-
-      <p className="text-center font-mono text-xs text-[var(--text-quinary)]">
-        Built with Claude, Supabase &amp; Vercel
-      </p>
     </div>
   )
 }
