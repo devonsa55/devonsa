@@ -47,3 +47,6 @@ lerna-debug.log*
 # Local run directory
 run_dir/
 \n.npm-cache-fresh/
+
+# Local reference/scratch material (personal + third-party assets, not part of the site)
+reference/
