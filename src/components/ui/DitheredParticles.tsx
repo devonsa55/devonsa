@@ -482,9 +482,9 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
                 p.density
             } else if (idleShape === 'cube') {
               const S = Math.min(w, h) * 0.22
-              const rotX = time * 0.007
-              const rotY = time * 0.011
-              const rotZ = time * 0.004
+              const rotX = time * 0.002
+              const rotY = time * 0.003
+              const rotZ = time * 0.001
 
               // 12 edges of a 3D cube connecting 8 vertices (+/-S, +/-S, +/-S)
               const vertices = [
