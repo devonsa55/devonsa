@@ -35,6 +35,7 @@ export interface AIProjectCaseStudy {
       | 'nodes-hub'
       | 'grid-layout'
       | 'hourglass'
+      | 'dual-surfaces'
     particleCount?: number
     hoverColor?: string
   }
@@ -86,8 +87,8 @@ export const aiProjects: AIProjectCaseStudy[] = [
     cardImageBg: '#F3F4F6',
     externalUrl: 'https://devonsa-lab.vercel.app',
     ditherConfig: {
-      idleShape: 'floating-nodes',
-      iconShape: 'nodes-hub',
+      idleShape: 'cube',
+      iconShape: 'dual-surfaces',
       particleCount: 2800,
       hoverColor: '#0e84f1',
     },
