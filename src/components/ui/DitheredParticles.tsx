@@ -481,18 +481,78 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
                 0.015 *
                 p.density
             } else if (idleShape === 'cube') {
-              const boxSize = 75 + Math.sin(time * 0.005) * 15
-              let ix = p.x,
-                iy = p.y
-              if (Math.abs(p.x - centerX) > Math.abs(p.y - centerY)) {
-                ix = centerX + Math.sign(p.x - centerX) * boxSize
-                iy = centerY + Math.sin(time * 0.005 + p.randomIdleOffset) * boxSize
-              } else {
-                iy = centerY + Math.sign(p.y - centerY) * boxSize
-                ix = centerX + Math.cos(time * 0.005 + p.randomIdleOffset) * boxSize
-              }
-              p.vx += (ix - p.x) * 0.02 * p.density
-              p.vy += (iy - p.y) * 0.02 * p.density
+              const S = Math.min(w, h) * 0.22
+              const rotX = time * 0.007
+              const rotY = time * 0.011
+              const rotZ = time * 0.004
+
+              // 12 edges of a 3D cube connecting 8 vertices (+/-S, +/-S, +/-S)
+              const vertices = [
+                [-S, -S, -S], // 0: top-left-back
+                [S, -S, -S], // 1: top-right-back
+                [S, S, -S], // 2: bottom-right-back
+                [-S, S, -S], // 3: bottom-left-back
+                [-S, -S, S], // 4: top-left-front
+                [S, -S, S], // 5: top-right-front
+                [S, S, S], // 6: bottom-right-front
+                [-S, S, S], // 7: bottom-left-front
+              ]
+
+              const edges = [
+                [0, 1],
+                [1, 2],
+                [2, 3],
+                [3, 0], // back face 4 edges
+                [4, 5],
+                [5, 6],
+                [6, 7],
+                [7, 4], // front face 4 edges
+                [0, 4],
+                [1, 5],
+                [2, 6],
+                [3, 7], // 4 depth connecting edges
+              ]
+
+              // Distribute particles across the 12 edges
+              const edgeIndex = i % 12
+              const edge = edges[edgeIndex]
+              const vStart = vertices[edge[0]]
+              const vEnd = vertices[edge[1]]
+
+              // Position along the edge with subtle random surface offset
+              const ratio = ((i * 37) % 1000) / 1000
+              const ox = vStart[0] + (vEnd[0] - vStart[0]) * ratio
+              const oy = vStart[1] + (vEnd[1] - vStart[1]) * ratio
+              const oz = vStart[2] + (vEnd[2] - vStart[2]) * ratio
+
+              // 3D rotation around X, Y, Z axes
+              const cosX = Math.cos(rotX),
+                sinX = Math.sin(rotX)
+              const y1 = oy * cosX - oz * sinX
+              const z1 = oy * sinX + oz * cosX
+              const x1 = ox
+
+              const cosY = Math.cos(rotY),
+                sinY = Math.sin(rotY)
+              const x2 = x1 * cosY + z1 * sinY
+              const z2 = -x1 * sinY + z1 * cosY
+              const y2 = y1
+
+              const cosZ = Math.cos(rotZ),
+                sinZ = Math.sin(rotZ)
+              const x3 = x2 * cosZ - y2 * sinZ
+              const y3 = x2 * sinZ + y2 * cosZ
+              const z3 = z2
+
+              // Perspective projection to 2D canvas coordinates
+              const cameraDistance = 350
+              const perspective = cameraDistance / (cameraDistance + z3)
+
+              const targetX = centerX + x3 * perspective
+              const targetY = centerY + y3 * perspective
+
+              p.vx += (targetX - p.x) * 0.03 * p.density
+              p.vy += (targetY - p.y) * 0.03 * p.density
             } else if (idleShape === 'grid-vibration') {
               const gridCols = Math.floor(Math.sqrt(particleCount)),
                 gridRows = Math.ceil(particleCount / gridCols)
