@@ -1,9 +1,9 @@
-# Devon Anderson - Lead UX Designer
+# Devon Anderson - Staff UX Designer
 
 > Core Philosophy: I bridge the gap between abstract strategy & concrete pixels. Guided by a background in Philosophy & Environmental Science, I design from first principles—stripping away complexity to build Agentic AI & Communication systems that scale to millions of users.
 
 ## Quick Facts
-- **Current Role**: Lead UX Designer at Google (2018-Present)
+- **Current Role**: Staff UX Designer at Lime (Contract, Aug 2026-Present); previously Lead UX Designer at Google (2018-Jul 2026)
 - **Location**: Honolulu, Hawaii (Remote)
 - **Specialties**: Generative AI Interfaces, 0-to-1 Product Strategy, Design Systems, Omnichannel Platforms.
 - **LinkedIn**: https://www.linkedin.com/in/devonanderson1/
@@ -30,9 +30,13 @@
 
 ## Professional Experience
 
+**Lime | Staff UX Designer (Contract)**
+*Aug 2026 — Present · Remote*
+CX Automation: AI agent building.
+
 **Google | Lead UX Designer**
-*2018 — Present*
-Currently leading 0→1 design strategy for Generative AI initiatives, focusing on AI agent workflows and predictive, adaptive user interfaces. Architected structured instruction sets (skill.md) and state machines to define agentic behavior. Previously orchestrated the Communication as a Service (CaaS) strategy, standardizing omnichannel messaging workflows for 13M+ users across Google Search, Maps, and Ads.
+*2018 — Jul 2026*
+Led 0→1 design strategy for Generative AI initiatives, focusing on AI agent workflows and predictive, adaptive user interfaces. Architected structured instruction sets (skill.md) and state machines to define agentic behavior. Previously orchestrated the Communication as a Service (CaaS) strategy, standardizing omnichannel messaging workflows for 13M+ users across Google Search, Maps, and Ads.
 
 **Location Labs by Avast | Product Designer**
 *2015 — 2018*
