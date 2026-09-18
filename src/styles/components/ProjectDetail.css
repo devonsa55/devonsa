@@ -497,6 +497,7 @@
 /* Custom Password Gate & Mode Toggler Styles */
 .mode-toggle-container {
   display: inline-flex;
+  position: relative;
   background: var(--hover-bg);
   border: 1px solid var(--border-subtle);
   padding: 4px;
@@ -530,8 +531,18 @@
   color: var(--bg-primary);
 }
 
+/* Sliding active pill; ViewModeToggle sets its width and translateX from the active button. */
 .toggle-active-bg {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 0;
+  border-radius: 99px;
   background: var(--text-primary);
+  pointer-events: none;
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .slack-metadata-fullwidth {

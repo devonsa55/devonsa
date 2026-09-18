@@ -26,7 +26,6 @@ import {
   LayoutGrid,
   Palette,
   Star,
-  Lock,
 } from 'lucide-react'
 import { Badge } from './ui/badge'
 import { Button } from './ui/button'
@@ -34,6 +33,7 @@ import { Card } from './ui/card'
 import ProfileCard from './ui/ProfileCard'
 import { fadeInUp, fadeIn } from '../utils/motion'
 import { PasswordGate } from './ui/PasswordGate'
+import ViewModeToggle, { ViewMode } from './ui/ViewModeToggle'
 
 const iconMap: Record<string, React.ReactNode> = {
   Monitor: <Monitor size={48} />,
@@ -72,7 +72,7 @@ const ProjectDetail: React.FC = () => {
   const { projectId } = useParams<{ projectId: string }>()
   const project = projects.find((p) => p.id === projectId)
 
-  const [viewMode, setViewMode] = useState<'summary' | 'deck'>('summary')
+  const [viewMode, setViewMode] = useState<ViewMode>('summary')
   const [isVisible, setIsVisible] = React.useState(true)
   const lastScrollY = React.useRef(0)
 
@@ -139,47 +139,7 @@ const ProjectDetail: React.FC = () => {
               {project.problem}
             </motion.p>
             {project.id === 'conversational-insights' && (
-              <motion.div
-                className="mode-toggle-container"
-                {...fadeInUp}
-                transition={{ delay: 0.15 }}
-              >
-                <button
-                  onClick={() => setViewMode('summary')}
-                  className={`mode-toggle-btn relative ${viewMode === 'summary' ? 'active' : ''}`}
-                >
-                  {viewMode === 'summary' && (
-                    <motion.div
-                      layoutId="active-pill"
-                      className="absolute inset-0 toggle-active-bg rounded-full"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                      style={{ zIndex: 1 }}
-                    />
-                  )}
-                  <span className="relative z-10">Read Summary</span>
-                </button>
-                <button
-                  onClick={() => setViewMode('deck')}
-                  className={`mode-toggle-btn relative flex items-center gap-2 ${viewMode === 'deck' ? 'active' : ''}`}
-                >
-                  {viewMode === 'deck' && (
-                    <motion.div
-                      layoutId="active-pill"
-                      className="absolute inset-0 toggle-active-bg rounded-full"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                      style={{ zIndex: 1 }}
-                    />
-                  )}
-                  <span className="relative z-10 flex items-center gap-2">
-                    View Full Case Study
-                    <Lock
-                      size={14}
-                      className="transition-opacity"
-                      style={{ opacity: viewMode === 'deck' ? 0.9 : 0.6 }}
-                    />
-                  </span>
-                </button>
-              </motion.div>
+              <ViewModeToggle mode={viewMode} onModeChange={setViewMode} />
             )}
           </header>
         </div>
