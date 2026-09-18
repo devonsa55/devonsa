@@ -52,17 +52,30 @@ export const aboutData = {
   ],
   timeline: [
     {
+      company: 'Lime',
+      logo: getAssetPath('/assets/lime-logo.png'),
+      duration: '2026 — Present',
+      roles: [
+        {
+          title: 'Staff UX Designer',
+          year: 'Aug 2026 — Present · Contract',
+          location: 'Remote',
+          description: ['**CX Automation:** AI agent building.'],
+        },
+      ],
+    },
+    {
       company: 'Google',
       logo: getAssetPath('/assets/google-logo.png'),
-      duration: '2018 — Present',
+      duration: '2018 — 2026',
       promotionBadge: 'Promoted twice: L3 → L5',
       roles: [
         {
           title: 'Lead UX Designer',
-          year: 'Apr 2022 — Present',
+          year: 'Apr 2022 — Jul 2026',
           location: 'Honolulu, Hawaii · Remote',
           summary:
-            'Currently leading 0→1 design strategy for **Generative AI initiatives**, specializing in AI agent workflows and predictive, adaptive user interfaces.',
+            'Led 0→1 design strategy for **Generative AI initiatives**, specializing in AI agent workflows and predictive, adaptive user interfaces.',
           description: [
             '**Generative AI:** Spearheading design for GenAI initiatives, focusing on AI agent workflows and predictive, adaptive user interfaces.',
             '**LLM Evaluation:** Developed and implemented evaluation systems for LLM agents, achieving a performance lift from **50% to 90%+** in factuality and helpfulness.',
