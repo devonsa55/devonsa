@@ -37,7 +37,7 @@
   --project-padding: var(--container-padding);
   --project-section-margin: 180px;
 
-  --dot-size: 1.5px;
+  --dot-size: 2px;
   --dot-space: 24px;
 
   --nav-vertical-gap: 2.5rem;
@@ -118,9 +118,9 @@
   --show-dot-grid-contact: 1;
   --show-dot-grid-project: 1;
   --dot-color-home: rgba(0, 0, 0, 0.08);
-  --dot-color-about: rgba(0, 0, 0, 0.05);
+  --dot-color-about: rgba(0, 0, 0, 0.06);
   --dot-color-contact: rgba(0, 0, 0, 0.08);
-  --dot-color-project: rgba(0, 0, 0, 0.05);
+  --dot-color-project: rgba(0, 0, 0, 0.06);
   --grid-align-offset: center top;
 }
 
@@ -136,11 +136,11 @@
   --accent-purple-rgb: 255, 255, 255;
   --accent-purple-light: rgba(255, 255, 255, 0.1);
   --border-subtle: rgba(255, 255, 255, 0.25);
-  --dot-color: rgba(255, 255, 255, 0.08);
-  --dot-color-home: rgba(255, 255, 255, 0.08);
-  --dot-color-about: rgba(255, 255, 255, 0.08);
-  --dot-color-contact: rgba(255, 255, 255, 0.08);
-  --dot-color-project: rgba(255, 255, 255, 0.08);
+  --dot-color: rgba(255, 255, 255, 0.1);
+  --dot-color-home: rgba(255, 255, 255, 0.1);
+  --dot-color-about: rgba(255, 255, 255, 0.1);
+  --dot-color-contact: rgba(255, 255, 255, 0.1);
+  --dot-color-project: rgba(255, 255, 255, 0.1);
   --hover-bg: #27272a;
   --shadow-color: #27272a;
   /* Defined for dark mode */
@@ -236,8 +236,8 @@ body {
 
 .home-page {
   background-image: radial-gradient(
-    var(--dot-color-home) calc(var(--dot-size) * var(--show-dot-grid-home)),
-    transparent 0
+    var(--dot-color-home) calc(var(--dot-size) * var(--show-dot-grid-home) - 0.5px),
+    transparent calc(var(--dot-size) * var(--show-dot-grid-home) + 0.5px)
   );
   background-size: var(--dot-space) var(--dot-space);
   background-position: var(--grid-align-offset);

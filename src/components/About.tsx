@@ -97,7 +97,7 @@ const About = () => {
       exit={{ opacity: 0 }}
       className="about-page"
     >
-      <section className="pt-[10rem] bg-bg-primary relative font-body bg-[radial-gradient(var(--dot-color-about)_calc(var(--dot-size)*var(--show-dot-grid-about)),transparent_0)] bg-[length:var(--dot-space)_var(--dot-space)] bg-[position:var(--grid-align-offset)]">
+      <section className="pt-[10rem] bg-bg-primary relative font-body bg-[radial-gradient(var(--dot-color-about)_calc(var(--dot-size)*var(--show-dot-grid-about)_-_0.5px),transparent_calc(var(--dot-size)*var(--show-dot-grid-about)_+_0.5px))] bg-[length:var(--dot-space)_var(--dot-space)] bg-[position:var(--grid-align-offset)]">
         <div className="container">
           <div className="max-w-[800px] mx-auto flex flex-col gap-12 lg:gap-[5rem]">
             <div className="flex flex-col gap-6 items-center text-left">

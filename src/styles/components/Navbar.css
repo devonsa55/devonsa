@@ -15,7 +15,10 @@
     background-color 0.5s ease;
 }
 .navbar.is-home:not(.is-scrolled) {
-  background-image: radial-gradient(var(--dot-color) var(--dot-size), transparent 0);
+  background-image: radial-gradient(
+    var(--dot-color) calc(var(--dot-size) - 0.5px),
+    transparent calc(var(--dot-size) + 0.5px)
+  );
   background-size: var(--dot-space) var(--dot-space);
   background-position: var(--grid-align-offset);
   background-color: var(--bg-primary);
@@ -38,7 +41,10 @@
 }
 
 .navbar.is-scrolled.is-home {
-  background-image: radial-gradient(var(--dot-color) var(--dot-size), transparent 0);
+  background-image: radial-gradient(
+    var(--dot-color) calc(var(--dot-size) - 0.5px),
+    transparent calc(var(--dot-size) + 0.5px)
+  );
   background-size: var(--dot-space) var(--dot-space);
   background-position: var(--grid-align-offset);
 }

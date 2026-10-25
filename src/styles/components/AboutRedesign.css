@@ -2,8 +2,8 @@
   padding-top: 10rem;
   background: var(--bg-primary);
   background-image: radial-gradient(
-    var(--dot-color-about) calc(var(--dot-size) * var(--show-dot-grid-about)),
-    transparent 0
+    var(--dot-color-about) calc(var(--dot-size) * var(--show-dot-grid-about) - 0.5px),
+    transparent calc(var(--dot-size) * var(--show-dot-grid-about) + 0.5px)
   );
   background-size: var(--dot-space) var(--dot-space);
   background-position: var(--grid-align-offset);
