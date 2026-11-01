@@ -71,8 +71,6 @@ const About = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [isGoogly])
 
-  const toggleGoogly = () => setIsGoogly(!isGoogly)
-
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % aboutData.hobbies.length)
   }
@@ -102,8 +100,13 @@ const About = () => {
           <div className="max-w-[800px] mx-auto flex flex-col gap-12 lg:gap-[5rem]">
             <div className="flex flex-col gap-6 items-center text-left">
               <div
-                className={`w-[clamp(136px,42.5vw,255px)] text-center flex justify-center relative mx-auto select-none cursor-pointer ${isGoogly ? 'is-googly' : ''}`}
-                onClick={toggleGoogly}
+                className={`w-[clamp(136px,42.5vw,255px)] text-center flex justify-center relative mx-auto select-none ${isGoogly ? 'is-googly' : ''}`}
+                onPointerEnter={(e) => {
+                  if (e.pointerType === 'mouse') setIsGoogly(true)
+                }}
+                onPointerLeave={(e) => {
+                  if (e.pointerType === 'mouse') setIsGoogly(false)
+                }}
               >
                 <img
                   src={profileImgSrc}
