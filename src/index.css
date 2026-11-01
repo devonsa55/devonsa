@@ -142,7 +142,7 @@
   --dot-color-contact: rgba(255, 255, 255, 0.1);
   --dot-color-project: rgba(255, 255, 255, 0.1);
   --hover-bg: #27272a;
-  --shadow-color: #27272a;
+  --shadow-color: #71717a;
   /* Defined for dark mode */
   --neo-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.1);
   --shadow-hover: 6px 6px 0px var(--shadow-color);
