@@ -72,7 +72,7 @@ export const projects: ProjectCaseStudy[] = [
     description:
       'An Agentic UI embedded in Merchant Center that allows users to query their data using natural language, turning raw analytics into actionable business strategy.',
     image: '/images/projects/ci-thumb.svg',
-    heroImage: '/images/projects/conversational-insights/agentic-hero.png',
+    heroImage: '/images/projects/conversational-insights/agentic-hero.webp',
     iconName: 'MessageSquare',
     tags: ['AI/ML', 'Data Visualization', 'Strategy'],
     link: '/project/conversational-insights',
@@ -100,21 +100,21 @@ export const projects: ProjectCaseStudy[] = [
         title: 'From Dashboard Overload to Conversational Clarity',
         content:
           'Enterprise merchants struggle to interpret complex dashboards. I led the design of an LLM-driven assistant that parses raw analytics into natural language, allowing merchants to "query" their business performance directly.',
-        image: '/images/projects/conversational-insights/agentic-hero.png',
+        image: '/images/projects/conversational-insights/agentic-hero.webp',
         layout: 'full-image',
       },
       {
         title: 'Proactive Intelligence',
         content:
           'Moving beyond reactive charts. We designed "Smart Snippets" to push critical insights (e.g., "Traffic is down due to low inventory") to the user before they even ask, establishing trust in the AI model.',
-        image: '/images/projects/conversational-insights/agentic-snippets.png',
+        image: '/images/projects/conversational-insights/agentic-snippets.webp',
         layout: 'full-image',
       },
       {
         title: 'Lowering the Barrier to Data Science',
         content:
           'Enabled merchants to generate complex custom reports using simple natural language prompts, democratizing data access for non-technical business owners.',
-        image: '/images/projects/conversational-insights/agentic-flow.png',
+        image: '/images/projects/conversational-insights/agentic-flow.webp',
         layout: 'full-image',
       },
     ],
@@ -128,7 +128,7 @@ export const projects: ProjectCaseStudy[] = [
     description:
       'An AI-powered video generation tool that transforms static merchant catalogs into high-fidelity, brand-aligned video assets automatically.',
     image: '/images/projects/shopstream-thumb.svg',
-    heroImage: '/images/projects/shopstream/shopstream-hero.png',
+    heroImage: '/images/projects/shopstream/shopstream-hero.webp',
     heroIcon: 'Monitor',
     iconName: 'Video',
     tags: ['Generative AI', 'Video Design', 'UX Strategy'],
@@ -159,21 +159,21 @@ export const projects: ProjectCaseStudy[] = [
         title: 'Turning Static Assets into Revenue Streams',
         content:
           'Small merchants lack the budget for video production. I led the UX strategy for ShopStream, a GenAI pipeline that transforms standard product photos into high-conversion video assets.',
-        image: '/images/projects/shopstream/shopstream-hero.png',
+        image: '/images/projects/shopstream/shopstream-hero.webp',
         layout: 'full-image',
       },
       {
         title: 'Zero-Friction Creation',
         content:
           'Lowering the barrier to entry. Merchants simply select a product, and our model identifies the best assets to animate, removing the need for creative briefs or storyboards.',
-        image: '/images/projects/shopstream/shopstream-input.png',
+        image: '/images/projects/shopstream/shopstream-input.webp',
         layout: 'full-image',
       },
       {
         title: 'Create Once, Distribute Everywhere',
         content:
           'Designed a unified ingestion engine where a single generated asset is automatically formatted and distributed across Paid Ads, Organic Search, and Social platforms.',
-        image: '/images/projects/shopstream/shopstream-system.png',
+        image: '/images/projects/shopstream/shopstream-system.webp',
         layout: 'full-image',
       },
     ],
@@ -187,7 +187,7 @@ export const projects: ProjectCaseStudy[] = [
     description:
       'A unified "Communication as a Service" platform standardizing consumer UX across Search and Maps while opening the ecosystem to 3rd-party integrations.',
     image: '/images/projects/bm-thumb.svg',
-    heroImage: '/images/projects/merchant-comms/coco-hero.png',
+    heroImage: '/images/projects/merchant-comms/coco-hero.webp',
     heroIcon: 'MessageSquare',
     iconName: 'MessageSquare',
     tags: ['Systems Design', 'Product Strategy', 'Scale'],
@@ -218,21 +218,21 @@ export const projects: ProjectCaseStudy[] = [
         title: 'Bridging the Gap on Search',
         content:
           'Designed and launched the "Mole"—a persistent, non-intrusive chat layer on Search that drove a significant increase in merchant-consumer engagement by maintaining context during the discovery phase.',
-        image: '/images/projects/merchant-comms/coco-hero.png',
+        image: '/images/projects/merchant-comms/coco-hero.webp',
         layout: 'full-image',
       },
       {
         title: 'Ubiquity without Fragmentation',
         content:
           'Orchestrating a unified messaging layer across different Google surfaces, ensuring that whether a user starts on Maps or Search, the experience remains consistent and high-quality.',
-        image: '/images/projects/merchant-comms/coco-ecosystem.png',
+        image: '/images/projects/merchant-comms/coco-ecosystem.webp',
         layout: 'full-image',
       },
       {
         title: 'Embracing the Open Ecosystem',
         content:
           'Enabling merchants to use their existing tools like Zendesk and Shopify to manage Google conversations, moving away from a walled-garden approach to an open, scalable strategy.',
-        image: '/images/projects/merchant-comms/coco-strategy.png',
+        image: '/images/projects/merchant-comms/coco-strategy.webp',
         layout: 'full-image',
       },
     ],
@@ -304,14 +304,14 @@ export const projects: ProjectCaseStudy[] = [
         title: 'The Unified Dashboard',
         content:
           "A holistic view of the family's safety status, aggregating location history, battery levels, and safety alerts into a single, high-confidence interface.",
-        image: '/images/projects/family-safety-platforms/VSF Entire page.png',
+        image: '/images/projects/family-safety-platforms/VSF Entire page.webp',
         gridSpan: 2,
       },
       {
         title: 'Real-time Verification',
         content:
           'The core utility: instant location refreshes for immediate peace of mind, optimized for battery efficiency and high-speed retrieval.',
-        image: '/images/projects/family-safety-platforms/SFL – Locate.png',
+        image: '/images/projects/family-safety-platforms/SFL – Locate.webp',
         gridSpan: 1,
         bgColor: '#fff1f2',
       },

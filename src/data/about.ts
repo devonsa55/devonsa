@@ -3,7 +3,7 @@ import { getAssetPath } from '../utils/assets'
 export const aboutData = {
   name: 'Devon',
   fullName: 'Devon Anderson',
-  profileImage: getAssetPath('/assets/avatar-white.png'),
+  profileImage: getAssetPath('/assets/avatar-white.webp'),
   headline: 'Hey, I’m Devon. ',
   subHeadline:
     'I bridge the gap between abstract strategy & concrete pixels. Guided by a background in **Philosophy & Environmental Science**, I design from **first principles**—stripping away complexity to build **Agentic AI & Communication systems** that scale to millions of users.',
@@ -25,29 +25,29 @@ export const aboutData = {
     {
       title: 'Surfing',
       description: 'Catching breaks at home in Honolulu or traveling to Nicaragua.',
-      image: getAssetPath('/images/Carosel_images/IMG_1920.jpg'),
+      image: getAssetPath('/images/Carosel_images/IMG_1920.webp'),
     },
     {
       title: 'Building',
       description:
         "Converted my Honda Element into a custom camper—focused on the craft of 'making'.",
-      image: getAssetPath('/images/Carosel_images/IMG_3247.jpg'),
+      image: getAssetPath('/images/Carosel_images/IMG_3247.webp'),
     },
     {
       title: 'Competition',
       description:
         'National & World Champion Ultimate Frisbee player with Revolver; emphasizing elite teamwork.',
-      image: getAssetPath('/images/Carosel_images/IMG_7630.jpg'),
+      image: getAssetPath('/images/Carosel_images/IMG_7630.webp'),
     },
     {
       title: 'Adventure',
       description: 'Exploring new places and experiences.',
-      image: getAssetPath('/images/Carosel_images/A9322471-1E24-444C-9209-B0A2FFDBD4DE.jpg'),
+      image: getAssetPath('/images/Carosel_images/A9322471-1E24-444C-9209-B0A2FFDBD4DE.webp'),
     },
     {
       title: 'Nature',
       description: 'Connecting with the outdoors.',
-      image: getAssetPath('/images/Carosel_images/IMG_3205.jpg'),
+      image: getAssetPath('/images/Carosel_images/IMG_3205.webp'),
     },
   ],
   timeline: [

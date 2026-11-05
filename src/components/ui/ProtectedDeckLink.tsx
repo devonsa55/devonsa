@@ -11,7 +11,7 @@ export const ProtectedDeckLink: React.FC = () => (
       {/* Case study hero as a theme-aware, blurred backdrop */}
       <div className="absolute inset-0 w-full h-full select-none pointer-events-none">
         <img
-          src="/images/projects/conversational-insights/agentic-hero.png"
+          src="/images/projects/conversational-insights/agentic-hero.webp"
           className="w-full h-full object-cover opacity-20 dark:opacity-40 filter blur-[2px]"
           alt=""
         />

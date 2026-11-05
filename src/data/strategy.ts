@@ -20,7 +20,7 @@ export const strategyFrameworks: StrategyItem[] = [
     subtitle: '',
     description:
       'Translating high-level agentic mandates into defensible, traceable product roadmaps.',
-    image: '/assets/ascend.png',
+    image: '/assets/ascend.webp',
     iconName: 'Fingerprint',
     tags: ['AI Strategy', 'Trust', 'Framework'],
     link: '/strategy/designing-for-trust',
@@ -53,12 +53,12 @@ export const strategyFrameworks: StrategyItem[] = [
     subtitle: 'Designing Against the Headwind: A Framework for Operational Clarity',
     description:
       'Aligning incentives across Maps, Search, and Ads to build cohesive platform experiences.',
-    image: '/assets/complexity_header.jpg',
+    image: '/assets/complexity_header.webp',
     iconName: 'GitMerge',
     tags: ['Product Strategy', 'Alignment', 'Scale'],
     link: '/strategy/managing-complexity',
     layout: 'paper',
-    heroImage: '/assets/complexity_header.jpg',
+    heroImage: '/assets/complexity_header.webp',
     heroImageAttribution: {
       name: 'Labyrinth',
       link: 'https://dribbble.com/shots/14980597-Abstract-geometrical-labyrinth-pattern',
