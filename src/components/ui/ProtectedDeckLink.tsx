@@ -2,7 +2,8 @@ import React from 'react'
 import { Lock, ArrowUpRight } from 'lucide-react'
 
 // The deck is password-protected by Figma itself, so this URL is not a secret.
-const DECK_URL = 'https://www.figma.com/slides/AqjJArs2DUZWZWKZ5QCRTW'
+// /deck/ opens the audience presentation view, not the slides editor.
+const DECK_URL = 'https://www.figma.com/deck/AqjJArs2DUZWZWKZ5QCRTW'
 
 export const ProtectedDeckLink: React.FC = () => (
   <div className="password-gate-container w-full max-w-6xl mx-auto my-12">
