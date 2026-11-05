@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { fadeInUp } from '../utils/motion'
 import { Github, Linkedin, FileText, MessageSquareHeart, ChevronDown } from 'lucide-react'
 import { aboutData } from '../data/about'
-import FeedbackWidget from './FeedbackWidget'
+
+// The form pulls in the Supabase client, so it loads only when opened.
+const FeedbackWidget = lazy(() => import('./FeedbackWidget'))
 
 const Contact = () => {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
@@ -143,7 +145,9 @@ const Contact = () => {
                       className="overflow-hidden"
                     >
                       <div className="!border-solid !border-t-2 !border-text-primary px-5 pb-5 pt-5">
-                        <FeedbackWidget />
+                        <Suspense fallback={<div className="h-[420px]" aria-busy="true" />}>
+                          <FeedbackWidget />
+                        </Suspense>
                       </div>
                     </motion.div>
                   )}

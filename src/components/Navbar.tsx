@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu } from 'lucide-react'
 import { getAssetPath } from '../utils/assets'
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet'
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from './ui/sheet'
 import { AnimatedUnderline } from './ui/AnimatedUnderline'
 
 const Navbar = () => {
@@ -139,6 +139,7 @@ const Navbar = () => {
           side="right"
           className="w-[100vw] sm:max-w-[400px] bg-bg-primary pt-[180px] px-[var(--container-padding)] border-none"
         >
+          <SheetTitle className="sr-only">Site navigation</SheetTitle>
           <div className="flex flex-col gap-12">
             <div className="flex flex-col gap-4">
               <span className="text-xs uppercase tracking-widest text-text-secondary font-bold font-mono">

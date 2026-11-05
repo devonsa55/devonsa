@@ -27,5 +27,6 @@ Allow: /
 User-agent: FacebookBot
 Allow: /
 
-# Provide explicit link to the LLM-focused payload
-Sitemap: https://devonsa.work/llms.txt
+Sitemap: https://devonsa.work/sitemap.xml
+
+# LLM-focused summary of the site: https://devonsa.work/llms.txt
