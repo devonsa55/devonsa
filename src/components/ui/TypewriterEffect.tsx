@@ -104,13 +104,6 @@ export default function TypewriterEffect({
     words.length,
   ])
 
-  // Reset char index when word index changes (safety net)
-  useEffect(() => {
-    if (!isDeleting) {
-      setCharIndex(0)
-    }
-  }, [wordIndex, isDeleting])
-
   return (
     <span
       className={`inline cursor-default ${className}`}

@@ -1,60 +1,64 @@
-import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu } from 'lucide-react';
-import { getAssetPath } from '../utils/assets';
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import { AnimatedUnderline } from './ui/AnimatedUnderline';
+import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { Menu } from 'lucide-react'
+import { getAssetPath } from '../utils/assets'
+import { Sheet, SheetContent, SheetTrigger } from './ui/sheet'
+import { AnimatedUnderline } from './ui/AnimatedUnderline'
 
 const Navbar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const location = useLocation();
-  const IS_UNDER_CONSTRUCTION = false;
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false)
+  const location = useLocation()
+  const IS_UNDER_CONSTRUCTION = false
 
-  const isHomePage = location.pathname === '/';
-  const isDetailPage = location.pathname.startsWith('/project/') || 
-                       location.pathname.startsWith('/strategy/') ||
-                       location.pathname.startsWith('/ai-project/');
+  const isHomePage = location.pathname === '/'
+  const isDetailPage =
+    location.pathname.startsWith('/project/') ||
+    location.pathname.startsWith('/strategy/') ||
+    location.pathname.startsWith('/ai-project/')
 
   const handleScrollToWork = (e: React.MouseEvent) => {
     if (isHomePage) {
-      e.preventDefault();
-      const workSection = document.getElementById('work');
+      e.preventDefault()
+      const workSection = document.getElementById('work')
       if (workSection) {
-        workSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        workSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
         // Update URL hash without reload
-        window.history.pushState(null, '', '/#work');
+        window.history.pushState(null, '', '/#work')
       }
     }
-    if (isMobileMenuOpen) setIsMobileMenuOpen(false);
-  };
+    if (isMobileMenuOpen) setIsMobileMenuOpen(false)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location]);
+  // Close mobile menu on route change (adjusted during render rather than in
+  // an effect, so the menu never paints open for a frame on the new route)
+  const [menuLocationKey, setMenuLocationKey] = useState(location.key)
+  if (location.key !== menuLocationKey) {
+    setMenuLocationKey(location.key)
+    setIsMobileMenuOpen(false)
+  }
 
   // Prevent scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden'
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = 'unset'
     }
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen])
 
   if (isDetailPage) {
-    return null;
+    return null
   }
 
   return (
@@ -73,15 +77,15 @@ const Navbar = () => {
             aria-label="Devon Anderson"
             style={{
               maskImage: `url(${getAssetPath('/assets/Handwriting-2.svg')})`,
-              WebkitMaskImage: `url(${getAssetPath('/assets/Handwriting-2.svg')})`
+              WebkitMaskImage: `url(${getAssetPath('/assets/Handwriting-2.svg')})`,
             }}
           />
         </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex gap-8 items-start m-0 p-0">
-          <Link 
-            to="/#work" 
+          <Link
+            to="/#work"
             onClick={handleScrollToWork}
             className="font-heading font-bold text-[1.4rem] text-text-primary no-underline relative tracking-[0.02em]"
           >
@@ -90,15 +94,22 @@ const Navbar = () => {
             </AnimatedUnderline>
           </Link>
           <div className="flex flex-col relative gap-0">
-            <Link to="/about" className="font-heading font-bold text-[1.4rem] text-text-primary no-underline relative tracking-[0.02em]">
+            <Link
+              to="/about"
+              className="font-heading font-bold text-[1.4rem] text-text-primary no-underline relative tracking-[0.02em]"
+            >
               <AnimatedUnderline strokeWidth={8} color="#9461fb">
                 About
               </AnimatedUnderline>
             </Link>
-            <Link 
-              to="/contact" 
+            <Link
+              to="/contact"
               className="group absolute z-[1] mt-3 right-[-12px]"
-              style={{ top: '100%', transform: 'rotate(90deg) translateX(100%)', transformOrigin: 'top right' }}
+              style={{
+                top: '100%',
+                transform: 'rotate(90deg) translateX(100%)',
+                transformOrigin: 'top right',
+              }}
             >
               <div className="font-heading font-bold text-[1.4rem] text-text-primary no-underline tracking-[0.02em] whitespace-nowrap">
                 <AnimatedUnderline strokeWidth={8} color="#ff69b4">
@@ -122,44 +133,68 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
         <SheetTrigger asChild>
-          <button
-            className="hidden top-0"
-            aria-label="Toggle menu"
-          />
+          <button className="hidden top-0" aria-label="Toggle menu" />
         </SheetTrigger>
-        <SheetContent side="right" className="w-[100vw] sm:max-w-[400px] bg-bg-primary pt-[180px] px-[var(--container-padding)] border-none">
+        <SheetContent
+          side="right"
+          className="w-[100vw] sm:max-w-[400px] bg-bg-primary pt-[180px] px-[var(--container-padding)] border-none"
+        >
           <div className="flex flex-col gap-12">
             <div className="flex flex-col gap-4">
-              <span className="text-xs uppercase tracking-widest text-text-secondary font-bold font-mono">Navigation</span>
+              <span className="text-xs uppercase tracking-widest text-text-secondary font-bold font-mono">
+                Navigation
+              </span>
               <ul className="flex flex-col gap-6 list-none p-0 m-0">
                 <li>
-                  <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]">
-                    <AnimatedUnderline strokeWidth={12} color="#54cea1">Home</AnimatedUnderline>
+                  <Link
+                    to="/"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]"
+                  >
+                    <AnimatedUnderline strokeWidth={12} color="#54cea1">
+                      Home
+                    </AnimatedUnderline>
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    to="/#work" 
+                  <Link
+                    to="/#work"
                     onClick={(e) => {
                       if (location.pathname === '/') {
-                        e.preventDefault();
-                        document.getElementById('work')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        e.preventDefault()
+                        document
+                          .getElementById('work')
+                          ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
                       }
-                      setIsMobileMenuOpen(false);
+                      setIsMobileMenuOpen(false)
                     }}
                     className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]"
                   >
-                    <AnimatedUnderline strokeWidth={12} color="#0e84f1">{IS_UNDER_CONSTRUCTION ? '🚧WIP🚧' : 'Work'}</AnimatedUnderline>
+                    <AnimatedUnderline strokeWidth={12} color="#0e84f1">
+                      {IS_UNDER_CONSTRUCTION ? '🚧WIP🚧' : 'Work'}
+                    </AnimatedUnderline>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]">
-                    <AnimatedUnderline strokeWidth={12} color="#9461fb">About</AnimatedUnderline>
+                  <Link
+                    to="/about"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]"
+                  >
+                    <AnimatedUnderline strokeWidth={12} color="#9461fb">
+                      About
+                    </AnimatedUnderline>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]">
-                    <AnimatedUnderline strokeWidth={12} color="#ff69b4">Contact</AnimatedUnderline>
+                  <Link
+                    to="/contact"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]"
+                  >
+                    <AnimatedUnderline strokeWidth={12} color="#ff69b4">
+                      Contact
+                    </AnimatedUnderline>
                   </Link>
                 </li>
               </ul>
@@ -167,9 +202,8 @@ const Navbar = () => {
           </div>
         </SheetContent>
       </Sheet>
-
     </motion.nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

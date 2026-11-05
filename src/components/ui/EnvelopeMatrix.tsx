@@ -1,58 +1,54 @@
 import { useState, useEffect } from 'react'
 
+// 9x9 Dot Matrix Hand Wave Animation
+const frame1 = [
+  '000000000',
+  '000110000', // Fingers straight up
+  '000111000',
+  '000111100',
+  '000111110', // Thumb
+  '000111110', // Palm
+  '000011000', // Wrist
+  '000011000',
+  '000000000',
+]
+
+const frame2 = [
+  '000000000',
+  '000011000', // Tilted Right
+  '000011100',
+  '000001110',
+  '000011111',
+  '000011110',
+  '000001100',
+  '000001100',
+  '000000000',
+]
+
+const frame3 = [
+  '000000000',
+  '001100000', // Tilted Left
+  '001110000',
+  '001111000',
+  '011111000',
+  '011111000',
+  '000110000',
+  '000110000',
+  '000000000',
+]
+
+// Animation sequence: Center -> Right -> Center -> Left
+const frames = [frame1, frame2, frame1, frame3]
+
 const EnvelopeMatrix = () => {
-  // 9x9 Dot Matrix Hand Wave Animation
-  const frame1 = [
-    '000000000',
-    '000110000', // Fingers straight up
-    '000111000',
-    '000111100',
-    '000111110', // Thumb
-    '000111110', // Palm
-    '000011000', // Wrist
-    '000011000',
-    '000000000',
-  ]
-
-  const frame2 = [
-    '000000000',
-    '000011000', // Tilted Right
-    '000011100',
-    '000001110',
-    '000011111',
-    '000011110',
-    '000001100',
-    '000001100',
-    '000000000',
-  ]
-
-  const frame3 = [
-    '000000000',
-    '001100000', // Tilted Left
-    '001110000',
-    '001111000',
-    '011111000',
-    '011111000',
-    '000110000',
-    '000110000',
-    '000000000',
-  ]
-
-  // Animation sequence: Center -> Right -> Center -> Left
-  const frames = [frame1, frame2, frame1, frame3]
-
   const [frameIndex, setFrameIndex] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
 
   useEffect(() => {
-    let interval: ReturnType<typeof setInterval>
-    if (isHovered) {
-      interval = setInterval(() => {
-        setFrameIndex((prev) => (prev + 1) % frames.length)
-      }, 150) // Speed of wave
-    } else {
-      setFrameIndex(0) // Reset to center
-    }
+    if (!isHovered) return
+    const interval = setInterval(() => {
+      setFrameIndex((prev) => (prev + 1) % frames.length)
+    }, 150) // Speed of wave
     return () => clearInterval(interval)
   }, [isHovered])
 
@@ -77,7 +73,10 @@ const EnvelopeMatrix = () => {
     <div
       className="envelope-matrix"
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseLeave={() => {
+        setIsHovered(false)
+        setFrameIndex(0) // Reset to center
+      }}
     >
       <div className="envelope-screen">{renderDots()}</div>
 
