@@ -32,7 +32,7 @@ import { Button } from './ui/button'
 import { Card } from './ui/card'
 import ProfileCard from './ui/ProfileCard'
 import { fadeInUp, fadeIn } from '../utils/motion'
-import { PasswordGate } from './ui/PasswordGate'
+import { ProtectedDeckLink } from './ui/ProtectedDeckLink'
 import ViewModeToggle, { ViewMode } from './ui/ViewModeToggle'
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -190,7 +190,7 @@ const ProjectDetail: React.FC = () => {
         <div className="container">
           {project.id === 'conversational-insights' && viewMode === 'deck' ? (
             <div className="py-6 pb-[120px]">
-              <PasswordGate />
+              <ProtectedDeckLink />
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-y-[160px] md:gap-y-[240px] gap-x-[60px] pb-[120px]">
