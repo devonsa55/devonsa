@@ -53,12 +53,12 @@ export const strategyFrameworks: StrategyItem[] = [
     subtitle: 'Designing Against the Headwind: A Framework for Operational Clarity',
     description:
       'Aligning incentives across Maps, Search, and Ads to build cohesive platform experiences.',
-    image: '/assets/complexity_header.png',
+    image: '/assets/complexity_header.jpg',
     iconName: 'GitMerge',
     tags: ['Product Strategy', 'Alignment', 'Scale'],
     link: '/strategy/managing-complexity',
     layout: 'paper',
-    heroImage: '/assets/complexity_header.png',
+    heroImage: '/assets/complexity_header.jpg',
     heroImageAttribution: {
       name: 'Labyrinth',
       link: 'https://dribbble.com/shots/14980597-Abstract-geometrical-labyrinth-pattern',
