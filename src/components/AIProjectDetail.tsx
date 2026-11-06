@@ -98,13 +98,19 @@ const AIProjectDetail: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12 border-y border-border-subtle my-[60px]">
           <div className="meta-item">
-            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+            <h3
+              aria-level={2}
+              className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2"
+            >
               Role
             </h3>
             <p className="font-medium">{project.role}</p>
           </div>
           <div className="meta-item">
-            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+            <h3
+              aria-level={2}
+              className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2"
+            >
               Timeline
             </h3>
             <p className="font-medium">{project.timeline}</p>

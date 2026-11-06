@@ -281,10 +281,12 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
   const supportsHoverRef = useRef(true)
   const colorWeightRef = useRef(0)
   const isVisibleRef = useRef(true)
+  const reduceMotionRef = useRef(false)
   const [isHoveredLocal, setIsHoveredLocal] = useState(false)
 
   useEffect(() => {
     supportsHoverRef.current = window.matchMedia('(hover: hover)').matches
+    reduceMotionRef.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   }, [])
 
   useEffect(() => {
@@ -347,7 +349,15 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
     let time = 0
 
     const render = () => {
-      if (!isVisibleRef.current) {
+      // Reduced motion: once the particles have settled into their idle shape,
+      // hold that frame until the visitor interacts with the card
+      const frozen =
+        reduceMotionRef.current &&
+        time > 90 &&
+        !isHoveredRef.current &&
+        !isMobileInViewRef.current &&
+        colorWeightRef.current < 0.01
+      if (!isVisibleRef.current || frozen) {
         animationFrameId = window.requestAnimationFrame(render)
         return
       }

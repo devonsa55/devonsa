@@ -72,3 +72,14 @@ Pinned on purpose:
 - For anything visual, compare before and after. Headless Chrome screenshots of the old and new builds (served with `vite preview` on two ports), diffed pixel by pixel, worked well for the Vite upgrade. Animations make two captures of the _same_ build differ by 1–3%, so compare against that noise floor, not zero.
 - The built-in browser pane pauses animations while hidden, so page transitions can look stuck there; take a screenshot to force a repaint before concluding something is broken.
 - After editing `vite.config.ts` or switching branches, the dev server can serve stale optimized deps ("504 Outdated Optimize Dep"); restart it.
+
+## Accessibility
+
+Audited Nov 2026 with axe-core (WCAG 2.0–2.2 A/AA + best practices) plus a contrast scan, in light and dark mode on every page: 0 violations. Keep it that way.
+
+- Each page has exactly one `<h1>`. `SectionHeader` takes `level={1}` for the About page. Decorative/label headings keep their styled tag but set `aria-level` (e.g. footer `<h4 aria-level={2}>`) so the outline has no skipped levels without changing visuals.
+- Skip link + `<main id="main-content" tabIndex={-1}>` and a `RouteAnnouncer` live region live in `App.tsx`; the announcer reads `document.title` after each route change.
+- Reduced motion: `MotionConfig reducedMotion="user"`, a `prefers-reduced-motion` block at the end of `src/index.css`, and `scrollBehavior()` / `prefersReducedMotion()` in `src/utils/motion.ts` for programmatic scrolls (use them instead of hard-coding `behavior: 'smooth'`). The typewriter, carousel autoplay and particle field handle it individually.
+- Text contrast: `--text-quinary` is the lowest allowed text color. Don't dim text with `opacity` below 0.6.
+- Focus rings: custom `outline-hidden` elements need `focus-visible:outline-solid` too (Tailwind 4 sets outline-style none). `bg-text-primary` style utilities aren't generated, so use `bg-(--text-primary)` / `outline-(--text-primary)`.
+- Clickable things are real `<button>`/`<a>` elements, not divs.

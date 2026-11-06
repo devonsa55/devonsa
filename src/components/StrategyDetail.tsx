@@ -294,15 +294,15 @@ const StrategyDetail: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-10 py-20 border-y border-border-subtle my-[60px] lg:mb-[100px]">
           <div className="meta-item">
-            <h3>Focus</h3>
+            <h3 aria-level={2}>Focus</h3>
             <p>{strategy.role}</p>
           </div>
           <div className="meta-item">
-            <h3>Collaborators</h3>
+            <h3 aria-level={2}>Collaborators</h3>
             <p>{strategy.team}</p>
           </div>
           <div className="meta-item">
-            <h3>Date Range</h3>
+            <h3 aria-level={2}>Date Range</h3>
             <p>{strategy.timeline}</p>
           </div>
         </div>

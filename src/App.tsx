@@ -7,9 +7,10 @@ import Decorations from './components/Decorations'
 import ThemeSwitcher from './components/ThemeSwitcher'
 import { ThemeProvider } from './context/ThemeContext'
 import { usePageMeta } from './seo/usePageMeta'
-import { lazy, Suspense, useEffect, type ReactNode } from 'react'
+import { scrollBehavior } from './utils/motion'
+import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from 'react'
 import { useLocation } from 'react-router-dom'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, MotionConfig, motion } from 'framer-motion'
 import ProfileCard from './components/ui/ProfileCard'
 import CustomCursor from './components/ui/CustomCursor'
 import { aboutData } from './data/about'
@@ -67,7 +68,7 @@ const ScrollToHash = () => {
     let timer: ReturnType<typeof setTimeout>
     const tryScroll = () => {
       const element = document.getElementById(id)
-      if (element) element.scrollIntoView({ behavior: 'smooth' })
+      if (element) element.scrollIntoView({ behavior: scrollBehavior() })
       else if (Date.now() < deadline) timer = setTimeout(tryScroll, 50)
     }
     timer = setTimeout(tryScroll, 50)
@@ -108,6 +109,35 @@ const Home = () => {
   )
 }
 
+// Tells screen readers a new page has loaded, since a single-page app
+// swaps content without a real navigation.
+const RouteAnnouncer = () => {
+  const { pathname } = useLocation()
+  const [announcement, setAnnouncement] = useState('')
+  const isFirstRender = useRef(true)
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false
+      return
+    }
+    // usePageMeta updates the title in an effect; read it just after
+    const timer = setTimeout(() => setAnnouncement(document.title), 150)
+    return () => clearTimeout(timer)
+  }, [pathname])
+
+  return (
+    <div role="status" aria-live="polite" className="sr-only">
+      {announcement}
+    </div>
+  )
+}
+
+const skipToContent = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  e.preventDefault()
+  document.getElementById('main-content')?.focus()
+}
+
 function AppContent() {
   const location = useLocation()
   usePrefetchPages()
@@ -115,12 +145,20 @@ function AppContent() {
 
   return (
     <div className="app">
+      <a
+        href="#main-content"
+        onClick={skipToContent}
+        className="fixed left-4 top-4 z-[2000] -translate-y-[200%] rounded-md bg-(--text-primary) px-4 py-2 text-sm font-semibold text-(--bg-primary) focus:translate-y-0"
+      >
+        Skip to content
+      </a>
+      <RouteAnnouncer />
       <CustomCursor />
       <ThemeSwitcher />
       <Decorations />
       <Navbar />
       <ScrollToHash />
-      <main>
+      <main id="main-content" tabIndex={-1} className="outline-hidden">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
@@ -184,9 +222,12 @@ function AppContent() {
 function App() {
   return (
     <ThemeProvider>
-      <Router>
-        <AppContent />
-      </Router>
+      {/* Honors the visitor's reduced-motion setting for every framer-motion animation */}
+      <MotionConfig reducedMotion="user">
+        <Router>
+          <AppContent />
+        </Router>
+      </MotionConfig>
     </ThemeProvider>
   )
 }

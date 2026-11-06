@@ -50,7 +50,9 @@ const Timeline = () => {
                 )}
               </div>
               <div className="company-meta">
-                <h4 className="company-name">{item.company}</h4>
+                <h4 className="company-name" aria-level={2}>
+                  {item.company}
+                </h4>
                 <div className="company-info-row">
                   {item.duration && <span className="company-duration">{item.duration}</span>}
                   {item.promotionBadge && (
@@ -68,7 +70,9 @@ const Timeline = () => {
                     <div className="role-line"></div>
                   </div>
                   <div className="role-content">
-                    <h5 className="role-title">{role.title}</h5>
+                    <h5 className="role-title" aria-level={3}>
+                      {role.title}
+                    </h5>
                     <div className="role-meta">
                       <span className="role-year">{role.year}</span>
                       {role.location && <span className="role-location">{role.location}</span>}

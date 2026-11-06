@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { scrollBehavior } from '../utils/motion'
 import { Chillwave } from './Decorations'
 import TypewriterEffect from './ui/TypewriterEffect'
 import { ArrowDown } from 'lucide-react'
@@ -74,7 +75,6 @@ const Hero = () => {
                 <span
                   style={{
                     fontSize: '0.55em',
-                    opacity: 0.8,
                     letterSpacing: '0.02em',
                     marginTop: '0.1em',
                   }}
@@ -237,7 +237,7 @@ const Hero = () => {
               e.preventDefault()
               document
                 .getElementById('work')
-                ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                ?.scrollIntoView({ behavior: scrollBehavior(), block: 'start' })
               window.history.pushState(null, '', '/#work')
             }}
           />
