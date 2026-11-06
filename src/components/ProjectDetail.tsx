@@ -125,7 +125,7 @@ const ProjectDetail: React.FC = () => {
           className="sticky-nav-wrapper"
         >
           <div className="nav-container">
-            <Link to="/" className="back-link">
+            <Link to="/#work" className="back-link">
               <ArrowLeft size={18} />
               <span>Back to Work</span>
             </Link>
@@ -246,7 +246,7 @@ const ProjectDetail: React.FC = () => {
         className="sticky-nav-wrapper"
       >
         <div className="nav-container">
-          <Link to="/" className="back-link">
+          <Link to="/#work" className="back-link">
             <ArrowLeft size={18} />
             <span>Back to Work</span>
           </Link>

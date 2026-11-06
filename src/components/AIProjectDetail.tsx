@@ -62,7 +62,7 @@ const AIProjectDetail: React.FC = () => {
         className="sticky-nav-wrapper"
       >
         <div className="nav-container">
-          <Link to="/" className="back-link">
+          <Link to="/#systems" className="back-link">
             <ArrowLeft size={18} />
             <span>Back to Work</span>
           </Link>

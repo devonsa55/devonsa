@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import Decorations from './components/Decorations'
 import ThemeSwitcher from './components/ThemeSwitcher'
 import { ThemeProvider } from './context/ThemeContext'
+import { usePageMeta } from './seo/usePageMeta'
 import { lazy, Suspense, useEffect, type ReactNode } from 'react'
 import { useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -62,7 +63,7 @@ const ScrollToHash = () => {
     // The target page mounts only after the previous page's exit animation,
     // so keep looking for the anchor briefly instead of a single fixed delay.
     const id = decodeURIComponent(hash.slice(1))
-    const deadline = Date.now() + 2000
+    const deadline = Date.now() + 4000
     let timer: ReturnType<typeof setTimeout>
     const tryScroll = () => {
       const element = document.getElementById(id)
@@ -110,6 +111,7 @@ const Home = () => {
 function AppContent() {
   const location = useLocation()
   usePrefetchPages()
+  usePageMeta()
 
   return (
     <div className="app">

@@ -61,7 +61,7 @@ const StrategyDetail: React.FC = () => {
       className="sticky-nav-wrapper"
     >
       <div className="nav-container">
-        <Link to="/" className="back-link" style={{ textDecoration: 'none' }}>
+        <Link to="/#strategy" className="back-link" style={{ textDecoration: 'none' }}>
           <ArrowLeft size={18} />
           <span>Back to Work</span>
         </Link>

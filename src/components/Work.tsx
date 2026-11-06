@@ -145,7 +145,7 @@ const Work = () => {
   )
 
   const renderStrategy = () => (
-    <div id="strategy" className="strategy-section">
+    <div id="strategy" className="strategy-section scroll-mt-8">
       <SectionHeader
         title="Strategy & Frameworks"
         subtitle="Methodologies I use to solve complex problems and build consensus."
@@ -195,7 +195,7 @@ const Work = () => {
   )
 
   const renderAIProjects = () => (
-    <div className="strategy-section ai-projects-workflow">
+    <div id="systems" className="strategy-section ai-projects-workflow scroll-mt-8">
       <SectionHeader
         title="Systems & Meta-Design"
         subtitle="Agent-readable documentation, custom tools, and frameworks designed to scale workflows and increase systemic productivity."

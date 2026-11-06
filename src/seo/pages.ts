@@ -1,0 +1,60 @@
+// Single source for each page's <title> and description.
+// Used at runtime (usePageMeta) and at build time (prerender plugin in
+// vite.config.ts), so link previews and the browser tab always agree.
+import { projects } from '../data/projects'
+import { strategyFrameworks } from '../data/strategy'
+import { aiProjects } from '../data/ai-projects'
+
+export const SITE_URL = 'https://devonsa.work'
+const SITE_NAME = 'Devon Anderson'
+
+export interface PageMeta {
+  path: string
+  title: string
+  description: string
+}
+
+const DEFAULT_META: PageMeta = {
+  path: '/',
+  title: 'Devon Anderson | UX Design Portfolio',
+  description:
+    'Devon Anderson is a Staff UX Designer (contract at Lime, formerly Google) specializing in AI agent workflows, Generative AI interfaces, and scalable communication platforms.',
+}
+
+const withName = (title: string) => `${title} | ${SITE_NAME}`
+
+export const pages: PageMeta[] = [
+  DEFAULT_META,
+  {
+    path: '/about',
+    title: withName('About'),
+    description:
+      'About Devon Anderson: a Staff UX Designer with a background in philosophy and environmental science, designing agentic AI and communication systems at scale.',
+  },
+  {
+    path: '/contact',
+    title: withName('Contact'),
+    description:
+      'Get in touch with Devon Anderson about product design, AI tools, or a project you have in mind.',
+  },
+  ...projects.map((p) => ({
+    path: `/project/${p.id}`,
+    title: withName(p.title),
+    description: p.description || p.subtitle,
+  })),
+  ...strategyFrameworks.map((s) => ({
+    path: `/strategy/${s.id}`,
+    title: withName(s.title),
+    description: s.description || s.subtitle || s.title,
+  })),
+  ...aiProjects.map((a) => ({
+    path: `/ai-project/${a.id}`,
+    title: withName(a.title),
+    description: a.subtitle,
+  })),
+]
+
+export const getPageMeta = (pathname: string): PageMeta => {
+  const normalized = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname
+  return pages.find((p) => p.path === normalized) ?? { ...DEFAULT_META, path: normalized }
+}
