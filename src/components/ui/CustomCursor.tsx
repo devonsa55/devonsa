@@ -40,7 +40,7 @@ const CustomCursor = () => {
       clearTimeout(idleTimer)
       idleTimer = setTimeout(() => {
         setIsIdle(true)
-      }, 10000)
+      }, 5000)
     }
 
     const updateMousePosition = (e: MouseEvent) => {
