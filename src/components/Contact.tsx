@@ -14,7 +14,7 @@ const Contact = () => {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <section
         id="contact"
-        className="pt-[20vh] pb-[20vh] bg-bg-primary relative bg-[radial-gradient(var(--dot-color-contact)_calc(var(--dot-size)*var(--show-dot-grid-contact)_-_0.5px),transparent_calc(var(--dot-size)*var(--show-dot-grid-contact)_+_0.5px))] bg-[length:var(--dot-space)_var(--dot-space)] bg-[position:var(--grid-align-offset)]"
+        className="pt-[max(20vh,160px)] md:pt-[max(20vh,224px)] pb-[20vh] bg-bg-primary relative bg-[radial-gradient(var(--dot-color-contact)_calc(var(--dot-size)*var(--show-dot-grid-contact)_-_0.5px),transparent_calc(var(--dot-size)*var(--show-dot-grid-contact)_+_0.5px))] bg-[length:var(--dot-space)_var(--dot-space)] bg-[position:var(--grid-align-offset)]"
       >
         <div className="container">
           <div className="max-w-[800px] mx-auto flex flex-col">
