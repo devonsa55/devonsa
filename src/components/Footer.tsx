@@ -118,7 +118,7 @@ const Footer = () => {
 
       <div className="container max-w-[800px] mx-auto text-center min-[480px]:text-left">
         <p className="mt-4 text-[0.8rem] text-text-secondary opacity-60">
-          This portfolio was built in code with Claude, Supabase, Vercel, and GitHub.
+          This portfolio was built in code with Claude, Vercel, and GitHub.
         </p>
       </div>
     </footer>

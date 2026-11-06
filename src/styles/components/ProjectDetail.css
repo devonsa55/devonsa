@@ -547,8 +547,6 @@
 
 .slack-metadata-fullwidth {
   width: 100%;
-  border-top: 2px solid var(--text-primary);
-  border-bottom: 2px solid var(--text-primary);
   margin: 60px 0 100px;
 }
 
