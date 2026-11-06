@@ -2,7 +2,15 @@ import { defineConfig, createServer, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 import fs from 'fs/promises'
-import type { PageMeta } from './src/seo/pages'
+
+// Mirrors PageMeta in src/seo/pages.ts (that module is loaded at build time
+// through Vite's SSR loader below, so the config doesn't import it directly)
+interface PageMeta {
+  path: string
+  title: string
+  description: string
+  image?: string
+}
 
 const escapeHtml = (value: string) =>
   value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -18,7 +26,7 @@ const prerenderPageMeta = (): Plugin => ({
   async closeBundle() {
     const loader = await createServer({
       configFile: false,
-      root: __dirname,
+      root: import.meta.dirname,
       logLevel: 'silent',
       server: { middlewareMode: true, hmr: false },
       appType: 'custom',
@@ -32,7 +40,7 @@ const prerenderPageMeta = (): Plugin => ({
     }
     await loader.close()
 
-    const outDir = path.resolve(__dirname, 'dist')
+    const outDir = path.resolve(import.meta.dirname, 'dist')
     const template = await fs.readFile(path.join(outDir, 'index.html'), 'utf8')
 
     const render = (
@@ -94,7 +102,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(import.meta.dirname, './src'),
     },
   },
 })
