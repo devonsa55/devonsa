@@ -27,12 +27,8 @@
   z-index: 1000;
   height: 80px;
   display: block;
-  background-color: var(--bg-primary);
-  background-image: radial-gradient(
-    var(--dot-color-project) calc(var(--dot-size) * var(--show-dot-grid-project) - 0.5px),
-    transparent calc(var(--dot-size) * var(--show-dot-grid-project) + 0.5px)
-  );
-  background-size: var(--dot-space) var(--dot-space);
+  /* Solid fill (no dot grid) so the bar stands apart from the page, like the footer */
+  background: var(--bg-primary);
   border-bottom: 2px solid var(--text-primary);
   pointer-events: none;
 }
