@@ -12,7 +12,8 @@ export interface PageMeta {
   path: string
   title: string
   description: string
-  // Link-preview image (1200x630 JPEG in public/og/), case studies only
+  // Link-preview image (1200x630 JPEG in public/og/). Case studies use
+  // their own; every other page falls back to the name-and-avatar card.
   image?: string
 }
 
@@ -24,6 +25,8 @@ const DEFAULT_META: PageMeta = {
 }
 
 const withName = (title: string) => `${title} | ${SITE_NAME}`
+
+const DEFAULT_IMAGE = '/og/default.jpg'
 
 export const pages: PageMeta[] = [
   DEFAULT_META,
@@ -56,7 +59,7 @@ export const pages: PageMeta[] = [
     title: withName(a.title),
     description: a.subtitle,
   })),
-]
+].map((page) => ({ ...page, image: page.image ?? DEFAULT_IMAGE }))
 
 // Served by Vercel (as 404.html) for any address that isn't a real page
 export const NOT_FOUND_META: Omit<PageMeta, 'path'> = {
