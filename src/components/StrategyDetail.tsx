@@ -317,7 +317,7 @@ const StrategyDetail: React.FC = () => {
         {strategy.sections?.map((section, index) => (
           <section
             key={index}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-[3rem] lg:gap-[80px] items-center my-[100px]"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-[80px] items-center my-[100px]"
           >
             <div className="section-text">
               {section.title && <h2>{section.title}</h2>}
@@ -362,7 +362,7 @@ const StrategyDetail: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-8">
               {strategy.outcomes.map((outcome, index) => (
                 <motion.div key={index} whileHover={{ y: -5 }}>
-                  <Card className="p-10 bg-bg-secondary border-2 border-text-primary rounded-[var(--radius-card)] flex flex-col gap-6 shadow-none h-full">
+                  <Card className="p-10 bg-bg-secondary border-2 border-text-primary rounded-(--radius-card) flex flex-col gap-6 shadow-none h-full">
                     <CheckCircle2 size={24} className="check-icon text-text-primary" />
                     <p className="m-0 text-[1.1rem] leading-[1.6]">{outcome}</p>
                   </Card>

@@ -31,15 +31,15 @@ const Hero = () => {
   }
 
   return (
-    <section className="min-h-[100svh] overflow-visible relative flex items-center justify-center z-10">
-      <div className="container flex flex-col items-start text-left relative z-[2] w-full h-full justify-center pb-0">
+    <section className="min-h-svh overflow-visible relative flex items-center justify-center z-10">
+      <div className="container flex flex-col items-start text-left relative z-2 w-full h-full justify-center pb-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="w-full"
         >
-          <h1 className="!m-0 text-[clamp(2.5rem,5.65vw,var(--hero-font-size-max))] text-text-primary leading-[1.22] max-w-[100vw] font-extrabold tracking-[-0.03em] relative pt-[0.1em]">
+          <h1 className="m-0! text-[clamp(2.5rem,5.65vw,var(--hero-font-size-max))] text-text-primary leading-[1.22] max-w-[100vw] font-extrabold tracking-[-0.03em] relative pt-[0.1em]">
             I&apos;m a product <br className="sm:hidden" />
             <span
               onMouseMove={handleMouseMove}
@@ -85,7 +85,7 @@ const Hero = () => {
             </span>
             <br />
             <span
-              className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10 mr-[0.1em]"
+              className="group inline-block text-text-primary relative no-underline z-1 after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-400 after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10 mr-[0.1em]"
               onMouseEnter={() => setIsSurfing(true)}
               onMouseMove={handleMouseMove}
               onMouseLeave={() => {
@@ -121,7 +121,7 @@ const Hero = () => {
             </span>{' '}
             &{' '}
             <span
-              className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10"
+              className="group inline-block text-text-primary relative no-underline z-1 after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-400 after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10"
               onMouseEnter={() => setIsAudioHovered(true)}
               onMouseMove={handleMouseMove}
               onMouseLeave={() => {
@@ -179,7 +179,7 @@ const Hero = () => {
             <span className="whitespace-nowrap tracking-[-0.04em]">
               open to roles in the{' '}
               <span
-                className="group inline-block text-text-primary relative no-underline z-[1] after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-[400ms] after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10 ml-[0.1em]"
+                className="group inline-block text-text-primary relative no-underline z-1 after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-400 after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10 ml-[0.1em]"
                 onMouseEnter={() => setIsSFAreaHovered(true)}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={() => {
@@ -221,7 +221,7 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <div className="container absolute bottom-[4svh] lg:bottom-[5vh] left-1/2 -translate-x-1/2 w-full z-[20] flex justify-start pointer-events-none">
+      <div className="container absolute bottom-[4svh] lg:bottom-[5vh] left-1/2 -translate-x-1/2 w-full z-20 flex justify-start pointer-events-none">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

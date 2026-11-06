@@ -1,6 +1,6 @@
 # Devon Anderson — portfolio (devonsa.work)
 
-Personal UX portfolio. React 18 + TypeScript SPA, built with Vite 8, styled with Tailwind 3 plus per-component CSS, hosted on Vercel. Visual design rules live in [DESIGN.md](./DESIGN.md) — read it before any UI work.
+Personal UX portfolio. React 19 + TypeScript SPA, built with Vite 8, styled with Tailwind 4 plus per-component CSS, hosted on Vercel. Visual design rules live in [DESIGN.md](./DESIGN.md) — read it before any UI work.
 
 ## Commands
 
@@ -49,15 +49,22 @@ Personal UX portfolio. React 18 + TypeScript SPA, built with Vite 8, styled with
 
 ## Dependency upgrade plan and constraints
 
-Done: minor updates, ESLint 9 + React Hooks rules, Vite 8, React 19 + framer-motion 14 (only needed explicit `Variants` types where `ease` strings were widened, and `motion.create()` instead of `motion()`). Remaining, one per branch and deploy:
-
-1. **Tailwind 4 + tailwind-merge 3 + lucide 1.x** — the most visual change (class renames, default border color); do a before/after screenshot comparison of every page in light and dark mode. Tailwind's official upgrade tool handles most renames.
+Done: minor updates, ESLint 9 + React Hooks rules, Vite 8, React 19 + framer-motion 14, Tailwind 4 + tailwind-merge 3 + lucide 1.x. No major upgrades are pending.
 
 Pinned on purpose:
 
 - `@vitejs/plugin-react` stays on 5.x: 6.x's optional Babel 8 peers conflict with the Babel 7 still used by `shadcn` and `eslint-plugin-react-hooks`. Revisit when those move to Babel 8.
 - ESLint stays on 9: `eslint-plugin-react` doesn't support ESLint 10 yet.
 - Skip TypeScript 7 (the native rewrite) until the ecosystem needs it.
+
+## Tailwind 4 notes
+
+- There is no `tailwind.config.js`: theme tokens live in the `@theme inline` block at the top of `src/index.css`, and PostCSS uses `@tailwindcss/postcss`.
+- **Unlayered CSS beats every utility, whatever its specificity.** Element-level rules (`*`, `body`, headings, `a`, `button`, `img`...) must stay inside `@layer base` in `src/index.css`, or they cancel utilities (an unlayered `* { padding: 0 }` wiped out all spacing during the upgrade). Don't define classes that share a Tailwind utility's name (an unlayered `.text-center` was beating `sm:text-left`).
+- `translate-*`, `scale-*` and `rotate-*` set the separate `translate`/`scale`/`rotate` properties, so they **stack** with a CSS `transform` on the same element instead of replacing it. Use one or the other.
+- The `@theme` block restores Tailwind 3's fixed `text-*` line heights; v4's ratio line heights grew headings whose font size is overridden by component CSS.
+- Classes like `text-text-primary`, `border-text-primary`, `border-border-subtle` and `bg-bg-secondary` generate **no CSS** (those colors were never in the theme, in v3 either). Pages look right without them; adding the tokens to `@theme` would switch them on and change colors, so do that deliberately with a screenshot diff.
+- lucide 1.x dropped brand icons; `Github`, `Linkedin` and `Youtube` come from `src/components/ui/BrandIcons.tsx`.
 
 ## Verifying changes
 

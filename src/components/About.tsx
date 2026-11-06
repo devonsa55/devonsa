@@ -93,9 +93,9 @@ const About = () => {
       exit={{ opacity: 0 }}
       className="about-page"
     >
-      <section className="pt-[10rem] bg-bg-primary relative font-body bg-[radial-gradient(var(--dot-color-about)_calc(var(--dot-size)*var(--show-dot-grid-about)_-_0.5px),transparent_calc(var(--dot-size)*var(--show-dot-grid-about)_+_0.5px))] bg-[length:var(--dot-space)_var(--dot-space)] bg-[position:var(--grid-align-offset)]">
+      <section className="pt-40 bg-bg-primary relative font-body bg-[radial-gradient(var(--dot-color-about)_calc(var(--dot-size)*var(--show-dot-grid-about)-0.5px),transparent_calc(var(--dot-size)*var(--show-dot-grid-about)+0.5px))] bg-size-[var(--dot-space)_var(--dot-space)] bg-position-(--grid-align-offset)">
         <div className="container">
-          <div className="max-w-[800px] mx-auto flex flex-col gap-12 lg:gap-[5rem]">
+          <div className="max-w-[800px] mx-auto flex flex-col gap-12 lg:gap-20">
             <div className="flex flex-col gap-6 items-center text-left">
               <div
                 className={`w-[clamp(136px,42.5vw,255px)] text-center flex justify-center relative mx-auto select-none ${isGoogly ? 'is-googly' : ''}`}
@@ -163,7 +163,7 @@ const About = () => {
               <div className="relative w-full mt-0">
                 <button
                   onClick={prevSlide}
-                  className="carousel-arrow carousel-arrow-left absolute left-[-28px] top-1/2 -translate-y-1/2 bg-bg-primary !border-2 !border-black rounded-full w-[56px] h-[56px] flex items-center justify-center cursor-pointer z-10 transition-all duration-200 text-text-primary hover:-translate-y-1/2 hover:-translate-x-[2px] hover:shadow-[4px_4px_0_#d1d5db]"
+                  className="carousel-arrow carousel-arrow-left absolute left-[-28px] top-1/2 -translate-y-1/2 bg-bg-primary border-2! border-black! rounded-full w-[56px] h-[56px] flex items-center justify-center cursor-pointer z-10 transition-all duration-200 text-text-primary hover:-translate-y-1/2 hover:translate-x-[-2px] hover:shadow-[4px_4px_0_#d1d5db]"
                   aria-label="Previous"
                 >
                   <ChevronLeft size={32} />
@@ -172,7 +172,7 @@ const About = () => {
                 <div className="w-full overflow-hidden relative">
                   <motion.div
                     key={currentIndex}
-                    className="hobby-card relative w-full min-h-[500px] !border-2 !border-black rounded-[32px] bg-[#e5e7eb] overflow-hidden"
+                    className="hobby-card relative w-full min-h-[500px] border-2! border-black! rounded-lg bg-[#e5e7eb] overflow-hidden"
                   >
                     <img
                       src={aboutData.hobbies[currentIndex].image}
@@ -190,7 +190,7 @@ const About = () => {
 
                 <button
                   onClick={nextSlide}
-                  className="carousel-arrow carousel-arrow-right absolute right-[-28px] top-1/2 -translate-y-1/2 bg-bg-primary !border-2 !border-black rounded-full w-[56px] h-[56px] flex items-center justify-center cursor-pointer z-10 transition-all duration-200 text-text-primary hover:-translate-y-1/2 hover:translate-x-[2px] hover:shadow-[4px_4px_0_#d1d5db]"
+                  className="carousel-arrow carousel-arrow-right absolute right-[-28px] top-1/2 -translate-y-1/2 bg-bg-primary border-2! border-black! rounded-full w-[56px] h-[56px] flex items-center justify-center cursor-pointer z-10 transition-all duration-200 text-text-primary hover:-translate-y-1/2 hover:translate-x-[2px] hover:shadow-[4px_4px_0_#d1d5db]"
                   aria-label="Next"
                 >
                   <ChevronRight size={32} />
@@ -219,7 +219,7 @@ const About = () => {
               }}
             >
               <ProfileCard
-                icon={<HandDrawnArrow strokeWidth={14} className="animated-arrow !h-[1.2em]" />}
+                icon={<HandDrawnArrow strokeWidth={14} className="animated-arrow h-[1.2em]!" />}
                 text="Ready to start a project?"
                 subtext="Let's build something meaningful"
                 link="/contact"

@@ -1,7 +1,8 @@
 import { lazy, Suspense, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { fadeInUp } from '../utils/motion'
-import { Github, Linkedin, FileText, MessageSquareHeart, ChevronDown } from 'lucide-react'
+import { FileText, MessageSquareHeart, ChevronDown } from 'lucide-react'
+import { Github, Linkedin } from './ui/BrandIcons'
 import { aboutData } from '../data/about'
 
 // The form pulls in the Supabase client, so it loads only when opened.
@@ -14,7 +15,7 @@ const Contact = () => {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <section
         id="contact"
-        className="pt-[max(20vh,160px)] md:pt-[max(20vh,224px)] pb-[20vh] bg-bg-primary relative bg-[radial-gradient(var(--dot-color-contact)_calc(var(--dot-size)*var(--show-dot-grid-contact)_-_0.5px),transparent_calc(var(--dot-size)*var(--show-dot-grid-contact)_+_0.5px))] bg-[length:var(--dot-space)_var(--dot-space)] bg-[position:var(--grid-align-offset)]"
+        className="pt-[max(20vh,160px)] md:pt-[max(20vh,224px)] pb-[20vh] bg-bg-primary relative bg-[radial-gradient(var(--dot-color-contact)_calc(var(--dot-size)*var(--show-dot-grid-contact)-0.5px),transparent_calc(var(--dot-size)*var(--show-dot-grid-contact)+0.5px))] bg-size-[var(--dot-space)_var(--dot-space)] bg-position-(--grid-align-offset)"
       >
         <div className="container">
           <div className="max-w-[800px] mx-auto flex flex-col">
@@ -51,13 +52,13 @@ const Contact = () => {
                   href="https://github.com/devonsa"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 px-5 py-4 bg-bg-primary border-2 border-text-primary rounded-[var(--radius-card)] no-underline text-text-primary transition-all duration-[150ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:-translate-y-[4px]"
+                  className="flex items-center gap-4 px-5 py-4 bg-bg-primary border-2 border-text-primary rounded-(--radius-card) no-underline text-text-primary transition-all duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:translate-y-[-4px]"
                 >
                   <div className="text-text-primary flex items-center justify-center shrink-0">
                     <Github size={22} />
                   </div>
                   <div className="method-info">
-                    <span className="block text-[0.7rem] uppercase tracking-[0.1em] opacity-50 mb-0.5">
+                    <span className="block text-[0.7rem] uppercase tracking-widest opacity-50 mb-0.5">
                       GitHub
                     </span>
                     <p className="text-[1rem] font-semibold m-0 tracking-tight">
@@ -70,13 +71,13 @@ const Contact = () => {
                   href="https://linkedin.com/in/devonsa"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 px-5 py-4 bg-bg-primary border-2 border-text-primary rounded-[var(--radius-card)] no-underline text-text-primary transition-all duration-[150ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:-translate-y-[4px]"
+                  className="flex items-center gap-4 px-5 py-4 bg-bg-primary border-2 border-text-primary rounded-(--radius-card) no-underline text-text-primary transition-all duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:translate-y-[-4px]"
                 >
                   <div className="text-text-primary flex items-center justify-center shrink-0">
                     <Linkedin size={22} />
                   </div>
                   <div className="method-info">
-                    <span className="block text-[0.7rem] uppercase tracking-[0.1em] opacity-50 mb-0.5">
+                    <span className="block text-[0.7rem] uppercase tracking-widest opacity-50 mb-0.5">
                       LinkedIn
                     </span>
                     <p className="text-[1rem] font-semibold m-0 tracking-tight">Connect with me</p>
@@ -87,13 +88,13 @@ const Contact = () => {
                   href={aboutData.resumeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 px-5 py-4 bg-bg-primary border-2 border-text-primary rounded-[var(--radius-card)] no-underline text-text-primary transition-all duration-[150ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:-translate-y-[4px]"
+                  className="flex items-center gap-4 px-5 py-4 bg-bg-primary border-2 border-text-primary rounded-(--radius-card) no-underline text-text-primary transition-all duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:translate-y-[-4px]"
                 >
                   <div className="text-text-primary flex items-center justify-center shrink-0">
                     <FileText size={22} />
                   </div>
                   <div className="method-info">
-                    <span className="block text-[0.7rem] uppercase tracking-[0.1em] opacity-50 mb-0.5">
+                    <span className="block text-[0.7rem] uppercase tracking-widest opacity-50 mb-0.5">
                       Resume / CV
                     </span>
                     <p className="text-[1rem] font-semibold m-0 tracking-tight">
@@ -104,15 +105,15 @@ const Contact = () => {
               </div>
 
               <div
-                className={`overflow-hidden rounded-[var(--radius-card)] !border-solid !border-2 !border-text-primary bg-bg-primary transition-all duration-[150ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                  isFeedbackOpen ? '' : 'hover:-translate-y-[4px] hover:shadow-hover'
+                className={`overflow-hidden rounded-(--radius-card) border-solid! border-2! !border-text-primary bg-bg-primary transition-all duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  isFeedbackOpen ? '' : 'hover:translate-y-[-4px] hover:shadow-hover'
                 }`}
               >
                 <button
                   type="button"
                   onClick={() => setIsFeedbackOpen((open) => !open)}
                   aria-expanded={isFeedbackOpen}
-                  className="flex w-full items-center gap-4 px-5 py-4 text-left outline-none"
+                  className="flex w-full items-center gap-4 px-5 py-4 text-left outline-hidden"
                 >
                   <div className="flex shrink-0 items-center justify-center text-text-primary">
                     <MessageSquareHeart size={22} />
@@ -121,7 +122,7 @@ const Contact = () => {
                     <p className="m-0 text-[1rem] font-semibold tracking-tight">
                       Feedback is a gift
                     </p>
-                    <span className="mt-0.5 block text-[0.85rem] text-[var(--text-secondary)]">
+                    <span className="mt-0.5 block text-[0.85rem] text-(--text-secondary)">
                       If you have thoughts on how I could improve this portfolio—or just want to
                       leave something kind—I&apos;d genuinely love to hear it.
                     </span>
@@ -144,7 +145,7 @@ const Contact = () => {
                       transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="!border-solid !border-t-2 !border-text-primary px-5 pb-5 pt-5">
+                      <div className="border-solid! border-t-2! !border-text-primary px-5 pb-5 pt-5">
                         <Suspense fallback={<div className="h-[420px]" aria-busy="true" />}>
                           <FeedbackWidget />
                         </Suspense>

@@ -7,7 +7,7 @@ const DECK_URL = 'https://www.figma.com/deck/AqjJArs2DUZWZWKZ5QCRTW'
 
 export const ProtectedDeckLink: React.FC = () => (
   <div className="password-gate-container w-full max-w-6xl mx-auto my-12">
-    <div className="deck-player-frame w-full aspect-video rounded-[32px] overflow-hidden border-2 border-text-primary bg-bg-secondary relative flex items-center justify-center">
+    <div className="deck-player-frame w-full aspect-video rounded-lg overflow-hidden border-2 border-text-primary bg-bg-secondary relative flex items-center justify-center">
       {/* Case study hero as a theme-aware, blurred backdrop */}
       <div className="absolute inset-0 w-full h-full select-none pointer-events-none">
         <img
@@ -15,7 +15,7 @@ export const ProtectedDeckLink: React.FC = () => (
           className="w-full h-full object-cover opacity-20 dark:opacity-40 filter blur-[2px]"
           alt=""
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/50 to-bg-primary/80" />
+        <div className="absolute inset-0 bg-linear-to-t from-bg-primary via-bg-primary/50 to-bg-primary/80" />
       </div>
 
       <div
@@ -37,7 +37,7 @@ export const ProtectedDeckLink: React.FC = () => (
           href={DECK_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full py-3.5 font-bold text-sm rounded-xl hover:shadow-hover hover:-translate-y-[2px] active:scale-[0.98] border-2 transition-all flex items-center justify-center gap-2"
+          className="w-full py-3.5 font-bold text-sm rounded-xl hover:shadow-hover hover:translate-y-[-2px] active:scale-[0.98] border-2 transition-all flex items-center justify-center gap-2"
           style={{
             backgroundColor: 'var(--text-primary)',
             color: 'var(--bg-primary)',

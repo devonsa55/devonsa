@@ -209,7 +209,8 @@
 .carousel-arrow {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  /* Centering and hover nudge come from the Tailwind translate utilities in
+     About.tsx. A transform here would stack with them in Tailwind 4. */
   background: var(--bg-primary);
   border: 2px solid #000000 !important;
   border-radius: 50%;
@@ -225,7 +226,6 @@
 }
 
 .carousel-arrow:hover {
-  transform: translateY(-50%) translate(-2px, 0);
   box-shadow: 4px 4px 0px #d1d5db;
 }
 

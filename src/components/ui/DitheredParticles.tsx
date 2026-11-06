@@ -19,7 +19,7 @@ export type IdleShape =
   | 'wave'
   | 'floating-nodes'
   | 'grid-vibration'
-export type ParticleShape = 'square' | 'circle' | 'rounded'
+export type ParticleShape = 'square' | 'circle' | 'rounded-sm'
 
 export interface DitheredParticlesProps {
   iconShape: IconShape
@@ -604,7 +604,7 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
           ctx.beginPath()
           ctx.arc(snappedX + pixelSize / 2, snappedY + pixelSize / 2, pixelSize / 2, 0, Math.PI * 2)
           ctx.fill()
-        } else if (particleShape === 'rounded') {
+        } else if (particleShape === 'rounded-sm') {
           ctx.beginPath()
           ctx.roundRect(snappedX, snappedY, pixelSize, pixelSize, pixelSize / 4)
           ctx.fill()
@@ -619,7 +619,7 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
 
   const baseStyles = fullBleed
     ? 'w-full h-full overflow-hidden'
-    : 'w-full h-full min-h-[400px] overflow-hidden rounded-[40px] border-[3px] border-[var(--text-primary)] cursor-pointer transition-transform duration-300 md:hover:scale-[1.02] md:hover:shadow-2xl'
+    : 'w-full h-full min-h-[400px] overflow-hidden rounded-[40px] border-[3px] border-(--text-primary) cursor-pointer transition-transform duration-300 md:hover:scale-[1.02] md:hover:shadow-2xl'
 
   return (
     <div

@@ -10,7 +10,6 @@ import {
   TrendingUp,
   Cpu,
   Wrench,
-  Youtube,
   MessageSquare,
   Store,
   Shield,
@@ -27,6 +26,7 @@ import {
   Palette,
   Star,
 } from 'lucide-react'
+import { Youtube } from './ui/BrandIcons'
 import { Badge } from './ui/badge'
 import { Button } from './ui/button'
 import { Card } from './ui/card'
@@ -259,14 +259,14 @@ const ProjectDetail: React.FC = () => {
             {project.tags[0]} Case Study
           </Badge>
           <motion.h1
-            className="font-heading text-[clamp(2rem,8vw,6rem)] leading-[0.95] mb-5 break-words"
+            className="font-heading text-[clamp(2rem,8vw,6rem)] leading-[0.95] mb-5 wrap-break-word"
             {...fadeInUp}
             transition={{ delay: 0.1 }}
           >
             {project.title}
           </motion.h1>
           <motion.p
-            className="text-[clamp(1.25rem,3vw,2rem)] text-[var(--text-secondary)] max-w-[900px] leading-snug"
+            className="text-[clamp(1.25rem,3vw,2rem)] text-(--text-secondary) max-w-[900px] leading-snug"
             {...fadeInUp}
             transition={{ delay: 0.2 }}
           >
@@ -336,7 +336,7 @@ const ProjectDetail: React.FC = () => {
         {project.sections?.map((section, index) => (
           <section
             key={index}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-[3rem] lg:gap-[80px] items-center my-[100px]"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-[80px] items-center my-[100px]"
           >
             <div className="section-text">
               {section.title && <h2>{section.title}</h2>}
@@ -383,7 +383,7 @@ const ProjectDetail: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-8">
               {project.outcomes.map((outcome, index) => (
                 <motion.div key={index} whileHover={{ y: -5 }}>
-                  <Card className="p-10 bg-bg-secondary border-2 border-text-primary rounded-[var(--radius-card)] flex flex-col gap-6 shadow-none h-full">
+                  <Card className="p-10 bg-bg-secondary border-2 border-text-primary rounded-(--radius-card) flex flex-col gap-6 shadow-none h-full">
                     <CheckCircle2 size={24} className="check-icon text-text-primary" />
                     <p className="m-0 text-[1.1rem] leading-[1.6]">{outcome}</p>
                   </Card>

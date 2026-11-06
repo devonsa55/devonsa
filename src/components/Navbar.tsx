@@ -69,7 +69,7 @@ const Navbar = () => {
       onAnimationComplete={() => setIsLoaded(true)}
       className={`navbar ${scrolled ? 'is-scrolled' : ''} ${isMobileMenuOpen ? 'mobile-menu-open' : ''} ${isHomePage ? 'is-home' : ''} ${!isLoaded ? 'is-loading' : ''}`}
     >
-      <div className="container flex justify-between items-center w-full z-[1002]">
+      <div className="container flex justify-between items-center w-full z-1002">
         <Link to="/" className="logo">
           <div
             className="signature-logo-header"
@@ -104,7 +104,7 @@ const Navbar = () => {
             </Link>
             <Link
               to="/contact"
-              className="group absolute z-[1] mt-3 right-[-12px]"
+              className="group absolute z-1 mt-3 right-[-12px]"
               style={{
                 top: '100%',
                 transform: 'rotate(90deg) translateX(100%)',
@@ -122,7 +122,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="block md:hidden text-text-primary z-[1002] p-2 mt-0 max-[720px]:-mr-2"
+          className="block md:hidden text-text-primary z-1002 p-2 mt-0 max-[720px]:-mr-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -137,7 +137,7 @@ const Navbar = () => {
         </SheetTrigger>
         <SheetContent
           side="right"
-          className="w-[100vw] sm:max-w-[400px] bg-bg-primary pt-[180px] px-[var(--container-padding)] border-none"
+          className="w-screen sm:max-w-[400px] bg-bg-primary pt-[180px] px-(--container-padding) border-none"
         >
           <SheetTitle className="sr-only">Site navigation</SheetTitle>
           <div className="flex flex-col gap-12">

@@ -72,13 +72,13 @@ const FeedbackWidget = () => {
               exit={{ opacity: 0 }}
               className="flex flex-col items-center gap-3 py-8 text-center"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-success)] text-white">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-(--color-success) text-white">
                 <Check size={22} />
               </div>
               <p className="font-heading text-xl font-semibold text-text-primary">
                 Thanks for reaching out!
               </p>
-              <p className="max-w-[360px] text-sm text-[var(--text-secondary)]">
+              <p className="max-w-[360px] text-sm text-(--text-secondary)">
                 Your message has been saved to my Supabase database and I&apos;ll review it shortly.
               </p>
             </motion.div>
@@ -107,7 +107,7 @@ const FeedbackWidget = () => {
               <div className="flex flex-col gap-1.5">
                 <label
                   htmlFor="fw-name"
-                  className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)]"
+                  className="font-mono text-xs uppercase tracking-wider text-(--text-secondary)"
                 >
                   Name ({name.length}/{NAME_MAX})
                 </label>
@@ -120,14 +120,14 @@ const FeedbackWidget = () => {
                   maxLength={NAME_MAX}
                   disabled={loading}
                   required
-                  className="rounded-[10px] border-2 border-[var(--border-subtle)] bg-transparent px-4 py-3 text-[0.95rem] text-text-primary outline-none transition-colors placeholder:text-[var(--text-quinary)] focus:border-[var(--text-primary)] disabled:opacity-50"
+                  className="rounded-[10px] border-2 border-(--border-subtle) bg-transparent px-4 py-3 text-[0.95rem] text-text-primary outline-hidden transition-colors placeholder:text-(--text-quinary) focus:border-(--text-primary) disabled:opacity-50"
                 />
               </div>
 
               <div className="flex flex-col gap-1.5">
                 <label
                   htmlFor="fw-message"
-                  className="font-mono text-xs uppercase tracking-wider text-[var(--text-secondary)]"
+                  className="font-mono text-xs uppercase tracking-wider text-(--text-secondary)"
                 >
                   Message ({message.length}/{MESSAGE_MAX})
                 </label>
@@ -140,7 +140,7 @@ const FeedbackWidget = () => {
                   maxLength={MESSAGE_MAX}
                   disabled={loading}
                   required
-                  className="resize-none rounded-[10px] border-2 border-[var(--border-subtle)] bg-transparent px-4 py-3 text-[0.95rem] text-text-primary outline-none transition-colors placeholder:text-[var(--text-quinary)] focus:border-[var(--text-primary)] disabled:opacity-50"
+                  className="resize-none rounded-[10px] border-2 border-(--border-subtle) bg-transparent px-4 py-3 text-[0.95rem] text-text-primary outline-hidden transition-colors placeholder:text-(--text-quinary) focus:border-(--text-primary) disabled:opacity-50"
                 />
               </div>
 

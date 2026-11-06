@@ -134,7 +134,7 @@ const ProfileCard = ({
                     border-radius: 50%;
                     overflow: hidden;
                     border: 2px solid var(--bg-primary);
-                    flex-shrink: 0;
+                    shrink: 0;
                     display: flex;
                     align-items: center;
                     justify-content: center;

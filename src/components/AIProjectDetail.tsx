@@ -81,7 +81,7 @@ const AIProjectDetail: React.FC = () => {
             </Badge>
           ))}
           <motion.h1
-            className="font-heading text-[clamp(2.5rem,6vw,5rem)] leading-[1.1] mb-6 break-words tracking-tight"
+            className="font-heading text-[clamp(2.5rem,6vw,5rem)] leading-[1.1] mb-6 wrap-break-word tracking-tight"
             {...fadeInUp}
             transition={{ delay: 0.1 }}
           >
@@ -126,8 +126,8 @@ const AIProjectDetail: React.FC = () => {
 
         <section className="mb-24">
           <h2 className="text-3xl font-heading mb-8">Resources & Instructions</h2>
-          <div className="p-0.5 rounded-sm bg-border-subtle">
-            <div className="bg-background rounded-sm overflow-hidden shadow-2xl">
+          <div className="p-0.5 rounded-xs bg-border-subtle">
+            <div className="bg-background rounded-xs overflow-hidden shadow-2xl">
               <MDViewer instructions={project.instructions} />
             </div>
           </div>

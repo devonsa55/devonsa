@@ -1,15 +1,58 @@
 /* Component Styles */
-@import './styles/components/Work.css';
-@import './styles/components/ProjectDetail.css';
+@import './styles/components/Work.css' layer(base);
+@import './styles/components/ProjectDetail.css' layer(base);
 
-@import './styles/components/AboutRedesign.css';
-@import './styles/components/Navbar.css';
+@import './styles/components/AboutRedesign.css' layer(base);
+@import './styles/components/Navbar.css' layer(base);
 
-@import './styles/components/Decorations.css';
+@import './styles/components/Decorations.css' layer(base);
 
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-background: var(--color-background);
+  --color-text: var(--color-text);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-tertiary: var(--bg-tertiary);
+
+  --font-body: var(--font-body), sans-serif;
+  --font-heading: var(--font-heading), sans-serif;
+  --font-mono: var(--font-mono), monospace;
+
+  --radius-lg: 32px;
+
+  /* Tailwind 3's fixed line heights. v4 uses ratios instead, which scale up
+     when CSS overrides a text-* utility's font size (e.g. .section-label). */
+  --text-xs--line-height: 1rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl--line-height: 1.75rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-4xl--line-height: 2.5rem;
+
+  --shadow-hover: var(--shadow-hover);
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-text);
+  }
+}
 
 /* Global Variables & Shared Tokens */
 :root {
@@ -156,17 +199,82 @@
   color: var(--text-primary);
 }
 
-.text-center {
-  text-align: center;
-}
-
-/* Base Resets */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Element-level base styles. These must sit in @layer base: in Tailwind 4,
+   unlayered CSS beats every utility regardless of specificity, so an
+   unlayered `* { padding: 0 }` would cancel all spacing utilities. */
+@layer base {
+  /* Base Resets */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: var(--bg-primary);
+    background-color: var(--bg-primary);
+    transition: background-color 0.5s ease;
+  }
+  main,
+  footer {
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    /* Let clicks pass through empty spaces to decorations */
+  }
+  main > *,
+  footer > * {
+    pointer-events: auto;
+    /* Re-enable clicks on actual content */
+  }
+  body {
+    font-family: var(--font-body);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-weight: 400;
+    line-height: 1.5;
+    overflow-x: hidden;
+    transition:
+      background-color 0.5s ease,
+      color 0.5s ease;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  em {
+    font-style: italic;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
+  }
+  li {
+    list-style: none;
+  }
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: var(--transition-smooth);
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
 }
 
 /* Hide default cursor globally ONLY on devices with a mouse */
@@ -189,46 +297,12 @@
   pointer-events: none;
 }
 
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-  background-color: var(--bg-primary);
-  background-color: var(--bg-primary);
-  transition: background-color 0.5s ease;
-}
-
 /* Layout & Layering */
 .app {
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
   width: 100%;
-}
-
-main,
-footer {
-  position: relative;
-  z-index: 1;
-  pointer-events: none;
-  /* Let clicks pass through empty spaces to decorations */
-}
-
-main > *,
-footer > * {
-  pointer-events: auto;
-  /* Re-enable clicks on actual content */
-}
-
-body {
-  font-family: var(--font-body);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  font-weight: 400;
-  line-height: 1.5;
-  overflow-x: hidden;
-  transition:
-    background-color 0.5s ease,
-    color 0.5s ease;
 }
 
 .home-page {
@@ -239,46 +313,6 @@ body {
   background-size: var(--dot-space) var(--dot-space);
   background-position: var(--grid-align-offset);
   min-height: 100vh;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-em {
-  font-style: italic;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: var(--transition-smooth);
-}
-
-li {
-  list-style: none;
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-  transition: var(--transition-smooth);
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
 }
 
 .container {
