@@ -147,7 +147,7 @@ const ProjectDetail: React.FC = () => {
         {!(project.id === 'conversational-insights' && viewMode === 'deck') && (
           <div className="slack-metadata-fullwidth">
             <div className="container">
-              <div className="grid grid-cols-2 md:grid-cols-4 py-20 gap-8 md:gap-12">
+              <div className="grid grid-cols-2 md:grid-cols-4 py-20 gap-8 md:gap-12 border-y border-border-subtle">
                 <div className="meta-col">
                   <span className="meta-label">Role</span>
                   <span className="meta-value">{project.role}</span>
