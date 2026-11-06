@@ -12,6 +12,8 @@ export interface PageMeta {
   path: string
   title: string
   description: string
+  // Link-preview image (1200x630 JPEG in public/og/), case studies only
+  image?: string
 }
 
 const DEFAULT_META: PageMeta = {
@@ -41,11 +43,13 @@ export const pages: PageMeta[] = [
     path: `/project/${p.id}`,
     title: withName(p.title),
     description: p.description || p.subtitle,
+    image: `/og/${p.id}.jpg`,
   })),
   ...strategyFrameworks.map((s) => ({
     path: `/strategy/${s.id}`,
     title: withName(s.title),
     description: s.description || s.subtitle || s.title,
+    image: `/og/${s.id}.jpg`,
   })),
   ...aiProjects.map((a) => ({
     path: `/ai-project/${a.id}`,

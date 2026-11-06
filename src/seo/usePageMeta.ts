@@ -28,6 +28,25 @@ export const usePageMeta = () => {
     setMeta('property', 'og:description', meta.description)
     setMeta('property', 'og:url', url)
 
+    // Case studies have a preview image; other pages drop any left over
+    // from the previous route
+    const imageKeys = [
+      ['property', 'og:image'],
+      ['property', 'og:image:width'],
+      ['property', 'og:image:height'],
+      ['name', 'twitter:card'],
+    ] as const
+    if (meta.image) {
+      setMeta('property', 'og:image', `${SITE_URL}${meta.image}`)
+      setMeta('property', 'og:image:width', '1200')
+      setMeta('property', 'og:image:height', '630')
+      setMeta('name', 'twitter:card', 'summary_large_image')
+    } else {
+      imageKeys.forEach(([attr, key]) =>
+        document.head.querySelector(`meta[${attr}="${key}"]`)?.remove(),
+      )
+    }
+
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]')
     // Unknown addresses (the 404 page) shouldn't claim a canonical URL
     if (!pages.some((p) => p.path === meta.path)) {

@@ -35,10 +35,20 @@ const prerenderPageMeta = (): Plugin => ({
     const outDir = path.resolve(__dirname, 'dist')
     const template = await fs.readFile(path.join(outDir, 'index.html'), 'utf8')
 
-    const render = (meta: { title: string; description: string }, url: string | null) => {
+    const render = (
+      meta: { title: string; description: string; image?: string },
+      url: string | null,
+    ) => {
       const title = escapeHtml(meta.title)
       const description = escapeHtml(meta.description)
+      const imageTags = meta.image
+        ? `  <meta property="og:image" content="${SITE_URL}${meta.image}" />\n` +
+          `  <meta property="og:image:width" content="1200" />\n` +
+          `  <meta property="og:image:height" content="630" />\n` +
+          `  <meta name="twitter:card" content="summary_large_image" />\n</head>`
+        : '</head>'
       return template
+        .replace('</head>', imageTags)
         .replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`)
         .replace(
           /<meta name="description"[\s\S]*?\/>/,
