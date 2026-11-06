@@ -19,7 +19,7 @@ Personal UX portfolio. React 19 + TypeScript SPA, built with Vite 8, styled with
 
 - `cleanUrls: true` serves `/project/x` from `dist/project/x.html`. There is deliberately **no** catch-all rewrite: every real page has its own prerendered HTML file, and anything else gets `dist/404.html` with a real 404 status (it boots the app, which renders the styled NotFound page).
 - Hashed build output goes to `dist/static/` (`build.assetsDir`) and is cached immutably for a year. `public/assets/` is **not** fingerprinted, so it must not be cached long — don't move build output back into `/assets`.
-- Security headers on every response: `nosniff`, `Referrer-Policy`, `X-Frame-Options: DENY`, `Permissions-Policy`, and a CSP in **report-only** mode. Plan: switch to an enforced `Content-Security-Policy` on or after 2026-11-12 if the console shows no violations. If you add a third-party script, font, frame or API origin, add it to the CSP first.
+- Security headers on every response: `nosniff`, `Referrer-Policy`, `X-Frame-Options: DENY`, `Permissions-Policy`, and an enforced `Content-Security-Policy` (switched from report-only in Nov 2026). If you add a third-party script, font, frame or API origin, add it to the CSP first.
 
 ## Routing
 
