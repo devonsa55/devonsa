@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 
 interface TypewriterEffectProps {
   words: string[]
@@ -22,6 +22,7 @@ export default function TypewriterEffect({
   className = '',
   style = {},
 }: TypewriterEffectProps) {
+  const reduceMotion = useReducedMotion()
   const [isHovered, setIsHovered] = useState(false)
   const [isIdle, setIsIdle] = useState(false)
   const [displayedText, setDisplayedText] = useState('')
@@ -63,6 +64,7 @@ export default function TypewriterEffect({
   const displayColor = isDeleting && charIndex === 0 ? nextColor : currentColor
 
   useEffect(() => {
+    if (reduceMotion) return
     let delay = typingSpeed
 
     if (!isDeleting && charIndex < currentWord.length) {
@@ -102,6 +104,7 @@ export default function TypewriterEffect({
     deletingSpeed,
     pauseDuration,
     words.length,
+    reduceMotion,
   ])
 
   return (
@@ -120,9 +123,9 @@ export default function TypewriterEffect({
         transition: 'color 0.3s ease',
       }}
     >
-      <span>{displayedText || '\u200B'}</span>
+      <span>{(reduceMotion ? words[0] : displayedText) || '\u200B'}</span>
       <motion.span
-        animate={{ opacity: [1, 0] }}
+        animate={reduceMotion ? { opacity: 1 } : { opacity: [1, 0] }}
         transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse', ease: 'linear' }}
         style={{
           display: 'inline-block',

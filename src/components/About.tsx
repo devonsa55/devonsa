@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { aboutData } from '../data/about'
 import SectionHeader from './ui/SectionHeader'
@@ -57,6 +57,8 @@ const GooglyEye = ({ mouseX, mouseY, offsetX, offsetY }: GooglyEyeProps) => {
 const About = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isGoogly, setIsGoogly] = useState(false)
+  const [carouselPaused, setCarouselPaused] = useState(false)
+  const reduceMotion = useReducedMotion()
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
@@ -77,14 +79,16 @@ const About = () => {
     setCurrentIndex((prev) => (prev - 1 + aboutData.hobbies.length) % aboutData.hobbies.length)
   }
 
-  // Auto-play carousel
+  // Auto-play carousel. Stops while the pointer or keyboard focus is inside it,
+  // and entirely for visitors who ask for reduced motion (WCAG 2.2.2).
   useEffect(() => {
+    if (reduceMotion || carouselPaused) return
     const interval = setInterval(() => {
       nextSlide()
     }, 5000) // Change slide every 5 seconds
 
     return () => clearInterval(interval)
-  }, [])
+  }, [reduceMotion, carouselPaused])
 
   return (
     <motion.div
@@ -137,8 +141,9 @@ const About = () => {
               </div>
               <SectionHeader
                 title="Hey, I'm Devon."
+                level={1}
                 centered
-                className="mb-10 w-full text-center [&_h2]:text-[clamp(2.125rem,6.8vw,3.825rem)] [&_h2]:leading-[1.1] [&_h2]:font-heading [&_h2]:font-extrabold [&_h2]:tracking-[-0.02em] [&_h2]:mb-2 [&_h2]:w-full"
+                className="mb-10 w-full text-center [&_h2]:text-[clamp(2.125rem,6.8vw,3.825rem)] [&_h2]:leading-[1.1] [&_h2]:font-heading [&_h2]:font-extrabold [&_h2]:tracking-[-0.02em] [&_h2]:mb-2 [&_h2]:w-full [&_h1]:text-[clamp(2.125rem,6.8vw,3.825rem)] [&_h1]:leading-[1.1] [&_h1]:font-heading [&_h1]:font-extrabold [&_h1]:tracking-[-0.02em] [&_h1]:mb-2 [&_h1]:w-full"
               />
 
               <p
@@ -160,7 +165,13 @@ const About = () => {
                 </p>
               </div>
 
-              <div className="relative w-full mt-0">
+              <div
+                className="relative w-full mt-0"
+                onMouseEnter={() => setCarouselPaused(true)}
+                onMouseLeave={() => setCarouselPaused(false)}
+                onFocus={() => setCarouselPaused(true)}
+                onBlur={() => setCarouselPaused(false)}
+              >
                 <button
                   onClick={prevSlide}
                   className="carousel-arrow carousel-arrow-left absolute left-[-28px] top-1/2 -translate-y-1/2 bg-bg-primary border-2! border-black! rounded-full w-[56px] h-[56px] flex items-center justify-center cursor-pointer z-10 transition-all duration-200 text-text-primary hover:-translate-y-1/2 hover:translate-x-[-2px] hover:shadow-[4px_4px_0_#d1d5db]"

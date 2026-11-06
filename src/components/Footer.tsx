@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { getAssetPath } from '../utils/assets'
 import { aboutData } from '../data/about'
 import { projects } from '../data/projects'
+import { scrollBehavior } from '../utils/motion'
 
 const Footer = () => {
   return (
@@ -21,7 +22,10 @@ const Footer = () => {
         </div>
         <div className="flex flex-col min-[480px]:flex-row min-[968px]:justify-end justify-between flex-1 gap-8 min-[480px]:gap-4 min-[968px]:gap-16 w-full max-w-full">
           <div className="min-w-[120px]">
-            <h4 className="mb-6 text-xs uppercase tracking-[0.15em] text-text-primary font-extrabold opacity-50">
+            <h4
+              aria-level={2}
+              className="mb-6 text-xs uppercase tracking-[0.15em] text-text-primary font-extrabold opacity-60"
+            >
               Navigation
             </h4>
             <Link
@@ -44,7 +48,10 @@ const Footer = () => {
             </Link>
           </div>
           <div className="min-w-[120px]">
-            <h4 className="mb-6 text-xs uppercase tracking-[0.15em] text-text-primary font-extrabold opacity-50">
+            <h4
+              aria-level={2}
+              className="mb-6 text-xs uppercase tracking-[0.15em] text-text-primary font-extrabold opacity-60"
+            >
               Case Studies
             </h4>
             {projects.map((project) => (
@@ -58,7 +65,10 @@ const Footer = () => {
             ))}
           </div>
           <div className="min-w-[120px]">
-            <h4 className="mb-6 text-xs uppercase tracking-[0.15em] text-text-primary font-extrabold opacity-50">
+            <h4
+              aria-level={2}
+              className="mb-6 text-xs uppercase tracking-[0.15em] text-text-primary font-extrabold opacity-60"
+            >
               Social
             </h4>
             <a
@@ -94,16 +104,20 @@ const Footer = () => {
 
       <div className="container flex flex-col min-[480px]:flex-row justify-between min-[480px]:items-center pt-6! max-w-[800px] mx-auto text-text-secondary text-[0.9rem] border-t border-border-subtle gap-6 min-[480px]:gap-0 text-center min-[480px]:text-left">
         <p>&copy; {new Date().getFullYear()} Devon Anderson. Designed & Built with Love.</p>
-        <div
+        <button
+          type="button"
           className="cursor-pointer flex items-center justify-center min-[480px]:justify-start gap-2 font-bold text-text-primary transition-all duration-300 hover:text-text-primary hover:translate-y-[-2px]"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => window.scrollTo({ top: 0, behavior: scrollBehavior() })}
         >
-          Back to Top <span className="text-[1.2rem]">↑</span>
-        </div>
+          Back to Top{' '}
+          <span className="text-[1.2rem]" aria-hidden="true">
+            ↑
+          </span>
+        </button>
       </div>
 
       <div className="container max-w-[800px] mx-auto text-center min-[480px]:text-left">
-        <p className="mt-4 text-[0.8rem] text-text-secondary opacity-50">
+        <p className="mt-4 text-[0.8rem] text-text-secondary opacity-60">
           This portfolio was built in code with Claude, Supabase, Vercel, and GitHub.
         </p>
       </div>

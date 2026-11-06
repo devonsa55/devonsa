@@ -58,7 +58,7 @@ const Contact = () => {
                     <Github size={22} />
                   </div>
                   <div className="method-info">
-                    <span className="block text-[0.7rem] uppercase tracking-widest opacity-50 mb-0.5">
+                    <span className="block text-[0.7rem] uppercase tracking-widest opacity-60 mb-0.5">
                       GitHub
                     </span>
                     <p className="text-[1rem] font-semibold m-0 tracking-tight">
@@ -77,7 +77,7 @@ const Contact = () => {
                     <Linkedin size={22} />
                   </div>
                   <div className="method-info">
-                    <span className="block text-[0.7rem] uppercase tracking-widest opacity-50 mb-0.5">
+                    <span className="block text-[0.7rem] uppercase tracking-widest opacity-60 mb-0.5">
                       LinkedIn
                     </span>
                     <p className="text-[1rem] font-semibold m-0 tracking-tight">Connect with me</p>
@@ -94,7 +94,7 @@ const Contact = () => {
                     <FileText size={22} />
                   </div>
                   <div className="method-info">
-                    <span className="block text-[0.7rem] uppercase tracking-widest opacity-50 mb-0.5">
+                    <span className="block text-[0.7rem] uppercase tracking-widest opacity-60 mb-0.5">
                       Resume / CV
                     </span>
                     <p className="text-[1rem] font-semibold m-0 tracking-tight">
@@ -113,7 +113,7 @@ const Contact = () => {
                   type="button"
                   onClick={() => setIsFeedbackOpen((open) => !open)}
                   aria-expanded={isFeedbackOpen}
-                  className="flex w-full items-center gap-4 px-5 py-4 text-left outline-hidden"
+                  className="flex w-full items-center gap-4 px-5 py-4 text-left outline-hidden focus-visible:outline-solid focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-(--text-primary)"
                 >
                   <div className="flex shrink-0 items-center justify-center text-text-primary">
                     <MessageSquareHeart size={22} />

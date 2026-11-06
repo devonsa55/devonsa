@@ -136,7 +136,7 @@
   --bg-secondary: #ffffff;
   --text-primary: #000000;
   --text-secondary: #27272a;
-  --text-quinary: #94a3b8;
+  --text-quinary: #64748b;
   --accent-purple: #000000;
   --accent-purple-rgb: 0, 0, 0;
   --accent-purple-light: #f4f4f5;
@@ -171,7 +171,7 @@
   --bg-secondary: #0a0a0b;
   --text-primary: #f2f2f2;
   --text-secondary: #b4b4bd;
-  --text-quinary: #737373;
+  --text-quinary: #8a8a8a;
   --accent-purple: #ffffff;
   --accent-purple-rgb: 255, 255, 255;
   --accent-purple-light: rgba(255, 255, 255, 0.1);
@@ -628,5 +628,19 @@
   .project-section.side-by-side {
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
+  }
+}
+
+/* Visitors who ask their system for less motion get (near) instant
+   transitions and no looping CSS animation. JavaScript-driven animation is
+   handled per component (MotionConfig, the typewriter, the particle cards). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

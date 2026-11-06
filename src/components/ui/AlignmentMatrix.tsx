@@ -160,7 +160,10 @@ const AlignmentMatrix: React.FC = () => {
             boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
           }}
         >
-          <h4 style={{ margin: 0, fontSize: '1.25rem', fontWeight: '800', lineHeight: 1.15 }}>
+          <h4
+            aria-level={3}
+            style={{ margin: 0, fontSize: '1.25rem', fontWeight: '800', lineHeight: 1.15 }}
+          >
             Feature Alignment Matrix
           </h4>
           <p
@@ -221,7 +224,10 @@ const AlignmentMatrix: React.FC = () => {
             <Zap size={24} fill="var(--text-primary)" stroke="var(--text-primary)" />
           </div>
           <div>
-            <h4 style={{ margin: 0, fontSize: '1.1rem', fontWeight: '800', lineHeight: 1.15 }}>
+            <h4
+              aria-level={3}
+              style={{ margin: 0, fontSize: '1.1rem', fontWeight: '800', lineHeight: 1.15 }}
+            >
               Powerful Clarity
             </h4>
             <span

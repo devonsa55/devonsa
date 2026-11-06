@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { scrollBehavior } from '../utils/motion'
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu } from 'lucide-react'
@@ -24,7 +25,7 @@ const Navbar = () => {
       e.preventDefault()
       const workSection = document.getElementById('work')
       if (workSection) {
-        workSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        workSection.scrollIntoView({ behavior: scrollBehavior(), block: 'start' })
         // Update URL hash without reload
         window.history.pushState(null, '', '/#work')
       }
@@ -165,7 +166,7 @@ const Navbar = () => {
                         e.preventDefault()
                         document
                           .getElementById('work')
-                          ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                          ?.scrollIntoView({ behavior: scrollBehavior(), block: 'start' })
                       }
                       setIsMobileMenuOpen(false)
                     }}

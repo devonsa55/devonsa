@@ -213,7 +213,7 @@ const ProjectDetail: React.FC = () => {
                     )}
                   </div>
                   <div className="slack-annotation">
-                    <h3>{section.title}</h3>
+                    <h3 aria-level={2}>{section.title}</h3>
                     <p>{section.content}</p>
                   </div>
                 </div>
@@ -301,20 +301,20 @@ const ProjectDetail: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-10 py-20 border-y border-border-subtle my-[60px] lg:mb-[100px]">
           <div className="meta-item">
-            <h3>Role</h3>
+            <h3 aria-level={2}>Role</h3>
             <p>{project.role}</p>
           </div>
           <div className="meta-item">
-            <h3>Team</h3>
+            <h3 aria-level={2}>Team</h3>
             <p>{project.team}</p>
           </div>
           <div className="meta-item">
-            <h3>Timeline</h3>
+            <h3 aria-level={2}>Timeline</h3>
             <p>{project.timeline}</p>
           </div>
           {project.result && (
             <div className="meta-item">
-              <h3>{project.resultLabel || 'Result'}</h3>
+              <h3 aria-level={2}>{project.resultLabel || 'Result'}</h3>
               <p>{project.result}</p>
             </div>
           )}
