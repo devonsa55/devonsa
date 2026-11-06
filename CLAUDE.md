@@ -49,10 +49,9 @@ Personal UX portfolio. React 18 + TypeScript SPA, built with Vite 8, styled with
 
 ## Dependency upgrade plan and constraints
 
-Done: minor updates, ESLint 9 + React Hooks rules, Vite 8. Remaining, one per branch and deploy:
+Done: minor updates, ESLint 9 + React Hooks rules, Vite 8, React 19 + framer-motion 14 (only needed explicit `Variants` types where `ease` strings were widened, and `motion.create()` instead of `motion()`). Remaining, one per branch and deploy:
 
-1. **React 19 + framer-motion 14** — expect TypeScript errors across many files; click through every animation afterwards.
-2. **Tailwind 4 + tailwind-merge 3 + lucide 1.x** — the most visual change (class renames, default border color); do a before/after screenshot comparison of every page in light and dark mode. Tailwind's official upgrade tool handles most renames.
+1. **Tailwind 4 + tailwind-merge 3 + lucide 1.x** — the most visual change (class renames, default border color); do a before/after screenshot comparison of every page in light and dark mode. Tailwind's official upgrade tool handles most renames.
 
 Pinned on purpose:
 

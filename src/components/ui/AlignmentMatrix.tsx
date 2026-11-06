@@ -3,7 +3,7 @@ import { motion, Variants } from 'framer-motion'
 import { User, Briefcase, Cpu, ArrowRight, Zap } from 'lucide-react'
 
 const AlignmentMatrix: React.FC = () => {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -13,12 +13,12 @@ const AlignmentMatrix: React.FC = () => {
     },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0 },
   }
 
-  const lineVariants = {
+  const lineVariants: Variants = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: {
       pathLength: 1,
