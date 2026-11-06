@@ -54,7 +54,13 @@ export const pages: PageMeta[] = [
   })),
 ]
 
+// Served by Vercel (as 404.html) for any address that isn't a real page
+export const NOT_FOUND_META: Omit<PageMeta, 'path'> = {
+  title: withName('Page not found'),
+  description: "This page doesn't exist or has moved. Head back to Devon Anderson's portfolio.",
+}
+
 export const getPageMeta = (pathname: string): PageMeta => {
   const normalized = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname
-  return pages.find((p) => p.path === normalized) ?? { ...DEFAULT_META, path: normalized }
+  return pages.find((p) => p.path === normalized) ?? { ...NOT_FOUND_META, path: normalized }
 }

@@ -23,20 +23,22 @@ const prerenderPageMeta = (): Plugin => ({
       server: { middlewareMode: true, hmr: false },
       appType: 'custom',
     })
-    const { pages, SITE_URL } = (await loader.ssrLoadModule('/src/seo/pages.ts')) as {
+    const { pages, SITE_URL, NOT_FOUND_META } = (await loader.ssrLoadModule(
+      '/src/seo/pages.ts',
+    )) as {
       pages: PageMeta[]
       SITE_URL: string
+      NOT_FOUND_META: Omit<PageMeta, 'path'>
     }
     await loader.close()
 
     const outDir = path.resolve(__dirname, 'dist')
     const template = await fs.readFile(path.join(outDir, 'index.html'), 'utf8')
 
-    for (const page of pages) {
-      const url = `${SITE_URL}${page.path === '/' ? '/' : page.path}`
-      const title = escapeHtml(page.title)
-      const description = escapeHtml(page.description)
-      const html = template
+    const render = (meta: { title: string; description: string }, url: string | null) => {
+      const title = escapeHtml(meta.title)
+      const description = escapeHtml(meta.description)
+      return template
         .replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`)
         .replace(
           /<meta name="description"[\s\S]*?\/>/,
@@ -52,13 +54,22 @@ const prerenderPageMeta = (): Plugin => ({
         )
         .replace(
           /<meta property="og:url"[\s\S]*?\/>/,
-          `<meta property="og:url" content="${url}" />\n  <link rel="canonical" href="${url}" />`,
+          url
+            ? `<meta property="og:url" content="${url}" />\n  <link rel="canonical" href="${url}" />`
+            : '',
         )
+    }
 
+    for (const page of pages) {
+      const url = `${SITE_URL}${page.path === '/' ? '/' : page.path}`
       const file = page.path === '/' ? 'index.html' : `${page.path.slice(1)}.html`
       await fs.mkdir(path.dirname(path.join(outDir, file)), { recursive: true })
-      await fs.writeFile(path.join(outDir, file), html)
+      await fs.writeFile(path.join(outDir, file), render(page, url))
     }
+
+    // Vercel serves 404.html, with a 404 status, for any unmatched address.
+    // It still boots the app, so the router shows the styled NotFound page.
+    await fs.writeFile(path.join(outDir, '404.html'), render(NOT_FOUND_META, null))
   },
 })
 

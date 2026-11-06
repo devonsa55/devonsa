@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { getPageMeta, SITE_URL } from './pages'
+import { getPageMeta, pages, SITE_URL } from './pages'
 
 const setMeta = (attr: 'name' | 'property', key: string, content: string) => {
   let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`)
@@ -29,6 +29,11 @@ export const usePageMeta = () => {
     setMeta('property', 'og:url', url)
 
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]')
+    // Unknown addresses (the 404 page) shouldn't claim a canonical URL
+    if (!pages.some((p) => p.path === meta.path)) {
+      canonical?.remove()
+      return
+    }
     if (!canonical) {
       canonical = document.createElement('link')
       canonical.rel = 'canonical'

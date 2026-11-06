@@ -4,12 +4,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/((?!static/|assets/|images/|favicon|robots\\.txt|llms\\.txt|sitemap\\.xml).*)",
-      "destination": "/index.html"
-    }
-  ],
   "headers": [
     {
       "source": "/static/(.*)",
