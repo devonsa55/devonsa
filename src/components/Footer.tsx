@@ -6,7 +6,7 @@ import { projects } from '../data/projects'
 const Footer = () => {
   return (
     <footer className="pt-20 pb-16 border-t border-border-subtle bg-bg-primary relative z-10">
-      <div className="container flex flex-col min-[968px]:flex-row justify-between items-start gap-[3rem] min-[968px]:gap-10 max-w-[800px] mx-auto pb-0">
+      <div className="container flex flex-col min-[968px]:flex-row justify-between items-start gap-12 min-[968px]:gap-10 max-w-[800px] mx-auto pb-0">
         <div className="footer-brand">
           <Link
             to="/"
@@ -92,10 +92,10 @@ const Footer = () => {
       {/* Explicit structural spacer block to prevent complex CSS margin collapses between grids */}
       <div style={{ height: '80px', width: '100%' }} aria-hidden="true" />
 
-      <div className="container flex flex-col min-[480px]:flex-row justify-between min-[480px]:items-center pt-10 max-w-[800px] mx-auto text-text-secondary text-[0.9rem] border-t border-border-subtle gap-6 min-[480px]:gap-0 text-center min-[480px]:text-left">
+      <div className="container flex flex-col min-[480px]:flex-row justify-between min-[480px]:items-center pt-6! max-w-[800px] mx-auto text-text-secondary text-[0.9rem] border-t border-border-subtle gap-6 min-[480px]:gap-0 text-center min-[480px]:text-left">
         <p>&copy; {new Date().getFullYear()} Devon Anderson. Designed & Built with Love.</p>
         <div
-          className="cursor-pointer flex items-center justify-center min-[480px]:justify-start gap-2 font-bold text-text-primary transition-all duration-300 hover:text-text-primary hover:-translate-y-[2px]"
+          className="cursor-pointer flex items-center justify-center min-[480px]:justify-start gap-2 font-bold text-text-primary transition-all duration-300 hover:text-text-primary hover:translate-y-[-2px]"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           Back to Top <span className="text-[1.2rem]">↑</span>
