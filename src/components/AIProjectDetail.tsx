@@ -96,7 +96,7 @@ const AIProjectDetail: React.FC = () => {
           </motion.p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12 border-y border-border-subtle my-[60px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12 border-y-2 border-border-subtle my-[60px]">
           <div className="meta-item">
             <h3
               aria-level={2}

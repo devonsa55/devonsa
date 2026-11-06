@@ -292,7 +292,7 @@ const StrategyDetail: React.FC = () => {
           </motion.div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-10 py-20 border-y border-border-subtle my-[60px] lg:mb-[100px]">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-10 py-20 border-y-2 border-border-subtle my-[60px] lg:mb-[100px]">
           <div className="meta-item">
             <h3 aria-level={2}>Focus</h3>
             <p>{strategy.role}</p>
