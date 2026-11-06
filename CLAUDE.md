@@ -13,7 +13,7 @@ Personal UX portfolio. React 19 + TypeScript SPA, built with Vite 8, styled with
 
 - **Pushing to `main` deploys to production** via Vercel's Git integration. There is no GitHub Actions workflow anymore.
 - Work on a branch; merge to `main` only when Devon explicitly says to deploy. Branch pushes get Vercel previews, but previews sit behind Vercel login and can't be checked by an agent — verify locally, then verify on devonsa.work right after a production deploy.
-- Production env vars are set in the Vercel project: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_TURNSTILE_SITE_KEY` (see `.env.example`; real values in the gitignored `.env.local`).
+- No env vars are needed at build time.
 
 ## Hosting config (`vercel.json`)
 
@@ -24,7 +24,7 @@ Personal UX portfolio. React 19 + TypeScript SPA, built with Vite 8, styled with
 ## Routing
 
 - `BrowserRouter` with clean URLs (`/project/:id`, `/strategy/:id`, `/ai-project/:id`, `/about`, `/contact`). The site used hash URLs until Nov 2026; `src/main.tsx` rewrites old `/#/...` links to clean paths before the router reads them — keep that.
-- Every page except Home is `React.lazy`-loaded and prefetched when the homepage goes idle (`App.tsx`). The feedback form (which pulls in Supabase) loads only when opened.
+- Every page except Home is `React.lazy`-loaded and prefetched when the homepage goes idle (`App.tsx`).
 - In-page anchors (`/#work`, `/#strategy`, `/#systems`) are scrolled to by `ScrollToHash` in `App.tsx`, which retries for up to 4 s because the target page mounts only after the previous page's exit animation. "Back to Work" links point at the section the page came from.
 
 ## SEO and link previews
@@ -38,10 +38,9 @@ Personal UX portfolio. React 19 + TypeScript SPA, built with Vite 8, styled with
 - Site images are WebP, sized to about 2x their displayed width (case-study screenshots max 1800px, carousel photos 1400px). Convert new images the same way; the build does no image optimization.
 - Everything in `public/` ships to production, so delete files that nothing references.
 
-## Feedback form (Supabase)
+## Feedback form (removed)
 
-- Submissions go through the `verify-feedback` Supabase Edge Function (`supabase/functions/verify-feedback/`), which verifies a Cloudflare Turnstile token, rate-limits per IP, and inserts with the service role key. The anon key has **no** insert access to `public.messages` — don't add direct client inserts back.
-- Turnstile rejects `localhost` (error 110200) unless it's added to the widget's allowed domains, so the form can't be submitted in local dev.
+- The on-page feedback form was removed in Nov 2026 because Cloudflare Turnstile would not verify on devonsa.work (error 600010). The Supabase Edge Function in `supabase/functions/verify-feedback/` and the `public.messages` table still exist but nothing calls them. If you bring the form back, check the Turnstile widget's hostname list first and re-add `challenges.cloudflare.com` (script, frame, connect) and the Supabase origin to the CSP in `vercel.json`.
 
 ## Theming
 
