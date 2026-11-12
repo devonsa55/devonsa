@@ -174,14 +174,16 @@ const ProfileCard = ({
                     color: var(--border-subtle);
                 }
                 
+                /* Wipe the filled arrow in from left to right. A dash-offset draw
+                   restarts at every subpath, so the arrowhead animated from the
+                   right while the line animated from the left. */
                 .animated-arrow .hand-drawn-path {
-                    stroke-dasharray: 1;
-                    stroke-dashoffset: 1;
-                    transition: stroke-dashoffset var(--duration-slow) var(--ease-out);
+                    clip-path: inset(0 100% 0 0);
+                    transition: clip-path var(--duration-slow) var(--ease-out);
                 }
                 
                 .profile-card:hover .animated-arrow .hand-drawn-path {
-                    stroke-dashoffset: 0;
+                    clip-path: inset(0 0 0 0);
                 }
 
                 /* Size Variants */
