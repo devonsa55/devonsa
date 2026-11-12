@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { scrollBehavior, EASE_OUT } from '../utils/motion'
 import { Chillwave } from './Decorations'
 import TypewriterEffect from './ui/TypewriterEffect'
-import RevealArrowButton from './ui/RevealArrowButton'
+import { ArrowDown } from 'lucide-react'
+import ProfileCard from './ui/ProfileCard'
 
 const words = ['designer', 'builder', 'strategist', 'leader']
 const highlightColors = [
@@ -227,8 +228,11 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: EASE_OUT }}
           className="pointer-events-auto"
         >
-          <RevealArrowButton
-            to="/#work"
+          <ProfileCard
+            variant="primary"
+            link="/#work"
+            text="See my work"
+            icon={<ArrowDown size={22} strokeWidth={2.5} />}
             onClick={(e) => {
               e.preventDefault()
               document
@@ -236,9 +240,7 @@ const Hero = () => {
                 ?.scrollIntoView({ behavior: scrollBehavior(), block: 'start' })
               window.history.pushState(null, '', '/#work')
             }}
-          >
-            See my work
-          </RevealArrowButton>
+          />
         </motion.div>
       </div>
     </section>
