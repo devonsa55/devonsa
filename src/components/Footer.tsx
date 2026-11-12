@@ -9,10 +9,7 @@ const Footer = () => {
     <footer className="pt-20 pb-16 border-t border-border-subtle bg-bg-primary relative z-10">
       <div className="container flex flex-col min-[968px]:flex-row justify-between items-start gap-12 min-[968px]:gap-10 max-w-[800px] mx-auto pb-0">
         <div className="footer-brand">
-          <Link
-            to="/"
-            className="block transition-transform duration-300 ease hover:scale-105 hover:-rotate-2"
-          >
+          <Link to="/" className="block transition-transform hover:scale-105 hover:-rotate-2">
             <img
               src={getAssetPath('/original_avatar.png')}
               alt="Devon Anderson"
@@ -30,19 +27,19 @@ const Footer = () => {
             </h4>
             <Link
               to="/#work"
-              className="block mb-3 text-text-secondary text-base transition-all duration-300 whitespace-nowrap font-medium hover:text-text-primary hover:translate-x-1"
+              className="block mb-3 text-text-secondary text-base transition-all whitespace-nowrap font-medium hover:text-text-primary hover:translate-x-1"
             >
               Work
             </Link>
             <Link
               to="/about"
-              className="block mb-3 text-text-secondary text-base transition-all duration-300 whitespace-nowrap font-medium hover:text-text-primary hover:translate-x-1"
+              className="block mb-3 text-text-secondary text-base transition-all whitespace-nowrap font-medium hover:text-text-primary hover:translate-x-1"
             >
               About Me
             </Link>
             <Link
               to="/contact"
-              className="block mb-3 text-text-secondary text-base transition-all duration-300 whitespace-nowrap font-medium hover:text-text-primary hover:translate-x-1"
+              className="block mb-3 text-text-secondary text-base transition-all whitespace-nowrap font-medium hover:text-text-primary hover:translate-x-1"
             >
               Contact Me
             </Link>
@@ -58,7 +55,7 @@ const Footer = () => {
               <Link
                 key={project.id}
                 to={project.link}
-                className="block mb-3 text-text-secondary text-base transition-all duration-300 whitespace-nowrap font-medium hover:text-text-primary hover:translate-x-1"
+                className="block mb-3 text-text-secondary text-base transition-all whitespace-nowrap font-medium hover:text-text-primary hover:translate-x-1"
               >
                 {project.title}
               </Link>
@@ -75,7 +72,7 @@ const Footer = () => {
               href="https://linkedin.com/in/devonsa"
               target="_blank"
               rel="noopener noreferrer"
-              className="block mb-3 text-text-secondary text-base transition-all duration-300 whitespace-nowrap font-medium hover:text-text-primary hover:translate-x-1"
+              className="block mb-3 text-text-secondary text-base transition-all whitespace-nowrap font-medium hover:text-text-primary hover:translate-x-1"
             >
               LinkedIn
             </a>
@@ -83,7 +80,7 @@ const Footer = () => {
               href="https://twitter.com/devonsanderson"
               target="_blank"
               rel="noopener noreferrer"
-              className="block mb-3 text-text-secondary text-base transition-all duration-300 whitespace-nowrap font-medium hover:text-text-primary hover:translate-x-1"
+              className="block mb-3 text-text-secondary text-base transition-all whitespace-nowrap font-medium hover:text-text-primary hover:translate-x-1"
             >
               Twitter / X
             </a>
@@ -91,7 +88,7 @@ const Footer = () => {
               href={aboutData.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="block mb-3 text-text-secondary text-base transition-all duration-300 whitespace-nowrap font-medium hover:text-text-primary hover:translate-x-1"
+              className="block mb-3 text-text-secondary text-base transition-all whitespace-nowrap font-medium hover:text-text-primary hover:translate-x-1"
             >
               Resumé
             </a>
@@ -106,7 +103,7 @@ const Footer = () => {
         <p>&copy; {new Date().getFullYear()} Devon Anderson. Designed & Built with Love.</p>
         <button
           type="button"
-          className="cursor-pointer flex items-center justify-center min-[480px]:justify-start gap-2 font-bold text-text-primary transition-all duration-300 hover:text-text-primary hover:translate-y-[-2px]"
+          className="cursor-pointer flex items-center justify-center min-[480px]:justify-start gap-2 font-bold text-text-primary transition-all hover:text-text-primary hover:translate-y-[-4px]"
           onClick={() => window.scrollTo({ top: 0, behavior: scrollBehavior() })}
         >
           Back to Top{' '}

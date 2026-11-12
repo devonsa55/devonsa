@@ -37,7 +37,7 @@ export const ProtectedDeckLink: React.FC = () => (
           href={DECK_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full py-3.5 font-bold text-sm rounded-xl hover:shadow-hover hover:translate-y-[-2px] active:scale-[0.98] border-2 transition-all flex items-center justify-center gap-2"
+          className="w-full py-3.5 font-bold text-sm rounded-xl hover:shadow-hover hover:translate-y-[-4px] active:scale-[0.98] border-2 transition-all flex items-center justify-center gap-2"
           style={{
             backgroundColor: 'var(--text-primary)',
             color: 'var(--bg-primary)',

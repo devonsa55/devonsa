@@ -6,6 +6,7 @@ import { ArrowLeft, Home } from 'lucide-react'
 import { Badge } from './ui/badge'
 import ProfileCard from './ui/ProfileCard'
 import MDViewer from './ui/MDViewer'
+import { EASE_OUT } from '../utils/motion'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -58,7 +59,7 @@ const AIProjectDetail: React.FC = () => {
       <motion.nav
         initial={false}
         animate={{ y: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.3, ease: EASE_OUT }}
         className="sticky-nav-wrapper"
       >
         <div className="nav-container">

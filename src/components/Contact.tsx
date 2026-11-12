@@ -46,7 +46,7 @@ const Contact = () => {
                   href="https://github.com/devonsa"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 px-5 py-4 bg-bg-primary border-2 border-text-primary rounded-(--radius-card) no-underline text-text-primary transition-all duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:translate-y-[-4px]"
+                  className="flex items-center gap-4 px-5 py-4 bg-bg-primary border-2 border-text-primary rounded-(--radius-card) no-underline text-text-primary transition-all hover:shadow-hover hover:translate-y-[-4px]"
                 >
                   <div className="text-text-primary flex items-center justify-center shrink-0">
                     <Github size={22} />
@@ -65,7 +65,7 @@ const Contact = () => {
                   href="https://linkedin.com/in/devonsa"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 px-5 py-4 bg-bg-primary border-2 border-text-primary rounded-(--radius-card) no-underline text-text-primary transition-all duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:translate-y-[-4px]"
+                  className="flex items-center gap-4 px-5 py-4 bg-bg-primary border-2 border-text-primary rounded-(--radius-card) no-underline text-text-primary transition-all hover:shadow-hover hover:translate-y-[-4px]"
                 >
                   <div className="text-text-primary flex items-center justify-center shrink-0">
                     <Linkedin size={22} />
@@ -82,7 +82,7 @@ const Contact = () => {
                   href={aboutData.resumeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 px-5 py-4 bg-bg-primary border-2 border-text-primary rounded-(--radius-card) no-underline text-text-primary transition-all duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-hover hover:translate-y-[-4px]"
+                  className="flex items-center gap-4 px-5 py-4 bg-bg-primary border-2 border-text-primary rounded-(--radius-card) no-underline text-text-primary transition-all hover:shadow-hover hover:translate-y-[-4px]"
                 >
                   <div className="text-text-primary flex items-center justify-center shrink-0">
                     <FileText size={22} />

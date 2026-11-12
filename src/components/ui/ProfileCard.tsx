@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { LIFT, hoverTransition } from '../../utils/motion'
 
 const MotionLink = motion.create(Link)
 
@@ -31,9 +32,9 @@ const ProfileCard = ({
       to={link}
       className={`profile-card ${className} variant-${variant} size-${size}`}
       onClick={onClick}
-      whileHover={{ y: -4 }}
+      whileHover={{ y: LIFT }}
       whileTap={{ scale: 0.95 }}
-      transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+      transition={hoverTransition}
     >
       <div className="profile-card-content">
         <div className="profile-text-group">
@@ -49,7 +50,7 @@ const ProfileCard = ({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+              transition: 'transform var(--duration-base) var(--ease-out)',
             }}
           >
             {icon}
@@ -76,9 +77,9 @@ const ProfileCard = ({
                     height: 54px;
                     box-sizing: border-box;
                     overflow: hidden;
-                    transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                                border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-                                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                    transition: background var(--duration-base) var(--ease-out),
+                                border-color var(--duration-base) var(--ease-out), 
+                                box-shadow var(--duration-base) var(--ease-out);
                 }
 
                 .profile-card-content {
@@ -176,7 +177,7 @@ const ProfileCard = ({
                 .animated-arrow .hand-drawn-path {
                     stroke-dasharray: 1;
                     stroke-dashoffset: 1;
-                    transition: stroke-dashoffset 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+                    transition: stroke-dashoffset var(--duration-slow) var(--ease-out);
                 }
                 
                 .profile-card:hover .animated-arrow .hand-drawn-path {

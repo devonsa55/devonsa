@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { scrollBehavior } from '../utils/motion'
+import { scrollBehavior, EASE_OUT } from '../utils/motion'
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu } from 'lucide-react'
@@ -66,7 +66,7 @@ const Navbar = () => {
     <motion.nav
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.8, ease: EASE_OUT }}
       onAnimationComplete={() => setIsLoaded(true)}
       className={`navbar ${scrolled ? 'is-scrolled' : ''} ${isMobileMenuOpen ? 'mobile-menu-open' : ''} ${isHomePage ? 'is-home' : ''} ${!isLoaded ? 'is-loading' : ''}`}
     >

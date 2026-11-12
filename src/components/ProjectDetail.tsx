@@ -31,7 +31,7 @@ import { Badge } from './ui/badge'
 import { Button } from './ui/button'
 import { Card } from './ui/card'
 import ProfileCard from './ui/ProfileCard'
-import { fadeInUp, fadeIn } from '../utils/motion'
+import { fadeInUp, fadeIn, LIFT, hoverTransition, EASE_OUT } from '../utils/motion'
 import { ProtectedDeckLink } from './ui/ProtectedDeckLink'
 import ViewModeToggle, { ViewMode } from './ui/ViewModeToggle'
 
@@ -121,7 +121,7 @@ const ProjectDetail: React.FC = () => {
         <motion.nav
           initial={false}
           animate={{ y: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
-          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.3, ease: EASE_OUT }}
           className="sticky-nav-wrapper"
         >
           <div className="nav-container">
@@ -242,7 +242,7 @@ const ProjectDetail: React.FC = () => {
           y: isVisible ? 0 : -100,
           opacity: isVisible ? 1 : 0,
         }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.3, ease: EASE_OUT }}
         className="sticky-nav-wrapper"
       >
         <div className="nav-container">
@@ -382,7 +382,7 @@ const ProjectDetail: React.FC = () => {
             <h2 className="section-label">Results & Outcomes</h2>
             <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-8">
               {project.outcomes.map((outcome, index) => (
-                <motion.div key={index} whileHover={{ y: -5 }}>
+                <motion.div key={index} whileHover={{ y: LIFT }} transition={hoverTransition}>
                   <Card className="p-10 bg-bg-secondary border-2 border-text-primary rounded-(--radius-card) flex flex-col gap-6 shadow-none h-full">
                     <CheckCircle2 size={24} className="check-icon text-text-primary" />
                     <p className="m-0 text-[1.1rem] leading-[1.6]">{outcome}</p>

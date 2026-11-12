@@ -120,7 +120,7 @@ export default function TypewriterEffect({
         fontWeight: 600,
         lineHeight: 0,
         fontStyle: 'italic',
-        transition: 'color 0.3s ease',
+        transition: 'color var(--duration-base) var(--ease-out)',
       }}
     >
       <span>{(reduceMotion ? words[0] : displayedText) || '\u200B'}</span>

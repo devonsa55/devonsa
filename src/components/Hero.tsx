@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { scrollBehavior } from '../utils/motion'
+import { scrollBehavior, EASE_OUT } from '../utils/motion'
 import { Chillwave } from './Decorations'
 import TypewriterEffect from './ui/TypewriterEffect'
-import { ArrowDown } from 'lucide-react'
-import ProfileCard from './ui/ProfileCard'
+import RevealArrowButton from './ui/RevealArrowButton'
 
 const words = ['designer', 'builder', 'strategist', 'leader']
 const highlightColors = [
@@ -37,7 +36,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, ease: EASE_OUT }}
           className="w-full"
         >
           <h1 className="m-0! text-[clamp(2.5rem,5.65vw,var(--hero-font-size-max))] text-text-primary leading-[1.22] max-w-[100vw] font-extrabold tracking-[-0.03em] relative pt-[0.1em]">
@@ -85,7 +84,7 @@ const Hero = () => {
             </span>
             <br />
             <span
-              className="group inline-block text-text-primary relative no-underline z-1 after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-400 after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10 mr-[0.1em]"
+              className="group inline-block text-text-primary relative no-underline z-1 after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:-z-10 mr-[0.1em]"
               onMouseEnter={() => setIsSurfing(true)}
               onMouseMove={handleMouseMove}
               onMouseLeave={() => {
@@ -121,7 +120,7 @@ const Hero = () => {
             </span>{' '}
             &{' '}
             <span
-              className="group inline-block text-text-primary relative no-underline z-1 after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-400 after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10"
+              className="group inline-block text-text-primary relative no-underline z-1 after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:-z-10"
               onMouseEnter={() => setIsAudioHovered(true)}
               onMouseMove={handleMouseMove}
               onMouseLeave={() => {
@@ -179,7 +178,7 @@ const Hero = () => {
             <span className="whitespace-nowrap tracking-[-0.04em]">
               open to roles in the{' '}
               <span
-                className="group inline-block text-text-primary relative no-underline z-1 after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-400 after:ease-[cubic-bezier(0.16,1,0.3,1)] after:-z-10 ml-[0.1em]"
+                className="group inline-block text-text-primary relative no-underline z-1 after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:-z-10 ml-[0.1em]"
                 onMouseEnter={() => setIsSFAreaHovered(true)}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={() => {
@@ -225,14 +224,11 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, ease: EASE_OUT }}
           className="pointer-events-auto"
         >
-          <ProfileCard
-            variant="primary"
-            link="/#work"
-            text="See my work"
-            icon={<ArrowDown size={22} strokeWidth={2.5} />}
+          <RevealArrowButton
+            to="/#work"
             onClick={(e) => {
               e.preventDefault()
               document
@@ -240,7 +236,9 @@ const Hero = () => {
                 ?.scrollIntoView({ behavior: scrollBehavior(), block: 'start' })
               window.history.pushState(null, '', '/#work')
             }}
-          />
+          >
+            See my work
+          </RevealArrowButton>
         </motion.div>
       </div>
     </section>

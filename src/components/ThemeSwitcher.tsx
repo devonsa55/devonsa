@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useLocation } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
+import { LIFT, hoverTransition, tapTransition, EASE_OUT } from '../utils/motion'
 
 const ThemeSwitcher = () => {
   const { mode, setMode } = useTheme()
@@ -97,9 +98,9 @@ const ThemeSwitcher = () => {
       <motion.button
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        whileHover={{ y: -4, transition: { type: 'tween', duration: 0.15, ease: 'easeOut' } }}
-        whileTap={{ scale: 0.95, transition: { type: 'tween', duration: 0.1, ease: 'easeOut' } }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        whileHover={{ y: LIFT, transition: hoverTransition }}
+        whileTap={{ scale: 0.95, transition: tapTransition }}
+        transition={{ duration: 0.8, ease: EASE_OUT }}
         onClick={toggleMode}
         className="matrix-toggle"
       >
@@ -123,7 +124,7 @@ const ThemeSwitcher = () => {
             bottom: 4svh;
             right: 1rem;
             z-index: 40;
-            transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1), bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: right var(--duration-base) var(--ease-out), bottom var(--duration-base) var(--ease-out);
         }
 
         @media (min-width: 1024px) {
@@ -146,11 +147,11 @@ const ThemeSwitcher = () => {
             border-radius: 100px;
             overflow: hidden;
             box-sizing: border-box;
-            transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-                        border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-                        box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                        padding 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                        gap 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: background var(--duration-base) var(--ease-out), 
+                        border-color var(--duration-base) var(--ease-out), 
+                        box-shadow var(--duration-base) var(--ease-out),
+                        padding var(--duration-base) var(--ease-out),
+                        gap var(--duration-base) var(--ease-out);
             padding: 0.3rem;
         }
 
@@ -177,7 +178,7 @@ const ThemeSwitcher = () => {
             max-width: 0;
             opacity: 0;
             line-height: 1.1;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all var(--duration-base) var(--ease-out);
         }
 
         @media (min-width: 768px) {
@@ -199,7 +200,7 @@ const ThemeSwitcher = () => {
             height: 2px;
             background-color: var(--border-subtle);
             border-radius: 50%;
-            transition: all 0.2s ease;
+            transition: all var(--duration-base) var(--ease-out);
         }
 
         .matrix-dot.active {

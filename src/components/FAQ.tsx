@@ -1,23 +1,26 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
 
 const faqs = [
   {
-    question: "When will Bill be available?",
-    answer: "We are currently in private beta. Bill is scheduled for a public release this summer. Join our waitlist to get early access and updates."
+    question: 'When will Bill be available?',
+    answer:
+      'We are currently in private beta. Bill is scheduled for a public release this summer. Join our waitlist to get early access and updates.',
   },
   {
-    question: "What countries will Bill be available in?",
-    answer: "Bill will initially be available in Canada, supporting all major Canadian banking institutions. We plan to expand to other regions in late 2026."
+    question: 'What countries will Bill be available in?',
+    answer:
+      'Bill will initially be available in Canada, supporting all major Canadian banking institutions. We plan to expand to other regions in late 2026.',
   },
   {
-    question: "Is my data secure?",
-    answer: "Absolutely. We use bank-level 256-bit encryption and are fully compliant with Canadian privacy regulations. Your data is always encrypted and we never sell your information."
-  }
-];
+    question: 'Is my data secure?',
+    answer:
+      'Absolutely. We use bank-level 256-bit encryption and are fully compliant with Canadian privacy regulations. Your data is always encrypted and we never sell your information.',
+  },
+]
 
-const FAQItem = ({ question, answer }: { question: string, answer: string }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div className="faq-item">
@@ -38,8 +41,8 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
         )}
       </AnimatePresence>
     </div>
-  );
-};
+  )
+}
 
 const FAQ = () => {
   return (
@@ -55,8 +58,9 @@ const FAQ = () => {
         </div>
       </div>
 
-      <style dangerouslySetInnerHTML={{
-        __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         .faq {
           padding: 100px 0;
           background: transparent;
@@ -86,7 +90,7 @@ const FAQ = () => {
         }
         .faq-icon {
           font-size: 1.5rem;
-          transition: transform 0.3s ease;
+          transition: transform var(--duration-base) var(--ease-out);
           color: var(--accent-purple);
         }
         .faq-icon.open {
@@ -101,9 +105,11 @@ const FAQ = () => {
           line-height: 1.7;
           font-size: 1.1rem;
         }
-      `}} />
+      `,
+        }}
+      />
     </section>
-  );
-};
+  )
+}
 
-export default FAQ;
+export default FAQ

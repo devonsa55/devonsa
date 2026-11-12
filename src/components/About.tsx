@@ -174,7 +174,7 @@ const About = () => {
               >
                 <button
                   onClick={prevSlide}
-                  className="carousel-arrow carousel-arrow-left absolute left-[-28px] top-1/2 -translate-y-1/2 bg-bg-primary border-2! border-black! rounded-full w-[56px] h-[56px] flex items-center justify-center cursor-pointer z-10 transition-all duration-200 text-text-primary hover:-translate-y-1/2 hover:translate-x-[-2px] hover:shadow-[4px_4px_0_#d1d5db]"
+                  className="carousel-arrow carousel-arrow-left absolute left-[-28px] top-1/2 -translate-y-1/2 bg-bg-primary border-2! border-black! rounded-full w-[56px] h-[56px] flex items-center justify-center cursor-pointer z-10 transition-all text-text-primary hover:-translate-y-1/2 hover:translate-x-[-2px] hover:shadow-[4px_4px_0_#d1d5db]"
                   aria-label="Previous"
                 >
                   <ChevronLeft size={32} />
@@ -201,7 +201,7 @@ const About = () => {
 
                 <button
                   onClick={nextSlide}
-                  className="carousel-arrow carousel-arrow-right absolute right-[-28px] top-1/2 -translate-y-1/2 bg-bg-primary border-2! border-black! rounded-full w-[56px] h-[56px] flex items-center justify-center cursor-pointer z-10 transition-all duration-200 text-text-primary hover:-translate-y-1/2 hover:translate-x-[2px] hover:shadow-[4px_4px_0_#d1d5db]"
+                  className="carousel-arrow carousel-arrow-right absolute right-[-28px] top-1/2 -translate-y-1/2 bg-bg-primary border-2! border-black! rounded-full w-[56px] h-[56px] flex items-center justify-center cursor-pointer z-10 transition-all text-text-primary hover:-translate-y-1/2 hover:translate-x-[2px] hover:shadow-[4px_4px_0_#d1d5db]"
                   aria-label="Next"
                 >
                   <ChevronRight size={32} />

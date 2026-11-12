@@ -9,6 +9,12 @@
 
 @import 'tailwindcss';
 
+/* Tailwind's transition-* utilities default to the same tokens. */
+@theme {
+  --default-transition-duration: 300ms;
+  --default-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 @theme inline {
   --color-primary: var(--color-primary);
   --color-background: var(--color-background);
@@ -59,7 +65,15 @@
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
   --font-heading: 'Plus Jakarta Sans', sans-serif;
   --font-newsreader: 'Newsreader', serif;
-  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Motion tokens: every interaction uses these. One expressive curve for
+     movement and reveals, one neutral curve for plain color/opacity fades. */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms; /* press / tap feedback */
+  --duration-base: 300ms; /* hovers, lifts, color changes */
+  --duration-slow: 600ms; /* image zoom, stroke draw, reveals */
+  --lift: -4px; /* hover lift distance */
+  --transition-smooth: all var(--duration-base) var(--ease-out);
   --spacing-xs: 0.5rem;
   --spacing-sm: 2rem;
   --spacing-md: 2rem;
@@ -216,7 +230,7 @@
     font-size: 16px;
     background-color: var(--bg-primary);
     background-color: var(--bg-primary);
-    transition: background-color 0.5s ease;
+    transition: background-color var(--duration-base) var(--ease-standard);
   }
   main,
   footer {
@@ -238,8 +252,8 @@
     line-height: 1.5;
     overflow-x: hidden;
     transition:
-      background-color 0.5s ease,
-      color 0.5s ease;
+      background-color var(--duration-base) var(--ease-standard),
+      color var(--duration-base) var(--ease-standard);
   }
   h1,
   h2,
@@ -333,7 +347,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all var(--duration-base) var(--ease-out);
 }
 
 .btn-link {
@@ -359,7 +373,7 @@
   background-image: none !important;
   backdrop-filter: none !important;
   z-index: 1000;
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all var(--duration-base) var(--ease-out);
 }
 
 .navbar .container {
@@ -418,7 +432,7 @@
   font-size: 1.5rem;
   color: var(--text-primary);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all var(--duration-base) var(--ease-out);
   padding: 0;
   background: none;
   border: none;
@@ -437,7 +451,7 @@
   background-color: var(--text-primary);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform var(--duration-base) var(--ease-out);
   z-index: -1;
 }
 
