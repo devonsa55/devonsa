@@ -208,8 +208,14 @@ const ThemeSwitcher = () => {
             transform: scale(1.1);
         }
 
+        /* Compact switcher: a smaller offset so the shadow doesn't dwarf the pill. */
         .matrix-toggle:hover {
             border-color: var(--text-primary);
+            box-shadow: 3px 3px 0px var(--shadow-color);
+        }
+
+        /* The large aligned pill on the home hero keeps the standard shadow. */
+        .theme-switcher.aligned .matrix-toggle:hover {
             box-shadow: var(--shadow-hover);
         }
         
