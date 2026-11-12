@@ -43,7 +43,7 @@ const Contact = () => {
             >
               <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
                 <a
-                  href="https://github.com/devonsa"
+                  href="https://github.com/devonsa55"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 px-5 py-4 bg-bg-primary border-2 border-text-primary rounded-(--radius-card) no-underline text-text-primary transition-all hover:shadow-hover hover:translate-y-[-4px]"
