@@ -147,7 +147,7 @@ const ProfileCard = ({
                     flex-direction: column;
                     justify-content: center;
                     align-items: flex-start;
-                    gap: 0px !important; /* Force zero gap */
+                    gap: 3px !important; /* Space between title and subtext */
                 }
 
                 .profile-text {
@@ -157,7 +157,7 @@ const ProfileCard = ({
                     font-weight: 800;
                     font-size: 1.15rem;
                     color: var(--text-primary);
-                    line-height: 1.1;
+                    line-height: 1.2;
                 }
 
                 .profile-subtext {
@@ -165,7 +165,7 @@ const ProfileCard = ({
                     padding: 0 !important;
                     font-size: 0.85rem;
                     color: var(--text-secondary);
-                    line-height: 1.1;
+                    line-height: 1.2;
                     opacity: 0.8;
                 }
 
