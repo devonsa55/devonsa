@@ -11,6 +11,8 @@ import {
   TrendingUp,
   Zap,
   Palette,
+  ArrowRight,
+  ArrowUpRight,
 } from 'lucide-react'
 import { projects, ProjectCaseStudy } from '../data/projects'
 import { strategyFrameworks } from '../data/strategy'
@@ -132,7 +134,10 @@ const Work = () => {
                     <h3>{project.title}</h3>
                     <p>{project.description || project.subtitle}</p>
                     <div className="read-more">
-                      Read more <span>→</span>
+                      Read more{' '}
+                      <span aria-hidden="true">
+                        <ArrowRight size="1.15em" strokeWidth={2.5} />
+                      </span>
                     </div>
                   </div>
                 </Link>
@@ -184,7 +189,10 @@ const Work = () => {
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
                 <div className="read-more">
-                  Read more <span>→</span>
+                  Read more{' '}
+                  <span aria-hidden="true">
+                    <ArrowRight size="1.15em" strokeWidth={2.5} />
+                  </span>
                 </div>
               </div>
             </Link>
@@ -246,7 +254,10 @@ const Work = () => {
                       <h3>{item.title}</h3>
                       <p>{item.subtitle}</p>
                       <div className="read-more">
-                        Try live demo <span className="inline-block">↗</span>
+                        Try live demo{' '}
+                        <span aria-hidden="true">
+                          <ArrowUpRight size="1.15em" strokeWidth={2.5} />
+                        </span>
                       </div>
                     </div>
                   </a>
@@ -275,7 +286,10 @@ const Work = () => {
                       <h3>{item.title}</h3>
                       <p>{item.subtitle}</p>
                       <div className="read-more">
-                        View workflow <span>→</span>
+                        View workflow{' '}
+                        <span aria-hidden="true">
+                          <ArrowRight size="1.15em" strokeWidth={2.5} />
+                        </span>
                       </div>
                     </div>
                   </Link>

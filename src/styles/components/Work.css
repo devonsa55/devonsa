@@ -487,7 +487,8 @@
 }
 
 .read-more span {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   transition: transform var(--duration-base) var(--ease-out);
 }
 
