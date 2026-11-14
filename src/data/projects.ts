@@ -250,7 +250,7 @@ export const projects: ProjectCaseStudy[] = [
       'A unified safety ecosystem for 1.7M+ parents across Sprint and Verizon, consolidating location tracking, parental controls, and screen-time management.',
     image: '/images/projects/family-safety-thumb.svg',
     heroVideo: 'https://www.youtube.com/embed/1iooNY64eDU',
-    heroImage: '/images/projects/family-safety-platforms/SFL – See Location History.png',
+    heroImage: '/images/projects/family-safety-platforms/SFL – See Location History.webp',
     heroIcon: 'Shield',
     iconName: 'Shield',
     tags: ['Mobile UX', 'Systems Thinking', 'Scale'],
@@ -281,7 +281,7 @@ export const projects: ProjectCaseStudy[] = [
         title: 'Physical & Digital Safety in One Hub',
         content:
           'Unifying a fragmented feature set. I architected a scalable navigation system that allowed parents to manage physical location, screen time limits, and content filters from a single, intuitive dashboard.',
-        image: '/images/projects/family-safety-platforms/VSF – feature summary.jpg',
+        image: '/images/projects/family-safety-platforms/VSF – feature summary.webp',
         gridSpan: 2,
       },
       {
@@ -319,7 +319,7 @@ export const projects: ProjectCaseStudy[] = [
         title: 'Humanizing Surveillance',
         content:
           'Location tracking is inherently sensitive. I redesigned the core experience to focus on connection ("Is she safe?") rather than policing ("Where is she?"), resulting in a massive shift in user sentiment and adoption.',
-        image: '/images/projects/family-safety-platforms/SFL – See Location History.png',
+        image: '/images/projects/family-safety-platforms/SFL – See Location History.webp',
         gridSpan: 1,
         bgColor: '#f5f5f5',
       },

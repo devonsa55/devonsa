@@ -13,6 +13,8 @@ const Footer = () => {
             <img
               src={getAssetPath('/original_avatar.png')}
               alt="Devon Anderson"
+              loading="lazy"
+              decoding="async"
               className="w-[80px] h-auto rounded-2xl block"
             />
           </Link>

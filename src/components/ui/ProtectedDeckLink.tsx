@@ -14,6 +14,8 @@ export const ProtectedDeckLink: React.FC = () => (
           src="/images/projects/conversational-insights/agentic-hero.webp"
           className="w-full h-full object-cover opacity-20 dark:opacity-40 filter blur-[2px]"
           alt=""
+          loading="lazy"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-linear-to-t from-bg-primary via-bg-primary/50 to-bg-primary/80" />
       </div>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { memo, useState, useEffect, useRef } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 
 interface TypewriterEffectProps {
@@ -12,7 +12,7 @@ interface TypewriterEffectProps {
   style?: React.CSSProperties
 }
 
-export default function TypewriterEffect({
+function TypewriterEffect({
   words,
   colors = [],
   typingSpeed = 100,
@@ -140,3 +140,6 @@ export default function TypewriterEffect({
     </span>
   )
 }
+
+// Hero re-renders on every mouse move; its props are constants, so skip those renders
+export default memo(TypewriterEffect)

@@ -281,6 +281,8 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
   const supportsHoverRef = useRef(true)
   const colorWeightRef = useRef(0)
   const isVisibleRef = useRef(true)
+  // Restarts the render loop; set by the canvas effect, called when the card scrolls into view
+  const wakeLoopRef = useRef<(() => void) | null>(null)
   const reduceMotionRef = useRef(false)
   const [isHoveredLocal, setIsHoveredLocal] = useState(false)
 
@@ -298,6 +300,7 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisibleRef.current = entry.isIntersecting
+        if (entry.isIntersecting) wakeLoopRef.current?.()
         // On mobile/touch devices, we trigger the "active" state when in view
         if (!supportsHoverRef.current) {
           isMobileInViewRef.current = entry.isIntersecting
@@ -345,7 +348,8 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
       particlesArray.push(p)
     }
 
-    let animationFrameId: number
+    let animationFrameId = 0
+    let running = false
     let time = 0
 
     const render = () => {
@@ -357,7 +361,12 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
         !isHoveredRef.current &&
         !isMobileInViewRef.current &&
         colorWeightRef.current < 0.01
-      if (!isVisibleRef.current || frozen) {
+      if (!isVisibleRef.current) {
+        // Off-screen: stop scheduling frames; the observer restarts the loop
+        running = false
+        return
+      }
+      if (frozen) {
         animationFrameId = window.requestAnimationFrame(render)
         return
       }
@@ -623,8 +632,19 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
       time++
       animationFrameId = window.requestAnimationFrame(render)
     }
+    const wake = () => {
+      if (running) return
+      running = true
+      animationFrameId = window.requestAnimationFrame(render)
+    }
+    wakeLoopRef.current = wake
+    running = true
     render()
-    return () => window.cancelAnimationFrame(animationFrameId)
+    return () => {
+      running = false
+      wakeLoopRef.current = null
+      window.cancelAnimationFrame(animationFrameId)
+    }
   }, [containerSize, iconShape, idleShape, particleShape, pixelSize, particleCount, color, bgColor])
 
   const baseStyles = fullBleed

@@ -207,7 +207,12 @@ const ProjectDetail: React.FC = () => {
                     style={section.bgColor ? { backgroundColor: section.bgColor } : {}}
                   >
                     {section.image ? (
-                      <img src={section.image} alt={section.title} />
+                      <img
+                        src={section.image}
+                        alt={section.title}
+                        loading="lazy"
+                        decoding="async"
+                      />
                     ) : (
                       renderPlaceholder(section.icon, section.title)
                     )}
@@ -367,6 +372,8 @@ const ProjectDetail: React.FC = () => {
                   <img
                     src={section.image}
                     alt={section.title || 'Project Visual'}
+                    loading="lazy"
+                    decoding="async"
                     className="project-image"
                   />
                 ) : (

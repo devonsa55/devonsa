@@ -44,7 +44,7 @@ const Timeline = () => {
             <div className="company-header">
               <div className="company-logo">
                 {item.logo ? (
-                  <img src={item.logo} alt={item.company} />
+                  <img src={item.logo} alt={item.company} loading="lazy" decoding="async" />
                 ) : (
                   <div className="company-logo-placeholder">{item.company.charAt(0)}</div>
                 )}

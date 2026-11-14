@@ -115,6 +115,8 @@ const Work = () => {
                           <img
                             src={project.image}
                             alt={project.title}
+                            loading="lazy"
+                            decoding="async"
                             className={`project-card-image ${project.image.endsWith('.svg') ? 'is-logo' : ''}`}
                           />
                         )}
@@ -175,7 +177,7 @@ const Work = () => {
                 style={{ backgroundColor: item.cardImageBg || 'var(--bg-secondary)' }}
               >
                 {item.image ? (
-                  <img src={item.image} alt={item.title} />
+                  <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
                 ) : (
                   <div className="project-placeholder">
                     <div className="placeholder-content">

@@ -348,6 +348,8 @@ const StrategyDetail: React.FC = () => {
                   <img
                     src={section.image}
                     alt={section.title || 'Visual'}
+                    loading="lazy"
+                    decoding="async"
                     className="project-image"
                   />
                 )}
