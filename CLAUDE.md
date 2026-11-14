@@ -42,6 +42,11 @@ Personal UX portfolio. React 19 + TypeScript SPA, built with Vite 8, styled with
 
 - The on-page feedback form was removed in Nov 2026 because Cloudflare Turnstile would not verify on devonsa.work (error 600010). The Supabase Edge Function in `supabase/functions/verify-feedback/` and the `public.messages` table still exist but nothing calls them. If you bring the form back, check the Turnstile widget's hostname list first and re-add `challenges.cloudflare.com` (script, frame, connect) and the Supabase origin to the CSP in `vercel.json`.
 
+## Fonts
+
+- Self-hosted (Nov 2026), latin subset only: `src/styles/fonts.css` declares the faces, files live in `src/assets/fonts/` (Vite fingerprints them into `dist/static/`). Faces and weight ranges mirror what Google Fonts served, so adding a weight means adding a matching `@font-face`, not just using it in CSS. The CSP no longer allows Google Fonts origins.
+- Inter and Plus Jakarta Sans are preloaded in `index.html` (hashed by Vite at build time). Newsreader is italic-only. IBM Plex Mono has only 400 and 600, so `font-weight: 700` on mono text (e.g. the split-flap board) renders the 600 face.
+
 ## Theming
 
 - Light/dark via `data-mode="dark"` on `<html>`, persisted in `localStorage['portfolio-mode']` (`src/context/ThemeContext.tsx`). Color tokens are CSS variables in `src/index.css`; style through tokens and check both modes.

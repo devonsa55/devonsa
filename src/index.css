@@ -1,3 +1,5 @@
+@import './styles/fonts.css';
+
 /* Component Styles */
 @import './styles/components/Work.css' layer(base);
 @import './styles/components/ProjectDetail.css' layer(base);
@@ -130,7 +132,6 @@
   --neo-shadow: 4px 4px 0px var(--shadow-color);
   --shadow-hover: 6px 6px 0px var(--shadow-color);
   --font-mono: 'IBM Plex Mono', monospace;
-  --font-grotesk: 'Space Grotesk', sans-serif;
 
   /* Hero Highlight Palette (Extracted from reference) */
   --aqua-green: #54cea1;
