@@ -50,7 +50,9 @@ const usePrefetchPages = () => {
 }
 
 const Page = ({ children }: { children: ReactNode }) => (
-  <Suspense fallback={null}>{children}</Suspense>
+  // The fallback reserves a screen of height so the footer doesn't sit under
+  // an empty <main> and jump down when the page chunk arrives (layout shift)
+  <Suspense fallback={<div aria-hidden="true" className="min-h-svh" />}>{children}</Suspense>
 )
 
 const ScrollToHash = () => {
