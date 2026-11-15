@@ -10,6 +10,7 @@ interface PageMeta {
   title: string
   description: string
   image?: string
+  flag?: string
 }
 
 const escapeHtml = (value: string) =>
@@ -44,7 +45,7 @@ const prerenderPageMeta = (): Plugin => ({
     const template = await fs.readFile(path.join(outDir, 'index.html'), 'utf8')
 
     const render = (
-      meta: { title: string; description: string; image?: string },
+      meta: { title: string; description: string; image?: string; flag?: string },
       url: string | null,
     ) => {
       const title = escapeHtml(meta.title)
@@ -55,8 +56,12 @@ const prerenderPageMeta = (): Plugin => ({
           `  <meta property="og:image:height" content="630" />\n` +
           `  <meta name="twitter:card" content="summary_large_image" />\n</head>`
         : '</head>'
+      // Flagged preview pages are reachable by link but kept out of search
+      const headTags = meta.flag
+        ? `  <meta name="robots" content="noindex" />\n${imageTags}`
+        : imageTags
       return template
-        .replace('</head>', imageTags)
+        .replace('</head>', headTags)
         .replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`)
         .replace(
           /<meta name="description"[\s\S]*?\/>/,

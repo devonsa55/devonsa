@@ -33,6 +33,14 @@ Personal UX portfolio. React 19 + TypeScript SPA, built with Vite 8, styled with
 - Preview images: `public/og/<id>.jpg` (1200x630) per case study; `public/og/default.jpg` (avatar + name card) for every other page.
 - **Adding a page or case study:** add its data, add a matching `public/og/<id>.jpg` if it's a case study, and add its URL to `public/sitemap.xml` (the sitemap is hand-maintained).
 
+## Preview flags (unlisted work)
+
+- `src/utils/flags.ts` gates work that isn't public yet. Opening any page with `?<flag>=on` turns a flag on for that browser (stored in `localStorage['portfolio-flag-<flag>']`); `?<flag>=off` turns it off.
+- The Lime support agent case study (`/project/lime-support-agent`, flag `lime`) is the first one. Without the flag its route renders NotFound and its homepage card is hidden. Share it as `https://devonsa.work/project/lime-support-agent?lime=on` (add `&view=full` for the in-depth view).
+- A flagged page sets `flag` on its entry in `src/seo/pages.ts`: it is still prerendered (so the link doesn't 404) but with `<meta name="robots" content="noindex">`, and it stays out of `public/sitemap.xml`.
+- This is not access control. The page's code and its images in `public/` ship to production and can be fetched by anyone who knows the URLs, so don't put anything behind a flag that can't be public at all.
+- To launch the Lime case study: drop the `flag` from `pages.ts`, the `isFlagEnabled('lime')` checks in `LimeCaseStudy.tsx` and `Work.tsx`, add `public/og/lime-support-agent.jpg`, and add the URL to the sitemap.
+
 ## Images
 
 - Site images are WebP, sized to about 2x their displayed width (case-study screenshots max 1800px, carousel photos 1400px). Convert new images the same way; the build does no image optimization.

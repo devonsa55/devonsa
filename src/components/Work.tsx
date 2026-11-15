@@ -17,6 +17,8 @@ import {
 import { projects, ProjectCaseStudy } from '../data/projects'
 import { strategyFrameworks } from '../data/strategy'
 import { aiProjects } from '../data/ai-projects'
+import { limeCard } from '../data/lime-card'
+import { isFlagEnabled } from '../utils/flags'
 import SectionHeader from './ui/SectionHeader'
 import SplitFlapBoard from './ui/SplitFlapBoard'
 import { DitheredParticles } from './ui/DitheredParticles'
@@ -58,6 +60,10 @@ const Work = () => {
   const { mode } = useTheme()
   useState<ProjectCaseStudy | null>(null)
   const isUnderConstruction = IS_UNDER_CONSTRUCTION
+  // The Lime case study is unlisted unless the visitor has the preview flag
+  const [visibleProjects] = useState(() =>
+    isFlagEnabled('lime') ? [...projects, limeCard] : projects,
+  )
 
   useEffect(() => {
     return () => {
@@ -79,7 +85,7 @@ const Work = () => {
         {isUnderConstruction ? (
           <SplitFlapBoard />
         ) : (
-          projects.map((project, index) => {
+          visibleProjects.map((project, index) => {
             const effectiveBg = mode === 'dark' ? '#111112' : '#ffffff'
 
             return (

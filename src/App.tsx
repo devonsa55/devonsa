@@ -14,6 +14,7 @@ import { AnimatePresence, MotionConfig, motion } from 'framer-motion'
 import ProfileCard from './components/ui/ProfileCard'
 import CustomCursor from './components/ui/CustomCursor'
 import { aboutData } from './data/about'
+import { LIME_PATH } from './data/lime-card'
 
 // Every page except Home is split into its own chunk and only downloaded
 // when it's opened (or prefetched once the homepage has gone idle, below).
@@ -22,6 +23,7 @@ const loadContact = () => import('./components/Contact')
 const loadProjectDetail = () => import('./components/ProjectDetail')
 const loadStrategyDetail = () => import('./components/StrategyDetail')
 const loadAIProjectDetail = () => import('./components/AIProjectDetail')
+const loadLimeCaseStudy = () => import('./components/LimeCaseStudy')
 const loadNotFound = () => import('./components/NotFound')
 
 const About = lazy(loadAbout)
@@ -29,6 +31,7 @@ const Contact = lazy(loadContact)
 const ProjectDetail = lazy(loadProjectDetail)
 const StrategyDetail = lazy(loadStrategyDetail)
 const AIProjectDetail = lazy(loadAIProjectDetail)
+const LimeCaseStudy = lazy(loadLimeCaseStudy)
 const NotFound = lazy(loadNotFound)
 
 // Warm the page chunks after first load so later navigation is instant,
@@ -177,6 +180,15 @@ function AppContent() {
               element={
                 <Page>
                   <Contact />
+                </Page>
+              }
+            />
+            {/* Behind the `lime` preview flag; shows NotFound without it */}
+            <Route
+              path={LIME_PATH}
+              element={
+                <Page>
+                  <LimeCaseStudy />
                 </Page>
               }
             />

@@ -8,6 +8,15 @@ export type ViewMode = 'summary' | 'deck'
 interface ViewModeToggleProps {
   mode: ViewMode
   onModeChange: (mode: ViewMode) => void
+  // Defaults suit the password-protected deck; pass labels (and locked={false})
+  // when both views are open on the page.
+  labels?: Record<ViewMode, string>
+  locked?: boolean
+}
+
+const DEFAULT_LABELS: Record<ViewMode, string> = {
+  summary: 'Read Summary',
+  deck: 'View Full Case Study',
 }
 
 /**
@@ -16,7 +25,12 @@ interface ViewModeToggleProps {
  * in App.tsx and, once it has moved, never reports exit-complete. That leaves the old route
  * invisible but mounted, so navigating away (e.g. "Back to Home") renders a blank page.
  */
-const ViewModeToggle = ({ mode, onModeChange }: ViewModeToggleProps) => {
+const ViewModeToggle = ({
+  mode,
+  onModeChange,
+  labels = DEFAULT_LABELS,
+  locked = true,
+}: ViewModeToggleProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const buttonRefs = useRef<Record<ViewMode, HTMLButtonElement | null>>({
     summary: null,
@@ -56,23 +70,27 @@ const ViewModeToggle = ({ mode, onModeChange }: ViewModeToggleProps) => {
           buttonRefs.current.summary = el
         }}
         onClick={() => onModeChange('summary')}
+        aria-pressed={mode === 'summary'}
         className={`mode-toggle-btn ${mode === 'summary' ? 'active' : ''}`}
       >
-        Read Summary
+        {labels.summary}
       </button>
       <button
         ref={(el) => {
           buttonRefs.current.deck = el
         }}
         onClick={() => onModeChange('deck')}
+        aria-pressed={mode === 'deck'}
         className={`mode-toggle-btn flex items-center gap-2 ${mode === 'deck' ? 'active' : ''}`}
       >
-        View Full Case Study
-        <Lock
-          size={14}
-          className="transition-opacity"
-          style={{ opacity: mode === 'deck' ? 0.9 : 0.6 }}
-        />
+        {labels.deck}
+        {locked && (
+          <Lock
+            size={14}
+            className="transition-opacity"
+            style={{ opacity: mode === 'deck' ? 0.9 : 0.6 }}
+          />
+        )}
       </button>
     </motion.div>
   )

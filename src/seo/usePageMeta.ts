@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { getPageMeta, pages, SITE_URL } from './pages'
+import { getPageMeta, pages, NOT_FOUND_META, SITE_URL } from './pages'
+import { isFlagEnabled } from '../utils/flags'
 
 const setMeta = (attr: 'name' | 'property', key: string, content: string) => {
   let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`)
@@ -19,7 +20,10 @@ export const usePageMeta = () => {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    const meta = getPageMeta(pathname)
+    const found = getPageMeta(pathname)
+    // A flagged page renders NotFound for visitors without its flag
+    const hidden = Boolean(found.flag && !isFlagEnabled(found.flag))
+    const meta = hidden ? { ...NOT_FOUND_META, path: found.path } : found
     const url = `${SITE_URL}${meta.path === '/' ? '/' : meta.path}`
 
     document.title = meta.title
@@ -47,9 +51,13 @@ export const usePageMeta = () => {
       )
     }
 
+    // Flagged pages stay out of search results
+    if (found.flag) setMeta('name', 'robots', 'noindex')
+    else document.head.querySelector('meta[name="robots"]')?.remove()
+
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]')
     // Unknown addresses (the 404 page) shouldn't claim a canonical URL
-    if (!pages.some((p) => p.path === meta.path)) {
+    if (hidden || !pages.some((p) => p.path === meta.path)) {
       canonical?.remove()
       return
     }

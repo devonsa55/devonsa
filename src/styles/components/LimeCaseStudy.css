@@ -1,0 +1,520 @@
+/* Lime support agent case study. Layout comes from the "slack" case-study
+   template in ProjectDetail.css; this file adds the figures built for it.
+   Everything sits in @layer base so Tailwind utilities still win. */
+@layer base {
+  .lime-case-study {
+    --lime-green: #0a7a1f;
+    --lime-green-fill: #0a7a1f;
+    --lime-panel: #f1f2f0;
+    --lime-cell: #cccfd4;
+    --lime-marker: #f0553f;
+  }
+
+  [data-mode='dark'] .lime-case-study {
+    --lime-green: #4ade80;
+    --lime-green-fill: #22a447;
+    --lime-panel: #1c1d1f;
+    --lime-cell: #3a3c40;
+  }
+
+  /* Doubled selector so it outranks the template's paragraph rules */
+  .lime-case-study .lime-mono-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .lime-case-study .lime-mono-label.lime-green,
+  .lime-green {
+    color: var(--lime-green);
+  }
+
+  .lime-kicker {
+    margin-bottom: 1.5rem;
+  }
+
+  .lime-case-study .slack-header h1 {
+    font-size: clamp(2.25rem, 7vw, 5rem);
+  }
+
+  .lime-facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    padding: 5rem 0;
+    margin: 0;
+    border-top: 2px solid var(--border-subtle);
+    border-bottom: 2px solid var(--border-subtle);
+  }
+
+  .lime-facts dd {
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    .lime-facts {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 3rem;
+    }
+  }
+
+  /* --- Chapters --- */
+  .lime-chapters {
+    display: flex;
+    flex-direction: column;
+    gap: 160px;
+    padding-bottom: 120px;
+  }
+
+  .lime-chapters.is-deep {
+    gap: 140px;
+  }
+
+  .lime-chapter {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .lime-chapters.is-deep .lime-chapter {
+    gap: 48px;
+  }
+
+  .lime-chapter .slack-annotation h2,
+  .lime-chapter-text h2 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0.75rem 0 1rem;
+  }
+
+  .lime-chapter .slack-annotation h2 {
+    font-size: 1.75rem;
+  }
+
+  .lime-chapter-text {
+    max-width: 760px;
+  }
+
+  .lime-chapter-text h2 {
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    margin-bottom: 1.75rem;
+  }
+
+  .lime-chapter-text p:not(.lime-mono-label) {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0 0 1.25rem;
+  }
+
+  .lime-figure {
+    margin: 0;
+  }
+
+  .lime-figure > figcaption {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    padding-left: 20px;
+  }
+
+  .lime-panel {
+    background: var(--lime-panel);
+    border: 2px solid var(--text-primary);
+    border-radius: 24px;
+    padding: clamp(24px, 5vw, 64px);
+    overflow: hidden;
+  }
+
+  .lime-panel img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* --- Today: three phones --- */
+  .lime-phones {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(12px, 3vw, 48px);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .lime-phone {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* --- Getting in: today -> landed --- */
+  .lime-entry {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) auto minmax(0, 1.35fr);
+    align-items: center;
+    gap: clamp(12px, 3vw, 40px);
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .lime-entry-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .lime-entry-today {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(8px, 2vw, 24px);
+  }
+
+  .lime-entry-arrow {
+    color: var(--text-primary);
+    flex-shrink: 0;
+  }
+
+  .lime-entry-landed {
+    padding: clamp(6px, 1vw, 12px);
+    border: 2px solid var(--lime-green);
+    border-radius: clamp(28px, 4vw, 52px);
+  }
+
+  @media (max-width: 640px) {
+    .lime-entry {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+
+    .lime-entry-group {
+      width: 100%;
+    }
+
+    .lime-entry-arrow {
+      transform: rotate(90deg);
+    }
+
+    .lime-entry-landed {
+      max-width: 280px;
+      margin: 0 auto;
+    }
+  }
+
+  /* --- The wait: 41 moments --- */
+  .lime-moments {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: end;
+    gap: clamp(24px, 5vw, 64px);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .lime-moment-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: clamp(4px, 1vw, 12px);
+  }
+
+  .lime-moment-grid span {
+    aspect-ratio: 1;
+    border-radius: clamp(4px, 1vw, 8px);
+    background: var(--lime-cell);
+  }
+
+  .lime-moment-grid span.is-wait {
+    background: var(--lime-green-fill);
+  }
+
+  .lime-moment-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .lime-moment-stat {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--text-primary);
+    margin: 0 0 12px;
+  }
+
+  @media (max-width: 640px) {
+    .lime-moments {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* --- Question and status rows --- */
+  .lime-rows {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lime-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr);
+    gap: clamp(16px, 4vw, 48px);
+    align-items: baseline;
+    padding: clamp(20px, 3vw, 36px) 0;
+    border-top: 2px solid var(--text-primary);
+  }
+
+  .lime-row:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .lime-row:last-child {
+    padding-bottom: 0;
+  }
+
+  .lime-row-lead {
+    font-family: var(--font-newsreader);
+    font-style: italic;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin: 0 0 8px;
+  }
+
+  .lime-row-statement {
+    font-family: var(--font-heading);
+    font-size: clamp(1.35rem, 3vw, 2.1rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .lime-row-note,
+  .lime-ending-body {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin: 10px 0 0;
+  }
+
+  @media (max-width: 640px) {
+    .lime-row {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+  }
+
+  /* --- Two endings --- */
+  .lime-endings {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(16px, 3vw, 32px);
+  }
+
+  .lime-ending {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: clamp(20px, 3vw, 32px);
+    background: var(--bg-primary);
+    border: 2px solid var(--text-primary);
+    border-radius: var(--radius-card);
+  }
+
+  .lime-ending video {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 24px;
+    border: 2px solid var(--text-primary);
+  }
+
+  .lime-ending .lime-ending-body {
+    margin-top: 0;
+  }
+
+  @media (max-width: 640px) {
+    .lime-endings {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* --- Card anatomy --- */
+  .lime-card-anatomy {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    align-items: center;
+    gap: clamp(32px, 5vw, 72px);
+  }
+
+  .lime-card-figure {
+    position: relative;
+    margin-left: 44px;
+  }
+
+  .lime-marker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--lime-marker);
+    color: #000000;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .lime-marker-pin {
+    position: absolute;
+    left: -44px;
+    transform: translateY(-50%);
+  }
+
+  /* Dashed leader from the marker to the card edge */
+  .lime-marker-pin::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    width: 18px;
+    border-top: 2px dashed var(--lime-marker);
+  }
+
+  .lime-card-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  .lime-card-table thead th {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    padding: 0 12px 12px 0;
+    border-bottom: 2px solid var(--text-primary);
+  }
+
+  .lime-card-table td,
+  .lime-card-table tbody th {
+    padding: 16px 12px 16px 0;
+    vertical-align: middle;
+    font-size: 1rem;
+    line-height: 1.35;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--lime-cell);
+  }
+
+  .lime-card-table tbody tr:last-child > * {
+    border-bottom: 0;
+  }
+
+  .lime-card-table tbody th {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+
+  .lime-card-table tbody th .lime-marker {
+    margin-right: 12px;
+    vertical-align: middle;
+  }
+
+  .lime-card-table .lime-card-question {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .lime-card-anatomy {
+      grid-template-columns: 1fr;
+    }
+
+    .lime-card-figure {
+      max-width: 420px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .lime-card-table thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+    }
+
+    .lime-card-table tbody tr {
+      display: block;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--lime-cell);
+    }
+
+    .lime-card-table tbody tr:last-child {
+      border-bottom: 0;
+    }
+
+    .lime-card-table td,
+    .lime-card-table tbody th {
+      display: block;
+      padding: 2px 0;
+      border-bottom: 0;
+    }
+  }
+
+  /* --- Quick read: link into the in-depth view --- */
+  .lime-more {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+  }
+
+  .lime-more-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--bg-primary);
+    background: var(--text-primary);
+    border: 2px solid var(--text-primary);
+    border-radius: 99px;
+    cursor: pointer;
+    transition:
+      transform var(--duration-base) var(--ease-out),
+      box-shadow var(--duration-base) var(--ease-out);
+  }
+
+  .lime-more-button:hover {
+    transform: translateY(var(--lift));
+    box-shadow: var(--shadow-hover);
+  }
+
+  .lime-more-button:focus-visible {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 3px;
+  }
+}

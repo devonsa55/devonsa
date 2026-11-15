@@ -4,6 +4,8 @@
 import { projects } from '../data/projects'
 import { strategyFrameworks } from '../data/strategy'
 import { aiProjects } from '../data/ai-projects'
+import { limeCard, LIME_PATH } from '../data/lime-card'
+import type { Flag } from '../utils/flags'
 
 export const SITE_URL = 'https://devonsa.work'
 const SITE_NAME = 'Devon Anderson'
@@ -15,6 +17,9 @@ export interface PageMeta {
   // Link-preview image (1200x630 JPEG in public/og/). Case studies use
   // their own; every other page falls back to the name-and-avatar card.
   image?: string
+  // Unlisted preview page: prerendered so its link works, marked noindex,
+  // left out of the sitemap, and shown only to visitors with this flag.
+  flag?: Flag
 }
 
 const DEFAULT_META: PageMeta = {
@@ -59,7 +64,13 @@ export const pages: PageMeta[] = [
     title: withName(a.title),
     description: a.subtitle,
   })),
-].map((page) => ({ ...page, image: page.image ?? DEFAULT_IMAGE }))
+  {
+    path: LIME_PATH,
+    title: withName(limeCard.title),
+    description: limeCard.description || limeCard.subtitle,
+    flag: 'lime' as const,
+  },
+].map((page): PageMeta => ({ ...page, image: page.image ?? DEFAULT_IMAGE }))
 
 // Served by Vercel (as 404.html) for any address that isn't a real page
 export const NOT_FOUND_META: Omit<PageMeta, 'path'> = {
