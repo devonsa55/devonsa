@@ -103,7 +103,7 @@ const StrategyDetail: React.FC = () => {
                 transition={{ delay: 0.2 }}
                 style={{
                   marginBottom: '4rem',
-                  borderRadius: '40px',
+                  borderRadius: 'var(--radius-card)',
                   overflow: 'hidden',
                   position: 'relative',
                 }}
@@ -376,7 +376,7 @@ const StrategyDetail: React.FC = () => {
 
         {strategy.challenge && (
           <section className="project-section challenge">
-            <div className="p-[40px] lg:p-[80px] bg-text-primary text-bg-primary rounded-[48px] relative overflow-hidden">
+            <div className="p-[40px] lg:p-[80px] bg-text-primary text-bg-primary rounded-(--radius-card) relative overflow-hidden">
               <div className="challenge-content">
                 <span className="challenge-label">The Strategy Challenge</span>
                 <h2>Navigating Ambiguity</h2>

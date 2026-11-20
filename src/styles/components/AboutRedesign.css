@@ -278,7 +278,7 @@
 
 /* --- Roundy Theme Specifics --- */
 .roundy-style .work-card {
-  border-radius: 32px;
+  border-radius: var(--radius-card);
   border: 2px solid var(--text-primary);
   background: var(--bg-primary);
   box-shadow: none;

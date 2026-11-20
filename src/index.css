@@ -32,7 +32,7 @@
   --font-mono: var(--font-mono), monospace;
   --font-serif: var(--font-serif), serif;
 
-  --radius-lg: 32px;
+  --radius-lg: var(--radius-card);
 
   /* Tailwind 3's fixed line heights. v4 uses ratios instead, which scale up
      when CSS overrides a text-* utility's font size (e.g. .section-label). */
@@ -126,7 +126,7 @@
 
   /* Theme-aware Properties Defaults */
   --radius-button: 12px;
-  --radius-card: 20px;
+  --radius-card: 8px;
   --border-width: 2px;
   --shadow-color: #e0e0e0;
   /* Defined for light mode */
@@ -161,7 +161,7 @@
   --hover-bg: #f4f4f5;
 
   --radius-button: 80px;
-  --radius-card: 20px;
+  --radius-card: 8px;
   --border-width: 2px;
   --neo-shadow: 4px 4px 0px var(--shadow-color);
   --shadow-hover: 6px 6px 0px var(--shadow-color);

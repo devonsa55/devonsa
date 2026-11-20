@@ -21,7 +21,7 @@ export const ProtectedDeckLink: React.FC = () => (
       </div>
 
       <div
-        className="w-full max-w-md mx-4 p-8 md:p-10 rounded-[24px] border-2 border-text-primary flex flex-col items-center text-center relative z-20"
+        className="w-full max-w-md mx-4 p-8 md:p-10 rounded-(--radius-card) border-2 border-text-primary flex flex-col items-center text-center relative z-20"
         style={{ backgroundColor: 'var(--bg-secondary)', boxShadow: 'var(--neo-shadow)' }}
       >
         <div className="mb-5 p-4 rounded-full bg-bg-primary border-2 border-text-primary text-text-primary">

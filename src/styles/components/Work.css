@@ -6,7 +6,7 @@
 
 .project-card {
   background: #ffffff;
-  border-radius: 32px;
+  border-radius: var(--radius-card);
   overflow: hidden;
   border: 2px solid var(--text-primary);
   transition: all var(--duration-base) var(--ease-out);
@@ -94,8 +94,8 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
+  border-top-left-radius: calc(var(--radius-card) - 2px);
+  border-top-right-radius: calc(var(--radius-card) - 2px);
   -webkit-mask-image: -webkit-radial-gradient(white 99%, black 100%);
   mask-image: radial-gradient(white 99%, black 100%);
   -webkit-transform: translateZ(0);
@@ -136,8 +136,8 @@
   flex-direction: column;
   gap: 1.25rem;
   flex: 1;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: calc(var(--radius-card) - 2px);
+  border-bottom-right-radius: calc(var(--radius-card) - 2px);
 }
 
 [data-mode='dark'] .project-info {
@@ -194,7 +194,7 @@
   padding: 0.4rem 0.75rem;
   border: none;
   /* Removed outline */
-  border-radius: 6px;
+  border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: var(--track-label);
   background: rgba(0, 0, 0, 0.06);
@@ -215,7 +215,7 @@
   justify-content: center;
   background: #050505;
   padding: 5rem 1rem;
-  border-radius: 20px;
+  border-radius: var(--radius-card);
   border: 1px solid #1a1a1a;
   box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
   position: relative;
@@ -399,7 +399,7 @@
   padding: 0;
   background: #ffffff;
   border: 2px solid var(--text-primary);
-  border-radius: 32px;
+  border-radius: var(--radius-card);
   overflow: hidden;
   transition: all var(--duration-base) var(--ease-out);
   box-shadow: none;
@@ -425,8 +425,8 @@
   background: #ffffff !important;
   padding: 0;
   border-bottom: 2px solid var(--text-primary);
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
+  border-top-left-radius: calc(var(--radius-card) - 2px);
+  border-top-right-radius: calc(var(--radius-card) - 2px);
   -webkit-mask-image: -webkit-radial-gradient(white 99%, black 100%);
   mask-image: radial-gradient(white 99%, black 100%);
   -webkit-transform: translateZ(0);
@@ -450,8 +450,8 @@
   flex: 1;
   padding: 40px;
   background: #ffffff;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: calc(var(--radius-card) - 2px);
+  border-bottom-right-radius: calc(var(--radius-card) - 2px);
 }
 
 [data-mode='dark'] .article-content {
@@ -519,8 +519,8 @@
   aspect-ratio: auto;
   border-bottom: none;
   border-right: 2px solid var(--text-primary);
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
+  border-top-left-radius: calc(var(--radius-card) - 2px);
+  border-bottom-left-radius: calc(var(--radius-card) - 2px);
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -529,8 +529,8 @@
   flex: 1;
   padding: 32px 40px;
   justify-content: center;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-top-right-radius: calc(var(--radius-card) - 2px);
+  border-bottom-right-radius: calc(var(--radius-card) - 2px);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -549,15 +549,15 @@
     aspect-ratio: 16/9;
     border-right: none;
     border-bottom: 2px solid var(--text-primary);
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    border-top-left-radius: calc(var(--radius-card) - 2px);
+    border-top-right-radius: calc(var(--radius-card) - 2px);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
   .horizontal-card .article-content {
     padding: 32px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: calc(var(--radius-card) - 2px);
+    border-bottom-right-radius: calc(var(--radius-card) - 2px);
     border-top-right-radius: 0;
     border-top-left-radius: 0;
   }
@@ -642,7 +642,7 @@
   padding: 2.5rem;
   border-left: 5px solid var(--accent-purple);
   background: var(--hover-bg);
-  border-radius: 0 24px 24px 0;
+  border-radius: 0 var(--radius-card) var(--radius-card) 0;
 }
 
 .insight-block p {
@@ -657,7 +657,7 @@
 
 .diagram-placeholder {
   background: #f5f5f5;
-  border-radius: 24px;
+  border-radius: var(--radius-card);
   padding: 6rem 2rem;
   margin: 4rem 0;
   display: flex;
@@ -677,7 +677,7 @@
 .deck-container-expanded {
   margin: 6rem 0;
   width: 100%;
-  border-radius: 32px;
+  border-radius: var(--radius-card);
   overflow: hidden;
   background: var(--bg-tertiary);
   aspect-ratio: 16/9;

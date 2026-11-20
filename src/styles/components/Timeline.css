@@ -159,7 +159,7 @@
   background: rgba(167, 139, 250, 0.15);
   /* Light purple */
   padding: 3px 14px;
-  border-radius: 100px;
+  border-radius: 4px;
   letter-spacing: var(--track-label);
   text-transform: uppercase;
   border: 1px solid rgba(167, 139, 250, 0.2);
