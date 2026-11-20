@@ -40,7 +40,7 @@ const AlignmentMatrix: React.FC = () => {
         margin: '4rem auto',
         padding: '4rem 2rem',
         backgroundColor: 'var(--bg-secondary)',
-        borderRadius: '40px',
+        borderRadius: 'var(--radius-card)',
         border: 'var(--border-width) solid var(--border-subtle)',
         position: 'relative',
         overflow: 'hidden',
@@ -149,7 +149,7 @@ const AlignmentMatrix: React.FC = () => {
             backgroundColor: 'var(--text-primary)',
             color: 'var(--bg-primary)',
             padding: '24px',
-            borderRadius: '48px',
+            borderRadius: 'var(--radius-card)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
@@ -162,7 +162,7 @@ const AlignmentMatrix: React.FC = () => {
         >
           <h4
             aria-level={3}
-            style={{ margin: 0, fontSize: '1.25rem', fontWeight: '800', lineHeight: 1.15 }}
+            style={{ margin: 0, fontSize: '1.25rem', fontWeight: '600', lineHeight: 1.15 }}
           >
             Feature Alignment Matrix
           </h4>
@@ -201,7 +201,7 @@ const AlignmentMatrix: React.FC = () => {
             backgroundColor: 'var(--bg-primary)',
             border: '2px solid var(--text-primary)',
             padding: '20px',
-            borderRadius: '40px',
+            borderRadius: 'var(--radius-card)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -226,7 +226,7 @@ const AlignmentMatrix: React.FC = () => {
           <div>
             <h4
               aria-level={3}
-              style={{ margin: 0, fontSize: '1.1rem', fontWeight: '800', lineHeight: 1.15 }}
+              style={{ margin: 0, fontSize: '1.1rem', fontWeight: '600', lineHeight: 1.15 }}
             >
               Powerful Clarity
             </h4>
@@ -276,7 +276,7 @@ const MatrixNode: React.FC<MatrixNodeProps> = ({ icon, title, subtitle, color, v
     style={{
       backgroundColor: 'var(--bg-primary)',
       padding: '18px 22px',
-      borderRadius: '20px',
+      borderRadius: 'var(--radius-card)',
       border: `1px solid var(--border-subtle)`,
       display: 'flex',
       alignItems: 'center',
@@ -304,7 +304,7 @@ const MatrixNode: React.FC<MatrixNodeProps> = ({ icon, title, subtitle, color, v
       <div
         style={{
           fontSize: '0.95rem',
-          fontWeight: '800',
+          fontWeight: '600',
           color: 'var(--text-primary)',
           lineHeight: 1,
         }}

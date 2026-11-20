@@ -1,83 +1,79 @@
-/* Self-hosted, latin-subset web fonts (previously loaded from Google Fonts).
-   The faces and weight ranges mirror what Google served, so rendering is
-   unchanged; Vite fingerprints the files into /static for immutable caching. */
+/* Self-hosted, latin-subset web fonts — replaces the Plus Jakarta Sans,
+   Inter, Newsreader and IBM Plex Mono faces.
+   Files go in src/assets/fonts/ (Vite fingerprints them into /static).
+   All four families are SIL Open Font License 1.1 (see licenses/). */
 
+/* Headers — Funnel Display, variable 300–800 (we use 600) */
 @font-face {
-  font-family: 'IBM Plex Mono';
+  font-family: 'Funnel Display';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300 800;
   font-display: swap;
-  src: url('../assets/fonts/ibm-plex-mono-400.woff2') format('woff2');
+  src:
+    url('../assets/fonts/funnel-display-var.woff2') format('woff2-variations'),
+    url('../assets/fonts/funnel-display-var.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Body and UI — Funnel Sans, variable 300–800, upright + italic */
+@font-face {
+  font-family: 'Funnel Sans';
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src:
+    url('../assets/fonts/funnel-sans-var.woff2') format('woff2-variations'),
+    url('../assets/fonts/funnel-sans-var.woff2') format('woff2');
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
     U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('../assets/fonts/ibm-plex-mono-600.woff2') format('woff2');
-  unicode-range:
-    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
-    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../assets/fonts/inter-var.woff2') format('woff2');
-  unicode-range:
-    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
-    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../assets/fonts/inter-var.woff2') format('woff2');
-  unicode-range:
-    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
-    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('../assets/fonts/inter-var.woff2') format('woff2');
-  unicode-range:
-    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
-    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Newsreader';
+  font-family: 'Funnel Sans';
   font-style: italic;
-  font-weight: 200 800;
+  font-weight: 300 800;
   font-display: swap;
-  src: url('../assets/fonts/newsreader-italic-var.woff2') format('woff2');
+  src:
+    url('../assets/fonts/funnel-sans-italic-var.woff2') format('woff2-variations'),
+    url('../assets/fonts/funnel-sans-italic-var.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Voice — Instrument Serif, italic only (400). The upright face is
+   intentionally not shipped: the serif is only ever italic. */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/instrument-serif-italic.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Labels and numerals — Fragment Mono, 400 only (+ italic). There is no
+   bold: mono text set to 600/700 must drop to 400 (see type.css). */
+@font-face {
+  font-family: 'Fragment Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/fragment-mono-400.woff2') format('woff2');
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
     U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-weight: 700;
+  font-family: 'Fragment Mono';
+  font-style: italic;
+  font-weight: 400;
   font-display: swap;
-  src: url('../assets/fonts/plus-jakarta-sans-var.woff2') format('woff2');
-  unicode-range:
-    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
-    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url('../assets/fonts/plus-jakarta-sans-var.woff2') format('woff2');
+  src: url('../assets/fonts/fragment-mono-italic.woff2') format('woff2');
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
     U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;

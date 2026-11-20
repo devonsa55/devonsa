@@ -402,7 +402,7 @@ const ProjectDetail: React.FC = () => {
 
         {project.challenge && (
           <section className="project-section challenge">
-            <div className="p-[40px] lg:p-[80px] bg-text-primary text-bg-primary rounded-[48px] relative overflow-hidden">
+            <div className="p-[40px] lg:p-[80px] bg-text-primary text-bg-primary rounded-(--radius-card) relative overflow-hidden">
               <div className="challenge-content">
                 <span className="challenge-label">The Toughest Challenge</span>
                 <h2>Turning complexity into simplicity</h2>

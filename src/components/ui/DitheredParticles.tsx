@@ -649,7 +649,7 @@ export const DitheredParticles: React.FC<DitheredParticlesProps> = ({
 
   const baseStyles = fullBleed
     ? 'w-full h-full overflow-hidden'
-    : 'w-full h-full min-h-[400px] overflow-hidden rounded-[40px] border-[3px] border-(--text-primary) cursor-pointer transition-transform md:hover:scale-[1.02] md:hover:shadow-2xl'
+    : 'w-full h-full min-h-[400px] overflow-hidden rounded-(--radius-card) border-[3px] border-(--text-primary) cursor-pointer transition-transform md:hover:scale-[1.02] md:hover:shadow-2xl'
 
   return (
     <div

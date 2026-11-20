@@ -25,18 +25,25 @@ The portfolio has a **minimalist, modern, and structural** aesthetic. It blends 
 
 ## 3. Typography
 
-The system relies on clear, highly legible Google Fonts.
+Four self-hosted families (OFL, files and licenses in `src/assets/fonts/`), one job each. Tokens and role classes live in `src/styles/type.css`; the existing variable names are kept so components pick them up.
 
-- **Body (`var(--font-body)`)**: `Inter`, sans-serif. Used for readable paragraphs and general text.
-- **Headings (`var(--font-heading)`)**: `Plus Jakarta Sans`, sans-serif. Used for titles and headers. Bold, geometric, and modern.
-- **Monospace/Labels (`var(--font-mono)`)**: `IBM Plex Mono`. Used for technical labels, tags, and "Read More" buttons.
+- **Headings (`var(--font-heading)`)**: `Funnel Display` 600. h1, h2, hero, card titles. Tracking -4% (h1/display) and -2.5% (h2).
+- **Body and UI (`var(--font-body)`)**: `Funnel Sans` 400 / 500 / 600 plus italic. Paragraphs, buttons, nav, and small headings (h3-h6, 600, -1%). Body italics are Funnel Sans italic.
+- **Serif voice (`var(--font-serif)`)**: `Instrument Serif`, italic only, one weight. A single line of voice (subline, quote, takeaway, the Contact `<em>`), never body copy or UI. `--font-newsreader` remains as an alias.
+- **Monospace/Labels (`var(--font-mono)`)**: `Fragment Mono` 400 only. Tags, eyebrows, captions, metadata, numerals, "Read More", the split-flap board. Never paragraphs.
+
+Rules:
+
+- One header weight (600). Hierarchy comes from size, not weight; map any 700/800 to 600.
+- Fragment Mono and Instrument Serif have no bold. Don't set 600/700 on them; `font-synthesis: none` is set on `body` so browsers never fake a bold or italic. Use color, not weight, for emphasis in mono.
+- Scale (fluid, 360px to 1440px viewports): display 44-72, h1 36-56, h2 28-40, h3 20-24, lead 24-36, body 17, small 15, label 12 (px). Role classes: `.t-display`, `.t-h1`-`.t-h3`, `.t-lead`, `.t-voice`, `.t-body`, `.t-small`, `.t-ui`, `.t-label`, `.t-numeral`, `.t-stat`.
 
 ## 4. Layout & Spacing
 
 - **Container**: Max width usually `1176px` with `--container-padding` set to `40px` (or `32px` on mobile).
 - **Grids**: Favor CSS Grid.
-  - *Standard UI grid*: `grid-cols-1 md:grid-cols-2 lg:grid-cols-X`.
-  - *Strict Card Grids* (Strategy & AI Projects): Use `grid-cols-1 min-[820px]:grid-cols-2 gap-6`.
+  - _Standard UI grid_: `grid-cols-1 md:grid-cols-2 lg:grid-cols-X`.
+  - _Strict Card Grids_ (Strategy & AI Projects): Use `grid-cols-1 min-[820px]:grid-cols-2 gap-6`.
 - **Vertical Rhythm**: Generous spacing. Major sections often have large top/bottom padding (`padding: 120px 0` or margin `80px`-`100px`).
 
 ## 5. Component Specifications
@@ -56,7 +63,7 @@ The system relies on clear, highly legible Google Fonts.
 
 ### Tags & Pills
 
-- **Style**: Small text (`0.65rem`), bold layout (`font-weight: 600`), uppercase formatting.
+- **Style**: Label type (`.t-label`: Fragment Mono 400, `0.75rem`, +0.1em tracking), uppercase.
 - **Shape**: Utilize `Badge` component with secondary variants.
 
 ## 6. Technical Stack & Tooling Workflows

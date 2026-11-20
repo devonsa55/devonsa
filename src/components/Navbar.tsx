@@ -88,7 +88,7 @@ const Navbar = () => {
           <Link
             to="/#work"
             onClick={handleScrollToWork}
-            className="font-heading font-bold text-[1.4rem] text-text-primary no-underline relative tracking-[0.02em]"
+            className="font-heading font-semibold text-[1.4rem] text-text-primary no-underline relative tracking-[0.02em]"
           >
             <AnimatedUnderline strokeWidth={8} color="#0e84f1">
               {IS_UNDER_CONSTRUCTION ? '🚧WIP🚧' : 'Work'}
@@ -97,7 +97,7 @@ const Navbar = () => {
           <div className="flex flex-col relative gap-0">
             <Link
               to="/about"
-              className="font-heading font-bold text-[1.4rem] text-text-primary no-underline relative tracking-[0.02em]"
+              className="font-heading font-semibold text-[1.4rem] text-text-primary no-underline relative tracking-[0.02em]"
             >
               <AnimatedUnderline strokeWidth={8} color="#9461fb">
                 About
@@ -112,7 +112,7 @@ const Navbar = () => {
                 transformOrigin: 'top right',
               }}
             >
-              <div className="font-heading font-bold text-[1.4rem] text-text-primary no-underline tracking-[0.02em] whitespace-nowrap">
+              <div className="font-heading font-semibold text-[1.4rem] text-text-primary no-underline tracking-[0.02em] whitespace-nowrap">
                 <AnimatedUnderline strokeWidth={8} color="#ff69b4">
                   Contact
                 </AnimatedUnderline>
@@ -143,7 +143,7 @@ const Navbar = () => {
           <SheetTitle className="sr-only">Site navigation</SheetTitle>
           <div className="flex flex-col gap-12">
             <div className="flex flex-col gap-4">
-              <span className="text-xs uppercase tracking-widest text-text-secondary font-bold font-mono">
+              <span className="text-xs uppercase tracking-widest text-text-secondary font-normal font-mono">
                 Navigation
               </span>
               <ul className="flex flex-col gap-6 list-none p-0 m-0">
@@ -151,7 +151,7 @@ const Navbar = () => {
                   <Link
                     to="/"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]"
+                    className="text-[2.5rem] font-semibold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]"
                   >
                     <AnimatedUnderline strokeWidth={12} color="#54cea1">
                       Home
@@ -170,7 +170,7 @@ const Navbar = () => {
                       }
                       setIsMobileMenuOpen(false)
                     }}
-                    className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]"
+                    className="text-[2.5rem] font-semibold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]"
                   >
                     <AnimatedUnderline strokeWidth={12} color="#0e84f1">
                       {IS_UNDER_CONSTRUCTION ? '🚧WIP🚧' : 'Work'}
@@ -181,7 +181,7 @@ const Navbar = () => {
                   <Link
                     to="/about"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]"
+                    className="text-[2.5rem] font-semibold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]"
                   >
                     <AnimatedUnderline strokeWidth={12} color="#9461fb">
                       About
@@ -192,7 +192,7 @@ const Navbar = () => {
                   <Link
                     to="/contact"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-[2.5rem] font-extrabold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]"
+                    className="text-[2.5rem] font-semibold font-heading text-text-primary no-underline inline-block tracking-[-0.03em]"
                   >
                     <AnimatedUnderline strokeWidth={12} color="#ff69b4">
                       Contact

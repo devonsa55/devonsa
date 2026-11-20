@@ -97,7 +97,7 @@ const About = () => {
       exit={{ opacity: 0 }}
       className="about-page"
     >
-      <section className="pt-40 bg-bg-primary relative font-body bg-[radial-gradient(var(--dot-color-about)_calc(var(--dot-size)*var(--show-dot-grid-about)-0.5px),transparent_calc(var(--dot-size)*var(--show-dot-grid-about)+0.5px))] bg-size-[var(--dot-space)_var(--dot-space)] bg-position-(--grid-align-offset)">
+      <section className="pt-48 bg-bg-primary relative font-body bg-[radial-gradient(var(--dot-color-about)_calc(var(--dot-size)*var(--show-dot-grid-about)-0.5px),transparent_calc(var(--dot-size)*var(--show-dot-grid-about)+0.5px))] bg-size-[var(--dot-space)_var(--dot-space)] bg-position-(--grid-align-offset)">
         <div className="container">
           <div className="max-w-[800px] mx-auto flex flex-col gap-12 lg:gap-20">
             <div className="flex flex-col gap-6 items-center text-left">
@@ -143,11 +143,11 @@ const About = () => {
                 title="Hey, I'm Devon."
                 level={1}
                 centered
-                className="mb-10 w-full text-center [&_h2]:text-[clamp(2.125rem,6.8vw,3.825rem)] [&_h2]:leading-[1.1] [&_h2]:font-heading [&_h2]:font-extrabold [&_h2]:tracking-[-0.02em] [&_h2]:mb-2 [&_h2]:w-full [&_h1]:text-[clamp(2.125rem,6.8vw,3.825rem)] [&_h1]:leading-[1.1] [&_h1]:font-heading [&_h1]:font-extrabold [&_h1]:tracking-[-0.02em] [&_h1]:mb-2 [&_h1]:w-full"
+                className="mb-0 w-full text-center [&_h2]:text-[clamp(2.125rem,6.8vw,3.825rem)] [&_h2]:leading-[1.1] [&_h2]:font-heading [&_h2]:font-semibold [&_h2]:tracking-[-0.02em] [&_h2]:mb-2 [&_h2]:w-full [&_h1]:text-[clamp(2.125rem,6.8vw,3.825rem)] [&_h1]:leading-[1.1] [&_h1]:font-heading [&_h1]:font-semibold [&_h1]:tracking-[-0.02em] [&_h1]:mb-2 [&_h1]:w-full"
               />
 
               <p
-                className="text-[1.5rem] leading-[1.35] text-text-primary font-heading font-normal max-w-none text-left"
+                className="text-[1.5rem] leading-[1.35] text-text-primary font-body font-normal max-w-none text-left"
                 dangerouslySetInnerHTML={{
                   __html: aboutData.subHeadline.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'),
                 }}
@@ -160,7 +160,7 @@ const About = () => {
 
             <div className="flex flex-col py-2 mt-2">
               <div className="mb-6">
-                <p className="font-heading text-[2rem] font-extrabold text-text-primary leading-[1.2] tracking-[-0.01em]">
+                <p className="font-heading text-[2rem] font-semibold text-text-primary leading-[1.2] tracking-[-0.01em]">
                   Beyond Design
                 </p>
               </div>

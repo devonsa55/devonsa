@@ -44,8 +44,8 @@ Personal UX portfolio. React 19 + TypeScript SPA, built with Vite 8, styled with
 
 ## Fonts
 
-- Self-hosted (Nov 2026), latin subset only: `src/styles/fonts.css` declares the faces, files live in `src/assets/fonts/` (Vite fingerprints them into `dist/static/`). Faces and weight ranges mirror what Google Fonts served, so adding a weight means adding a matching `@font-face`, not just using it in CSS. The CSP no longer allows Google Fonts origins.
-- Inter and Plus Jakarta Sans are preloaded in `index.html` (hashed by Vite at build time). Newsreader is italic-only. IBM Plex Mono has only 400 and 600, so `font-weight: 700` on mono text (e.g. the split-flap board) renders the 600 face.
+- Self-hosted (Nov 2026), latin subset only: `src/styles/fonts.css` declares the faces, files live in `src/assets/fonts/` (Vite fingerprints them into `dist/static/`). Families: Funnel Display (headings, 600), Funnel Sans (body/UI, 400-600 + italic), Instrument Serif (voice, italic only), Fragment Mono (labels, 400 only). Adding a weight means adding a matching `@font-face`, not just using it in CSS. `src/styles/type.css` holds the tokens (`--font-heading`, `--font-body`, `--font-serif`, `--font-mono`, scale, tracking) and role classes (`.t-label` etc.); it's imported into `@layer base` so its element rules don't beat utilities. OFL licenses are in `src/assets/fonts/licenses/`. The CSP no longer allows Google Fonts origins.
+- Funnel Display and Funnel Sans are preloaded in `index.html` (hashed by Vite at build time). Instrument Serif is italic-only. Fragment Mono has only 400: never set 600/700 on mono text (use 400 and color for emphasis). Headings use one weight, 600; map any 700/800 to 600. `font-synthesis: none` on `body` stops browsers faking bold/italic.
 
 ## Theming
 

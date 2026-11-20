@@ -1,4 +1,7 @@
 @import './styles/fonts.css';
+/* Type tokens + role classes. In the base layer so its element rules (body, h1-h6)
+   don't beat Tailwind utilities. */
+@import './styles/type.css' layer(base);
 
 /* Component Styles */
 @import './styles/components/Work.css' layer(base);
@@ -27,8 +30,9 @@
   --font-body: var(--font-body), sans-serif;
   --font-heading: var(--font-heading), sans-serif;
   --font-mono: var(--font-mono), monospace;
+  --font-serif: var(--font-serif), serif;
 
-  --radius-lg: 32px;
+  --radius-lg: var(--radius-card);
 
   /* Tailwind 3's fixed line heights. v4 uses ratios instead, which scale up
      when CSS overrides a text-* utility's font size (e.g. .section-label). */
@@ -64,9 +68,6 @@
 
 /* Global Variables & Shared Tokens */
 :root {
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Plus Jakarta Sans', sans-serif;
-  --font-newsreader: 'Newsreader', serif;
   /* Motion tokens: every interaction uses these. One expressive curve for
      movement and reveals, one neutral curve for plain color/opacity fades. */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -81,7 +82,7 @@
   --spacing-md: 2rem;
   --spacing-lg: 4rem;
   --spacing-xl: 8rem;
-  --hero-font-size-max: 4.45rem;
+  --hero-font-size-max: 5.5rem;
   --logo-scale: 1.1;
 
   /* Global Gutter Controls (Safe Area) */
@@ -108,7 +109,7 @@
   @media (min-width: 2000px) {
     --container-padding: 60px;
     --container-max-width: 1460px;
-    --hero-font-size-max: 5.25rem;
+    --hero-font-size-max: 6rem;
   }
 
   @media (max-width: 768px) {
@@ -125,13 +126,12 @@
 
   /* Theme-aware Properties Defaults */
   --radius-button: 12px;
-  --radius-card: 20px;
+  --radius-card: 8px;
   --border-width: 2px;
   --shadow-color: #e0e0e0;
   /* Defined for light mode */
   --neo-shadow: 4px 4px 0px var(--shadow-color);
   --shadow-hover: 6px 6px 0px var(--shadow-color);
-  --font-mono: 'IBM Plex Mono', monospace;
 
   /* Hero Highlight Palette (Extracted from reference) */
   --aqua-green: #54cea1;
@@ -160,11 +160,8 @@
   --dot-color: rgba(0, 0, 0, 0.08);
   --hover-bg: #f4f4f5;
 
-  --font-heading: 'Plus Jakarta Sans', sans-serif;
-  --font-body: 'Inter', sans-serif;
-
   --radius-button: 80px;
-  --radius-card: 20px;
+  --radius-card: 8px;
   --border-width: 2px;
   --neo-shadow: 4px 4px 0px var(--shadow-color);
   --shadow-hover: 6px 6px 0px var(--shadow-color);
@@ -256,16 +253,15 @@
       background-color var(--duration-base) var(--ease-standard),
       color var(--duration-base) var(--ease-standard);
   }
+  /* Tailwind's preflight sets headings to font-weight: inherit and loads after
+     type.css, so restore the one header weight here. */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-weight: var(--weight-heading);
   }
   em {
     font-style: italic;
@@ -429,7 +425,7 @@
   align-items: center;
   gap: 0.5rem;
   font-family: var(--font-heading);
-  font-weight: 800;
+  font-weight: 600;
   font-size: 1.5rem;
   color: var(--text-primary);
   text-decoration: none;
