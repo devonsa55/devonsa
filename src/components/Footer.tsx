@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="min-w-[120px]">
             <h4
               aria-level={2}
-              className="mb-6 text-xs uppercase tracking-[0.15em] text-text-primary font-extrabold opacity-60"
+              className="mb-6 text-xs uppercase tracking-[0.15em] text-text-primary font-semibold opacity-60"
             >
               Navigation
             </h4>
@@ -49,7 +49,7 @@ const Footer = () => {
           <div className="min-w-[120px]">
             <h4
               aria-level={2}
-              className="mb-6 text-xs uppercase tracking-[0.15em] text-text-primary font-extrabold opacity-60"
+              className="mb-6 text-xs uppercase tracking-[0.15em] text-text-primary font-semibold opacity-60"
             >
               Case Studies
             </h4>
@@ -66,7 +66,7 @@ const Footer = () => {
           <div className="min-w-[120px]">
             <h4
               aria-level={2}
-              className="mb-6 text-xs uppercase tracking-[0.15em] text-text-primary font-extrabold opacity-60"
+              className="mb-6 text-xs uppercase tracking-[0.15em] text-text-primary font-semibold opacity-60"
             >
               Social
             </h4>
@@ -105,7 +105,7 @@ const Footer = () => {
         <p>&copy; {new Date().getFullYear()} Devon Anderson. Designed & Built with Love.</p>
         <button
           type="button"
-          className="cursor-pointer flex items-center justify-center min-[480px]:justify-start gap-2 font-bold text-text-primary transition-all hover:text-text-primary hover:translate-y-[-4px]"
+          className="cursor-pointer flex items-center justify-center min-[480px]:justify-start gap-2 font-semibold text-text-primary transition-all hover:text-text-primary hover:translate-y-[-4px]"
           onClick={() => window.scrollTo({ top: 0, behavior: scrollBehavior() })}
         >
           Back to Top{' '}

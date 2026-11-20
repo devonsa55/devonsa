@@ -55,7 +55,8 @@
 .placeholder-label {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 400;
+  font-synthesis: none;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--bg-primary);
@@ -163,7 +164,7 @@
 
 .project-info h3 {
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: 600;
   margin: 0;
   color: var(--text-primary);
   font-family: var(--font-heading);
@@ -186,14 +187,16 @@
 }
 
 .project-tags .tag {
-  font-size: 0.65rem;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 400;
+  font-synthesis: none;
   padding: 0.4rem 0.75rem;
   border: none;
   /* Removed outline */
   border-radius: 6px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--track-label);
   background: rgba(0, 0, 0, 0.06);
   /* Faint gray background */
   color: var(--text-secondary);
@@ -244,7 +247,8 @@
   background: #111;
   position: relative;
   font-family: var(--font-mono);
-  font-weight: 700;
+  font-weight: 400;
+  font-synthesis: none;
   font-size: var(--flap-font);
   color: #fff;
   perspective: 400px;
@@ -480,7 +484,8 @@
   font-size: 0.875rem;
   /* Standard 14px for bold legibility */
   letter-spacing: 0.15em;
-  font-weight: 700;
+  font-weight: 400;
+  font-synthesis: none;
   color: var(--text-primary);
   margin-top: auto;
   align-self: flex-start;
@@ -569,7 +574,7 @@
 .work-header h2 {
   font-family: var(--font-heading);
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
   line-height: 1.2;
   letter-spacing: -0.01em;
@@ -604,7 +609,7 @@
 .strategy-paper h1 {
   font-family: var(--font-heading);
   font-size: 3.5rem;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.1;
   margin-top: 1rem;
   margin-bottom: 2rem;
@@ -622,7 +627,7 @@
   margin-top: 5rem;
   margin-bottom: 1.5rem;
   font-size: 2.25rem;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .strategy-paper p {
@@ -694,5 +699,6 @@
   text-transform: uppercase;
   color: #9ca3af;
   letter-spacing: 0.1em;
-  font-weight: 700;
+  font-weight: 400;
+  font-synthesis: none;
 }

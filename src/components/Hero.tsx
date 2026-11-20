@@ -40,7 +40,7 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: EASE_OUT }}
           className="w-full"
         >
-          <h1 className="m-0! text-[clamp(2.5rem,5.65vw,var(--hero-font-size-max))] text-text-primary leading-[1.22] max-w-[100vw] font-extrabold tracking-[-0.03em] relative pt-[0.1em]">
+          <h1 className="m-0! text-[clamp(2.5rem,5.65vw,var(--hero-font-size-max))] text-text-primary leading-[1.22] max-w-[100vw] font-semibold tracking-[-0.03em] relative pt-[0.1em]">
             I&apos;m a product <br className="sm:hidden" />
             <span
               onMouseMove={handleMouseMove}
@@ -64,7 +64,7 @@ const Hero = () => {
                 initial={{ opacity: 0, x: -10, rotate: -5 }}
                 animate={{ opacity: 1, x: 0, rotate: -5 }}
                 transition={{ delay: 0.5, duration: 1 }}
-                className="relative ml-1 sm:ml-2 font-mono font-bold whitespace-nowrap inline-flex flex-col items-start tracking-normal leading-[1.1]"
+                className="relative ml-1 sm:ml-2 font-mono font-normal whitespace-nowrap inline-flex flex-col items-start tracking-normal leading-[1.1]"
                 style={{
                   fontSize: '.4em',
                   color: 'var(--text-quinary)',

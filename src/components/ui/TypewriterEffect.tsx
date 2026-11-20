@@ -115,9 +115,9 @@ function TypewriterEffect({
       style={{
         ...style,
         color: displayColor,
-        fontFamily: 'var(--font-newsreader)',
+        fontFamily: 'var(--font-serif)',
         fontSize: '1.05em',
-        fontWeight: 600,
+        fontWeight: 400,
         lineHeight: 0,
         fontStyle: 'italic',
         transition: 'color var(--duration-base) var(--ease-out)',

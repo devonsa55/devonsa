@@ -162,7 +162,7 @@ const AlignmentMatrix: React.FC = () => {
         >
           <h4
             aria-level={3}
-            style={{ margin: 0, fontSize: '1.25rem', fontWeight: '800', lineHeight: 1.15 }}
+            style={{ margin: 0, fontSize: '1.25rem', fontWeight: '600', lineHeight: 1.15 }}
           >
             Feature Alignment Matrix
           </h4>
@@ -226,7 +226,7 @@ const AlignmentMatrix: React.FC = () => {
           <div>
             <h4
               aria-level={3}
-              style={{ margin: 0, fontSize: '1.1rem', fontWeight: '800', lineHeight: 1.15 }}
+              style={{ margin: 0, fontSize: '1.1rem', fontWeight: '600', lineHeight: 1.15 }}
             >
               Powerful Clarity
             </h4>
@@ -304,7 +304,7 @@ const MatrixNode: React.FC<MatrixNodeProps> = ({ icon, title, subtitle, color, v
       <div
         style={{
           fontSize: '0.95rem',
-          fontWeight: '800',
+          fontWeight: '600',
           color: 'var(--text-primary)',
           lineHeight: 1,
         }}

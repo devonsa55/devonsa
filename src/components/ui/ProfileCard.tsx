@@ -154,7 +154,7 @@ const ProfileCard = ({
                     margin: 0 !important;
                     padding: 0 !important;
                     font-family: var(--font-heading);
-                    font-weight: 800;
+                    font-weight: 600;
                     font-size: 1.15rem;
                     color: var(--text-primary);
                     line-height: 1.2;

@@ -28,7 +28,7 @@ export const ProtectedDeckLink: React.FC = () => (
           <Lock size={24} />
         </div>
 
-        <h3 className="text-xl font-bold text-text-primary font-heading mb-1.5">
+        <h3 className="text-xl font-semibold text-text-primary font-heading mb-1.5">
           Protected Case Study
         </h3>
         <p className="text-text-secondary text-xs max-w-xs mb-6 leading-relaxed">
@@ -39,7 +39,7 @@ export const ProtectedDeckLink: React.FC = () => (
           href={DECK_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full py-3.5 font-bold text-sm rounded-xl hover:shadow-hover hover:translate-y-[-4px] active:scale-[0.98] border-2 transition-all flex items-center justify-center gap-2"
+          className="w-full py-3.5 font-semibold text-sm rounded-xl hover:shadow-hover hover:translate-y-[-4px] active:scale-[0.98] border-2 transition-all flex items-center justify-center gap-2"
           style={{
             backgroundColor: 'var(--text-primary)',
             color: 'var(--bg-primary)',

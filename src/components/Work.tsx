@@ -247,7 +247,7 @@ const Work = () => {
                           pixelSize={3}
                         />
                       ) : (
-                        <span className="font-mono text-[4.5rem] font-bold text-text-secondary opacity-40 select-none tracking-tight">
+                        <span className="font-mono text-[4.5rem] font-normal text-text-secondary opacity-40 select-none tracking-tight">
                           .mcp
                         </span>
                       )}
@@ -279,7 +279,7 @@ const Work = () => {
                           pixelSize={3}
                         />
                       ) : (
-                        <span className="font-mono text-[4.5rem] font-bold text-text-secondary opacity-40 select-none tracking-tight">
+                        <span className="font-mono text-[4.5rem] font-normal text-text-secondary opacity-40 select-none tracking-tight">
                           .md
                         </span>
                       )}

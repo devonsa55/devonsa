@@ -143,7 +143,7 @@ const About = () => {
                 title="Hey, I'm Devon."
                 level={1}
                 centered
-                className="mb-10 w-full text-center [&_h2]:text-[clamp(2.125rem,6.8vw,3.825rem)] [&_h2]:leading-[1.1] [&_h2]:font-heading [&_h2]:font-extrabold [&_h2]:tracking-[-0.02em] [&_h2]:mb-2 [&_h2]:w-full [&_h1]:text-[clamp(2.125rem,6.8vw,3.825rem)] [&_h1]:leading-[1.1] [&_h1]:font-heading [&_h1]:font-extrabold [&_h1]:tracking-[-0.02em] [&_h1]:mb-2 [&_h1]:w-full"
+                className="mb-10 w-full text-center [&_h2]:text-[clamp(2.125rem,6.8vw,3.825rem)] [&_h2]:leading-[1.1] [&_h2]:font-heading [&_h2]:font-semibold [&_h2]:tracking-[-0.02em] [&_h2]:mb-2 [&_h2]:w-full [&_h1]:text-[clamp(2.125rem,6.8vw,3.825rem)] [&_h1]:leading-[1.1] [&_h1]:font-heading [&_h1]:font-semibold [&_h1]:tracking-[-0.02em] [&_h1]:mb-2 [&_h1]:w-full"
               />
 
               <p
@@ -160,7 +160,7 @@ const About = () => {
 
             <div className="flex flex-col py-2 mt-2">
               <div className="mb-6">
-                <p className="font-heading text-[2rem] font-extrabold text-text-primary leading-[1.2] tracking-[-0.01em]">
+                <p className="font-heading text-[2rem] font-semibold text-text-primary leading-[1.2] tracking-[-0.01em]">
                   Beyond Design
                 </p>
               </div>

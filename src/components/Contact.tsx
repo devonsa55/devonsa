@@ -20,7 +20,7 @@ const Contact = () => {
                 className="text-[clamp(2.5rem,8vw,4.5rem)] leading-[1.1] text-text-primary font-heading max-w-none"
               >
                 Let&apos;s build something <br />
-                <em className="font-['Newsreader',serif] italic font-medium pr-[0.4ch]">
+                <em className="font-(family-name:--font-serif) italic pr-[0.4ch]">
                   meaningful
                 </em>{' '}
                 together.
@@ -29,7 +29,7 @@ const Contact = () => {
               <motion.p
                 {...fadeInUp}
                 transition={{ delay: 0.15 }}
-                className="mt-6 text-[clamp(1.25rem,4vw,1.8rem)] leading-[1.35] text-text-primary font-medium font-heading text-left"
+                className="mt-6 text-[clamp(1.25rem,4vw,1.8rem)] leading-[1.35] text-text-primary font-semibold font-heading text-left"
               >
                 Whether you have a specific project in mind or just want to chat about design,
                 tools, or AI—I&apos;d love to hear from you.
