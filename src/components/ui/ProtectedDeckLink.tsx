@@ -28,7 +28,7 @@ export const ProtectedDeckLink: React.FC = () => (
           <Lock size={24} />
         </div>
 
-        <h3 className="text-xl font-semibold text-text-primary font-heading mb-1.5">
+        <h3 className="text-xl font-semibold text-text-primary font-body mb-1.5">
           Protected Case Study
         </h3>
         <p className="text-text-secondary text-xs max-w-xs mb-6 leading-relaxed">

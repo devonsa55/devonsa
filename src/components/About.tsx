@@ -147,7 +147,7 @@ const About = () => {
               />
 
               <p
-                className="text-[1.5rem] leading-[1.35] text-text-primary font-heading font-normal max-w-none text-left"
+                className="text-[1.5rem] leading-[1.35] text-text-primary font-body font-normal max-w-none text-left"
                 dangerouslySetInnerHTML={{
                   __html: aboutData.subHeadline.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'),
                 }}
