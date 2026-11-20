@@ -50,3 +50,4 @@ run_dir/
 
 # Local reference/scratch material (personal + third-party assets, not part of the site)
 reference/
+.playwright-mcp/

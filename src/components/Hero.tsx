@@ -40,7 +40,7 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: EASE_OUT }}
           className="w-full"
         >
-          <h1 className="m-0! text-[clamp(2.5rem,5.65vw,var(--hero-font-size-max))] text-text-primary leading-[1.22] max-w-[100vw] font-semibold tracking-[-0.03em] relative pt-[0.1em]">
+          <h1 className="m-0! text-[clamp(2.5rem,calc((min(100vw,var(--container-max-width))-2*var(--container-padding))*0.07),var(--hero-font-size-max))] text-text-primary leading-[1.15] max-w-[100vw] font-semibold tracking-[-0.045em] relative pt-[0.1em]">
             I&apos;m a product <br className="sm:hidden" />
             <span
               onMouseMove={handleMouseMove}
@@ -176,7 +176,7 @@ const Hero = () => {
               </AnimatePresence>
             </span>
             <br />
-            <span className="whitespace-nowrap tracking-[-0.04em]">
+            <span className="sm:whitespace-nowrap">
               open to roles in the{' '}
               <span
                 className="group inline-block text-text-primary relative no-underline z-1 after:absolute after:w-full after:h-[1.5px] after:bottom-[6px] after:left-0 after:bg-text-primary after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:-z-10 ml-[0.1em]"
