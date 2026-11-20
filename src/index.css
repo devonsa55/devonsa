@@ -253,6 +253,16 @@
       background-color var(--duration-base) var(--ease-standard),
       color var(--duration-base) var(--ease-standard);
   }
+  /* Tailwind's preflight sets headings to font-weight: inherit and loads after
+     type.css, so restore the one header weight here. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: var(--weight-heading);
+  }
   em {
     font-style: italic;
   }
